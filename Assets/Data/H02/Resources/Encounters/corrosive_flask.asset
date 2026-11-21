@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Frasco corrosivo
   command: 7
   description: "Un enemigo vivo: defensa \xD70,5 durante sus pr\xF3ximas 2 acciones."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f91eaed026f2519428f62a7cb9c1d889, type: 3}
   targetMode: 0
   effect: 2
   amount: 0

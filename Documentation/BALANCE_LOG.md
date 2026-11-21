@@ -50,3 +50,11 @@ Regresión de flujo con modelos finales: victoria con teclado virtual en **21 ac
 **Sin ajustes de balance.** Estadísticas, potencias, maná, inventario, IA, estados, ATB y recuperaciones conservados. Las diez acciones solo agregan referencias de animación. Cambian los tiempos de presentación: básicos físicos 0,85 s, pesados 1 s, magia ordinaria 0,95 s, objetos 0,85 s y pose de Tormenta 2,5 s con impacto a 1,2 s. El reloj ATB y las recuperaciones permanecen congelados durante la ejecución; estos tiempos visuales no sustituyen la recuperación de cada acción.
 
 Regresión automatizada: victoria con teclado virtual y con control virtual, ambas de **22 acciones y 0 Pociones restantes**. Decisiones inmediatas y reloj ×4 verifican flujo; no miden la duración real de una partida con animaciones ni validan balance. Los veinte casos preparados de presentación no se usan como partidas naturales. Duración objetivo, balance y rendimiento siguen pendientes de H12.
+
+## H08 · Interfaz final
+
+**Sin ajustes de balance.** Los datos de los combatientes y las diez acciones agregan referencias visuales a retratos/iconos. Ítems y efectos conectan sus sprites. Estadísticas, fórmulas, potencias, costos, cantidades, prioridades de IA, duración de estados, ATB y recuperaciones permanecen sin cambios.
+
+El registro conserva cuatro eventos y los números flotantes muestran recursos efectivamente descontados o recuperados. Las confirmaciones de abandono y las páginas de ayuda no consumen reloj de combate. El volumen se conserva durante la sesión, fuera del estado reiniciable del intento.
+
+Las pruebas de flujo usan input virtual, decisiones automáticas y aceleración ×4 para las peleas; no se usan como medición de duración objetivo o balance. H12 conserva el playtesting y la medición de rendimiento.

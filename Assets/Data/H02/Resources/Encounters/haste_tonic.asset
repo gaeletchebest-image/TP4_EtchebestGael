@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "T\xF3nico de rapidez"
   command: 6
   description: "Un aliado vivo: velocidad \xD71,5 durante sus pr\xF3ximas 2 acciones."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d6ac19838bc743444bcd1eba4b42552b, type: 3}
   targetMode: 1
   effect: 2
   amount: 0

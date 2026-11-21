@@ -1,0 +1,264 @@
+{
+  "sprite_count": 26,
+  "sprites": [
+    {
+      "name": "antidote",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "atb",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "bar",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "corrosion",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "ether",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "flask",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "fortress",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "gamepad",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "haste",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "heal",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "heavy",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "keyboard",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "life",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "mage",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "magic",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "mana",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "ogre",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "poison",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "potion",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "recovery",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "shaman",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "storm",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "sword",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "target",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "tonic",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    },
+    {
+      "name": "warrior",
+      "size": [
+        128,
+        128
+      ],
+      "bits": 8,
+      "color_type": "RGBA"
+    }
+  ],
+  "gameplay_data_unchanged_except_visual_references": [
+    "antidote.asset",
+    "arcane_storm.asset",
+    "cleave.asset",
+    "corrosion.asset",
+    "corrosive_flask.asset",
+    "dark_heal.asset",
+    "ether.asset",
+    "haste.asset",
+    "haste_tonic.asset",
+    "heal.asset",
+    "heavy_strike.asset",
+    "mage.asset",
+    "mage_basic.asset",
+    "MainEncounter.asset",
+    "ogre.asset",
+    "ogre_basic.asset",
+    "poison.asset",
+    "poison_spell.asset",
+    "potion.asset",
+    "shaman.asset",
+    "shaman_basic.asset",
+    "warrior.asset",
+    "warrior_basic.asset"
+  ]
+}

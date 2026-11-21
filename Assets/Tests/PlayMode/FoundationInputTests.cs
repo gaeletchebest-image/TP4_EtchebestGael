@@ -72,9 +72,10 @@ namespace UltimaGuardia.Tests
             yield return KeyPress(Key.Escape);
             Assert.IsFalse(Battle().IsPaused);
             yield return KeyPress(Key.Escape);
-            yield return KeyPress(Key.DownArrow);
-            yield return KeyPress(Key.DownArrow);
+            for (int i = 0; i < 4; i++) yield return KeyPress(Key.DownArrow);
             yield return KeyPress(Key.Enter);
+            Assert.AreEqual(3, Battle().PausePage);
+            yield return KeyPress(Key.DownArrow); yield return KeyPress(Key.Enter);
             yield return WaitForScene("MainMenu");
             AssertSelection("PlayButton");
         }
@@ -102,9 +103,10 @@ namespace UltimaGuardia.Tests
             yield return PadPress(GamepadButton.East);
             Assert.IsFalse(Battle().IsPaused);
             yield return PadPress(GamepadButton.Start);
-            yield return PadPress(GamepadButton.DpadDown);
-            yield return PadPress(GamepadButton.DpadDown);
+            for (int i = 0; i < 4; i++) yield return PadPress(GamepadButton.DpadDown);
             yield return PadPress(GamepadButton.South);
+            Assert.AreEqual(3, Battle().PausePage);
+            yield return PadPress(GamepadButton.DpadDown); yield return PadPress(GamepadButton.South);
             yield return WaitForScene("MainMenu");
         }
 

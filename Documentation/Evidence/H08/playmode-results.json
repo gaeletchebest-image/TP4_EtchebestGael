@@ -1,0 +1,723 @@
+{
+  "job_id": "28ccbde3a92b4885b3ef5eacf4f9bab9",
+  "status": "succeeded",
+  "mode": "PlayMode",
+  "started_unix_ms": 1795291413616,
+  "finished_unix_ms": 1795291599954,
+  "last_update_unix_ms": 1795291599954,
+  "progress": {
+    "completed": 76,
+    "total": 76,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+    "last_finished_unix_ms": 1795291599841,
+    "stuck_suspected": false,
+    "editor_is_focused": true,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "PlayMode",
+    "summary": {
+      "total": 76,
+      "passed": 76,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 177.3846759,
+      "resultState": "Passed"
+    },
+    "results": [
+      {
+        "name": "DeathHoldsFinalPoseRejectsNewActionsAndRestartRestoresAllJoints",
+        "fullName": "UltimaGuardia.Tests.AnimationPresentationTests.DeathHoldsFinalPoseRejectsNewActionsAndRestartRestoresAllJoints",
+        "state": "Passed",
+        "durationSeconds": 4.6565816,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EveryActionAndBothAlliesItemsAnimateWithSingleImpactAndFixedRecovery",
+        "fullName": "UltimaGuardia.Tests.AnimationPresentationTests.EveryActionAndBothAlliesItemsAnimateWithSingleImpactAndFixedRecovery",
+        "state": "Passed",
+        "durationSeconds": 6.2342745,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ProjectilePauseCancelAndRestartCannotAffectNextSession",
+        "fullName": "UltimaGuardia.Tests.AnimationPresentationTests.ProjectilePauseCancelAndRestartCannotAffectNextSession",
+        "state": "Passed",
+        "durationSeconds": 2.4207963,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "state": "Passed",
+        "durationSeconds": 14.3792049,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DecisionAndActivePauseFreezeBarsAndRecovery",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.DecisionAndActivePauseFreezeBarsAndRecovery",
+        "state": "Passed",
+        "durationSeconds": 11.0011653,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HealingEtherAndStormWorkThroughMenusAndRestartDuringAreaPauseIsClean",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.HealingEtherAndStormWorkThroughMenusAndRestartDuringAreaPauseIsClean",
+        "state": "Passed",
+        "durationSeconds": 14.9806621,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardWinsNormalEncounterAndRestartsFromResult",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.KeyboardWinsNormalEncounterAndRestartsFromResult",
+        "state": "Passed",
+        "durationSeconds": 21.5638937,
+        "message": null,
+        "stackTrace": null,
+        "output": "Normal keyboard victory: 21 actions, potions 1\r\n"
+      },
+      {
+        "name": "NestedMenusGroupSelectionAndItemsPreserveFocusAndResources",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.NestedMenusGroupSelectionAndItemsPreserveFocusAndResources",
+        "state": "Passed",
+        "durationSeconds": 6.5186006,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PoisonDeathBeforeTurnShowsResultWithoutMenuAndRestartClearsMarkers",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.PoisonDeathBeforeTurnShowsResultWithoutMenuAndRestartClearsMarkers",
+        "state": "Passed",
+        "durationSeconds": 5.5433583,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StatusObjectsWorkWithPadAndKeyboardAndShowCoexistingCounters",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.StatusObjectsWorkWithPadAndKeyboardAndShowCoexistingCounters",
+        "state": "Passed",
+        "durationSeconds": 14.8183935,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts",
+        "state": "Passed",
+        "durationSeconds": 28.7188793,
+        "message": null,
+        "stackTrace": null,
+        "output": "Normal virtual gamepad victory: 22 actions, potions 0\r\n"
+      },
+      {
+        "name": "CrossingsAreOrderedWithinLargeUpdateAndQueueDrainsBeforeClock",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.CrossingsAreOrderedWithinLargeUpdateAndQueueDrainsBeforeClock",
+        "state": "Passed",
+        "durationSeconds": 0.0248589,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(28,1,6,22)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(28,1,6,22)",
+        "state": "Passed",
+        "durationSeconds": 0.0039395,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(28,1.8d,6,44)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(28,1.8d,6,44)",
+        "state": "Passed",
+        "durationSeconds": 0.0031378,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(24,1,6,18)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(24,1,6,18)",
+        "state": "Passed",
+        "durationSeconds": 0.0033816,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(3,1.5d,0,5)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(3,1.5d,0,5)",
+        "state": "Passed",
+        "durationSeconds": 0.0032931,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(1,1,99,1)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(1,1,99,1)",
+        "state": "Passed",
+        "durationSeconds": 0.00296,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DarkHealingCannotTargetShamanAndCapsAtOgresMaximum",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DarkHealingCannotTargetShamanAndCapsAtOgresMaximum",
+        "state": "Passed",
+        "durationSeconds": 0.0041741,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DecisionExecutionPauseAndResultFreezeAllTimers",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DecisionExecutionPauseAndResultFreezeAllTimers",
+        "state": "Passed",
+        "durationSeconds": 0.0045786,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EnemySelectionUsesBothLivingAlliesAndOnlySurvivor(\"ogre\")",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.EnemySelectionUsesBothLivingAlliesAndOnlySurvivor(\"ogre\")",
+        "state": "Passed",
+        "durationSeconds": 0.0137472,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EnemySelectionUsesBothLivingAlliesAndOnlySurvivor(\"shaman\")",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.EnemySelectionUsesBothLivingAlliesAndOnlySurvivor(\"shaman\")",
+        "state": "Passed",
+        "durationSeconds": 0.0114128,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "EtherIsSharedCappedAndCannotTargetFullManaOrDeadAllies",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.EtherIsSharedCappedAndCannotTargetFullManaOrDeadAllies",
+        "state": "Passed",
+        "durationSeconds": 0.0043893,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ExactTiesUseFixedOrderAndNoDuplicateEntries",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ExactTiesUseFixedOrderAndNoDuplicateEntries",
+        "state": "Passed",
+        "durationSeconds": 0.0036493,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FillingUsesSpeedPerActiveSecond(20,5)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.FillingUsesSpeedPerActiveSecond(20,5)",
+        "state": "Passed",
+        "durationSeconds": 0.0044124,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FillingUsesSpeedPerActiveSecond(28,3.57142857142857d)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.FillingUsesSpeedPerActiveSecond(28,3.57142857142857d)",
+        "state": "Passed",
+        "durationSeconds": 0.0033684,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FinalDeathStopsBeforeNextCommandAndAllowsPendingPresentationToClose",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.FinalDeathStopsBeforeNextCommandAndAllowsPendingPresentationToClose",
+        "state": "Passed",
+        "durationSeconds": 0.0037053,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FreshAttemptRestoresAllInventoryAndEnemyCountersAndSnapshotDataIsIndependent",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.FreshAttemptRestoresAllInventoryAndEnemyCountersAndSnapshotDataIsIndependent",
+        "state": "Passed",
+        "durationSeconds": 0.0046718,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "H03IntegratedActionsHaveGddValuesAndTenDistinctDefinitions",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.H03IntegratedActionsHaveGddValuesAndTenDistinctDefinitions",
+        "state": "Passed",
+        "durationSeconds": 0.009623,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HealingIncludesSelfCapsAndSpendsTenOnce(\"warrior\",36)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.HealingIncludesSelfCapsAndSpendsTenOnce(\"warrior\",36)",
+        "state": "Passed",
+        "durationSeconds": 0.0051621,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HealingIncludesSelfCapsAndSpendsTenOnce(\"mage\",9)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.HealingIncludesSelfCapsAndSpendsTenOnce(\"mage\",9)",
+        "state": "Passed",
+        "durationSeconds": 0.0031749,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InitialStateHasNoActorAndCannotSpendBeforeReady",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InitialStateHasNoActorAndCannotSpendBeforeReady",
+        "state": "Passed",
+        "durationSeconds": 0.0046455,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InspectorConfigurationChangesRuntimeAndRestartLeavesAssetsUntouched",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InspectorConfigurationChangesRuntimeAndRestartLeavesAssetsUntouched",
+        "state": "Passed",
+        "durationSeconds": 0.0051304,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InsufficientManaLeavesActorAndBasicAvailable",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InsufficientManaLeavesActorAndBasicAvailable",
+        "state": "Passed",
+        "durationSeconds": 0.0033958,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InvalidDataReportsMissingReferencesDuplicatesCostsAndSpeed",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InvalidDataReportsMissingReferencesDuplicatesCostsAndSpeed",
+        "state": "Passed",
+        "durationSeconds": 0.0103137,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InvalidTargetsAndRepeatedConfirmImpactAndCloseDoNotDoubleSpend",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InvalidTargetsAndRepeatedConfirmImpactAndCloseDoNotDoubleSpend",
+        "state": "Passed",
+        "durationSeconds": 0.0038453,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "OgreAlternatesAttemptsAndFallsBackAtZeroManaWithoutAdvancingOnFailedCommit",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.OgreAlternatesAttemptsAndFallsBackAtZeroManaWithoutAdvancingOnFailedCommit",
+        "state": "Passed",
+        "durationSeconds": 0.0043056,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PotionIsSharedCappedAndConsumesOnlyOnce",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.PotionIsSharedCappedAndConsumesOnlyOnce",
+        "state": "Passed",
+        "durationSeconds": 0.0033623,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RecoveryConsumesTimeFirstAndUsesRemainderForAtb",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.RecoveryConsumesTimeFirstAndUsesRemainderForAtb",
+        "state": "Passed",
+        "durationSeconds": 0.0033359,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ResourcesClampAndDeathRemovesQueuedTurnsAndTargets",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ResourcesClampAndDeathRemovesQueuedTurnsAndTargets",
+        "state": "Passed",
+        "durationSeconds": 0.0036851,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(120,36,Poison)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(120,36,Poison)",
+        "state": "Passed",
+        "durationSeconds": 0.0043066,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,36,DarkHeal)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,36,DarkHeal)",
+        "state": "Passed",
+        "durationSeconds": 0.0024413,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,10,DarkHeal)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,10,DarkHeal)",
+        "state": "Passed",
+        "durationSeconds": 0.0022598,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,9,Poison)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,9,Poison)",
+        "state": "Passed",
+        "durationSeconds": 0.0022723,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,0,Basic)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(119,0,Basic)",
+        "state": "Passed",
+        "durationSeconds": 0.0023838,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(0,36,Poison)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(0,36,Poison)",
+        "state": "Passed",
+        "durationSeconds": 0.0022238,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SimultaneousCrossingUsesEffectiveSpeedBeforeFixedOrder",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.SimultaneousCrossingUsesEffectiveSpeedBeforeFixedOrder",
+        "state": "Passed",
+        "durationSeconds": 0.0035515,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StatusItemsValidateTeamSpendOnceAndNeverCostMana(HasteTonic,Allies)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.StatusItemsValidateTeamSpendOnceAndNeverCostMana(HasteTonic,Allies)",
+        "state": "Passed",
+        "durationSeconds": 0.0049336,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StatusItemsValidateTeamSpendOnceAndNeverCostMana(CorrosiveFlask,Enemies)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.StatusItemsValidateTeamSpendOnceAndNeverCostMana(CorrosiveFlask,Enemies)",
+        "state": "Passed",
+        "durationSeconds": 0.0028371,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StatusItemsValidateTeamSpendOnceAndNeverCostMana(Antidote,Allies)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.StatusItemsValidateTeamSpendOnceAndNeverCostMana(Antidote,Allies)",
+        "state": "Passed",
+        "durationSeconds": 0.0028108,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StormChargesOnceDamagesAllLivingTargetsAndCanWin(False)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.StormChargesOnceDamagesAllLivingTargetsAndCanWin(False)",
+        "state": "Passed",
+        "durationSeconds": 0.0049223,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "StormChargesOnceDamagesAllLivingTargetsAndCanWin(True)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.StormChargesOnceDamagesAllLivingTargetsAndCanWin(True)",
+        "state": "Passed",
+        "durationSeconds": 0.0030434,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "FinalHudShowsRestrictionsGroupStatesAndEffectiveFeedback",
+        "fullName": "UltimaGuardia.Tests.FinalInterfaceTests.FinalHudShowsRestrictionsGroupStatesAndEffectiveFeedback",
+        "state": "Passed",
+        "durationSeconds": 6.28525,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "GamepadTraversesFinalMenusHelpVolumeAndConfirmations",
+        "fullName": "UltimaGuardia.Tests.FinalInterfaceTests.GamepadTraversesFinalMenusHelpVolumeAndConfirmations",
+        "state": "Passed",
+        "durationSeconds": 10.5828921,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HeldConfirmDoesNotCloseHelpAndDeviceSwitchKeepsFocus",
+        "fullName": "UltimaGuardia.Tests.FinalInterfaceTests.HeldConfirmDoesNotCloseHelpAndDeviceSwitchKeepsFocus",
+        "state": "Passed",
+        "durationSeconds": 1.4260842,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardTraversesFinalMenusHelpVolumeAndConfirmations",
+        "fullName": "UltimaGuardia.Tests.FinalInterfaceTests.KeyboardTraversesFinalMenusHelpVolumeAndConfirmations",
+        "state": "Passed",
+        "durationSeconds": 11.2305052,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions",
+        "fullName": "UltimaGuardia.Tests.FinalInterfaceTests.RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions",
+        "state": "Passed",
+        "durationSeconds": 2.9969647,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HeldConfirmDoesNotConfirmTheNextScene",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.HeldConfirmDoesNotConfirmTheNextScene",
+        "state": "Passed",
+        "durationSeconds": 6.8627692,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardNavigatesConfirmsCancelsPausesAndReturns",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.KeyboardNavigatesConfirmsCancelsPausesAndReturns",
+        "state": "Passed",
+        "durationSeconds": 3.0754995,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "VirtualGamepadUsesDpadStickFaceButtonsAndMenu",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.VirtualGamepadUsesDpadStickFaceButtonsAndMenu",
+        "state": "Passed",
+        "durationSeconds": 2.8325561,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice",
+        "state": "Passed",
+        "durationSeconds": 0.6781438,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor",
+        "state": "Passed",
+        "durationSeconds": 0.0019582,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction",
+        "state": "Passed",
+        "durationSeconds": 0.0025385,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters",
+        "state": "Passed",
+        "durationSeconds": 0.0023778,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InvalidEffectTriggerIsRejectedBeforeCreatingSession",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.InvalidEffectTriggerIsRejectedBeforeCreatingSession",
+        "state": "Passed",
+        "durationSeconds": 0.0015531,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(False)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(False)",
+        "state": "Passed",
+        "durationSeconds": 0.0031585,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(True)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(True)",
+        "state": "Passed",
+        "durationSeconds": 0.0013964,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots",
+        "state": "Passed",
+        "durationSeconds": 0.0029876,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense",
+        "state": "Passed",
+        "durationSeconds": 0.0022526,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PoisonDeathSkipsOnlyVictimAndSurvivorContinues",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonDeathSkipsOnlyVictimAndSurvivorContinues",
+        "state": "Passed",
+        "durationSeconds": 0.0020277,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers",
+        "state": "Passed",
+        "durationSeconds": 0.0022689,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges",
+        "state": "Passed",
+        "durationSeconds": 0.0028958,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery",
+        "state": "Passed",
+        "durationSeconds": 0.0019822,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(5,False)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(5,False)",
+        "state": "Passed",
+        "durationSeconds": 0.0023167,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(6,True)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(6,True)",
+        "state": "Passed",
+        "durationSeconds": 0.0015312,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(36,True)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(36,True)",
+        "state": "Passed",
+        "durationSeconds": 0.0014073,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+        "state": "Passed",
+        "durationSeconds": 0.0019364,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      }
+    ]
+  }
+}

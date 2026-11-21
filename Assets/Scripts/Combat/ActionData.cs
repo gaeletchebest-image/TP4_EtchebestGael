@@ -17,6 +17,7 @@ namespace UltimaGuardia
         public EffectData appliedEffect;
         public bool specialPresentation;
         public AnimationClip animationClip;
+        public Sprite icon;
         public AudioClip audioClip;
         public GameObject vfxPrefab;
     }

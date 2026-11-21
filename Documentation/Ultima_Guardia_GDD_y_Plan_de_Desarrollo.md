@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 a H07 aprobados por el usuario. H08 a H13 pendientes.
+> Estado: H00 a H08 aprobados por el usuario. H09 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -129,7 +129,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H07. Modelado modular y construcción del escenario final.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Aprobado por el usuario. Revisión del usuario: aprobada el 21 de noviembre de 2026, incluida corrección H08-C06.
 - [ ] **H09. Búsqueda, edición e integración de audio.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H11. Soporte completo de teclado y control y robustez del flujo.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -301,6 +301,27 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Cómo revisar: ejecutar la build H07 y elegir Jugar, o MainMenu en Unity. Observar portón, piedra, decoración, sombras y apoyos; usar ataques físicos, proyectiles, objetos y conjuros; seleccionar ambos enemigos, observar muertes, pausar/reanudar y reiniciar. Inspeccionar `Arena_Fortress_H07` y prefabs de H07 para módulos editables. La cámara especial mostrada en evidencia es una reserva, no una secuencia implementada.
 - Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Queda aprobado. Dame nombre en ingles para el commit tambien.». Sin correcciones solicitadas; no se pidió comenzar H08.
 - Próximo hito en orden: **H08**, identificación solamente; **no iniciado**.
+
+#### Registro H08
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026, incluida corrección H08-C06. H09 no iniciado.
+- Versión: **0.0.9-H08**, cambios locales sobre commit real `209626c` (H07). No se creó un commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Bien. Hacelo entonces.» después de explicar H08; continuidad tras interrupción: «Me quede sin tokens y cortaste. Ahora podes continuar.». H00–H07 aprobados, sin correcciones abiertas del usuario.
+- Tareas completadas: **H08-T01 a H08-T23**. Ninguna tarea de H09 o posterior iniciada.
+- Entrega: diseño oscuro/dorado con tipografía incorporada de Unity; 26 sprites propios e importación 2D; identificadores de cuatro combatientes, equipos, vida/maná actuales y máximos, barras, ATB, recuperación y estados con cargas; listas y restricciones consultables; descripción antes de confirmar; rombo de actor y aros de objetivos individuales/grupales; números efectivos de daño/vida/maná y registro de cuatro eventos.
+- Menús: Jugar, Cómo jugar, Volumen y Salir; ayuda de cuatro páginas desde principal/pausa; volumen 0–100 de a 10 conservado durante la sesión; pausa con cinco opciones; reinicio/abandono con Cancelar seleccionado por defecto; resultados sin confirmación adicional. Foco visible, retorno a selección anterior, navegación circular, ayudas por dispositivo y pulsaciones nuevas para confirmar.
+- Integración: Canvas finales de MainMenu/Combat; datos de combatientes/acciones/ítems/efectos con referencias visuales; `FinalCombatHud`, `InterfaceTheme`, `FoundationMenu`, `InterfaceAuthoring` y `InterfaceBuild`. Modelos, clips, fortaleza, anclajes, cámara, reglas, inventario y balance conservados. [Fuentes, estilos y reconstrucción](H08_INTERFACE.md), [licencias y autoría](ASSET_REGISTER.md).
+- Auditorías: [26 sprites y 23 assets de encuentro](Evidence/H08/resource-audit.json), sin cambios de valores jugables; [preservación de escena](Evidence/H08/scene-preservation.json), 150 bloques anteriores intactos y cambios limitados a referencias de UI/marcadores/raíces.
+- Pruebas: **76/76 PlayMode**, sin fallidas/omitidas, **177,3846759 s**, job `28ccbde3a92b4885b3ef5eacf4f9bab9`. Después del ajuste final de etiquetas/números se repitieron las siete pruebas afectadas: **7/7**, **48,6678073 s**, job `75f17e3b77ab4eb59ffa3a605be9dd24`. [Suite completa](Evidence/H08/playmode-results.json), [regresión visual final](Evidence/H08/final-ui-results.json), [métodos y límites](TEST_REPORT.md). Teclado y Gamepad virtuales; no acredita hardware físico.
+- Inspección: menú, ayuda, volumen, pausa, confirmaciones, recursos/estados, objetos, selección grupal, números y resultados a 720p/1080p. [Capturas canónicas finales](Evidence/H08/Run-20261121-200944-516-0dcacd/). RenderTexture; no acredita monitor físico 1080p. Las imágenes sueltas preliminares no sustituyen las capturas finales enlazadas.
+- Build: `Builds/H08/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **168,33 MB**, **52,4549261 s**, **0 errores / 1 advertencia** heredada de DebugOccluder de Unity Core/d3d11. Creada mediante `InterfaceBuild.BuildReview`; [resumen y mensajes BuildReport](Evidence/H08/build-summary.json).
+- Player: MainMenu → ayuda → Combat → básico animado con pausa/reanudación e impacto → pausa → retorno confirmado → MainMenu → Salir. Versión `0.0.9-flow`, **passed = true**, **animatedActionVerified = true**, salida desde Salir y **código 0**. [Resultado](Evidence/H08/C06/player-result-1280x720.json), [captura del player](Evidence/H08/C06/animated-action-complete-1280x720.png). Ventana/captura 1280 × 720, proceso oculto/input virtual; no es una pelea completa. Avisos de buffers/asignaciones al apagar conservados para H12. Unity Connect y opciones de entrada a Play restituidos.
+- Correcciones internas cerradas: orientación de marcadores H08-C01; expectativas provisionales del fixture H08-C02; capturas abiertas en Windows H08-C03; superposición de etiquetas/números H08-C04; expectativa de texto blanco del smoke H08-C05. Resultados fallidos conservados y comprobaciones afectadas repetidas. [Incidencias](KNOWN_ISSUES.md). Sin correcciones abiertas del usuario.
+- Cómo revisar: ejecutar la build H08 o MainMenu en Unity. Recorrer ayuda y volumen, jugar, consultar todas las categorías y restricciones, seleccionar ambos bandos y Tormenta, observar números/registro, pausar y volver desde ayuda/volumen, cancelar y aceptar un reinicio/abandono, terminar y reiniciar desde resultado. Comprobar que el volumen se conserva y que Salir cierra la build. [Pasos completos](../README.md).
+- Revisión del usuario: **aprobada**, incluida H08-C06. Evidencia: «Ya esta, ya quedo bien. Te lo doy por aprobado. Dame el nombre del commit en base a todo lo que hiciste.» Sin correcciones abiertas; no se solicitó iniciar H09.
+- Próximo hito en orden: **H09**, identificación solamente; **no iniciado**.
+
+- Corrección H08-C06 (solicitada por el usuario): textos de menús pixelados en comparación con el combate. Migradas 13 etiquetas de MainMenu y 3 de overlays de Combat a glifos de doble resolución con Text nativo, rectángulos dobles y escala 0,5; sin cambiar tamaño visual, controles ni HUD. Fuente `InterfaceTheme.MenuText` y autoría actualizadas. Cinco pruebas de interfaz repetidas desde Test Runner: 5/5, 37,1183806 s. [XML real](Evidence/H08/C06/playmode-results.xml), [auditoría de 16 etiquetas](Evidence/H08/C06/menu-text-audit.json), [capturas de esta corrección](Evidence/H08/Run-20261121-232425-443-3746e2/). Build corregida recompilada: 52,4549261 s, 176.509.903 bytes, 0 errores y 1 advertencia heredada. Smoke de la build corregida aprobado, acción animada verificada y salida desde Salir/código 0. [Player C06](Evidence/H08/C06/player-result-1280x720.json). Revisión final aprobada por el usuario el 21 de noviembre de 2026.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -1068,35 +1089,35 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Diseño y recursos 2D
 
-- [ ] **H08-T01. Definir estilo de interfaz.** Elegir tipografía permitida, tamaños, paleta, paneles y estados de selección, manteniendo legibilidad en 720p.
-- [ ] **H08-T02. Crear retratos o identificadores.** Preparar cuatro retratos o iconos de participante y una marca inequívoca de aliado o enemigo.
-- [ ] **H08-T03. Crear iconos de recursos.** Preparar vida, maná, ATB y recuperación con formas que no dependan solo del color.
-- [ ] **H08-T04. Crear iconos de acciones.** Preparar representaciones para básicos, golpe fuerte, curación, tormenta, descarga y veneno. Reutilizar iconos solo cuando su significado sea claro.
-- [ ] **H08-T05. Crear iconos de consumibles.** Preparar Poción, Éter, Tónico de rapidez, Frasco corrosivo y Antídoto.
-- [ ] **H08-T06. Crear iconos de estados.** Preparar gota de Veneno, flecha de Rapidez y escudo roto de Corrosión, con lugar para su contador.
-- [ ] **H08-T07. Crear indicadores de control.** Preparar ayudas de teclado y control para navegar, confirmar, volver y pausar, según el dispositivo activo.
-- [ ] **H08-T08. Preparar importación 2D.** Configurar sprites, transparencia, filtros, tamaños y licencias de tipografías e iconos.
+- [x] **H08-T01. Definir estilo de interfaz.** Elegir tipografía permitida, tamaños, paleta, paneles y estados de selección, manteniendo legibilidad en 720p.
+- [x] **H08-T02. Crear retratos o identificadores.** Preparar cuatro retratos o iconos de participante y una marca inequívoca de aliado o enemigo.
+- [x] **H08-T03. Crear iconos de recursos.** Preparar vida, maná, ATB y recuperación con formas que no dependan solo del color.
+- [x] **H08-T04. Crear iconos de acciones.** Preparar representaciones para básicos, golpe fuerte, curación, tormenta, descarga y veneno. Reutilizar iconos solo cuando su significado sea claro.
+- [x] **H08-T05. Crear iconos de consumibles.** Preparar Poción, Éter, Tónico de rapidez, Frasco corrosivo y Antídoto.
+- [x] **H08-T06. Crear iconos de estados.** Preparar gota de Veneno, flecha de Rapidez y escudo roto de Corrosión, con lugar para su contador.
+- [x] **H08-T07. Crear indicadores de control.** Preparar ayudas de teclado y control para navegar, confirmar, volver y pausar, según el dispositivo activo.
+- [x] **H08-T08. Preparar importación 2D.** Configurar sprites, transparencia, filtros, tamaños y licencias de tipografías e iconos.
 
 #### HUD
 
-- [ ] **H08-T09. Construir paneles aliados y enemigos.** Mostrar nombres, vida, maná, barras ATB y estados de los cuatro, con formato actual/máximo.
-- [ ] **H08-T10. Mostrar estado de barra.** Distinguir llenado, recuperación y listo, con tiempo pendiente y mensaje de selección.
-- [ ] **H08-T11. Construir panel de acciones.** Listas, costos, cantidades, descripción y recuperación reflejan los datos configurados.
-- [ ] **H08-T12. Construir marcador de actor y objetivo.** Crear aro o contorno y nombre del objetivo; destacar el grupo completo en Tormenta arcana.
-- [ ] **H08-T13. Construir números flotantes.** Distinguir daño, vida y maná recuperados con signo e identificación además del color; evitar superposición ilegible.
-- [ ] **H08-T14. Construir registro de combate.** Conservar los últimos cuatro eventos de acción, daño, curación y cambios de efectos.
-- [ ] **H08-T15. Mostrar restricciones y errores.** Informar falta de maná, unidades o objetivos, sin ocultar la descripción de la opción.
+- [x] **H08-T09. Construir paneles aliados y enemigos.** Mostrar nombres, vida, maná, barras ATB y estados de los cuatro, con formato actual/máximo.
+- [x] **H08-T10. Mostrar estado de barra.** Distinguir llenado, recuperación y listo, con tiempo pendiente y mensaje de selección.
+- [x] **H08-T11. Construir panel de acciones.** Listas, costos, cantidades, descripción y recuperación reflejan los datos configurados.
+- [x] **H08-T12. Construir marcador de actor y objetivo.** Crear aro o contorno y nombre del objetivo; destacar el grupo completo en Tormenta arcana.
+- [x] **H08-T13. Construir números flotantes.** Distinguir daño, vida y maná recuperados con signo e identificación además del color; evitar superposición ilegible.
+- [x] **H08-T14. Construir registro de combate.** Conservar los últimos cuatro eventos de acción, daño, curación y cambios de efectos.
+- [x] **H08-T15. Mostrar restricciones y errores.** Informar falta de maná, unidades o objetivos, sin ocultar la descripción de la opción.
 
 #### Menús y navegación
 
-- [ ] **H08-T16. Construir menú principal.** Implementar Jugar, Cómo jugar, Volumen y Salir, todos accesibles sin mouse.
-- [ ] **H08-T17. Construir ayuda por páginas.** Escribir objetivo, ATB, recursos y controles. Permitir cambiar página y volver al contexto de origen.
-- [ ] **H08-T18. Construir volumen general.** Ajustar 0 a 100 en pasos de 10 con izquierda y derecha y conservar el valor durante la sesión.
-- [ ] **H08-T19. Construir pausa y confirmaciones.** Continuar, ayuda, volumen, reiniciar y volver al menú. Confirmar acciones que abandonan el intento.
-- [ ] **H08-T20. Construir pantallas de resultado.** Distinguir victoria y derrota y permitir reiniciar o volver al menú sin confirmación adicional.
-- [ ] **H08-T21. Gestionar foco en todas las pantallas.** Abrir con selección válida, recordar la anterior al volver y evitar foco sobre un elemento oculto o destruido.
-- [ ] **H08-T22. Implementar navegación circular.** Arriba/abajo en listas e izquierda/derecha en objetivos y páginas, omitiendo personajes muertos.
-- [ ] **H08-T23. Comprobar escalado y texto.** Probar 1280 × 720 y 1920 × 1080, texto español y tildes, paneles largos y mensajes sin recortes.
+- [x] **H08-T16. Construir menú principal.** Implementar Jugar, Cómo jugar, Volumen y Salir, todos accesibles sin mouse.
+- [x] **H08-T17. Construir ayuda por páginas.** Escribir objetivo, ATB, recursos y controles. Permitir cambiar página y volver al contexto de origen.
+- [x] **H08-T18. Construir volumen general.** Ajustar 0 a 100 en pasos de 10 con izquierda y derecha y conservar el valor durante la sesión.
+- [x] **H08-T19. Construir pausa y confirmaciones.** Continuar, ayuda, volumen, reiniciar y volver al menú. Confirmar acciones que abandonan el intento.
+- [x] **H08-T20. Construir pantallas de resultado.** Distinguir victoria y derrota y permitir reiniciar o volver al menú sin confirmación adicional.
+- [x] **H08-T21. Gestionar foco en todas las pantallas.** Abrir con selección válida, recordar la anterior al volver y evitar foco sobre un elemento oculto o destruido.
+- [x] **H08-T22. Implementar navegación circular.** Arriba/abajo en listas e izquierda/derecha en objetivos y páginas, omitiendo personajes muertos.
+- [x] **H08-T23. Comprobar escalado y texto.** Probar 1280 × 720 y 1920 × 1080, texto español y tildes, paneles largos y mensajes sin recortes.
 
 #### Criterios para cerrar el hito
 

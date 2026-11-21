@@ -185,7 +185,14 @@ namespace UltimaGuardia
         public bool ClockRunning => !IsPaused && Actor == null && Pending == null && ready.Count == 0 && Outcome == CombatOutcome.Ongoing;
         public int Potions => inventory.TryGetValue("potion", out int count) ? count : 0;
         public int CompletedActions { get; private set; }
-        public string LastEvent { get; private set; } = "Defendé la entrada. Derrotá al ogro y al chamán.";
+        private readonly List<string> combatLog = new List<string> { "Defendé la entrada. Derrotá al ogro y al chamán." };
+        public IReadOnlyList<string> CombatLog => combatLog.AsReadOnly();
+        public event Action<CombatantState, int, bool> ResourceFeedback;
+        public string LastEvent
+        {
+            get => combatLog[combatLog.Count - 1];
+            private set { combatLog.Add(value); if (combatLog.Count > 4) combatLog.RemoveAt(0); }
+        }
 
         public CombatSession(EncounterData encounter, int? seed = null)
         {
@@ -244,6 +251,7 @@ namespace UltimaGuardia
                     {
                         if (!next.IsAlive) break;
                         int amount = next.Damage(effect.Definition.FixedDamage);
+                        ResourceFeedback?.Invoke(next, -amount, false);
                         next.ConsumeCharge(effect);
                         LastEvent = next.Definition.Name + ": " + effect.Definition.Name + " −" + amount + " vida" +
                             (!next.IsAlive ? " (Derrotado)" : " · " + effect.Remaining + " cargas restantes");
@@ -376,6 +384,7 @@ namespace UltimaGuardia
                 int amount = status || cleanse ? 0 : healing ? target.Heal(fixedAmount) : mana ? target.RestoreMana(fixedAmount) :
                     target.Damage(CalculateDamage(Pending.Actor.Definition.Attack, Pending.Action.Potency, target.EffectiveDefense));
                 Pending.Record(target, amount);
+                if (amount != 0) ResourceFeedback?.Invoke(target, healing || mana ? amount : -amount, mana);
             }
             LastEvent = Pending.Actor.Definition.Name + ": " + NameFor(Pending.Kind) + " → " + string.Join(" · ", Pending.Impacts.Select(i =>
                 i.Target.Definition.Name + (status ? " · " + effect.Name + " (" + effect.Duration + ")" : cleanse ? " · Veneno eliminado" :
@@ -389,7 +398,7 @@ namespace UltimaGuardia
             actor.Atb = 0; actor.RecoveryRemaining = actor.IsAlive ? Pending.Recovery : 0;
             if (actor.Definition.Team == CombatTeam.Enemies) actor.AiActionsCompleted++;
             foreach (var effect in turnEffects.Where(e => e.Definition.Trigger == EffectTrigger.ActionEnd))
-                if (actor.ConsumeCharge(effect) && effect.Remaining == 0) LastEvent += " · Fin de " + effect.Definition.Name + " en " + actor.Definition.Name;
+                if (actor.ConsumeCharge(effect) && effect.Remaining == 0) LastEvent = "Fin de " + effect.Definition.Name + " en " + actor.Definition.Name;
             turnEffects = Array.Empty<StatusState>();
             Pending = null; Actor = null; CompletedActions++;
             ReconcileDeaths(); BeginNextTurn(); return true;

@@ -157,3 +157,16 @@ Recursos originales de Última Guardia, elaborados con Codex el 21 de noviembre 
 | H07-CONTACT | Cuatro clips físicos H06 y `CharacterAnimationAuthoring.cs` | Compensación de tobillo para impedir hundimiento de la punta del pie durante el paso; no cambia reglas ni tiempos |
 
 El entorno final `Arena_Fortress_H07` reemplaza el blockout visible y conserva los anclajes, datos, modelos, animadores y Canvas recibidos. 56 instancias/renderers, 25.650 triángulos y ocho materiales compartidos. Una sola luz con sombras y relleno sin sombras. [Dirección, fuentes y reconstrucción](H07_FORTRESS.md), [auditoría geométrica y de encuadre](Evidence/H07/environment-audit.json). La cámara especial solo se reserva; la presentación completa sigue en H10.
+
+## H08 · Interfaz, iconos y menús
+
+| Recurso | Fuente / autoría | Preparación e integración | Licencia / crédito |
+| --- | --- | --- | --- |
+| 26 sprites de interfaz | Propios, producidos para Última Guardia mediante primitivas vectoriales en `InterfaceAuthoring.Pixel` | PNG RGBA 128 × 128, cobertura 2 × 2, Sprite Single, bilinear, sin mipmaps ni compresión. `Assets/Resources/Interface`. Incluye cuatro identificadores, recursos, acciones, consumibles, estados, dispositivos y emblema. Referencias en escenas y datos | Sin dependencias de imágenes externas ni atribuciones de terceros |
+| Marcadores de actor y objetivo | Propios, `InterfaceAuthoring.ReplaceMarker` | Rombo y aro, fuentes C# y mallas en `Assets/UI/H08`; asignados como overrides de las instancias existentes en Combat | Autoría del proyecto |
+| Tipografía de interfaz | `LegacyRuntime.ttf`, recurso incorporado de Unity 6000.3.11f1 | `Resources.GetBuiltinResource<Font>`; español y tildes comprobados. No se copia un archivo de fuente externo | Recurso de runtime de Unity; no se presenta como tipografía propia ni como descarga externa |
+| Paneles y composición | Propios, `InterfaceTheme`, `FinalCombatHud`, `InterfaceAuthoring` | uGUI; fuentes editables y jerarquía serializada en MainMenu y Combat | Autoría del proyecto |
+
+El detalle de estilo, símbolos, tamaños, fuentes y reconstrucción está en [H08_INTERFACE.md](H08_INTERFACE.md). No se compraron recursos ni se añadieron paquetes o servicios pagos. La música y los sonidos siguen asignados a H09.
+
+Corrección H08-C06: se conserva LegacyRuntime.ttf y el renderizador uGUI nativo, con glifos al doble de resolución y escala compensada en los menús. No hay nuevas fuentes, licencias, imágenes ni paquetes externos. Fuente de autoría: `InterfaceTheme.MenuText`, `InterfaceAuthoring` y `FinalCombatHud.Build`.

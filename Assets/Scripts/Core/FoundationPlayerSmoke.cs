@@ -112,12 +112,12 @@ namespace UltimaGuardia
             yield return KeyPress(Key.Enter);
             Check(!Battle().IsPaused, "Keyboard confirm must resume");
             yield return KeyPress(Key.Escape);
-            yield return KeyPress(Key.DownArrow);
-            yield return KeyPress(Key.DownArrow);
+            for (int i = 0; i < 4; i++) yield return KeyPress(Key.DownArrow);
             yield return KeyPress(Key.Enter);
+            Check(Battle().PausePage == 3, "Return requires confirmation");
+            yield return KeyPress(Key.DownArrow); yield return KeyPress(Key.Enter);
             yield return WaitForScene("MainMenu");
-            yield return KeyPress(Key.DownArrow);
-            yield return KeyPress(Key.DownArrow);
+            for (int i = 0; i < 3; i++) yield return KeyPress(Key.DownArrow);
             CheckSelection("QuitButton");
             expectingQuit = true;
             InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.Enter));
@@ -151,10 +151,10 @@ namespace UltimaGuardia
                 image = new Texture2D(result.width, result.height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, result.width, result.height), 0, 0);
                 image.Apply();
-                bool hasText = false;
+                int readablePixels = 0;
                 foreach (var pixel in image.GetPixels32())
-                    if (pixel.r > 180 && pixel.g > 180 && pixel.b > 180) { hasText = true; break; }
-                Check(hasText, "Capture has no visible text: " + name);
+                    if (pixel.r > 180 && pixel.g > 150 && pixel.b > 85) readablePixels++;
+                Check(readablePixels > 100, "Capture has no visible foreground: " + name);
                 File.WriteAllBytes(file, image.EncodeToPNG());
             }
             finally

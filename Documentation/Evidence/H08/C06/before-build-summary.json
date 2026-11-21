@@ -1,0 +1,23 @@
+{
+    "version": "0.0.9-H08",
+    "result": "Succeeded",
+    "unity": "6000.3.11f1",
+    "target": "StandaloneWindows64",
+    "output": "C:/Users/gaele/Action RPG/Builds/H08/UltimaGuardia.exe",
+    "startedUtc": "2026-11-22T02:04:33.1316195Z",
+    "finishedUtc": "2026-11-22T02:05:45.1858089Z",
+    "scenes": [
+        "Assets/Scenes/MainMenu.unity",
+        "Assets/Scenes/Combat.unity"
+    ],
+    "messages": [
+        "Log / Preprocess Player: 1 URP assets included in build\r\n- PC_RPAsset - Assets/Settings/PC_RPAsset.asset\r\n\t - PC_Renderer - Assets/Settings/PC_Renderer.asset - UnityEngine.Rendering.Universal.UniversalRendererData\r\n",
+        "Log / Prepare splash screen: Including Unity Splash Screen logo because 'Show Unity Logo' is enabled.",
+        "Warning / Write object - Hidden/Core/DebugOccluder (Shader) from Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/GPUDriven/DebugOccluder.shader: Shader warning in 'Hidden/Core/DebugOccluder': implicit truncation of vector type at Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/GPUDriven/DebugOccluder.shader(36) (on d3d11)\n\nCompiling Subshader: 0, Pass: DebugOccluder, Vertex program with <no keywords>\nPlatform defines: SHADER_API_DESKTOP UNITY_ENABLE_DETAIL_NORMALMAP UNITY_ENABLE_REFLECTION_BUFFERS UNITY_LIGHTMAP_FULL_HDR UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_PBS_USE_BRDF1 UNITY_PLATFORM_SUPPORTS_DEPTH_FETCH UNITY_SPECCUBE_BLENDING UNITY_SPECCUBE_BOX_PROJECTION UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS\nDisabled keywords: SHADER_API_GLES30 SHADER_API_GLES31 SHADER_API_GLES32 UNITY_ASTC_NORMALMAP_ENCODING UNITY_COLORSPACE_GAMMA UNITY_FRAMEBUFFER_FETCH_AVAILABLE UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_DXT5nm UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_UNIFIED_SHADER_PRECISION_MODEL UNITY_VIRTUAL_TEXTURING",
+        "Log / Postprocess built player: Stripping Runtime Debug Shader Variants, you won't be able to use some features of Rendering Debugger in the Player Build."
+    ],
+    "durationSeconds": 72.0541894,
+    "totalBytes": 176509279,
+    "errors": 0,
+    "warnings": 1
+}

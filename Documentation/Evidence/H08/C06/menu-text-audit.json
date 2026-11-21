@@ -1,0 +1,86 @@
+{
+  "MainMenu": [
+    {
+      "label": "Label",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "Label",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "Label",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "Label",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "Eyebrow",
+      "raster_font_size": 32,
+      "visual_font_size": 16.0
+    },
+    {
+      "label": "DeviceHelp",
+      "raster_font_size": 34,
+      "visual_font_size": 17.0
+    },
+    {
+      "label": "Label",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "PageFooter",
+      "raster_font_size": 36,
+      "visual_font_size": 18.0
+    },
+    {
+      "label": "Encounter",
+      "raster_font_size": 36,
+      "visual_font_size": 18.0
+    },
+    {
+      "label": "Subtitle",
+      "raster_font_size": 40,
+      "visual_font_size": 20.0
+    },
+    {
+      "label": "Instructions",
+      "raster_font_size": 48,
+      "visual_font_size": 24.0
+    },
+    {
+      "label": "PageTitle",
+      "raster_font_size": 72,
+      "visual_font_size": 36.0
+    },
+    {
+      "label": "Title",
+      "raster_font_size": 128,
+      "visual_font_size": 64.0
+    }
+  ],
+  "Combat": [
+    {
+      "label": "OverlayOptions",
+      "raster_font_size": 44,
+      "visual_font_size": 22.0
+    },
+    {
+      "label": "OverlayTitle",
+      "raster_font_size": 72,
+      "visual_font_size": 36.0
+    },
+    {
+      "label": "OverlayHelp",
+      "raster_font_size": 32,
+      "visual_font_size": 16.0
+    }
+  ]
+}

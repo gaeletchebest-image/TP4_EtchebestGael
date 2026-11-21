@@ -332,3 +332,53 @@ El smoke ejecuta un proceso oculto y renderiza la escena/Canvas explícitamente:
 ### Límites
 
 Capturas 720p/1080p mediante RenderTexture, sin acreditar monitor físico 1080p. Control virtual, sin acreditar hardware ni desconexión física. No hay partículas finales, audio ni secuencia de cámara H10: se verifican proyectiles H06 existentes y espacio reservado para el contenido posterior. Los presupuestos estáticos de geometría/materiales/luces no equivalen a una medición de FPS del producto final, prevista en H12. [Fuentes y reconstrucción](H07_FORTRESS.md), [incidencias](KNOWN_ISSUES.md).
+
+## H08 · HUD, recursos y menús finales
+
+Versión **0.0.9-H08**, cambios locales sobre commit real `209626c` (H07). No se creó un commit de entrega. Unity 6000.3.11f1/URP 17.3.0; Windows x86_64/Mono. H00–H07 aprobados; revisión del usuario de H08 pendiente.
+
+### Pruebas y alcance
+
+Suite completa PlayMode: **76/76 aprobadas**, 0 fallidas/omitidas, **177,3846759 s**, job `28ccbde3a92b4885b3ef5eacf4f9bab9`. [Resultado completo](Evidence/H08/playmode-results.json). Conserva pruebas de reglas, ATB, gastos, IA, estados, entrada, flujo, impactos y animaciones. La matriz de presentación verifica las diez acciones y los cinco objetos con ambos aliados: [20 casos](Evidence/H08/Run-20261121-200346-448-bee60d/action-matrix.txt).
+
+Después se corrigió la superposición de etiquetas 3D en selección grupal/números y se acortó el mensaje de contexto de objetivos. Se repitieron las cinco pruebas de interfaz y las dos regresiones afectadas: **7/7 aprobadas**, **48,6678073 s**, job `75f17e3b77ab4eb59ffa3a605be9dd24`. [Resultado final de UI](Evidence/H08/final-ui-results.json). No se presentan las 76 pruebas como una ejecución posterior a ese ajuste exclusivamente visual.
+
+Los nuevos recorridos prueban teclado y Gamepad virtual: cuatro páginas circulares de ayuda; foco de origen al volver; volumen 0, 100 y pasos de 10; conservación entre escenas/reinicio; pausa desde avance y ejecución; ayuda/volumen dentro de pausa; cancelar y aceptar reinicio/abandono; resultado sin confirmación extra; mantener confirmar; cambio de dispositivo sin pérdida de foco; opciones sin objetivos; selección grupal; restauración del intento. Los casos de recursos efectivos comprueban daño limitado a 1, curación limitada a 5, Éter limitado a 18 y Veneno letal limitado a 3. Comprobación de sprites asignados y alto de texto visible en las capturas de ambas resoluciones.
+
+[Auditoría de recursos](Evidence/H08/resource-audit.json): 26 PNG RGBA de 128 × 128 con importación Sprite y sin mipmaps; los 23 assets de encuentro conservan todos los valores de juego, excluyendo las nuevas referencias visuales de la comparación. [Preservación de escena](Evidence/H08/scene-preservation.json): 150 bloques serializados anteriores intactos; cambios existentes limitados a overrides de marcadores, controlador/referencias de UI y lista de raíces. Escenario, cámaras y anclajes conservados.
+
+### Inspección visual
+
+La evidencia canónica del ajuste final está en [Run-20261121-200944-516-0dcacd](Evidence/H08/Run-20261121-200944-516-0dcacd/). Se inspeccionaron MainMenu, ayuda, volumen, pausa, confirmaciones, victoria/derrota, paneles de recursos/estados, objetos, selección de ambos enemigos, curación/maná y números efectivos. Ver [selección grupal](Evidence/H08/Run-20261121-200944-516-0dcacd/storm-group-1280x720.png), [HUD 1080p](Evidence/H08/Run-20261121-200944-516-0dcacd/hud-states-1920x1080.png), [registro y maná efectivos](Evidence/H08/Run-20261121-200944-516-0dcacd/effective-mana-and-log-1280x720.png), [ayuda con control](Evidence/H08/Run-20261121-200944-516-0dcacd/help-2-gamepad-1280x720.png).
+
+Las imágenes sueltas en la raíz de Evidence/H08 son iteraciones preliminares; no sustituyen las capturas de los directorios Run enlazados. Las capturas usan RenderTexture, sin acreditar monitor físico 1080p. El input es virtual, sin acreditar control físico ni desconexión real. Las victorias automatizadas usan decisiones preparadas y reloj ×4; no miden balance ni duración objetivo. Hardware corresponde a H11 y balance/rendimiento a H12.
+
+### Correcciones durante la verificación
+
+- H08-C01: caras de rombo/aro apuntaban hacia abajo; orientación corregida y marcadores visibles inspeccionados.
+- H08-C02: primera suite completa 73/75; el fixture de estados buscaba componentes/textos provisionales. Se actualizó para comprobar sprites finales y contadores. Resultado final aprobado, sin cambiar reglas.
+- H08-C03: Windows rechazó sobrescribir una captura abierta/mapeada (IO 1224). Las pruebas guardan evidencia por ejecución, sin sobrescribir imágenes que un revisor tenga abiertas. La primera pasada fallida se conserva en [first-full-results.json](Evidence/H08/first-full-results.json).
+- H08-C04: etiquetas OBJETIVO se superponían en selección grupal y los nombres 3D competían con números. Objetivos con nombres breves; etiquetas ocultas mientras aparecen números, conservando cuatro identidades en el HUD. Siete pruebas afectadas repetidas y capturas finales inspeccionadas.
+- H08-C05: el smoke heredado exigía píxeles blancos; el menú final usa tipografía dorada. La comprobación acepta el primer plano claro de la paleta y se complementa con inspección visual. No se cambió el producto por esa expectativa del arnés.
+
+### Build y player final
+
+Build Windows x86_64/Mono, Development, **168,33 MB** (176.509.903 bytes), **52,4549261 s**, **0 errores y 1 advertencia**. MainMenu y Combat, en ese orden. Creada con `InterfaceBuild.BuildReview` desde el editor; [BuildReport resumido y mensajes reales](Evidence/H08/build-summary.json). Advertencia: truncamiento implícito de vector en DebugOccluder de Unity Core/d3d11, heredada. La utilidad de exportación corrigió durante su preparación el tipo de los contadores de BuildReport a `int`; la build final confirma la compilación correcta del código de editor y player.
+
+`Builds/H08/UltimaGuardia.exe -foundation-smoke -screen-fullscreen 0 -screen-width 1280 -screen-height 720` completó MainMenu, ayuda, Combat, básico animado de la maga, pausa/reanudación e impacto, pausa con ambos dispositivos virtuales, retorno confirmado a MainMenu y Salir. **passed = true, animatedActionVerified = true, exitedThroughMenu = true, salida 0**. [Resultado](Evidence/H08/player-result-1280x720.json), [menú del player](Evidence/H08/main-menu-1280x720.png), [acción terminada](Evidence/H08/animated-action-complete-1280x720.png), [pausa](Evidence/H08/pause-1280x720.png). Capturas inspeccionadas, sin materiales o texto faltantes. Ventana/captura 1280 × 720.
+
+El primer smoke falló exclusivamente en la expectativa de píxeles blancos, antes de guardar su primera captura. [Resultado conservado](Evidence/H08/player-first-attempt.json); los logs originales están en `Builds/H08/Validation-first-attempt`. Después de corregir el verificador se recompiló y repitió el recorrido completo con el resultado aprobado anterior.
+
+El smoke usa un proceso oculto y renderizado explícito por Camera.Render; no es una pelea completa ni una medición prolongada. El log de `Builds/H08/Validation/player.log` conserva avisos de buffers y asignaciones JobTempAlloc al cerrar, observados también en entregas anteriores. No se observó excepción de lógica en esta ejecución; seguimiento en H12. Unity Connect restaurado a `m_Enabled = 0`; opciones de entrada a Play conservadas en habilitado/opciones 0. No se modificaron paquetes, renderer, fórmulas ni datos de balance.
+
+[Fuentes y reconstrucción](H08_INTERFACE.md), [recursos](ASSET_REGISTER.md), [incidencias](KNOWN_ISSUES.md).
+
+## H08-C06 · Nitidez de textos de menús
+
+El usuario señaló que los textos de menús se veían pixelados en comparación con el HUD. Se mantuvo la fuente incorporada y el componente nativo Text: fuente y rectángulo al doble de resolución, escala local 0,5, conservando tamaño visual, posición, color y referencias. La fábrica `InterfaceTheme.MenuText` y la autoría aplican ese tratamiento al reconstruir. Cambian 13 etiquetas de MainMenu y 3 de los overlays de Combat, que cubren principal, ayuda, volumen, pausa, confirmaciones y resultados. El HUD de combate conserva su configuración.
+
+Se repitieron las cinco pruebas `FinalInterfaceTests` desde Test Runner: **5/5 aprobadas**, sin omitidas, **37,1183806 s**. [XML real](Evidence/H08/C06/playmode-results.xml). Los recorridos verifican ambos dispositivos virtuales, foco, volumen, navegación, cancelación/confirmación y texto sin recortes en ambas resoluciones. [Auditoría de 16 etiquetas](Evidence/H08/C06/menu-text-audit.json). No se atribuye una nueva ejecución completa de las 76 pruebas a esta corrección exclusivamente visual.
+
+Inspección de [principal 720p](Evidence/H08/Run-20261121-232425-443-3746e2/main-gamepad-1280x720.png), [ayuda 720p](Evidence/H08/Run-20261121-232425-443-3746e2/help-2-gamepad-1280x720.png), [ayuda 1080p](Evidence/H08/Run-20261121-232425-443-3746e2/help-2-keyboard-1920x1080.png), pausa, confirmaciones, volumen y resultados. Se conservan tamaño visual, legibilidad, tildes y contenido, sin duplicaciones ni recortes. Una primera variante de renderizado se descartó tras detectar artefactos en la inspección visual; una ejecución intermedia también usó una asamblea de pruebas anterior pendiente de recompilación. La evidencia de cierre es exclusivamente la nueva pasada enlazada y la build siguiente.
+
+Build actualizada de `Builds/H08/UltimaGuardia.exe`: **52,4549261 s**, **176.509.903 bytes / 168,33 MB**, **0 errores y 1 advertencia** heredada de DebugOccluder. [BuildReport de C06](Evidence/H08/C06/build-summary.json). Smoke repetido sobre esa build: **passed = true**, **animatedActionVerified = true**, salida desde Salir y **código 0**. [Resultado](Evidence/H08/C06/player-result-1280x720.json), [principal del player](Evidence/H08/C06/main-menu-1280x720.png), [ayuda](Evidence/H08/C06/controls-1280x720.png), [pausa](Evidence/H08/C06/pause-1280x720.png). Capturas reales del player inspeccionadas. Se mantienen los límites de input virtual, RenderTexture y prueba breve; no acreditan hardware físico ni rendimiento prolongado. Opciones de entrada a Play y Unity Connect restituidos.

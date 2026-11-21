@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\xC9ter"
   command: 5
   description: "Recupera 20 de man\xE1 de un aliado vivo con man\xE1 faltante."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7b591dee02ed0b74e8b36cb12afe8ff8, type: 3}
   targetMode: 1
   effect: 1
   amount: 20

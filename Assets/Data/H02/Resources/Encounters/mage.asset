@@ -21,6 +21,7 @@ MonoBehaviour:
   defense: 4
   speed: 28
   prefab: {fileID: 2964365218096540092, guid: f418e636635efeb4f8872a79a86fb5bb, type: 3}
+  portrait: {fileID: 21300000, guid: 6e4e4757c192e1a48b269b1fcc67abf5, type: 3}
   actions:
   - {fileID: 11400000, guid: 1e11c4d9914aa6149b505c14b25e74a6, type: 2}
   - {fileID: 11400000, guid: d375e808421417643b86778331b81f5a, type: 2}

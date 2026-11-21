@@ -1,0 +1,8 @@
+{
+  "scope": {
+    "MainMenu": 13,
+    "Combat": 3
+  },
+  "method": "Native uGUI Text at 2x font size and rect dimensions, 0.5 local scale",
+  "preserved": "Visual size, anchors, positions, ids, bindings, colors and HUD components"
+}

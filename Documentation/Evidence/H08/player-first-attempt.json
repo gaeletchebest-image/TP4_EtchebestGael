@@ -1,0 +1,15 @@
+{
+    "version": "0.0.9-flow",
+    "unity": "6000.3.11f1",
+    "initialScene": "MainMenu",
+    "width": 1280,
+    "height": 720,
+    "nativeWindowWidth": 1280,
+    "nativeWindowHeight": 720,
+    "passed": false,
+    "exitedThroughMenu": false,
+    "animatedActionVerified": false,
+    "error": "Capture has no visible text: main-menu",
+    "devices": "Virtual Keyboard and Gamepad",
+    "captureMethod": "Offscreen Camera.Render; temporary ScreenSpaceCamera canvas in hidden validation process"
+}

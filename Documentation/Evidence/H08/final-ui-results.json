@@ -1,0 +1,27 @@
+{
+  "job_id": "75f17e3b77ab4eb59ffa3a605be9dd24",
+  "status": "succeeded",
+  "mode": "PlayMode",
+  "started_unix_ms": 1795291771075,
+  "finished_unix_ms": 1795291826233,
+  "last_update_unix_ms": 1795291826233,
+  "progress": {
+    "completed": 7,
+    "total": 7,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "UltimaGuardia.Tests.FinalInterfaceTests.RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions",
+    "last_finished_unix_ms": 1795291826150,
+    "stuck_suspected": false,
+    "editor_is_focused": true,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": null
+}

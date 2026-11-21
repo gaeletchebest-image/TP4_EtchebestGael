@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="37,1183806">
+  <test-suite type="TestSuite" id="1098" name="Última Guardia" fullname="Última Guardia" runstate="Runnable" testcasecount="76" result="Passed" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="37.118381" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1092" name="UltimaGuardia.PlayModeTests.dll" fullname="C:/Users/gaele/Action RPG/Library/ScriptAssemblies/UltimaGuardia.PlayModeTests.dll" runstate="Runnable" testcasecount="76" result="Passed" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="37.069771" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="11792" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1093" name="UltimaGuardia" fullname="UltimaGuardia" runstate="Runnable" testcasecount="76" result="Passed" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="37.058211" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1094" name="Tests" fullname="UltimaGuardia.Tests" runstate="Runnable" testcasecount="76" result="Passed" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="36.980404" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1062" name="FinalInterfaceTests" fullname="UltimaGuardia.Tests.FinalInterfaceTests" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-21 23:24:19Z" end-time="2026-11-21 23:24:56Z" duration="36.954580" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1065" name="FinalHudShowsRestrictionsGroupStatesAndEffectiveFeedback" fullname="UltimaGuardia.Tests.FinalInterfaceTests.FinalHudShowsRestrictionsGroupStatesAndEffectiveFeedback" methodname="FinalHudShowsRestrictionsGroupStatesAndEffectiveFeedback" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" seed="1790296529" result="Passed" start-time="2026-11-21 23:24:20Z" end-time="2026-11-21 23:24:29Z" duration="9.273541" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1064" name="GamepadTraversesFinalMenusHelpVolumeAndConfirmations" fullname="UltimaGuardia.Tests.FinalInterfaceTests.GamepadTraversesFinalMenusHelpVolumeAndConfirmations" methodname="GamepadTraversesFinalMenusHelpVolumeAndConfirmations" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" seed="579448798" result="Passed" start-time="2026-11-21 23:24:29Z" end-time="2026-11-21 23:24:39Z" duration="10.451882" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1067" name="HeldConfirmDoesNotCloseHelpAndDeviceSwitchKeepsFocus" fullname="UltimaGuardia.Tests.FinalInterfaceTests.HeldConfirmDoesNotCloseHelpAndDeviceSwitchKeepsFocus" methodname="HeldConfirmDoesNotCloseHelpAndDeviceSwitchKeepsFocus" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" seed="774198944" result="Passed" start-time="2026-11-21 23:24:39Z" end-time="2026-11-21 23:24:41Z" duration="1.512242" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1063" name="KeyboardTraversesFinalMenusHelpVolumeAndConfirmations" fullname="UltimaGuardia.Tests.FinalInterfaceTests.KeyboardTraversesFinalMenusHelpVolumeAndConfirmations" methodname="KeyboardTraversesFinalMenusHelpVolumeAndConfirmations" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" seed="1815136944" result="Passed" start-time="2026-11-21 23:24:41Z" end-time="2026-11-21 23:24:53Z" duration="12.164425" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1066" name="RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions" fullname="UltimaGuardia.Tests.FinalInterfaceTests.RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions" methodname="RecoveryAndPoisonNumbersUseEffectiveResourcesAndRestartClearsSubscriptions" classname="UltimaGuardia.Tests.FinalInterfaceTests" runstate="Runnable" seed="1218018915" result="Passed" start-time="2026-11-21 23:24:53Z" end-time="2026-11-21 23:24:56Z" duration="3.485713" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/gaele/AppData/LocalLow/UltimaGuardia/Última Guardia\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

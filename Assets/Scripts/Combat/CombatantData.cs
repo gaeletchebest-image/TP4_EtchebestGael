@@ -12,6 +12,7 @@ namespace UltimaGuardia
         public int maxHealth = 1, maxMana, attack, defense;
         public float speed = 20;
         public GameObject prefab;
+        public Sprite portrait;
         public ActionData[] actions = new ActionData[0];
         public EnemyBrain brain;
     }

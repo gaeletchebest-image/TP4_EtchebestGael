@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La versión actual 0.0.8-H07 incluye reglas completas, modelos H05, animaciones H06 y arena final H07. Interfaz final, audio y VFX corresponden a H08–H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
+La versión actual 0.0.9-H08 incluye reglas completas, modelos H05, animaciones H06, arena final H07 e interfaz final H08. Audio y VFX corresponden a H09–H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -116,3 +116,20 @@ H06 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Esta ap
 | H07-L05 | Player oculto | Curl error 6 y avisos de liberación de buffers/asignaciones al apagar el proceso con capturas explícitas, como en H00–H06 | Smoke aprobado, acción animada verificada y salida 0. No se observó excepción de lógica; revisión prolongada y causa en H12 |
 
 No hay correcciones abiertas del usuario. H07 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado. Dame nombre en ingles para el commit tambien.». H08 no iniciado. Los presupuestos geométricos y de luces no sustituyen una medición de rendimiento del producto final en H12.
+
+## Seguimiento H08
+
+| ID | Tareas | Descripción y alcance | Estado / comprobación |
+| --- | --- | --- | --- |
+| H08-C01 | T12 | Marcadores del suelo orientados hacia abajo | Corregidos; rombo y aros inspeccionados en capturas finales |
+| H08-C02 | T06/T23 | El fixture de coexistencia esperaba componentes y textos provisionales | Adaptado a los sprites y contadores finales; suite completa 76/76 |
+| H08-C03 | Validación | Windows impedía sobrescribir una captura abierta/mapeada | Evidencia separada por ejecución; suite final y repetición afectada aprobadas |
+| H08-C04 | T12/T13/T23 | Etiquetas largas de objetivos y nombres 3D se superponían con selección grupal/números | Nombres de objetivo breves; etiquetas ceden espacio a números manteniendo identidades en HUD. Siete pruebas afectadas aprobadas e inspección visual |
+| H08-C05 | Smoke Development | La expectativa heredada buscaba píxeles blancos, incompatibles con el texto dorado del menú | Verificador actualizado; build recompilada y smoke aprobado, salida 0; capturas inspeccionadas y primer intento fallido conservado |
+| H08-C06 | T01/T23 | El usuario señaló textos de menús pixelados en comparación con el HUD | Resuelta: glifos al doble de resolución con uGUI nativo y escala compensada, 16 etiquetas y tamaños visuales conservados. Cinco pruebas de interfaz aprobadas, capturas 720p/1080p inspeccionadas, build nueva 0 errores/1 advertencia heredada y smoke del player aprobado/salida 0 |
+| H08-L01 | Validación | Teclado y Gamepad virtuales; capturas RenderTexture a 720p/1080p | No acredita hardware ni desconexión físicos; H11 conserva esa verificación |
+| H08-L02 | Presentación | Audio y VFX/cámara especial todavía pendientes | Alcance de H09/H10; volumen general H08 ya implementado |
+| H08-L03 | Player oculto | Avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones JobTempAlloc al cerrar con capturas explícitas, como en entregas anteriores | Smoke aprobado y salida 0, sin excepción de lógica observada; causa y evaluación prolongada pendientes H12 |
+| H08-L04 | Build | Una advertencia de truncamiento implícito en DebugOccluder de Unity Core/d3d11 | Build final aprobada, 0 errores; materiales y UI inspeccionados |
+
+Sin cambios de balance ni correcciones abiertas del usuario. H08 y su corrección H08-C06 fueron aprobados por el usuario el 21 de noviembre de 2026; evidencia registrada en el GDD. Las pruebas automáticas y los fixtures de recursos no son mediciones de balance ni de duración objetivo.

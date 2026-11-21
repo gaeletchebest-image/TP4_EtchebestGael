@@ -19,4 +19,4 @@ MonoBehaviour:
   duration: 3
   fixedDamage: 8
   multiplier: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 27cbca85c07152d428f78536e2ab570e, type: 3}

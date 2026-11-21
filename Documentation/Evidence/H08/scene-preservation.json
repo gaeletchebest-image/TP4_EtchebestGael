@@ -1,0 +1,37 @@
+{
+  "baseline": "209626c",
+  "unchanged_serialized_blocks": 150,
+  "changed_existing_blocks": [
+    {
+      "id": "744098108",
+      "name": "Prefab instance / unnamed component",
+      "type": "1001"
+    },
+    {
+      "id": "938819174",
+      "name": "Prefab instance / unnamed component",
+      "type": "1001"
+    },
+    {
+      "id": "1585654389",
+      "name": "Prefab instance / unnamed component",
+      "type": "1001"
+    },
+    {
+      "id": "1862109374",
+      "name": "Prefab instance / unnamed component",
+      "type": "1001"
+    },
+    {
+      "id": "2003419574",
+      "name": "",
+      "type": "114"
+    },
+    {
+      "id": "9223372036854775807",
+      "name": "Prefab instance / unnamed component",
+      "type": "1660057539"
+    }
+  ],
+  "preserved_fortress_root": true
+}

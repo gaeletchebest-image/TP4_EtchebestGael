@@ -98,16 +98,13 @@ namespace UltimaGuardia.Tests
             int damaged = target.Health;
             yield return new WaitForSecondsRealtime(0.3f);
             Assert.AreEqual(damaged, target.Health);
-            yield return Press(Key.DownArrow); // restart from pause
-            yield return Press(Key.Enter);
+            yield return RestartFromPause();
             AssertFreshBattle();
             yield return WaitForCommands();
             yield return Press(Key.Enter); // target selection
             yield return Press(Key.Escape);
             yield return Press(Key.Escape);
-            yield return Press(Key.DownArrow);
-            yield return Press(Key.DownArrow);
-            yield return Press(Key.Enter);
+            yield return ReturnFromPause();
             Assert.AreEqual("MainMenu", SceneManager.GetActiveScene().name);
         }
 
@@ -219,7 +216,7 @@ namespace UltimaGuardia.Tests
             Assert.AreEqual(27, Battle.Session.Actor.Mana);
             yield return Press(Key.Escape); Assert.IsTrue(Battle.IsPaused);
             yield return Capture("storm-paused", 1280, 720);
-            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            yield return RestartFromPause();
             AssertFreshBattle();
             CollectionAssert.AreEqual(new[] { 3, 2, 1, 1, 2 }, Battle.Session.Inventory.Values);
             foreach (var view in Object.FindObjectsByType<CombatantView>(FindObjectsSortMode.None)) Assert.IsFalse(view.targetMarker.activeSelf);
@@ -283,15 +280,20 @@ namespace UltimaGuardia.Tests
             yield return Pad(GamepadButton.South); yield return WaitForPlayerCommands();
             Assert.AreEqual(2, mage.Effects.Single(e => e.Definition.Kind == StatusKind.Haste).Remaining);
             Assert.AreEqual(42, mage.EffectiveSpeed); Assert.AreEqual(0, Battle.Session.QuantityFor(CombatAction.HasteTonic));
-            // Explicit coexistence fixture for all three provisional icon rows.
+            // Explicit coexistence fixture for the three final sprites and counters.
             mage.ApplyStatus(Battle.Session.ItemFor(CombatAction.Antidote).AppliedEffect);
             mage.ApplyStatus(Battle.Session.ItemFor(CombatAction.CorrosiveFlask).AppliedEffect);
             yield return Capture("statuses-coexist-1280x720", 1280, 720);
             yield return Capture("statuses-coexist-1920x1080", 1920, 1080);
             var labels = Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None);
-            foreach (var name in new[] { "Veneno", "Rapidez", "Corrosión" })
-                Assert.IsTrue(labels.Any(t => t.text.Contains(name + " · ")));
-            Assert.AreEqual(3, Object.FindObjectsByType<StatusIcon>(FindObjectsSortMode.None).Count(i => i.gameObject.activeInHierarchy));
+            foreach (var effect in mage.Effects)
+                Assert.IsTrue(labels.Any(t => t.text == effect.Definition.Name + " " + effect.Remaining));
+            var card = GameObject.Find("Card_mage");
+            foreach (var icon in new[] { "Icon_poison", "Icon_haste", "Icon_corrosion" })
+            {
+                var image = card.transform.Find(icon).GetComponent<UnityEngine.UI.Image>();
+                Assert.IsTrue(image.gameObject.activeInHierarchy); Assert.IsNotNull(image.sprite);
+            }
             yield return Press(Key.DownArrow); yield return Press(Key.DownArrow); yield return Press(Key.Enter);
             for (int i = 0; i < 3; i++) yield return Press(Key.DownArrow);
             yield return Press(Key.Enter);
@@ -316,7 +318,7 @@ namespace UltimaGuardia.Tests
             Assert.IsFalse(mage.HasStatus(StatusKind.Poison)); Assert.AreEqual(health, mage.Health);
             Assert.AreEqual(1, Battle.Session.QuantityFor(CombatAction.Antidote));
             yield return Press(Key.Escape); yield return Capture("antidote-confirmed-paused", 1280, 720);
-            yield return Press(Key.DownArrow); yield return Press(Key.Enter); AssertFreshBattle();
+            yield return RestartFromPause(); AssertFreshBattle();
             Assert.IsTrue(Battle.Session.Fighters.All(f => f.Effects.Count == 0));
         }
 
@@ -404,6 +406,20 @@ namespace UltimaGuardia.Tests
             }
         }
 
+        private IEnumerator RestartFromPause()
+        {
+            for (int i = 0; i < 3; i++) yield return Press(Key.DownArrow);
+            yield return Press(Key.Enter);
+            Assert.AreEqual(3, Battle.PausePage);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+        }
+        private IEnumerator ReturnFromPause()
+        {
+            for (int i = 0; i < 4; i++) yield return Press(Key.DownArrow);
+            yield return Press(Key.Enter);
+            Assert.AreEqual(3, Battle.PausePage);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+        }
         private IEnumerator WaitForCommands()
         {
             float deadline = Time.realtimeSinceStartup + 15;
@@ -447,7 +463,7 @@ namespace UltimaGuardia.Tests
                 camera.Render(); RenderTexture.active = render;
                 image = new Texture2D(width, height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, width, height), 0, 0); image.Apply();
-                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H07");
+                var directory = InterfaceEvidence.Root;
                 Directory.CreateDirectory(directory);
                 File.WriteAllBytes(Path.Combine(directory, name + ".png"), image.EncodeToPNG());
             }

@@ -34,6 +34,13 @@ namespace UltimaGuardia
         private string notice;
         private StatusHud[] statusHud;
         private CombatPresentation presentation;
+        [SerializeField] private FinalCombatHud finalHud;
+        private int pausePage, helpPage, confirmationIndex;
+        public int PausePage => pausePage;
+        public int HelpPage => helpPage;
+        public int ConfirmationSelection => confirmationIndex;
+        public CombatAction[] DisplayedCommands => Commands();
+        public void ConfigureFinal(FinalCombatHud hud) => finalHud = hud;
         public CombatPresentation Presentation => presentation;
         public CombatSession Session { get; private set; }
         public PrototypePhase Phase { get; private set; }
@@ -72,7 +79,7 @@ namespace UltimaGuardia
             cameraRotation = combatCamera.transform.rotation;
             foreach (var view in views) view.RememberPose();
             presentation = new CombatPresentation(views);
-            statusHud = resourceLabels.Select(label => new StatusHud(label)).ToArray();
+            if (finalHud == null) statusHud = resourceLabels.Select(label => new StatusHud(label)).ToArray();
             RestartCombat();
         }
 
@@ -101,6 +108,8 @@ namespace UltimaGuardia
             commandIndex = targetIndex = overlayIndex = 0;
             rootIndex = skillIndex = itemIndex = 0; Menu = CombatMenu.Root;
             actionTime = 0; notice = null; confirmArmed = false;
+            pausePage = helpPage = confirmationIndex = 0;
+            finalHud?.Bind(Session);
             previousDirection = Vector2.zero;
             combatCamera.transform.SetPositionAndRotation(cameraPosition, cameraRotation);
             RefreshDisplay();
@@ -109,6 +118,7 @@ namespace UltimaGuardia
         private void Update()
         {
             if (transitioning) return;
+            SessionOptions.Observe(navigate, confirm, cancel, pause);
             if (!confirm.IsPressed()) confirmArmed = true;
             bool submit = confirmArmed && confirm.WasPressedThisFrame();
             if (submit) confirmArmed = false;
@@ -117,14 +127,29 @@ namespace UltimaGuardia
 
             if (IsPaused)
             {
-                if (menuButton || back) { IsPaused = false; confirmArmed = false; return; }
-                int step = NavigationStep(false);
-                overlayIndex = Wrap(overlayIndex + step, 3);
-                if (submit)
+                if (menuButton) { IsPaused = false; pausePage = 0; confirmArmed = false; return; }
+                if (back)
                 {
-                    if (overlayIndex == 0) { IsPaused = false; confirmArmed = false; }
-                    else if (overlayIndex == 1) RestartCombat();
-                    else ReturnToMenu();
+                    if (pausePage != 0) pausePage = 0; else IsPaused = false;
+                    confirmArmed = false; return;
+                }
+                if (pausePage == 1) { helpPage = Wrap(helpPage + NavigationStep(true), 4); if (submit) pausePage = 0; }
+                else if (pausePage == 2) { SessionOptions.SetVolume(SessionOptions.Volume + NavigationStep(true) * 10); if (submit) pausePage = 0; }
+                else if (pausePage == 3)
+                {
+                    confirmationIndex = Wrap(confirmationIndex + NavigationStep(false), 2);
+                    if (submit) { if (confirmationIndex == 0) pausePage = 0; else if (overlayIndex == 3) RestartCombat(); else ReturnToMenu(); }
+                }
+                else
+                {
+                    overlayIndex = Wrap(overlayIndex + NavigationStep(false), 5);
+                    if (submit)
+                    {
+                        if (overlayIndex == 0) { IsPaused = false; confirmArmed = false; }
+                        else if (overlayIndex == 1) { pausePage = 1; helpPage = 0; }
+                        else if (overlayIndex == 2) pausePage = 2;
+                        else { pausePage = 3; confirmationIndex = 0; }
+                    }
                 }
                 return;
             }
@@ -136,7 +161,7 @@ namespace UltimaGuardia
             }
             bool inSelection = Phase == PrototypePhase.Targets || (Phase == PrototypePhase.Commands && Menu != CombatMenu.Root);
             if (menuButton || (back && !inSelection && cancel.activeControl?.device is Keyboard))
-            { IsPaused = true; overlayIndex = 0; return; }
+            { IsPaused = true; overlayIndex = 0; pausePage = 0; return; }
             if (back && Phase == PrototypePhase.Targets)
             { Phase = PrototypePhase.Commands; notice = null; return; }
             if (back && Phase == PrototypePhase.Commands && Menu != CombatMenu.Root)
@@ -252,6 +277,7 @@ namespace UltimaGuardia
                 float pulse = pending != null && pending.Targets.Contains(state) && pending.ImpactApplied
                     ? Mathf.Sin(Mathf.Clamp01((actionTime - 0.35f) / 0.5f) * Mathf.PI) : 0;
                 views[i].Present(state, Session.Outcome == CombatOutcome.Ongoing && Session.Actor == state, targeted, pulse);
+                if (finalHud != null) continue;
                 statusHud[i].Present(state);
                 resourceLabels[i].text = state.Definition.Name + " · " + (state.Definition.Team == CombatTeam.Allies ? "Aliado" : "Enemigo") +
                     (state.IsAlive ? "" : " · DERROTADO") + "\nVida " + state.Health + "/" + state.Definition.MaxHealth +
@@ -309,18 +335,23 @@ namespace UltimaGuardia
                         (notice ?? Session.UnavailableReason(actions[commandIndex]) ?? "Elegí una acción. Reloj detenido.");
                 }
             }
-            helpLabel.text = "↑↓ / cruceta / stick: acción     ←→: objetivo     Enter / Espacio / botón inferior: confirmar\nEscape / botón derecho: cancelar     Escape en raíz / botón de menú: pausa";
+            helpLabel.text = SessionOptions.Help;
             overlayPanel.SetActive(IsPaused || Phase == PrototypePhase.Result);
             if (IsPaused)
             {
                 overlayTitle.text = "Pausa";
-                overlayOptions.text = OverlayLines(new[] { "Continuar", "Reiniciar", "Volver al menú" });
+                overlayTitle.text = pausePage == 1 ? SessionOptions.HelpTitles[helpPage] : pausePage == 2 ? "Volumen general" : pausePage == 3 ? (overlayIndex == 3 ? "¿Reiniciar el combate?" : "¿Volver al menú?") : "Pausa";
+                overlayOptions.text = pausePage == 1 ? SessionOptions.HelpBody(helpPage) + "\n\n← Página " + (helpPage + 1) + " / 4 →\nConfirmar / volver: regresar a pausa" :
+                    pausePage == 2 ? SessionOptions.Volume + " %\n\n← Disminuir     Aumentar →\n\nPasos de 10 · Confirmar / volver: regresar a pausa" :
+                    pausePage == 3 ? "Se perderá el intento actual.\n\n" + string.Join("\n\n", new[] { "Cancelar", "Confirmar" }.Select((s, i) => (confirmationIndex == i ? "→ " : "    ") + s)) :
+                    OverlayLines(new[] { "Continuar", "Cómo jugar", "Volumen", "Reiniciar", "Volver al menú" });
             }
             else if (Phase == PrototypePhase.Result)
             {
                 overlayTitle.text = Session.Outcome == CombatOutcome.Victory ? "VICTORIA" : "DERROTA";
                 overlayOptions.text = OverlayLines(new[] { "Reiniciar", "Volver al menú" });
             }
+            finalHud?.Present(this);
         }
 
         private string OverlayLines(string[] options) => string.Join("\n\n", options.Select((option, i) => (overlayIndex == i ? "→ " : "    ") + option));

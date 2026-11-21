@@ -32,7 +32,7 @@ namespace UltimaGuardia
                 visual.localRotation = initialRotation * (state.IsAlive ? Quaternion.identity : Quaternion.Euler(0, 0, 80));
                 visual.localScale = initialScale * (1 + pulse * 0.08f);
             }
-            nameLabel.text = state.Definition.Name + (state.IsAlive ? "" : " · Derrotado");
+            nameLabel.text = state.Definition.Name + (!state.IsAlive ? " · Derrotado" : active ? " · ACTÚA" : "");
             if (Camera.main != null) nameLabel.transform.rotation = Camera.main.transform.rotation;
         }
     }
