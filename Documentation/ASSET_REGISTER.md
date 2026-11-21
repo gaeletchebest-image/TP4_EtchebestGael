@@ -63,3 +63,15 @@ Todas las filas siguientes están **pendientes**. No acreditan adquisiciones ni 
 | VFX-05 | Círculo, carga, partículas azules y rayos | Secuencia especial integrada con cámara/audio | H10 |
 
 H01 usa representaciones provisionales, H04 iconos provisionales. No sustituyen las filas de recursos finales.
+
+## Incorporaciones H01
+
+| ID | Recurso / ruta | Procedencia y licencia | Integración |
+| --- | --- | --- | --- |
+| H01-ENV | Suelo, muros, portón y marco en Combat | Geometría propia generada con ProBuilder 6.0.9 ya instalado; sin recurso externo incorporado | 7 volúmenes editables en `Arena_Blockout_Provisional`; fuente en escena y CombatPrototypeSetup.cs; escenario final pendiente H07 |
+| H01-CHAR | `Assets/Prefabs/H01/{warrior,mage,ogre,shaman}.prefab` | Primitivas incluidas en Unity, composición propia | Cuatro volúmenes provisionales con nombre, identidad, visual, marcadores y sockets; instancias en Combat; modelos finales pendientes H05 |
+| H01-MAT | `Assets/Materials/H01/*.mat` | Materiales propios, shader URP/Lit existente | Piedra, suelo, portón y colores de participantes/marcadores; sin texturas externas |
+| H01-CODE | `Assets/Scripts/Combat/*`, CombatPrototypeSetup y pruebas | Elaborados para este proyecto | Núcleo, input/presentación, utilidad explícita y comprobaciones integrados |
+| H01-UI | Canvas de Combat, Text y TextMesh | uGUI y fuente integrada LegacyRuntime.ttf de Unity | UI provisional; recursos finales UI-01 a UI-07 siguen pendientes H08 |
+
+No se descargaron recursos ni se compraron assets. Las filas CHAR, ENV y demás recursos finales del inventario anterior conservan su estado pendiente: estos placeholders no los sustituyen como entregables finales.

@@ -56,12 +56,14 @@ namespace UltimaGuardia.Tests
             yield return KeyPress(Key.UpArrow);
             yield return KeyPress(Key.Enter);
             yield return WaitForScene("Combat");
-            AssertSelection("BackButton");
+            Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
             yield return KeyPress(Key.Escape);
-            Assert.IsTrue(Menu().IsPaused);
-            AssertSelection("ContinueButton");
+            Assert.IsTrue(Battle().IsPaused);
             yield return KeyPress(Key.Escape);
-            Assert.IsFalse(Menu().IsPaused);
+            Assert.IsFalse(Battle().IsPaused);
+            yield return KeyPress(Key.Escape);
+            yield return KeyPress(Key.DownArrow);
+            yield return KeyPress(Key.DownArrow);
             yield return KeyPress(Key.Enter);
             yield return WaitForScene("MainMenu");
             AssertSelection("PlayButton");
@@ -86,9 +88,12 @@ namespace UltimaGuardia.Tests
             yield return PadPress(GamepadButton.South);
             yield return WaitForScene("Combat");
             yield return PadPress(GamepadButton.Start);
-            Assert.IsTrue(Menu().IsPaused);
+            Assert.IsTrue(Battle().IsPaused);
             yield return PadPress(GamepadButton.East);
-            Assert.IsFalse(Menu().IsPaused);
+            Assert.IsFalse(Battle().IsPaused);
+            yield return PadPress(GamepadButton.Start);
+            yield return PadPress(GamepadButton.DpadDown);
+            yield return PadPress(GamepadButton.DpadDown);
             yield return PadPress(GamepadButton.South);
             yield return WaitForScene("MainMenu");
         }
@@ -100,7 +105,8 @@ namespace UltimaGuardia.Tests
             yield return WaitForScene("Combat");
             yield return new WaitForSecondsRealtime(0.5f);
             Assert.AreEqual("Combat", SceneManager.GetActiveScene().name);
-            AssertSelection("BackButton");
+            Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
+            Assert.IsNull(Battle().Session.Pending);
             InputSystem.QueueStateEvent(keyboard, new KeyboardState());
             yield return null;
         }
@@ -126,6 +132,7 @@ namespace UltimaGuardia.Tests
         }
 
         private static FoundationMenu Menu() => Object.FindFirstObjectByType<FoundationMenu>();
+        private static CombatPrototype Battle() => Object.FindFirstObjectByType<CombatPrototype>();
 
         private static void AssertSelection(string name)
         {

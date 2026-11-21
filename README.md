@@ -1,58 +1,67 @@
 # Última Guardia
 
-Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Estado de esta versión: **H00, base del proyecto**. La escena Combat todavía no tiene combate.
+Prototipo de combate 3D por turnos para PC, un jugador, en español.
+Versión actual: **0.0.2-H01**, arena y combate básico terminable. H00 y H01 aprobados por el usuario. H02 pendiente.
 
-## Abrir y ejecutar
+## Abrir y jugar
 
-- Unity **6000.3.11f1** (revisión `3000ef702840`). Abrir esta carpeta desde Unity Hub.
-- Plataforma: **Windows x86_64**. Backend inicial: **Mono**. Módulo Windows disponible en el editor inspeccionado.
-- Renderer: **URP 17.3.0**, calidad **PC**, asset `Assets/Settings/PC_RPAsset.asset` seleccionado por Quality Settings. Se conservan los assets gráficos existentes.
-- Abrir `Assets/Scenes/MainMenu.unity` y pulsar Play. Jugar carga `Assets/Scenes/Combat.unity`; Volver al menú regresa al inicio.
-- Build de H00: `Builds/H00/UltimaGuardia.exe`, junto a toda su carpeta de datos. Ejecutar desde esa carpeta. Salir cierra la aplicación; dentro del editor detiene Play.
-- Ventana inicial redimensionable de **1280 × 720**; interfaz uGUI escalada desde esa resolución, correspondencia ancho/alto 0,5. Calidad PC, sin cambios de balance ni contenido del juego.
+- Unity **6000.3.11f1** (revisión `3000ef702840`), URP **17.3.0**, calidad **PC**, Windows x86_64, Mono.
+- Abrir `Assets/Scenes/MainMenu.unity` y pulsar Play; elegir Jugar. También se puede abrir `Assets/Scenes/Combat.unity` directamente.
+- Ejecutable de esta entrega: `Builds/H01/UltimaGuardia.exe`. Mantener juntos el ejecutable y todos los archivos de su carpeta. La build H00 anterior se conserva en `Builds/H00`.
+- Ventana inicial redimensionable de **1280 × 720**, uGUI con resolución de referencia 1280 × 720 y correspondencia ancho/alto 0,5. Se mantienen los assets gráficos PC/Mobile recibidos.
 
-## Controles iniciales
+H01 usa turnos en este orden provisional: **Guerrero → Maga → Ogro → Chamán**, omitiendo a los derrotados. Se ejecuta una sola acción a la vez. ATB, recuperaciones y ScriptableObjects se incorporan en H02.
+
+El guerrero puede usar Ataque básico, Golpe pesado (8 de maná, potencia 1,8) y Poción. La maga usa Proyectil mágico gratuito y Poción. Los dos enemigos usan sus básicos gratuitos contra un aliado vivo elegido al azar. Cada intento comienza con las estadísticas del GDD y **3 Pociones compartidas** de 50 de vida. No se permite curar a muertos ni a quien tiene vida completa. Cancelar la selección no gasta recursos. No hay regeneración pasiva.
+
+## Controles
 
 | Acción | Teclado | Control |
 | --- | --- | --- |
-| Navegar | Flechas arriba/abajo | Cruceta o stick izquierdo |
+| Elegir comando o menú | Flechas arriba/abajo | Cruceta o stick izquierdo |
+| Elegir objetivo | Flechas izquierda/derecha | Cruceta o stick izquierdo |
 | Confirmar | Enter o Espacio | Botón inferior (A/cruz) |
-| Volver | Escape | Botón derecho (B/círculo) |
-| Pausa en Combat | Escape | Botón de menú (Start/Options) |
+| Cancelar objetivo | Escape | Botón derecho (B/círculo) |
+| Pausar | Escape desde comandos o ejecución | Botón de menú (Start/Options) |
+| Cerrar pausa | Escape o Continuar | Botón derecho, menú o Continuar |
 
-H00 tiene un menú de controles, una escena vacía identificada y una pausa mínima para comprobar entrada y flujo. Ayuda por páginas, volumen, confirmaciones de abandono y menús finales corresponden a H08. Las reglas de combate comienzan en H01.
+El círculo amarillo identifica al actor; el blanco al objetivo, acompañado por su nombre y equipo en el panel. La pausa permite continuar, reiniciar o volver al menú. Victoria y derrota permiten reiniciar o volver. Reiniciar restaura recursos, inventario, turno, cámara y figuras. Los menús completos de ayuda, volumen y confirmaciones se realizan en H08.
+
+## Cómo revisar H01
+
+1. Elegir Jugar; comprobar los cuatro participantes y sus recursos.
+2. Elegir Golpe pesado, cambiar objetivo y cancelar: el guerrero conserva 30 de maná. Confirmarlo gasta 8 una sola vez. Contra el ogro causa **44**; el básico causa **22**.
+3. Usar una Poción cuando alguien esté herido: recupera hasta 50 y reduce la cantidad compartida. Con vida completa queda bloqueada.
+4. Pausar antes o después de un impacto y continuar: no se repite daño ni gasto. Reiniciar desde pausa restaura el intento.
+5. Derrotar a ambos enemigos, comprobar Victoria y reiniciar. Si caen ambos aliados aparece Derrota.
+
+Los modelos y la arena son provisionales. La configuración no constituye un balance final ni una medición de la duración objetivo.
 
 ## Compilar y comprobar
 
-1. En Build Profiles usar Windows, arquitectura Intel 64-bit, backend Mono.
-2. Scene List debe contener MainMenu y Combat, en ese orden; SampleScene queda fuera.
-3. Build en `Builds/H00/UltimaGuardia.exe`. Mantener juntos ejecutable, UnityPlayer y datos.
-4. Para otra resolución, ejecutar con `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
-5. En Test Runner, PlayMode, ejecutar `UltimaGuardia.Tests.FoundationInputTests`. Las pruebas usan dispositivos virtuales del Input System; no acreditan un control físico.
+- Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera.
+- Build en `Builds/H01/UltimaGuardia.exe`. Para otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
+- Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **17 comprobaciones** de reglas, flujo e input. Incluyen peleas completas, derrota con aliados preparados a 1 de vida, pausa y reinicios.
+- Las pruebas de dispositivos utilizan Keyboard y Gamepad virtuales del Input System; no acreditan un control físico.
+- La build Development acepta `-foundation-smoke`: comprueba menú, carga de Combat, pausa, retorno y salida real mediante Salir; guarda capturas y JSON en `Builds/H01/Validation`. No juega una pelea completa: esa comprobación está en PlayMode. El arnés queda excluido de builds sin Development Build.
+- Las capturas de pruebas a 720p/1080p usan RenderTexture; no acreditan un monitor físico 1080p. Métodos, resultados y avisos se registran en el informe.
 
-La build Development admite `-foundation-smoke` para una comprobación automatizada del ejecutable: carga real de MainMenu, entrada virtual de teclado/control, capturas de menús/Combat/pausa, retorno y salida mediante Salir. Guarda resultados y capturas en `Builds/H00/Validation/`. Combinar con `-screen-width 1280 -screen-height 720 -screen-fullscreen 0` o con 1920 y 1080. Esta comprobación es optativa y su código queda excluido de las builds sin Development Build.
+## Sistemas y estructura
 
-La validación ejecuta el player oculto y renderiza las capturas fuera de pantalla. Los resultados distinguen resolución de captura y tamaño de ventana nativa: en el equipo disponible, Windows limita la ventana de 1080p a 1366 × 768. Se verificó el escalado a 1080p en RenderTexture. Los avisos de apagado de URP y red del entorno de pruebas se detallan en el informe y en las incidencias.
+Input System **1.19.0** (`activeInputHandler = 1`) y **uGUI 2.0.0**. Cada escena usa una copia de ejecución de `GuardiaInput.inputactions`. MainMenu conserva su EventSystem; Combat procesa las mismas acciones y muestra el foco en texto, sin un segundo controlador de confirmación. El asset de entrada de la plantilla se conserva.
 
-La herramienta de editor `Ultima Guardia/H00/Regenerar escenas base` reconstruye las dos escenas y reemplaza su contenido. Es una utilidad de preparación de H00: **no usar después de comenzar a editar escenas en H01**. No se ejecuta automáticamente al abrir o importar el proyecto.
+`CombatSession` contiene reglas, recursos y acción pendiente; `CombatPrototype` controla fases, input y tiempo de presentación; `CombatantView` vincula figuras y sockets. El estado mutable se crea de nuevo en cada intento. Los datos configurables, IA completa, estados y recursos finales corresponden a hitos posteriores.
 
-## Sistemas y dependencias
+Test Framework **1.6.0**, ProBuilder **6.0.9** para el blockout editable y Timeline **1.8.11** disponibles. Se conservan manifiesto y lock; Unity MCP es una herramienta de desarrollo, no una dependencia del player. No se compraron assets ni se añadieron servicios pagos.
 
-Un único sistema de entrada: **Input System 1.19.0**, `activeInputHandler = 1`. Única UI del juego: **uGUI 2.0.0**. `GuardiaInput.inputactions` define Navigate, Confirm, Cancel y Pause; cada escena usa una copia de ejecución para aislar su ciclo de vida. El asset `InputSystem_Actions` de la plantilla se conserva, pero el menú utiliza explícitamente GuardiaInput.
+Las utilidades **Regenerar escenas base (H00)** y **Crear arena y combate provisional (H01)** reemplazan escenas. Son herramientas de preparación explícitas, nunca automáticas: no usarlas sobre escenas con trabajo posterior. La de H01 crea solo Combat y conserva MainMenu.
 
-`Packages/manifest.json` y `Packages/packages-lock.json` se conservan versionados. Test Framework 1.6.0 valida integración. ProBuilder 6.0.9 y Timeline 1.8.11 están disponibles para etapas posteriores. AI Navigation, Multiplayer Center, Visual Scripting e integraciones IDE provienen de la plantilla; no se añadieron sistemas jugables con ellos.
+Assets separa Scenes, Scripts, Data, Prefabs, Models, Animations, Materials, Textures, UI, VFX, Audio y Tests. Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation; excluir Library, Temp, Logs, UserSettings y Builds.
 
-Unity MCP es una herramienta de desarrollo, no una dependencia del ejecutable. Su manifiesto referencia `main`; el lock actual resuelve el commit `81542a7e86292b5c4c21b1782c5af23b567f45ce`. Conservar el lock y evitar actualizar paquetes durante la revisión del hito. No se compraron assets ni se añadieron servicios pagos.
-
-## Estructura y seguimiento
-
-Assets separa Scenes, Scripts, Data, Prefabs, Models, Animations, Materials, Textures, UI, VFX, Audio y Tests. Las carpetas vacías conservan sus `.meta`. Documentation está en la raíz para alojar el documento vigente y evidencias sin importarlas al juego.
-
-- [GDD, tareas y estado autorizado](Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md)
-- [Recursos, procedencia y licencias](Documentation/ASSET_REGISTER.md)
+- [GDD, 245 tareas y estado autorizado](Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md)
 - [Comprobaciones y evidencia](Documentation/TEST_REPORT.md)
+- [Recursos, procedencia y licencias](Documentation/ASSET_REGISTER.md)
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-Git usa serialización de texto y Visible Meta Files. Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Library, Temp, Logs, UserSettings, soluciones generadas y Builds quedan excluidos. La aprobación final de cada hito corresponde al usuario.
+La aprobación final de cada hito corresponde al usuario. H02 no se inicia en este chat.

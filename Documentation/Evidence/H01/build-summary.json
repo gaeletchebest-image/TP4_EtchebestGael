@@ -1,0 +1,17 @@
+{
+  "job_id": "build-986ee3fc5b",
+  "result": "succeeded",
+  "platform": "StandaloneWindows64",
+  "output_path": "Builds/H01/UltimaGuardia.exe",
+  "started_at": "2026-11-21T13:30:17.7507951Z",
+  "duration_seconds": 145.3704329,
+  "completed_at": "2026-11-21T13:32:43.121228Z",
+  "total_size_mb": 157.01,
+  "errors": 0,
+  "warnings": 5,
+  "warningDetails": [
+    "Unity Core DebugOccluder shader: implicit vector truncation (d3d11).",
+    "Four Unity MCP WebSocket connection/keep-alive warnings during editor build."
+  ],
+  "configuration": "Development, Windows x86_64, Mono, CompressWithLz4, DetailedBuildReport"
+}

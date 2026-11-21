@@ -52,6 +52,7 @@ namespace UltimaGuardia
             directory = Path.GetFullPath(Path.Combine(Application.dataPath, "../Validation"));
             Directory.CreateDirectory(directory);
             result.unity = Application.unityVersion;
+            result.version = Application.version + "-flow";
             result.initialScene = SceneManager.GetActiveScene().name;
             keyboard = InputSystem.AddDevice<Keyboard>();
             gamepad = InputSystem.AddDevice<Gamepad>();
@@ -78,14 +79,17 @@ namespace UltimaGuardia
             yield return WaitForScene("Combat");
             yield return Capture("combat");
             yield return PadPress(GamepadButton.Start);
-            Check(Menu().IsPaused, "Gamepad menu must pause");
+            Check(Battle().IsPaused, "Gamepad menu must pause");
             yield return Capture("pause");
             yield return PadPress(GamepadButton.East);
-            Check(!Menu().IsPaused, "Gamepad cancel must resume");
+            Check(!Battle().IsPaused, "Gamepad cancel must resume");
             yield return KeyPress(Key.Escape);
-            Check(Menu().IsPaused, "Keyboard Escape must pause");
+            Check(Battle().IsPaused, "Keyboard Escape must pause");
             yield return KeyPress(Key.Enter);
-            Check(!Menu().IsPaused, "Keyboard confirm must resume");
+            Check(!Battle().IsPaused, "Keyboard confirm must resume");
+            yield return KeyPress(Key.Escape);
+            yield return KeyPress(Key.DownArrow);
+            yield return KeyPress(Key.DownArrow);
             yield return KeyPress(Key.Enter);
             yield return WaitForScene("MainMenu");
             yield return KeyPress(Key.DownArrow);
@@ -172,6 +176,7 @@ namespace UltimaGuardia
         }
 
         private static FoundationMenu Menu() => FindFirstObjectByType<FoundationMenu>();
+        private static CombatPrototype Battle() => FindFirstObjectByType<CombatPrototype>();
 
         private static int RequestedDimension(string argument, int fallback)
         {

@@ -1,0 +1,192 @@
+{
+  "job_id": "311f013b8a6f483c98ba10fed5f9e7f9",
+  "status": "succeeded",
+  "mode": "PlayMode",
+  "started_unix_ms": 1795267721999,
+  "finished_unix_ms": 1795267792193,
+  "last_update_unix_ms": 1795267792193,
+  "progress": {
+    "completed": 17,
+    "total": 17,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "UltimaGuardia.Tests.FoundationInputTests.VirtualGamepadUsesDpadStickFaceButtonsAndMenu",
+    "last_finished_unix_ms": 1795267792100,
+    "stuck_suspected": false,
+    "editor_is_focused": true,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "PlayMode",
+    "summary": {
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 65.3117192,
+      "resultState": "Passed"
+    },
+    "results": [
+      {
+        "name": "CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "state": "Passed",
+        "durationSeconds": 4.7808247,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardWinsNormalEncounterAndRestartsFromResult",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.KeyboardWinsNormalEncounterAndRestartsFromResult",
+        "state": "Passed",
+        "durationSeconds": 26.7993039,
+        "message": null,
+        "stackTrace": null,
+        "output": "Normal keyboard victory: 29 actions, potions 0\r\n"
+      },
+      {
+        "name": "VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts",
+        "state": "Passed",
+        "durationSeconds": 28.4885415,
+        "message": null,
+        "stackTrace": null,
+        "output": "Normal virtual gamepad victory: 27 actions, potions 0\r\n"
+      },
+      {
+        "name": "DamageUsesGddRounding(28,1,6,22)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(28,1,6,22)",
+        "state": "Passed",
+        "durationSeconds": 0.0037006,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(28,1.8d,6,44)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(28,1.8d,6,44)",
+        "state": "Passed",
+        "durationSeconds": 0.0001529,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(24,1,6,18)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(24,1,6,18)",
+        "state": "Passed",
+        "durationSeconds": 0.0000729,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(3,1.5d,0,5)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(3,1.5d,0,5)",
+        "state": "Passed",
+        "durationSeconds": 0.0002725,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DamageUsesGddRounding(1,1,99,1)",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DamageUsesGddRounding(1,1,99,1)",
+        "state": "Passed",
+        "durationSeconds": 0.0000758,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "DeadTargetsAndTurnsAreSkippedAndOneSurvivorCanAct",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.DeadTargetsAndTurnsAreSkippedAndOneSurvivorCanAct",
+        "state": "Passed",
+        "durationSeconds": 0.0019239,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InsufficientManaNeverConsumesATurnAndBasicRemainsAvailable",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InsufficientManaNeverConsumesATurnAndBasicRemainsAvailable",
+        "state": "Passed",
+        "durationSeconds": 0.0008481,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "InvalidTargetsAndDuplicateSignalsCannotSpendOrHitTwice",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.InvalidTargetsAndDuplicateSignalsCannotSpendOrHitTwice",
+        "state": "Passed",
+        "durationSeconds": 0.0007917,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "LastEnemyDeathEndsCombatBeforeAnotherCommand",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.LastEnemyDeathEndsCombatBeforeAnotherCommand",
+        "state": "Passed",
+        "durationSeconds": 0.0004712,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "PotionInventoryIsSharedLimitedAndEffectiveHealingIsCapped",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.PotionInventoryIsSharedLimitedAndEffectiveHealingIsCapped",
+        "state": "Passed",
+        "durationSeconds": 0.0006921,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "ResourcesAreClampedAndDeadCannotBeHealed",
+        "fullName": "UltimaGuardia.Tests.CombatRulesTests.ResourcesAreClampedAndDeadCannotBeHealed",
+        "state": "Passed",
+        "durationSeconds": 0.0009584,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "HeldConfirmDoesNotConfirmTheNextScene",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.HeldConfirmDoesNotConfirmTheNextScene",
+        "state": "Passed",
+        "durationSeconds": 1.4715623,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "KeyboardNavigatesConfirmsCancelsPausesAndReturns",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.KeyboardNavigatesConfirmsCancelsPausesAndReturns",
+        "state": "Passed",
+        "durationSeconds": 2.0006748,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "VirtualGamepadUsesDpadStickFaceButtonsAndMenu",
+        "fullName": "UltimaGuardia.Tests.FoundationInputTests.VirtualGamepadUsesDpadStickFaceButtonsAndMenu",
+        "state": "Passed",
+        "durationSeconds": 1.6283966,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      }
+    ]
+  }
+}

@@ -12,9 +12,22 @@
 
 ## Alcance de la versión
 
-Combat contiene únicamente el arranque vacío y una pausa mínima para comprobar flujo. El combate comienza en H01. La UI es provisional; faltan intencionalmente el arte, ATB, habilidades, estados, sonido y el resto de los hitos. No son funciones entregadas en H00.
+La entrega H00 contenía únicamente el arranque vacío y la pausa mínima. H01 incorpora arena y combate básico terminable, con básicos, Golpe pesado, Poción, enemigos, victoria, derrota y reinicio. La UI y los modelos siguen siendo provisionales; ATB, acciones completas, estados, arte, sonido y efectos se realizan en sus hitos posteriores.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
 Para nuevas incidencias registrar gravedad, pasos, resultado real, resultado esperado, archivo/escena, tarea, prueba para cerrarla y regresiones. Las correcciones del usuario se reflejan además en el registro autorizado del GDD.
 
+
+
+## Seguimiento H01
+
+| ID | Hito / tarea | Descripción y alcance observado | Estado / comprobación |
+| --- | --- | --- | --- |
+| H01-L01 | H01-T16/T17 | Teclado y Gamepad virtuales permiten probar las vinculaciones y completar la pelea, pero no acreditan hardware real, drivers ni desconexión | Limitación explícita; auditoría completa con control físico pendiente H11 |
+| H01-L02 | H01-T03/T15 | Capturas a 720p y 1080p renderizadas offscreen; la ejecución nativa comprobada en esta entrega fue 1280 × 720 | Composición verificada en ambas; monitor nativo 1080p no probado |
+| H01-L03 | Build de revisión | 5 advertencias: un truncamiento implícito en shader DebugOccluder de Unity Core y cuatro avisos de reconexión WebSocket de MCP durante la build | Build finalizada con 0 errores, player carga Combat sin materiales faltantes; avisos conservados en resumen/informe |
+| H01-L04 | Validación del player | El proceso oculto con capturas Camera.Render muestra avisos de liberación de ComputeBuffer/GraphicsBuffer, asignaciones nativas y red del entorno al salir, como en H00 | Flujo aprobado, salida por menú y código 0. No se atribuye causa de lógica no demostrada; volver a observar en ejecución interactiva y H12 |
+| H01-C01 | H01-T09/T16 | Primera pasada: el rearme al finalizar una acción descartaba la primera pulsación nueva del siguiente turno | Resuelto; se comprueba si el botón sigue pulsado. Pasada final 17/17 incluye peleas por ambos dispositivos |
+
+La derrota automatizada de H01 utiliza un fixture con aliados a 1 de vida para forzar el caso límite; no es una medición del balance de una partida normal. El producto no incorpora botones de vida ni comandos de depuración para provocar esa situación.

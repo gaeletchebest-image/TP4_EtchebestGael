@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: desarrollo iniciado. H00 implementado y verificado con los métodos y limitaciones registrados; revisión del usuario pendiente. H01 a H13 siguen pendientes.
+> Estado: H00 y H01 aprobados por el usuario. H02 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -121,8 +121,8 @@ No es necesario iniciar otro agente automáticamente ni bloquear todos los hitos
 
 Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implementación y comprobación completas; la revisión del usuario queda escrita en la misma fila.
 
-- [x] **H00. Preparación del proyecto y control del alcance.** Estado: Implementado y verificado. Revisión del usuario: Pendiente.
-- [ ] **H01. Arena provisional y combate básico terminable.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H00. Preparación del proyecto y control del alcance.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
+- [x] **H01. Arena provisional y combate básico terminable.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H02. Datos configurables, ATB y recuperación.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H04. Veneno, rapidez y corrosión.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -140,7 +140,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 
 #### Registro H00
 
-- Estado: **Implementado y verificado**, con revisión del usuario pendiente.
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. Se conservan debajo los métodos y límites de la entrega H00.
 - Versión: **0.0.1-H00** (PlayerSettings 0.0.1). Cambios locales sobre commit inicial real `208d5bb`; no se creó un commit de entrega. Huellas en [fingerprints.json](Evidence/H00/fingerprints.json).
 - Última actualización: 21 de noviembre de 2026.
 - Tareas completadas: **H00-T01 a H00-T13**. Sin tareas de H01 o posteriores iniciadas.
@@ -151,13 +151,33 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Comprobación visual: inspección de MainMenu, controles, Combat y pausa a 1280 × 720 y 1920 × 1080; capturas en [Evidence/H00](Evidence/H00/). La UI permanece completa y legible.
 - Método y límites de H00-T07/T13: ventana real de 1280 × 720; la solicitud nativa de 1080p se limita al monitor 1366 × 768, por lo que el escalado a **1920 × 1080 se comprobó por RenderTexture**. El control se comprobó mediante un Gamepad virtual, no un dispositivo físico. No se presenta ninguna de esas comprobaciones como una prueba de hardware no realizada.
 - Incidencias: Computer Use no autorizó operar el nuevo ejecutable; se sustituyó esa vía por validación interna del player, sin automatizar su UI de Windows. Hay avisos de red y apagado de URP en la prueba oculta. Métodos, límites y seguimiento H00-L01 a H00-L05 en [KNOWN_ISSUES.md](KNOWN_ISSUES.md). No se detectaron bloqueos del flujo de H00.
-- Comprobaciones pendientes: revisión final del usuario; prueba con control físico y presentación nativa en monitor 1080p no realizadas. Se mantienen identificadas como límites de la evidencia; H11 exige la verificación completa de dispositivos reales.
+- Límites de comprobación de H00: prueba con control físico y presentación nativa en monitor 1080p no realizadas; su revisión fue aprobada por el usuario el 21 de noviembre de 2026. Se mantienen identificadas como límites de la evidencia; H11 exige la verificación completa de dispositivos reales.
 - Cómo revisarlo: ejecutar `Builds/H00/UltimaGuardia.exe` o abrir MainMenu y pulsar Play en Unity. Usar flechas y Enter/Espacio para elegir Jugar, comprobar Combat vacía, Escape para pausa/continuar, volver al menú, abrir Controles, cancelar y elegir Salir. El foco debe ser visible. Se puede repetir con cruceta/stick, botón inferior, botón derecho y botón de menú del control.
-- Revisión del usuario: **pendiente**. Evidencia de aprobación: ninguna; el pedido de implementar H00 autoriza el trabajo, no acredita su revisión posterior.
+- Revisión del usuario: **aprobada**. Evidencia: mensaje del 21 de noviembre de 2026: «Ha si, el h00 esta aprobado, vamos por el 01 entonces.» Autoriza comenzar H01; no se atribuye una revisión detallada adicional.
 - Correcciones abiertas del usuario: ninguna. El procedimiento de captura se ajustó después de detectar backbuffer negro en procesos ocultos; la evidencia final se regeneró y volvió a inspeccionar.
 - Conservación del proyecto: se mantuvieron versión, renderer, paquetes y cambios previos en los assets gráficos; Unity actualizó serialización y filtros de shaders durante la compilación. No se adquirieron recursos pagos ni se añadieron sistemas de combate.
-- Próximo hito en orden: **H01**, identificación solamente; **no iniciado**.
+- Siguiente hito autorizado: **H01**, iniciado en este chat tras la aprobación del usuario.
 
+#### Registro H01
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026.
+- Versión: **0.0.2-H01**, cambios locales sobre commit real `c843243` (entrega H00). No se creó un commit de H01. Huellas de archivos en [fingerprints.json](Evidence/H01/fingerprints.json).
+- Última actualización: 21 de noviembre de 2026.
+- Autorización y dependencia: el usuario aprobó H00 y pidió «vamos por el 01 entonces» en este chat. No hay correcciones abiertas del usuario.
+- Tareas completadas: **H01-T01 a H01-T17**. Ninguna tarea de H02 o posterior iniciada.
+- Entrega: arena provisional ProBuilder con suelo, muro, portón y marco; cuatro prefabs distinguibles, anclajes y sockets; cámara fija; identidades, equipos, vida/maná y eventos; daño/curación; turnos secuenciales provisionales; básicos, Golpe pesado, tres Pociones compartidas; enemigos básicos, muerte, victoria/derrota, pausa y reinicio limpio.
+- Decisión provisional: orden Guerrero → Maga → Ogro → Chamán, omitiendo muertos. Impacto a 0,35 s y cierre a 0,85 s de presentación; pausa congela ambos. H02 reemplaza el orden por ATB y añade recuperación/datos configurables. Se conservan estadísticas y fórmulas del GDD, sin ajustes de balance.
+- Archivos principales: `Assets/Scenes/Combat.unity`, `Assets/Scripts/Combat/CombatSession.cs`, `CombatPrototype.cs`, `CombatantView.cs`, `Assets/Prefabs/H01/*`, `Assets/Materials/H01/*`, `Assets/Scripts/Editor/CombatPrototypeSetup.cs`, `Assets/Tests/PlayMode/CombatRulesTests.cs` y `CombatFlowTests.cs`. La utilidad de H01 es explícita y reemplaza solo Combat; no ejecutarla después de editar escenas de hitos posteriores.
+- Comprobaciones automáticas: **17/17 PlayMode**, 0 fallidas, 65,31 s. Verificados daño 22/44, límites, objetivos, gasto e impacto únicos, cancelación, pausa antes/después de impacto, supervivientes, resultados y reinicios. Incluye regresión del flujo de H00. [Resultados](Evidence/H01/playmode-results.json).
+- Peleas: victoria desde encuentro normal con teclado virtual (29 acciones) y Gamepad virtual (27 acciones); derrota preparada con ambos aliados a 1 de vida; reinicio después de ambos resultados. Estas muestras verifican flujo, no el balance final ni hardware físico.
+- Comprobación visual: arena a 1280 × 720 y 1920 × 1080 offscreen, selección de objetivo, pausa, victoria y derrota; cuatro participantes completos y texto sin recortes. Captura del player a 720p inspeccionada. [Evidencia](Evidence/H01/).
+- Build de revisión: `Builds/H01/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **157,01 MB**, **0 errores y 5 advertencias** (shader de Unity Core y conexión de MCP). [Resumen](Evidence/H01/build-summary.json).
+- Ejecutable real: regresión `-foundation-smoke` aprobada, MainMenu → Combat → pausa → MainMenu → Salir, con teclado/control virtual, ventana 1280 × 720 y código 0. El recorrido del player no incluye una pelea completa. [Resultado](Evidence/H01/player-result-1280x720.json).
+- Corrección interna resuelta: H01-C01, rearme de confirmación después de una acción. Primera pasada 15/17, corregida y sustituida por pasada final 17/17; no hay correcciones abiertas. Métodos y límites en [TEST_REPORT.md](TEST_REPORT.md) y [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
+- Pendientes de comprobación posterior: control físico, monitor nativo 1080p y estabilidad prolongada de los avisos de render/red al cerrar la prueba oculta. No se presentan como pruebas realizadas. Recursos finales y sistemas posteriores siguen pendientes en sus propios hitos.
+- Cómo revisarlo: ejecutar la build de H01 o MainMenu en Unity; jugar con flechas/Enter o cruceta/stick/botón inferior; cancelar un objetivo sin gasto; Golpe pesado contra el ogro (44 por 8 de maná), Poción sobre herido (hasta 50), pausa y reinicio, victoria y reinicio desde resultado. README incluye controles y pasos.
+- Revisión del usuario: **aprobada**. Evidencia: mensaje del 21 de noviembre de 2026: «Bien. Te doy como el h01 aprobado». No se solicitaron correcciones ni se inició H02.
+- Próximo hito en orden: **H02**, identificación solamente; **no iniciado**.
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
 ```markdown
@@ -643,29 +663,29 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Escena provisional
 
-- [ ] **H01-T01. Construir el blockout.** Crear suelo, muro y portón con geometría simple. Reservar espacio para personajes, UI y el acercamiento de la habilidad especial.
-- [ ] **H01-T02. Definir anclajes de combate.** Colocar posiciones del guerrero, maga, ogro y chamán, orientación hacia el rival y puntos de salida de proyectiles y recepción de efectos.
-- [ ] **H01-T03. Configurar cámara base.** Encuadrar los cuatro participantes con margen para HUD; guardar su posición y rotación de referencia.
-- [ ] **H01-T04. Crear prefabs provisionales.** Usar cuatro volúmenes 3D distinguibles, nombres visibles y referencias a sus anclajes; no usar estos placeholders como arte final.
+- [x] **H01-T01. Construir el blockout.** Crear suelo, muro y portón con geometría simple. Reservar espacio para personajes, UI y el acercamiento de la habilidad especial.
+- [x] **H01-T02. Definir anclajes de combate.** Colocar posiciones del guerrero, maga, ogro y chamán, orientación hacia el rival y puntos de salida de proyectiles y recepción de efectos.
+- [x] **H01-T03. Configurar cámara base.** Encuadrar los cuatro participantes con margen para HUD; guardar su posición y rotación de referencia.
+- [x] **H01-T04. Crear prefabs provisionales.** Usar cuatro volúmenes 3D distinguibles, nombres visibles y referencias a sus anclajes; no usar estos placeholders como arte final.
 
 #### Programación del núcleo
 
-- [ ] **H01-T05. Implementar equipos e identidad.** Crear identificadores estables de combatiente y equipo; separar aliado y enemigo de su posición visual.
-- [ ] **H01-T06. Implementar estado de combatiente.** Guardar vida, maná, vivo o muerto y referencias de datos. Aplicar límites de recursos y exponer eventos de cambio.
-- [ ] **H01-T07. Implementar daño y curación.** Usar la fórmula y el redondeo del GDD. Verificar 22 y 44 de daño del guerrero contra el ogro con básico y golpe pesado.
-- [ ] **H01-T08. Implementar objetivos válidos.** Resolver un enemigo vivo, un aliado vivo y todos los enemigos vivos; excluir muertos y aliados de ataques ofensivos.
-- [ ] **H01-T09. Crear acciones secuenciales provisionales.** Permitir una sola acción en ejecución y un orden temporal simple que luego será sustituido por ATB.
-- [ ] **H01-T10. Implementar ataque básico y una habilidad.** Permitir confirmar un ataque y Golpe pesado, validar maná y aplicar sus efectos una sola vez.
-- [ ] **H01-T11. Implementar consumible mínimo.** Añadir una Poción compartida que recupere vida, reduzca existencias y no se confirme sobre vida completa.
-- [ ] **H01-T12. Implementar enemigo básico.** Permitir que cada enemigo elija un aliado vivo y lo ataque, sin bloquear la pelea por falta de objetivos.
-- [ ] **H01-T13. Implementar muerte y resultado.** Retirar a los muertos del flujo, detectar victoria y derrota y evitar acciones posteriores al resultado.
-- [ ] **H01-T14. Implementar reinicio limpio.** Restaurar participantes, recursos e inventario sin recargar valores alterados de la pelea anterior.
+- [x] **H01-T05. Implementar equipos e identidad.** Crear identificadores estables de combatiente y equipo; separar aliado y enemigo de su posición visual.
+- [x] **H01-T06. Implementar estado de combatiente.** Guardar vida, maná, vivo o muerto y referencias de datos. Aplicar límites de recursos y exponer eventos de cambio.
+- [x] **H01-T07. Implementar daño y curación.** Usar la fórmula y el redondeo del GDD. Verificar 22 y 44 de daño del guerrero contra el ogro con básico y golpe pesado.
+- [x] **H01-T08. Implementar objetivos válidos.** Resolver un enemigo vivo, un aliado vivo y todos los enemigos vivos; excluir muertos y aliados de ataques ofensivos.
+- [x] **H01-T09. Crear acciones secuenciales provisionales.** Permitir una sola acción en ejecución y un orden temporal simple que luego será sustituido por ATB.
+- [x] **H01-T10. Implementar ataque básico y una habilidad.** Permitir confirmar un ataque y Golpe pesado, validar maná y aplicar sus efectos una sola vez.
+- [x] **H01-T11. Implementar consumible mínimo.** Añadir una Poción compartida que recupere vida, reduzca existencias y no se confirme sobre vida completa.
+- [x] **H01-T12. Implementar enemigo básico.** Permitir que cada enemigo elija un aliado vivo y lo ataque, sin bloquear la pelea por falta de objetivos.
+- [x] **H01-T13. Implementar muerte y resultado.** Retirar a los muertos del flujo, detectar victoria y derrota y evitar acciones posteriores al resultado.
+- [x] **H01-T14. Implementar reinicio limpio.** Restaurar participantes, recursos e inventario sin recargar valores alterados de la pelea anterior.
 
 #### UI provisional y comprobación
 
-- [ ] **H01-T15. Mostrar estado y comandos.** Presentar nombres, vida, maná y acciones con texto funcional, además de un indicador de turno y objetivo.
-- [ ] **H01-T16. Añadir navegación y cancelación.** Seleccionar acciones y objetivos con teclado y control. Cancelar no gasta recursos ni termina el turno.
-- [ ] **H01-T17. Completar una pelea en ambos sentidos.** Registrar una victoria y una derrota, abrir el resultado y reiniciar. Confirmar que solo hay una acción a la vez.
+- [x] **H01-T15. Mostrar estado y comandos.** Presentar nombres, vida, maná y acciones con texto funcional, además de un indicador de turno y objetivo.
+- [x] **H01-T16. Añadir navegación y cancelación.** Seleccionar acciones y objetivos con teclado y control. Cancelar no gasta recursos ni termina el turno.
+- [x] **H01-T17. Completar una pelea en ambos sentidos.** Registrar una victoria y una derrota, abrir el resultado y reiniciar. Confirmar que solo hay una acción a la vez.
 
 #### Criterios para cerrar el hito
 
@@ -1191,5 +1211,3 @@ Aplicar rapidez sobre el propio usuario y corrosión sobre un enemigo, contar ex
 Reiniciar en medio del combate y después de ambos resultados. Confirmar que no quedan barras, inventario, estados, cámara ni recursos del intento anterior. Probar la interfaz en las dos resoluciones previstas y comprobar que el juego compilado también cierra desde Salir.
 
 La versión está lista cuando completa estas comprobaciones, permite entender cada acción antes de confirmarla y conserva un alcance de una sola pelea. El trabajo posterior se centra en ajustar los valores con pruebas, manteniendo las reglas documentadas.
-
-

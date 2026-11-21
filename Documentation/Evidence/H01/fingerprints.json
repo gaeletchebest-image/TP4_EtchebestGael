@@ -1,0 +1,207 @@
+{
+  "version": "0.0.2-H01",
+  "date": "2026-11-21",
+  "baseCommit": "c843243",
+  "status": "Local changes; no H01 commit created",
+  "files": [
+    {
+      "path": "Builds/H01/UltimaGuardia.exe",
+      "sha256": "e3852a92c8d4350b2595c7086432a3350e25d7141fd6097bcc47d5f2d368a522"
+    },
+    {
+      "path": "Builds/H01/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.dll",
+      "sha256": "ab72732bbf3707408b8af02216beb7a0ea3fd05820761c07226c4a39e4d0e5fb"
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity",
+      "sha256": "ae4df99210668a594e4c10ba34d5d8b390a84d2818d7b4bcd70cae2cd00e0014"
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity",
+      "sha256": "5cbbe07e34337635e31af3afdb86e56afa6930531d46cd7611d86e9ce84101a7"
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions",
+      "sha256": "e0af755702547e692ce5bac79ef0fd47421b5b051e46e21876034b49d9006f75"
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs",
+      "sha256": "bb1578e77f200feda61178148bd48d6a04b98580718196ac76ea9269804bdb32"
+    },
+    {
+      "path": "Assets/Scripts/Editor/UltimaGuardia.Editor.asmdef",
+      "sha256": "ca14ace546a27cea455bc6f88f2a586d1c9360e52fef548495164e8f318cacef"
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs",
+      "sha256": "96e9b45b01451c19e34289931ab5079a9f4d43d243849077a79fa390d51318cb"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs",
+      "sha256": "750b504130ed98560010baaf4f764b521ad8d78f8d268f13b1e8f8b91978d1e6"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs",
+      "sha256": "208cd6495fbdfbf0c3f959941c6feaa79b338b2ac5d274c8aba73fb52973ebe7"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs",
+      "sha256": "079920dc0f3228c36c9506b7c173212ac26e6c9dd63b4ee9a2e80ef6d842112a"
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "a717ed4b946e370ce6e6af9dd000b8acf89495b44c84bf8f768159924cfa66c3"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "a1035d02755baf10893191c1b919f5d30e913e0d6f585633eebeea45a53da789"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4b0815d694fa4ee0eb6bf0955aa2c1d014c04d6850b0e9946393331bc3781b02"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "0d3bbe23c73678700370443e84eb5ff196d889b17d0e6eee94eda3aa424d2fc9"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c0b4af2e4c7f16499e89a69359e8a83280227f8f5ad838df7c5a12cd7fe51150",
+      "deliverySha256": "fcf2567cf8b20af8384a9806d79bd69c3df43aa298547772de1c5fa3f7c5a700"
+    },
+    {
+      "path": "Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md",
+      "sha256": "882f5e2e1b6ff28f14ebb0ca4ff42142d1bbdc04855a6f306ac734cf752b3db7",
+      "deliverySha256": "2921f280b20cdb5e738cedf891a76fa8c7a856caeecec2989e0020b83faaf150"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs",
+      "sha256": "0ee26b1b9877cb7bed0485d09125a03f956678169943a5014da84a21b6472718"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs.meta",
+      "sha256": "67e79423fbe47862056e954e03b3cdaa7b2c515e90738f17cf0c7d82d2c2ffed"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs",
+      "sha256": "2e1c8a6cbe71d135ab8c3f9cfd6aa7b868d604bd10149d4bc93f42bcf63a2f7b"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs.meta",
+      "sha256": "7a62409e7c3ffcd835c54ea028de674b073bb61628447c0c5da122cf8c32d56c"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs",
+      "sha256": "f15c98fd1ce745067b1329bd703c150769973fd400f523f221e9b3fa3c938c17"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs.meta",
+      "sha256": "830c759d3472d0c77f869688d98249a2754891caadd2e81e43025eaa3eaf305f"
+    },
+    {
+      "path": "Assets/Prefabs/H01/mage.prefab",
+      "sha256": "93ed0177170f6802cb5befd4ba223006514681a736c95b7391ede5fd1fc0f47c"
+    },
+    {
+      "path": "Assets/Prefabs/H01/mage.prefab.meta",
+      "sha256": "7d1f1d2c1dc2f98a581756af70f98bd8369e6d5fd5a4b9a786e9fab75f28d3be"
+    },
+    {
+      "path": "Assets/Prefabs/H01/ogre.prefab",
+      "sha256": "512e7bf4af6b5df35ec89c8bae934313218ea3f2aa739e46fe3f59a4cdd55d6e"
+    },
+    {
+      "path": "Assets/Prefabs/H01/ogre.prefab.meta",
+      "sha256": "dcf4c9a49dfda559cbfed8a7ee5076328377a4b69737d9f40fcf98b7648ec0cb"
+    },
+    {
+      "path": "Assets/Prefabs/H01/shaman.prefab",
+      "sha256": "97e493cae432ecff46d5390c2c43f4ae6e0528f447151043cd4e8d25df2ff423"
+    },
+    {
+      "path": "Assets/Prefabs/H01/shaman.prefab.meta",
+      "sha256": "ab37454633bc35b1e90bebcdadfc23e2d2d036ef6fa5731ef383867e95861e36"
+    },
+    {
+      "path": "Assets/Prefabs/H01/warrior.prefab",
+      "sha256": "9e0c3b4edb58a6fbfed3530ffb7bf73f7f359f5cd894a4c54ae9d29f0a7f20c1"
+    },
+    {
+      "path": "Assets/Prefabs/H01/warrior.prefab.meta",
+      "sha256": "fe6f05a688f4c2c97b59ccad82afc68cf386b486eb0ecef666b700143772a892"
+    },
+    {
+      "path": "Assets/Materials/H01/ActorMarker.mat",
+      "sha256": "8021a334dc3d195b454f776752a100086f767f29fa0bb7f5744f6b4e96d509f9"
+    },
+    {
+      "path": "Assets/Materials/H01/ActorMarker.mat.meta",
+      "sha256": "757e98a62ee524af596d6b6b6adca57d6fa2ea23f7463c004fef9a35696133b0"
+    },
+    {
+      "path": "Assets/Materials/H01/Floor.mat",
+      "sha256": "f089b33cf0fac602abc9166d7c5a4389e636340e4994756f03aa908b90965534"
+    },
+    {
+      "path": "Assets/Materials/H01/Floor.mat.meta",
+      "sha256": "0863c2090b5a18a1bce894462224fa7248d33651d6472645ad9c99aa000134f9"
+    },
+    {
+      "path": "Assets/Materials/H01/Gate.mat",
+      "sha256": "9457e7cb32a56fa1ec8aace01743bc47da86354790477605a7b7f507fad5193d"
+    },
+    {
+      "path": "Assets/Materials/H01/Gate.mat.meta",
+      "sha256": "ce9d3d2cd2811076679b0751bc99d9f32b8a58a713c205f35b30f9fd00734d20"
+    },
+    {
+      "path": "Assets/Materials/H01/mage.mat",
+      "sha256": "2b4b69c43182b5b504cb1e907392bb92227e005f4e4cff70234d522d0e8eca2a"
+    },
+    {
+      "path": "Assets/Materials/H01/mage.mat.meta",
+      "sha256": "6918bf4d74f1b6d5e1a6a21da6d305c8d7eb85d2f32a97a5e36bffe22ad99511"
+    },
+    {
+      "path": "Assets/Materials/H01/ogre.mat",
+      "sha256": "e9b1e7555a1d17c46d9ff902eeb92316051b3b15a2e2e6b3642e49038fb0648a"
+    },
+    {
+      "path": "Assets/Materials/H01/ogre.mat.meta",
+      "sha256": "275e36c2a348487b4ff393585d87987e354fcdb806e00f71652a2956e2313c3f"
+    },
+    {
+      "path": "Assets/Materials/H01/shaman.mat",
+      "sha256": "0506c9023cf864c348f3d5ff8a9973d6842b831b2f462c6061d3d879e3ed210c"
+    },
+    {
+      "path": "Assets/Materials/H01/shaman.mat.meta",
+      "sha256": "ccebbf75e2b9f1a890848eca60a138ee9aaeb0f3d4cd4de55d206c5b56e391cc"
+    },
+    {
+      "path": "Assets/Materials/H01/Stone.mat",
+      "sha256": "efd61d5fe3200b878e913db5c7d2bb6a9e0f933156918c8b9eee3db81b086a3d"
+    },
+    {
+      "path": "Assets/Materials/H01/Stone.mat.meta",
+      "sha256": "0045e214d35c1e55d691bb49704435224c7dfc2867efa35db7c1906ee6d37258"
+    },
+    {
+      "path": "Assets/Materials/H01/TargetMarker.mat",
+      "sha256": "1847e1494cc0c1fc2427c6db6eae6183ded1af625d4436a9a61b5cdde6214128"
+    },
+    {
+      "path": "Assets/Materials/H01/TargetMarker.mat.meta",
+      "sha256": "b7f4500ace6327d5bab51b9a5bb2c10169e7bbf109a06a1a8407c1b6f864724d"
+    },
+    {
+      "path": "Assets/Materials/H01/warrior.mat",
+      "sha256": "2d0f07ad1401d410c615a7a01e91e8f7ba4b3be08b78eddf85dc956724b0a478"
+    },
+    {
+      "path": "Assets/Materials/H01/warrior.mat.meta",
+      "sha256": "b9639471bd84dd2d4eae80552aa04d5b37d5998ba3db204fbf85bd3a0a6211e4"
+    }
+  ],
+  "documentationRevision": "H01 approved by the user on 2026-11-21. README and GDD hashes updated; deliverySha256 preserves original delivery document hashes. Code, build and test evidence unchanged."
+}
