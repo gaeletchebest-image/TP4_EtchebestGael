@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 y H01 aprobados por el usuario. H02 a H13 pendientes.
+> Estado: H00, H01 y H02 aprobados por el usuario. H03 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -123,7 +123,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 
 - [x] **H00. Preparación del proyecto y control del alcance.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H01. Arena provisional y combate básico terminable.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H02. Datos configurables, ATB y recuperación.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H02. Datos configurables, ATB y recuperación.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H04. Veneno, rapidez y corrosión.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -178,6 +178,27 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Cómo revisarlo: ejecutar la build de H01 o MainMenu en Unity; jugar con flechas/Enter o cruceta/stick/botón inferior; cancelar un objetivo sin gasto; Golpe pesado contra el ogro (44 por 8 de maná), Poción sobre herido (hasta 50), pausa y reinicio, victoria y reinicio desde resultado. README incluye controles y pasos.
 - Revisión del usuario: **aprobada**. Evidencia: mensaje del 21 de noviembre de 2026: «Bien. Te doy como el h01 aprobado». No se solicitaron correcciones ni se inició H02.
 - Próximo hito en orden: **H02**, identificación solamente; **no iniciado**.
+#### Registro H02
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026.
+- Versión: **0.0.3-H02** (PlayerSettings 0.0.3), cambios locales sobre commit real `0333b21` (H01). Sin commit nuevo de entrega. [Huellas SHA-256](Evidence/H02/fingerprints.json).
+- Última actualización: 21 de noviembre de 2026.
+- Autorización: H00/H01 estaban aprobados, sin correcciones abiertas. Tras leer y explicar H02 en este chat, el usuario pidió «Bien. Entonces hacelo».
+- Tareas completadas: **H02-T01 a H02-T14**. Ninguna tarea H03 o posterior iniciada.
+- Entrega: 18 ScriptableObjects de configuración; validación de datos; snapshots y estado mutable independientes por intento; ATB individual, reloj activo, recuperación con sobrante, cola por cruce/velocidad/desempate, eliminación de muertos, barras y mensajes provisionales integrados en Combat.
+- Datos: `Assets/Data/H02/Resources/Encounters/`. Cuatro combatientes, cinco acciones existentes de H01, cinco objetos, tres efectos y un encuentro. Básicos, Golpe pesado y Poción conservan su ejecución; los demás objetos y efectos solo tienen datos preparados para H03/H04. No se agregan habilidades ni IA completas antes de sus hitos.
+- Archivos principales: `Assets/Scripts/Combat/{CombatantData,ActionData,ItemData,EffectData,EncounterData,CombatSession,CombatPrototype}.cs`, `Assets/Scripts/Editor/AtbSetup.cs`, `Assets/Scenes/Combat.unity` y pruebas PlayMode. MainMenu, geometría y prefabs de H01 conservados. La utilidad explícita H02 integra sobre Combat sin regenerar la arena y conserva datos ya creados.
+- Reglas temporales verificadas: llenado en 5 s a velocidad 20 y 100/28 s a velocidad 28; recuperación 0,6/2,2/0,8 s para básicos/pesado/Poción; congelación durante decisión, ejecución, pausa y resultado. La cola se vacía antes de reanudar el reloj y omite muertos. No se ajustaron estadísticas ni balance.
+- Comprobaciones automáticas: **27/27 PlayMode**, 0 fallidas, 76,7128748 s; incluye regresiones H00/H01, datos configurables, validación, gasto/impacto únicos, cola, tiempos, pausa, victoria/derrota y reinicios. Tras corregir la superposición de barras con pausa, **4/4 pruebas de flujo** adicionales, 68,7754229 s. [Informe y métodos](TEST_REPORT.md), [suite](Evidence/H02/playmode-results.json), [regresión visual/flujo](Evidence/H02/flow-after-ui-fix.json).
+- Peleas: teclado virtual desde encuentro base, victoria en 26 acciones; control virtual con una herida preparada de 1 de vida para probar cancelación de Poción, victoria en 23 acciones. Derrota con ambos aliados preparados a 1 de vida. Tiempo de juego acelerado a ×4 solo en las peleas automatizadas. Estas muestras verifican flujo, no balance ni hardware real.
+- Comprobación visual: arena y recuperación a 1280 × 720 y 1920 × 1080 mediante RenderTexture; avance, selección, pausa, victoria y derrota. Inspección adicional de Combat y pausa del player a 720p. [Capturas](Evidence/H02/). No acredita monitor físico 1080p.
+- Build final: `Builds/H02/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **157,04 MB**, 22,5173845 s, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core. Job `build-76cf7166d7`. [Resumen](Evidence/H02/build-summary.json). Una build anterior se sustituyó tras ajustar el orden visual de las barras.
+- Ejecutable real: `-foundation-smoke` aprobado; MainMenu → Combat → pausa → MainMenu → Salir, ventana 1280 × 720, dispositivos virtuales y **código de salida 0**. [Resultado](Evidence/H02/player-result-1280x720.json). No se atribuyen peleas completas a esta prueba del player.
+- Incidencias: H02-C01 resuelto, barras correctamente detrás de pausa/resultado. Se conservan avisos de red y liberación de GraphicsBuffer/ComputeBuffer al cerrar el player oculto con capturas, sin excepción de lógica; seguimiento en [KNOWN_ISSUES.md](KNOWN_ISSUES.md). Configuraciones de entrada a Play y Unity Connect recibidas restauradas después de pruebas/build.
+- Cómo revisarlo: ejecutar la build H02 o MainMenu en Unity. Observar que la maga queda lista primero; esperar en su menú sin que avancen barras; usar básico y después Golpe pesado del guerrero; observar recuperación de 2,2 s, cancelar sin gasto, pausar y reiniciar. Ganar o perder y reiniciar. Inspeccionar los assets y modificar un valor fuera de Play para comprobarlo en el nuevo intento; restaurar el valor al terminar. Detalle en README.
+- Correcciones abiertas del usuario: ninguna. Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Lo doy por aprobado y te pido que me des un nombre en ingles para el commit». No se solicitaron correcciones ni comenzar H03.
+- Próximo hito en orden: **H03**, identificación solamente; **no iniciado en este chat**.
+
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
 ```markdown
@@ -703,23 +724,23 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Datos y estado de ejecución
 
-- [ ] **H02-T01. Crear datos de combatiente.** Definir ScriptableObjects con estadísticas, equipo, prefab, acciones y tipo de IA, usando las tablas del GDD.
-- [ ] **H02-T02. Crear datos de acciones.** Definir costo, potencia o valor fijo, objetivo, recuperación y referencias de presentación. Incluir identificadores únicos.
-- [ ] **H02-T03. Crear datos de ítems y efectos.** Definir valores, duración, iconos y reglas de objetivo sin guardar existencias ni cargas actuales dentro del asset.
-- [ ] **H02-T04. Crear configuración de encuentro.** Referenciar exactamente dos aliados y dos enemigos, sus posiciones e inventario inicial.
-- [ ] **H02-T05. Separar configuración de estado.** Crear copias o instancias de runtime para recursos, barras, recuperaciones, contadores de IA e inventario.
-- [ ] **H02-T06. Validar datos incompletos.** Detectar referencias faltantes, costos negativos, velocidades inválidas e identificadores duplicados con mensajes que permitan corregirlos.
+- [x] **H02-T01. Crear datos de combatiente.** Definir ScriptableObjects con estadísticas, equipo, prefab, acciones y tipo de IA, usando las tablas del GDD.
+- [x] **H02-T02. Crear datos de acciones.** Definir costo, potencia o valor fijo, objetivo, recuperación y referencias de presentación. Incluir identificadores únicos.
+- [x] **H02-T03. Crear datos de ítems y efectos.** Definir valores, duración, iconos y reglas de objetivo sin guardar existencias ni cargas actuales dentro del asset.
+- [x] **H02-T04. Crear configuración de encuentro.** Referenciar exactamente dos aliados y dos enemigos, sus posiciones e inventario inicial.
+- [x] **H02-T05. Separar configuración de estado.** Crear copias o instancias de runtime para recursos, barras, recuperaciones, contadores de IA e inventario.
+- [x] **H02-T06. Validar datos incompletos.** Detectar referencias faltantes, costos negativos, velocidades inválidas e identificadores duplicados con mensajes que permitan corregirlos.
 
 #### ATB y orden
 
-- [ ] **H02-T07. Implementar el reloj activo.** Actualizar ATB y recuperación únicamente durante avance de combate. Menús, ejecución, pausa y resultado no consumen este tiempo.
-- [ ] **H02-T08. Implementar llenado individual.** Usar velocidad efectiva por segundo, rango 0 a 100, y estado Listo al completar la barra.
-- [ ] **H02-T09. Implementar recuperación por acción.** Vaciar ATB después de actuar, consumir recuperación antes del llenado y aprovechar correctamente el sobrante de una actualización.
-- [ ] **H02-T10. Implementar cola de participantes listos.** Calcular el cruce de umbral, ordenar por instante, velocidad efectiva y desempate fijo del GDD. No duplicar entradas.
-- [ ] **H02-T11. Integrar inicio y cierre de turno.** Procesar estado inicial, decisión, confirmación, impacto y cierre en ese orden; vaciar la cola antes de reanudar el reloj.
-- [ ] **H02-T12. Eliminar muertos de la cola.** Invalidar turnos pendientes sin gastar recursos y comprobar resultado antes de procesar otra decisión.
-- [ ] **H02-T13. Mostrar ATB y recuperación.** Añadir barra y estados Llenando, Recuperando y Listo, con recuperación pendiente visible.
-- [ ] **H02-T14. Comprobar tiempos y empates.** Verificar cinco segundos de llenado a velocidad 20 y aproximadamente 3,57 a velocidad 28, sin recuperación. Forzar empates y pausas de decisión.
+- [x] **H02-T07. Implementar el reloj activo.** Actualizar ATB y recuperación únicamente durante avance de combate. Menús, ejecución, pausa y resultado no consumen este tiempo.
+- [x] **H02-T08. Implementar llenado individual.** Usar velocidad efectiva por segundo, rango 0 a 100, y estado Listo al completar la barra.
+- [x] **H02-T09. Implementar recuperación por acción.** Vaciar ATB después de actuar, consumir recuperación antes del llenado y aprovechar correctamente el sobrante de una actualización.
+- [x] **H02-T10. Implementar cola de participantes listos.** Calcular el cruce de umbral, ordenar por instante, velocidad efectiva y desempate fijo del GDD. No duplicar entradas.
+- [x] **H02-T11. Integrar inicio y cierre de turno.** Procesar estado inicial, decisión, confirmación, impacto y cierre en ese orden; vaciar la cola antes de reanudar el reloj.
+- [x] **H02-T12. Eliminar muertos de la cola.** Invalidar turnos pendientes sin gastar recursos y comprobar resultado antes de procesar otra decisión.
+- [x] **H02-T13. Mostrar ATB y recuperación.** Añadir barra y estados Llenando, Recuperando y Listo, con recuperación pendiente visible.
+- [x] **H02-T14. Comprobar tiempos y empates.** Verificar cinco segundos de llenado a velocidad 20 y aproximadamente 3,57 a velocidad 28, sin recuperación. Forzar empates y pausas de decisión.
 
 #### Criterios para cerrar el hito
 

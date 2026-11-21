@@ -15,3 +15,9 @@ Se conservan las estadísticas y fórmulas del GDD: guerrero 160/30, maga 110/45
 Orden provisional: Guerrero → Maga → Ogro → Chamán, omitiendo muertos. Presentación por acción: impacto a 0,35 s y cierre a 0,85 s, congelados por pausa. Estos tiempos no implementan recuperación ni ATB; H02 sustituye el orden temporal.
 
 Las victorias automatizadas de H01 prueban que la pelea puede terminar. Las decisiones automatizadas son casi inmediatas y aún faltan acciones, IA, ATB y presentación finales, por lo que no se usan para evaluar la meta de 3 a 5 minutos. La derrota preparada a 1 de vida solo comprueba el flujo de resultado. El balance de H12 sigue pendiente.
+
+## H02 · ATB y recuperación
+
+Sin ajustes de balance: se trasladan los valores del GDD a assets. Velocidades: guerrero 22, maga 28, ogro 16, chamán 20. Recuperaciones: básicos 0,6 s, Golpe pesado 2,2 s y Poción 0,8 s. Todos comienzan con ATB 0 y sin recuperación. El costo temporal usa únicamente el reloj activo, separado de los 0,35 s hasta impacto y 0,85 s de presentación provisional.
+
+Las pruebas de reglas verificaron 5 s activos a velocidad 20 y 100/28 s a velocidad 28, empates, recuperación y sobrante. Las peleas PlayMode se aceleran a `Time.timeScale = 4` para comprobar flujo con input virtual: no miden duración de experiencia ni hardware. Victoria con teclado: 26 acciones, 0 Pociones restantes. Victoria con control virtual: 23 acciones, 2 Pociones restantes; este segundo recorrido prepara una herida de 1 de vida en el guerrero para comprobar cancelación de Poción antes de jugar. Son muestras de validación, no resultados de balance. H12 mantiene el playtesting y la meta de tres a cinco minutos pendientes.

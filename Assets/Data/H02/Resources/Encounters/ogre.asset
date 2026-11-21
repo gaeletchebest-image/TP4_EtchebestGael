@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff5077e1c3f78b4dab131df6567952e, type: 3}
+  m_Name: ogre
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CombatantData
+  id: ogre
+  displayName: Ogro
+  team: 1
+  maxHealth: 240
+  maxMana: 24
+  attack: 28
+  defense: 6
+  speed: 16
+  prefab: {fileID: 8872934721146487744, guid: 25cf8792a44b5a9428226e7f1aafce79, type: 3}
+  actions:
+  - {fileID: 11400000, guid: 93f7af357302fa14394dbeb4f1d0784b, type: 2}
+  brain: 1

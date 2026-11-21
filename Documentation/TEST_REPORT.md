@@ -86,3 +86,46 @@ Ejecutar `Builds/H01/UltimaGuardia.exe`, elegir Jugar, probar básico/Golpe pesa
 Se ejecutó el player Development oculto con `-foundation-smoke`, resolución solicitada y ventana real **1280 × 720**. [JSON](Evidence/H01/player-result-1280x720.json): `initialScene = MainMenu`, `passed = true`, `exitedThroughMenu = true`. [Código de salida](Evidence/H01/player-exit-code-1280x720.txt): **0**. Se revisó visualmente la [captura de Combat del player](Evidence/H01/player-combat-1280x720.png): geometría y materiales presentes, nombres, recursos y comandos completos.
 
 Esta prueba externa cubre menú, controles, carga de Combat, pausa, regreso al menú y Salir, con dispositivos virtuales. Las peleas completas se verificaron en PlayMode, no se atribuyen al ejecutable. Se conservaron los avisos de red, GraphicsBuffer/ComputeBuffer y asignaciones al apagar el proceso oculto en `Builds/H01/Validation/player-1280x720.log`; no hubo excepción de lógica y la prueba salió con código 0. Al terminar se restauró la configuración de entrada precargada y de entrada a Play recibida, que el Test Runner había modificado temporalmente.
+
+## H02 · 21 de noviembre de 2026
+
+Versión **0.0.3-H02**, cambios locales sobre commit real `0333b21` (H01). Autorización del usuario en este chat: «Bien. Entonces hacelo», después de identificar H02 y sus límites. H00/H01 estaban aprobados y sin correcciones abiertas.
+
+### Reglas, integración y regresión
+
+**27/27 pruebas PlayMode aprobadas**, 0 fallidas, 0 omitidas, **76,7128748 s**. Job `bdd40ada85c74329b4d2904ccb607f6b`. [Resultados completos](Evidence/H02/playmode-results.json).
+
+| Tareas | Procedimiento y resultado observado |
+| --- | --- |
+| H02-T01 a T04 | 18 assets reales integrados: 4 combatientes, 5 acciones de H01, 5 objetos, 3 efectos y encuentro con 2 aliados/2 enemigos, posiciones e inventario inicial. Datos adicionales preparados sin implementar acciones/estados de H03/H04 |
+| H02-T05 | Snapshots por intento y existencias independientes. Reinicios restauran recursos, barras, recuperación, cola, contadores y presentación; los assets conservan su configuración |
+| H02-T06 | Fixture con velocidad NaN, costo negativo, ID de acción duplicado y prefab ausente: mensajes específicos y creación de sesión rechazada. Se validan además cantidades, equipos, básicos gratuitos, posiciones finitas y referencias de efectos |
+| H02-T07/T08/T14 | ATB 0 a 100 por velocidad; velocidad 20 completa en 5 s y velocidad 28 en 100/28 s. Decisión, ejecución, pausa y resultado congelan el reloj. Input mantenido no confirma al quedar lista la maga |
+| H02-T09 | Básico 0,6 s, Golpe pesado 2,2 s, Poción 0,8 s. Fixture: después de consumir 0,5 + 0,4 s, el básico acumula 6 ATB a velocidad 20 y el pesado conserva 1,3 s de recuperación |
+| H02-T10/T11 | Actualización de 7 s calcula los cruces y encola Maga → Guerrero → Chamán → Ogro. Empate total respeta orden fijo; empate entre distintas velocidades prioriza velocidad. Avanzar durante la cola no duplica turnos ni mueve el reloj |
+| H02-T12 | Muerte retira entradas listas y objetivos, conserva un único superviviente válido y detecta el resultado antes de otra decisión |
+| H02-T13 | Barras y estados Llenando/Recuperando/Listo integrados en Combat. Tiempo pendiente visible y descripción de costo/recuperación obtenidos de los datos |
+| Cierre de datos | En copias de los assets cargados: guerrero con vida 200, maga con velocidad 40, ogro con defensa 10, Golpe pesado con costo 5/potencia 2 y Poción de 17 con 4 unidades producen los valores esperados sin cambiar scripts ni assets originales |
+| Regresión H00/H01 | Fórmula 22/44/18, redondeo, límites, objetivos, gasto/impacto únicos, cancelación, falta de maná, Poción compartida, pausa antes/después de impacto, menú, teclado/control virtual y reinicios tras victoria/derrota |
+
+Las peleas se aceleraron a `Time.timeScale = 4`, restaurado al terminar. Teclado virtual: victoria en 26 acciones, 0 Pociones restantes. Control virtual: victoria en 23 acciones, 2 Pociones restantes; se preparó una herida de 1 de vida para habilitar una selección/cancelación de Poción al comienzo. La derrota deja ambos aliados a 1 de vida exclusivamente desde el fixture. No se utilizan estas condiciones para evaluar balance ni duración objetivo.
+
+### Iteraciones y alcance de la evidencia
+
+Una ejecución prematura de 26 pruebas falló porque la llamada de integración había sido rechazada por un parámetro de herramienta faltante y todavía no había encounter asignado. Se integraron los assets y la escena antes de repetir. La siguiente pasada fue 25/26: el test de Poción todavía suponía que después de avanzar el reloj actuaría un aliado; ATB daba correctamente prioridad a enemigos con recuperación más corta. Se corrigió el fixture para respetar la cola. La suite final incorpora además congelación de barras/recuperación y confirmación mantenida hasta estar listo: 27/27.
+
+Las capturas en [Evidence/H02](Evidence/H02/) usan la cámara y Canvas reales sobre RenderTexture, cambiando temporalmente Overlay a ScreenSpaceCamera y restaurándolo después. Se inspeccionaron arena y recuperación a 720p/1080p, avance ATB, selección, pausa, victoria y derrota. Acreditan composición y escalado offscreen; no un monitor físico 1080p. La UI y modelos siguen siendo provisionales.
+
+La inspección detectó H02-C01: las barras nuevas se dibujaban sobre la capa de pausa/resultado. Se corrigió el orden de hermanos del Canvas y se regeneraron e inspeccionaron las capturas. Regresión posterior: **4/4 pruebas de flujo**, 68,7754229 s, job `fb9f4d3c22e94a909d8290e7370530b4`, incluyendo ambas victorias, derrota y reinicios. [Resultado posterior al ajuste visual](Evidence/H02/flow-after-ui-fix.json). No cambió el código runtime ni las reglas respecto de la suite de 27 pruebas.
+
+Control físico, desconexión, arte final, IA completa, estados activos, balance y rendimiento siguen pendientes en sus hitos. No se acreditan por estas pruebas.
+
+### Build y ejecución fuera del editor
+
+Build final `build-76cf7166d7`: Windows x86_64/Mono, Development, `Builds/H02/UltimaGuardia.exe`, **157,04 MB**, **22,5173845 s**, **0 errores / 1 advertencia**. Advertencia: truncamiento implícito del shader `Hidden/Core/DebugOccluder` de Unity Core en d3d11. [Resumen](Evidence/H02/build-summary.json). La primera build (`build-9bde98011b`, 51,2191293 s, mismo tamaño y advertencia) se sustituyó al corregir el orden de las barras bajo pausa/resultado.
+
+Player final ejecutado como proceso oculto con `-foundation-smoke`: [resultado JSON](Evidence/H02/player-result-1280x720.json), `version = 0.0.3-flow`, `initialScene = MainMenu`, `passed = true`, `exitedThroughMenu = true`, [código de salida 0](Evidence/H02/player-exit-code-1280x720.txt). Ventana real 1280 × 720. Se comprobaron navegación, controles, carga de Combat, pausa, regreso al menú y cierre real desde Salir. Se inspeccionaron [Combat](Evidence/H02/player-combat-1280x720.png) y [pausa](Evidence/H02/player-pause-1280x720.png), con materiales y texto completos y barras detrás de la capa de pausa.
+
+Esta prueba del ejecutable utiliza teclado/control virtual y captura offscreen explícita; las peleas completas corresponden a PlayMode. El log conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones al apagar el proceso oculto, como en H00/H01; no hubo excepción de lógica. No se atribuye una causa del juego no demostrada. Log completo en `Builds/H02/Validation/player-1280x720.log`. Ajustes de entrada a Play y Unity Connect alterados por el entorno de pruebas/build se restauraron al valor recibido; se conservan versión de motor, pipeline, paquetes y entrada precargada. [Huellas de la entrega](Evidence/H02/fingerprints.json).
+
+Revisión final del usuario: **H02 aprobado el 21 de noviembre de 2026**, mediante «Bien. Lo doy por aprobado y te pido que me des un nombre en ingles para el commit». Sin correcciones solicitadas; H03 permanece pendiente.

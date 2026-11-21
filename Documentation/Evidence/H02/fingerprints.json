@@ -1,0 +1,499 @@
+{
+  "version": "0.0.3-H02",
+  "baseCommit": "0333b21a8e9ecf236eb4b6903d3a24d9b1a3948e",
+  "buildJob": "build-76cf7166d7",
+  "testJob": "bdd40ada85c74329b4d2904ccb607f6b",
+  "uiRegressionJob": "fb9f4d3c22e94a909d8290e7370530b4",
+  "files": [
+    {
+      "path": "Assets/Data/H02/Resources.meta",
+      "sha256": "251278C0EB714247BF5076976308E348A292BE6D38A231A0F5890B2AF413BC1C",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters.meta",
+      "sha256": "425C728C3DD5F44E7AC47CD646BB9D42D28CDF2C50FEEEAB8B2838226AC232D1",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/antidote.asset",
+      "sha256": "501B64BC134AD8D70EA98CB0201BE901C777237A6E081E834E3CB2588A7DF548",
+      "bytes": 716
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/antidote.asset.meta",
+      "sha256": "27B8FFD05235104DF7DB6218C302F181CCC19FBE9A9ED8E4C5A09EC65493508B",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosion.asset",
+      "sha256": "180AE097564F07AA4AEA682FFE31F59C14AB8955FD28C485324D58CDE0C9B52B",
+      "bytes": 583
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosion.asset.meta",
+      "sha256": "1B477A4A5A5A43798BCA54D50E724A85789365BC2AE60B3F532B3280AD7BE339",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosive_flask.asset",
+      "sha256": "570529BBDA1ABC3574E7346E30D67E331F12C1C7F5F5C3FBD5A03CB4281F9C42",
+      "bytes": 733
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosive_flask.asset.meta",
+      "sha256": "1408D1614C6B49D70B421FC10D9FC8E426C3777089E0FC2BA93358BA85C0EE93",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ether.asset",
+      "sha256": "0B821E9894F77F20A65D47BF25C1A827F5ED26282D2B6A1205BD14FC0BF3B60A",
+      "bytes": 651
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ether.asset.meta",
+      "sha256": "BA3CF56F20B72B6BA8036A27885CCD9AD1A5655CBB446E69EC934CC771167DB6",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste_tonic.asset",
+      "sha256": "FCBEDC233681D3E68D03F41DDEEBC6B220EE01E1B38388CF23A8256471C19FBB",
+      "bytes": 731
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste_tonic.asset.meta",
+      "sha256": "05A61145578EC21EF3061C22EF9FDF45BB62EE73484AA27E123684EB2BC32781",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste.asset",
+      "sha256": "5EE9C90D4CEF21C31FBF9A1C198E7A8C6284A511F73E9002B2F61ED16AAF1471",
+      "bytes": 568
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste.asset.meta",
+      "sha256": "E4DB3D335BBAD927E72CA5B05626D120B1BCD57A28C651FEC3C8759D3FB3FF5F",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset",
+      "sha256": "83394D762B6032500E4A31EE795B82D2B4F787E55E10A627ACECF3756D1A4E71",
+      "bytes": 762
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset.meta",
+      "sha256": "FF03A978A0B722212E96058F31279660D02EF797B7DDE46725A430F143422F0A",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset",
+      "sha256": "7CCB7B1D03F049A7A8AEF5913159BDBAD743019CE791064C2BFCC885A14D82C2",
+      "bytes": 765
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset.meta",
+      "sha256": "2884EF4C74D9F200240DCC51A5ABEE1133BFC96EC9E3392EBE19AF1492BB069A",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage.asset",
+      "sha256": "750600C5E62BF2A5C7A8E310C68D528889F6FF740113293B5BD732246472BC59",
+      "bytes": 736
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage.asset.meta",
+      "sha256": "1B7065CA677AD404B07747E877B99DE9B89FEA237CCD1FF6F1B057C2B1DC757F",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/MainEncounter.asset",
+      "sha256": "9895F763A9AD25C4A3E576EA633F85C44159B82962E6C87C508A972095C6A61B",
+      "bytes": 1590
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/MainEncounter.asset.meta",
+      "sha256": "ABCBBCA5D60AD003F066DD5FBC581D6CD3CDCB2A5293F112BE928945B37285E4",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset",
+      "sha256": "DF201DE96DF12950B15C5F2CC5C087FE682B394514E29DFA034D6F8C7AF515B4",
+      "bytes": 749
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset.meta",
+      "sha256": "98E933E0D55B10B002CCCDFE350FB2FD20928E4579398E9BE445E1DC2415448F",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre.asset",
+      "sha256": "CCEFADFA854AE55585F878485F6A7B479DA4697AFBD8B7741EF3D8CF5B4A6BCF",
+      "bytes": 736
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre.asset.meta",
+      "sha256": "6E29A73806523EE0FA569773370DD5AAD9886C48D8AD669FC44552A160099F17",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison.asset",
+      "sha256": "2480C61DE0A550C24EF666EC3B7348AECA16C4656A7E900634EAC5E8B873A2DC",
+      "bytes": 567
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison.asset.meta",
+      "sha256": "A0D38456E8B658037210217BC895A2C2AB83A6D10DE97F8F18E3949EE319BF24",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/potion.asset",
+      "sha256": "B73A7DB59490388C896861C072FDB617CAC3E67E1CFF57873C1CE4C6FDBF3703",
+      "bytes": 623
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/potion.asset.meta",
+      "sha256": "F396B33461F73C345A895178FAA077CBD74008F7BBEA278C3B5519CAC7BC3F75",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset",
+      "sha256": "75C6EF6A55C274BF463DB0EE4ACF0CC9B6B5EC21569C3E4E6B389CCE57E14A25",
+      "bytes": 756
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset.meta",
+      "sha256": "9D3B3169DC75F007BD510FB5BE8134782C6F717815B5722B34DC89C8D5FDD049",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman.asset",
+      "sha256": "B0343DA2E5927A2DB911E29B090DC1023E416943E4760FB7742E8BEC407B5897",
+      "bytes": 747
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman.asset.meta",
+      "sha256": "9F15DB6E67CED68D4F30B455EF95482E280CFCE7B8A2C90C6A27581A74A3F06B",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset",
+      "sha256": "6B56E283F6B8E59870289B67894649F696D757686F053970707105B3219B9F0F",
+      "bytes": 768
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset.meta",
+      "sha256": "932EBC7B04266741F0698908027F213A7ABC72F7965859D8A0C724A079DEF8E2",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior.asset",
+      "sha256": "88DFB899CF37D6BB699B7E008B2FB9A2962FC04E9886AB299DED50EB9B06D291",
+      "bytes": 818
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior.asset.meta",
+      "sha256": "2DBA0945D8712DE3461341F5C998FA954D8D1E4C4363BC7FB695DC1240CB74DD",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions",
+      "sha256": "E0AF755702547E692CE5BAC79EF0FD47421B5B051E46E21876034B49D9006F75",
+      "bytes": 5833
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions.meta",
+      "sha256": "C1FC28AA70EDFF45D44F95743EE41ECE416B223E83ACB899482A9DEBB75777A2",
+      "bytes": 376
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity",
+      "sha256": "B145EF36B6290A415EF5C50854486A3C8D1CA8DB126D077B2F698DA961A38929",
+      "bytes": 181361
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity.meta",
+      "sha256": "5308F142958731A9C1F34350276D0F5E0B610A0A3301236CD9B7191CD9E6D7E6",
+      "bytes": 155
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity",
+      "sha256": "5CBBE07E34337635E31AF3AFDB86E56AFA6930531D46CD7611D86E9CE84101A7",
+      "bytes": 70528
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity.meta",
+      "sha256": "F00240954570685CF24AEC19EDCD8FE98BF5BE7F5CAD151C1173E0200DCA4A9F",
+      "bytes": 155
+    },
+    {
+      "path": "Assets/Scripts/Combat.meta",
+      "sha256": "E02B6D26A6043C2183E217D4B52518318A84334547EFCEE68B6B59B756B2E029",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/Combat/ActionData.cs",
+      "sha256": "EC914F3DB0CBDFC01764957D655E4E5FF42E0C769E194AF91937D3C9E959072A",
+      "bytes": 734
+    },
+    {
+      "path": "Assets/Scripts/Combat/ActionData.cs.meta",
+      "sha256": "00493E1D20158E7AEF545ADBC591F57555A2DD9494425C5394EC392D882086B8",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantData.cs",
+      "sha256": "297BFA72E3EC6C300FA3EA0E50C8604E1C24042EB7E720148D30979CD58A7208",
+      "bytes": 532
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantData.cs.meta",
+      "sha256": "410980E0BC34D97596EF81509C0170D8BF77D1CFFA95750D2B111EC544A763FB",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs",
+      "sha256": "0EE26B1B9877CB7BED0485D09125A03F956678169943A5014DA84A21B6472718",
+      "bytes": 1320
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs.meta",
+      "sha256": "67E79423FBE47862056E954E03B3CDAA7B2C515E90738F17CF0C7D82D2C2FFED",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs",
+      "sha256": "B2C350761D98BFCE10EB25415800FC8FA63181576A414A8CB75D2EA6F9B4C96E",
+      "bytes": 14814
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs.meta",
+      "sha256": "7A62409E7C3FFCD835C54EA028DE674B073BB61628447C0C5DA122CF8C32D56C",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs",
+      "sha256": "66CBD7C2AAAF072C7759FA47E1841CA303ACDD3AA5260115355F2844248BFA9C",
+      "bytes": 15969
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs.meta",
+      "sha256": "830C759D3472D0C77F869688D98249A2754891CAADD2E81E43025EAA3EAF305F",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/EffectData.cs",
+      "sha256": "0D26BC70B8A14F39E3068960DC3AAB7604DB516B4F2D3CEF94FBD6F8C9207748",
+      "bytes": 504
+    },
+    {
+      "path": "Assets/Scripts/Combat/EffectData.cs.meta",
+      "sha256": "B05474B7DAD4F7C6040F08C3F29B20C22A062F8023A862491C1E0F6F3EF7AA37",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/EncounterData.cs",
+      "sha256": "8D4AFD6876112E1EC33CE973EB14BF1ACB34D2F7905ECD864020C7FCF157D8E4",
+      "bytes": 6952
+    },
+    {
+      "path": "Assets/Scripts/Combat/EncounterData.cs.meta",
+      "sha256": "BB0C2CBC778EA62A7BEC4506706F76387F87EBB0D7FEB72238B8BA324A5DE4D2",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/ItemData.cs",
+      "sha256": "9FDB53AC239FA918E1D2ED8884FC3DCDAF98EFC98CCC34FB4647969DD3404C8D",
+      "bytes": 538
+    },
+    {
+      "path": "Assets/Scripts/Combat/ItemData.cs.meta",
+      "sha256": "D5A073AB62A5024273248A3ED11121D2ED0E411AF9C449CAC54E6E884B03D8E0",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Core.meta",
+      "sha256": "708811BFD74CFC407CE200D689D2B5C3E42F8B755FB0BCBA61C7479BF0D3D5FE",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationMenu.cs",
+      "sha256": "7D7C9E545C47B0A4CB39C8A86D433C4AA1AB20D7C52198A5D4DD2FF54134E608",
+      "bytes": 5121
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationMenu.cs.meta",
+      "sha256": "58946413AF221A049D94BF6EC59A9653F38B7D96EF5C06D404A2941434330E12",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs",
+      "sha256": "96E9B45B01451C19E34289931AB5079A9F4D43D243849077A79FA390D51318CB",
+      "bytes": 9668
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs.meta",
+      "sha256": "1BF5AAE09A16E0EAC9F7EC4566B2440B9A6E9206D481F9C35AA81FE9151F94BF",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor.meta",
+      "sha256": "5ABB99EBBAD2F5EE50A7F802CDE640B0E637AE1EEBEFD06D36D47172D225B72B",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/Editor/AtbSetup.cs",
+      "sha256": "ACC66AAE16D2BAA6A42CB45CFD6EFC6F970015A5B2FFD0B421E1178A5AFC2983",
+      "bytes": 8155
+    },
+    {
+      "path": "Assets/Scripts/Editor/AtbSetup.cs.meta",
+      "sha256": "FD9356843748B9153F077088982482D2F13D5500C0FB9D5BB87F4C8D9013D327",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs",
+      "sha256": "BB1578E77F200FEDA61178148BD48D6A04B98580718196AC76EA9269804BDB32",
+      "bytes": 11786
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs.meta",
+      "sha256": "CC6D56783DCF2EFE7B5923D40E236F0B65B42E53ADFB51ED5C38031B19731FF4",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/FoundationSetup.cs",
+      "sha256": "5AFEEDFD76D7D2466E113CAB1EFE51144B026563551ECEAEE012F2682A89E2F4",
+      "bytes": 8759
+    },
+    {
+      "path": "Assets/Scripts/Editor/FoundationSetup.cs.meta",
+      "sha256": "A66544F2DCAFD1EBBA05B5421694A920DCD5F33F83D80B6672B76C0BDC78B3E6",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/UltimaGuardia.Editor.asmdef",
+      "sha256": "CA14ACE546A27CEA455BC6F88F2A586D1C9360E52FEF548495164E8F318CACEF",
+      "bytes": 212
+    },
+    {
+      "path": "Assets/Scripts/Editor/UltimaGuardia.Editor.asmdef.meta",
+      "sha256": "2A21C1534E4C9E8AC0B305C1CB56AEDBF63522456FF18F80A9CBB7DC16ED2C04",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/Scripts/UltimaGuardia.Runtime.asmdef",
+      "sha256": "6D16D518E8CF527D236166C9F0D7C4AA0CA699FCD007FBEB211170C8A25F2E6B",
+      "bytes": 127
+    },
+    {
+      "path": "Assets/Scripts/UltimaGuardia.Runtime.asmdef.meta",
+      "sha256": "7FE9B2FBA23916329D31819C96085152D077338347B14F4F0ED16CAC63206354",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/Tests/PlayMode.meta",
+      "sha256": "81F22A2BDCFE59627F10B546A911FFD599757166A4927A7169FD24E79FE5A886",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs",
+      "sha256": "60050B3D29956BFAC7BD0199DA7028314095A09FACF7F19F939B04078C23F205",
+      "bytes": 15245
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs.meta",
+      "sha256": "362E914FBF4F1376E2B1EC601331432932D37BAA8AF632676045AA00C27D9A1F",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs",
+      "sha256": "C00B15EB2E7F2124FA525B8AF1FE2CD8A4313E0D750CA07703918B764F219D80",
+      "bytes": 13183
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs.meta",
+      "sha256": "AD5241BA9154F18DF6D6ECFA0D10CCBA00641AF14E557D502D00EFB4D6902DCC",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs",
+      "sha256": "3EC11867E16251928A4B2D0EEA48C70C9BA03FCDD0FD6C531E660AADF86FCBA5",
+      "bytes": 6671
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs.meta",
+      "sha256": "90F294CE3D6E967BB546E773B887A4499AB10E5B4FC1697986214904BC08C9A3",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/UltimaGuardia.PlayModeTests.asmdef",
+      "sha256": "90EF29C3A4F3D7E3FA02FDB8E644EB324FE44A0E8E2FE190BC4D31303137F31C",
+      "bytes": 246
+    },
+    {
+      "path": "Assets/Tests/PlayMode/UltimaGuardia.PlayModeTests.asmdef.meta",
+      "sha256": "645632361763A96549BF02BE25B08FD69BD2DEBE19C4BB146CBE1B28CF16E8D4",
+      "bytes": 166
+    },
+    {
+      "path": "Builds/H02/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.dll",
+      "sha256": "E9CB931293C2B1777F599719D2C11E6E46FB783E587919DC57C5B61045099FAD",
+      "bytes": 57344
+    },
+    {
+      "path": "Builds/H02/UltimaGuardia.exe",
+      "sha256": "E3852A92C8D4350B2595C7086432A3350E25D7141FD6097BCC47D5F2D368A522",
+      "bytes": 667648
+    },
+    {
+      "path": "Documentation/ASSET_REGISTER.md",
+      "sha256": "D112C188B7C8ED5ACCC3C1B6D17499ACBCE74698BBB85B95D0D8295C305569E1",
+      "bytes": 7921
+    },
+    {
+      "path": "Documentation/BALANCE_LOG.md",
+      "sha256": "069EF808B53D55B606994B0D07C22F16CA491E73A372E71D051D8D75F1A2A40C",
+      "bytes": 2579
+    },
+    {
+      "path": "Documentation/KNOWN_ISSUES.md",
+      "sha256": "818A5DBF5BF2893C2035398A0CC0EB6173347051FBF5CA87E6B467B9C81DA9D8",
+      "bytes": 6518
+    },
+    {
+      "path": "Documentation/TEST_REPORT.md",
+      "sha256": "B320FFD7B3DA85B976D39C8B68F22F92213F7A204681FA0F9D45F80696090EDE",
+      "bytes": 18056
+    },
+    {
+      "path": "Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md",
+      "sha256": "128B85113829B8B3E1F3EDBE976C91170B15A37896382BFB58F754CF09C43311",
+      "bytes": 119180
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4B0815D694FA4EE0EB6BF0955AA2C1D014C04D6850B0E9946393331BC3781B02",
+      "bytes": 2158
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "0D3BBE23C73678700370443E84EB5FF196D889B17D0E6EEE94EDA3AA424D2FC9",
+      "bytes": 14007
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "0388C33D6D2A5C2B84CD16267D05895A4788CE5E92840DF5C178D7AB55B3D385",
+      "bytes": 25620
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "A717ED4B946E370CE6E6AF9DD000B8ACF89495B44C84BF8F768159924CFA66C3",
+      "bytes": 85
+    },
+    {
+      "path": "README.md",
+      "sha256": "8701A6378748560EE478AA73A6D0CCAD876E61008DF7BB225334156F3E0FD9FC",
+      "bytes": 8437
+    }
+  ]
+}

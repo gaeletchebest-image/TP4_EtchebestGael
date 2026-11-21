@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff5077e1c3f78b4dab131df6567952e, type: 3}
+  m_Name: warrior
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CombatantData
+  id: warrior
+  displayName: Guerrero
+  team: 0
+  maxHealth: 160
+  maxMana: 30
+  attack: 28
+  defense: 8
+  speed: 22
+  prefab: {fileID: 1208258636062385523, guid: a4ad21f044f8c99489c9aa6fe76f90f0, type: 3}
+  actions:
+  - {fileID: 11400000, guid: f81a5836960e4484984e362c62d67ce4, type: 2}
+  - {fileID: 11400000, guid: a07c1da4d2d052149bf1b4b47e272a33, type: 2}
+  brain: 0

@@ -75,3 +75,13 @@ H01 usa representaciones provisionales, H04 iconos provisionales. No sustituyen 
 | H01-UI | Canvas de Combat, Text y TextMesh | uGUI y fuente integrada LegacyRuntime.ttf de Unity | UI provisional; recursos finales UI-01 a UI-07 siguen pendientes H08 |
 
 No se descargaron recursos ni se compraron assets. Las filas CHAR, ENV y demás recursos finales del inventario anterior conservan su estado pendiente: estos placeholders no los sustituyen como entregables finales.
+
+## Incorporaciones H02
+
+| ID | Recurso / ruta | Procedencia y licencia | Integración |
+| --- | --- | --- | --- |
+| H02-DATA | `Assets/Data/H02/Resources/Encounters/*.asset` | Configuración propia basada en las tablas del GDD; sin recurso externo | 18 ScriptableObjects: 4 combatientes, 5 acciones existentes, 5 objetos, 3 efectos y 1 encuentro. Solo básicos, Golpe pesado y Poción tienen ejecución jugable en H02 |
+| H02-CODE | Cinco tipos de datos, CombatSession, CombatPrototype, AtbSetup y pruebas | Elaborados para este proyecto | Datos, validación, snapshots, inventario de runtime, reloj, cola, recuperación e integración de UI |
+| H02-UI | Cuatro barras uGUI de Combat | Componentes uGUI y sprite `UI/Skin/UISprite.psd` integrados en Unity; sin archivo externo | Barras provisionales y texto Llenando/Recuperando/Listo; UI final pendiente H08 |
+
+Los datos de efectos no representan estados activos implementados. Las referencias de iconos, animación, sonido y VFX pueden estar vacías hasta sus hitos; no se marcaron como completos los recursos finales correspondientes. Se conservaron arena, materiales y prefabs de H01.

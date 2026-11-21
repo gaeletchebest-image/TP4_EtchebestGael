@@ -31,3 +31,16 @@ Para nuevas incidencias registrar gravedad, pasos, resultado real, resultado esp
 | H01-C01 | H01-T09/T16 | Primera pasada: el rearme al finalizar una acción descartaba la primera pulsación nueva del siguiente turno | Resuelto; se comprueba si el botón sigue pulsado. Pasada final 17/17 incluye peleas por ambos dispositivos |
 
 La derrota automatizada de H01 utiliza un fixture con aliados a 1 de vida para forzar el caso límite; no es una medición del balance de una partida normal. El producto no incorpora botones de vida ni comandos de depuración para provocar esa situación.
+
+## Seguimiento H02
+
+| ID | Hito / tarea | Descripción y alcance | Estado / comprobación |
+| --- | --- | --- | --- |
+| H02-L01 | H02 / validación | Teclado y Gamepad virtuales verifican el flujo, sin hardware físico ni desconexión real | Limitación heredada; auditoría física en H11 |
+| H02-L02 | H02-T13 | Capturas 720p/1080p por RenderTexture | Escalado y composición offscreen; no acredita monitor 1080p físico |
+| H02-L03 | H02 / configuración | Iconos y referencias de animación, sonido y partículas pueden estar vacíos; objetos salvo Poción y efectos tienen datos sin ejecución activa | Alcance previsto: completar acciones/IA en H03, estados en H04 y presentación final en H05-H10 |
+| H02-C01 | H02-T13 | Las barras agregadas al final del Canvas se dibujaban por encima de la capa de pausa/resultado | Corregido el orden de hermanos: cada barra sigue al panel de recursos y precede a la capa de pausa. Se repiten pruebas de flujo y capturas |
+| H02-L04 | Build H02 | 1 advertencia de truncamiento implícito en shader DebugOccluder de Unity Core | Build final con 0 errores; Combat del player inspeccionada sin materiales faltantes |
+| H02-L05 | Player oculto de validación | Curl error 6, avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones al apagar el proceso con capturas explícitas, como en H00/H01 | Sin excepción de lógica, smoke aprobado y salida 0. Evaluación interactiva/prolongada de estos avisos pendiente, conservada para H12 |
+
+Los valores de los ScriptableObjects se leen al crear cada intento; un cambio durante Play se refleja al reiniciar, no altera retroactivamente el snapshot de un turno en curso. Los modelos, menús y barras conservan presentación provisional. No hay correcciones abiertas del usuario.

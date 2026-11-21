@@ -56,7 +56,7 @@ namespace UltimaGuardia.Tests
             yield return KeyPress(Key.UpArrow);
             yield return KeyPress(Key.Enter);
             yield return WaitForScene("Combat");
-            Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
+            Assert.AreEqual(PrototypePhase.Advancing, Battle().Phase);
             yield return KeyPress(Key.Escape);
             Assert.IsTrue(Battle().IsPaused);
             yield return KeyPress(Key.Escape);
@@ -105,8 +105,11 @@ namespace UltimaGuardia.Tests
             yield return WaitForScene("Combat");
             yield return new WaitForSecondsRealtime(0.5f);
             Assert.AreEqual("Combat", SceneManager.GetActiveScene().name);
-            Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
+            Assert.AreEqual(PrototypePhase.Advancing, Battle().Phase);
             Assert.IsNull(Battle().Session.Pending);
+            yield return new WaitForSecondsRealtime(4);
+            Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
+            Assert.IsNull(Battle().Session.Pending, "Held confirm must not select or commit when ATB becomes ready.");
             InputSystem.QueueStateEvent(keyboard, new KeyboardState());
             yield return null;
         }

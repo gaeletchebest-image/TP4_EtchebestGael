@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 namespace UltimaGuardia
 {
-    public enum PrototypePhase { Commands, Targets, Executing, Result }
+    public enum PrototypePhase { Commands, Targets, Executing, Result, Advancing }
 
     public sealed class CombatPrototype : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputTemplate;
+        [SerializeField] private EncounterData encounter;
+        [SerializeField] private Image[] atbBars;
         [SerializeField] private CombatantView[] views;
         [SerializeField] private Text[] resourceLabels;
         [SerializeField] private Text turnLabel, eventLabel, commandLabel, descriptionLabel, helpLabel;
@@ -30,7 +32,14 @@ namespace UltimaGuardia
         private string notice;
         public CombatSession Session { get; private set; }
         public PrototypePhase Phase { get; private set; }
-        public bool IsPaused { get; private set; }
+        private bool isPaused;
+        public bool IsPaused
+        {
+            get => isPaused;
+            private set { isPaused = value; if (Session != null) Session.IsPaused = value; }
+        }
+        public EncounterData Encounter => encounter;
+        public void ConfigureEncounter(EncounterData data, Image[] bars) { encounter = data; atbBars = bars; }
         public int SelectedCommand => commandIndex;
         public int OverlaySelection => overlayIndex;
         public float ActionTime => actionTime;
@@ -65,8 +74,13 @@ namespace UltimaGuardia
 
         public void RestartCombat()
         {
-            Session = new CombatSession();
-            Phase = PrototypePhase.Commands;
+            Session = new CombatSession(encounter);
+            foreach (var slot in encounter.participants)
+            {
+                var view = views.First(v => v.combatantId == slot.combatant.id);
+                view.transform.parent.SetPositionAndRotation(slot.position, Quaternion.Euler(slot.rotation));
+            }
+            Phase = PrototypePhase.Advancing;
             IsPaused = transitioning = false;
             commandIndex = targetIndex = overlayIndex = 0;
             actionTime = 0; notice = null; confirmArmed = false;
@@ -115,12 +129,21 @@ namespace UltimaGuardia
                 if (actionTime >= 0.85f)
                 {
                     Session.FinishAction();
-                    Phase = Session.Outcome == CombatOutcome.Ongoing ? PrototypePhase.Commands : PrototypePhase.Result;
+                    Phase = Session.Outcome != CombatOutcome.Ongoing ? PrototypePhase.Result :
+                        Session.Actor == null ? PrototypePhase.Advancing : PrototypePhase.Commands;
                     commandIndex = targetIndex = overlayIndex = 0;
                     confirmArmed = !confirm.IsPressed();
                 }
                 return;
             }
+            if (Phase == PrototypePhase.Advancing)
+            {
+                Session.AdvanceTime(Time.deltaTime);
+                if (Session.Outcome != CombatOutcome.Ongoing) Phase = PrototypePhase.Result;
+                else if (Session.Actor != null) { Phase = PrototypePhase.Commands; confirmArmed = !confirm.IsPressed(); }
+                return;
+            }
+            if (Session.Actor == null) { Phase = PrototypePhase.Advancing; return; }
             if (Session.Actor.Definition.Team == CombatTeam.Enemies)
             {
                 if (Session.CommitEnemyAction()) BeginPresentation();
@@ -152,9 +175,7 @@ namespace UltimaGuardia
 
         private void BeginPresentation() { actionTime = 0; notice = null; Phase = PrototypePhase.Executing; }
         private void ReturnToMenu() { transitioning = true; SceneManager.LoadScene("MainMenu"); }
-        private CombatAction[] Commands() => Session.Actor.Definition.Id == "warrior"
-            ? new[] { CombatAction.Basic, CombatAction.HeavyStrike, CombatAction.Potion }
-            : new[] { CombatAction.Basic, CombatAction.Potion };
+        private CombatAction[] Commands() => Session.AvailableCommands();
 
         private List<CombatantState> CurrentTargets() => Session.TargetsFor(selectedAction)
             .OrderBy(f => combatCamera.WorldToViewportPoint(views.First(v => v.combatantId == f.Definition.Id).transform.position).x).ToList();
@@ -187,35 +208,50 @@ namespace UltimaGuardia
                 views[i].Present(state, Session.Outcome == CombatOutcome.Ongoing && Session.Actor == state, targeted, pulse);
                 resourceLabels[i].text = state.Definition.Name + " · " + (state.Definition.Team == CombatTeam.Allies ? "Aliado" : "Enemigo") +
                     (state.IsAlive ? "" : " · DERROTADO") + "\nVida " + state.Health + "/" + state.Definition.MaxHealth +
-                    "    Maná " + state.Mana + "/" + state.Definition.MaxMana;
+                    "    Maná " + state.Mana + "/" + state.Definition.MaxMana + "\n" +
+                    (!state.IsAlive ? "Fuera de combate" : state.Atb >= 100 ? "Listo" : state.RecoveryRemaining > 0 ?
+                    "Recuperando · " + state.RecoveryRemaining.ToString("0.0") + " s" : "Llenando · " + state.Atb.ToString("0") + " %");
+                if (atbBars != null && i < atbBars.Length && atbBars[i] != null)
+                {
+                    atbBars[i].fillAmount = (float)(state.Atb / 100);
+                    atbBars[i].color = state.Atb >= 100 ? new Color(1, 0.8f, 0.2f) : new Color(0.2f, 0.7f, 0.9f);
+                }
             }
-            turnLabel.text = "ÚLTIMA GUARDIA  /  " + (Phase == PrototypePhase.Result ? "Combate terminado" : "Turno: " + Session.Actor.Definition.Name);
+            turnLabel.text = "ÚLTIMA GUARDIA  /  " + (Phase == PrototypePhase.Result ? "Combate terminado" :
+                Session.Actor == null ? "Avance ATB" : "Turno: " + Session.Actor.Definition.Name);
             eventLabel.text = Session.LastEvent;
             decisionPanel.SetActive(Phase != PrototypePhase.Result);
             if (Phase == PrototypePhase.Executing)
             {
                 commandLabel.text = "Acción en ejecución";
                 descriptionLabel.text = pending == null ? "" : pending.Actor.Definition.Name + " → " + pending.Target.Definition.Name +
-                    "\n" + CombatSession.ActionName(pending.Kind, pending.Actor);
+                    "\n" + Session.NameFor(pending.Kind);
             }
             else if (Phase == PrototypePhase.Targets)
             {
                 var target = SelectedTarget;
-                commandLabel.text = "Elegí un objetivo\n" + CombatSession.ActionName(selectedAction, Session.Actor);
+                commandLabel.text = "Elegí un objetivo\n" + Session.NameFor(selectedAction);
                 descriptionLabel.text = target == null ? "Sin objetivos válidos" : "→ " + target.Definition.Name + " · " +
                     (target.Definition.Team == CombatTeam.Allies ? "Aliado" : "Enemigo") + "\nIzquierda / derecha: cambiar · Confirmar: ejecutar";
+            }
+            else if (Phase == PrototypePhase.Advancing || Phase == PrototypePhase.Result || Session.Actor == null)
+            {
+                commandLabel.text = "Avanzan las barras ATB";
+                descriptionLabel.text = "Cada participante carga según su velocidad.\nLa recuperación se consume antes de volver a cargar.\nPodés pausar con Escape o el botón de menú.";
             }
             else
             {
                 var actions = Commands();
                 commandIndex = Wrap(commandIndex, actions.Length);
                 commandLabel.text = string.Join("\n", actions.Select((a, i) => (i == commandIndex ? "→ " : "    ") +
-                    CombatSession.ActionName(a, Session.Actor) + (a == CombatAction.Potion ? " ×" + Session.Potions : "") +
+                    Session.NameFor(a) + (a == CombatAction.Potion ? " ×" + Session.Potions : "") +
                     (Session.UnavailableReason(a) == null ? "" : " [No disponible]")));
                 var action = actions[commandIndex];
-                descriptionLabel.text = (action == CombatAction.Potion ? "Recupera 50 de vida · Un aliado vivo herido\nInventario compartido · Sin costo de maná" :
-                    action == CombatAction.HeavyStrike ? "Potencia 1,8 · Un enemigo vivo\nCosto: 8 de maná" : "Potencia 1 · Un enemigo vivo\nSin costo de maná") +
-                    "\n" + (notice ?? Session.UnavailableReason(action) ?? "Elegí una acción.");
+                var data = Session.ActionFor(action);
+                descriptionLabel.text = (action == CombatAction.Potion ? Session.Potion.Description + " · +" + Session.Potion.Amount + " vida\nInventario compartido · Sin costo de maná" :
+                    data.Description + "\nPotencia " + data.Potency.ToString("0.##") + " · Maná: " + data.ManaCost) +
+                    " · Recuperación: " + Session.RecoveryFor(action).ToString("0.0") + " s\n" +
+                    (notice ?? Session.UnavailableReason(action) ?? "Elegí una acción. Reloj detenido.");
             }
             helpLabel.text = "↑↓ / cruceta / stick: acción     ←→: objetivo     Enter / Espacio / botón inferior: confirmar\nEscape / botón derecho: cancelar     Escape en raíz / botón de menú: pausa";
             overlayPanel.SetActive(IsPaused || Phase == PrototypePhase.Result);

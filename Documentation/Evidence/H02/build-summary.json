@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "message": "Build Succeeded.",
+  "data": {
+    "job_id": "build-76cf7166d7",
+    "result": "succeeded",
+    "platform": "StandaloneWindows64",
+    "output_path": "Builds/H02/UltimaGuardia.exe",
+    "started_at": "2026-11-21T14:53:19.3048467Z",
+    "duration_seconds": 22.5173845,
+    "completed_at": "2026-11-21T14:53:41.8222312Z",
+    "total_size_mb": 157.04,
+    "errors": 0,
+    "warnings": 1
+  }
+}
