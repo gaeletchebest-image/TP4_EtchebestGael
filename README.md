@@ -1,16 +1,16 @@
 # Última Guardia
 
 Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Versión **0.0.7-H06**. H00–H06 aprobados por el usuario. H06 aprobado el 21 de noviembre de 2026. H07 no iniciado.
+Versión **0.0.8-H07**. H00–H07 aprobados por el usuario. H07 aprobado el 21 de noviembre de 2026. H08 no iniciado.
 
 ## Abrir y jugar
 
 - Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, calidad PC, Windows x86_64, Mono.
 - Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona `Assets/Scenes/Combat.unity` directamente.
-- Ejecutable de revisión H06: `Builds/H06/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds H00–H05.
+- Ejecutable de revisión H07: `Builds/H07/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds H00–H06.
 - Ventana inicial redimensionable de **1280 × 720**. uGUI usa esa resolución de referencia y correspondencia ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
-Una arena enfrenta a guerrero y maga contra ogro y chamán. No hay exploración ni movimiento libre. Todos empiezan con recursos completos, sin estados, ATB 0 y sin recuperación. Los cuatro modelos H05 tienen 24 clips H06 de reposo, acciones, objetos, reacción y muerte. Arena, interfaz, audio y acabado de efectos corresponden a hitos posteriores.
+Una arena enfrenta a guerrero y maga contra ogro y chamán. No hay exploración ni movimiento libre. Todos empiezan con recursos completos, sin estados, ATB 0 y sin recuperación. Los cuatro modelos H05 tienen 24 clips H06 de reposo, acciones, objetos, reacción y muerte. H07 incorpora la fortaleza final: pavimento, muros, almenas, portón con arco, contrafuertes, estandartes y braseros. Interfaz final, audio y acabado de efectos corresponden a H08–H10.
 
 ## Reglas del combate
 
@@ -51,14 +51,14 @@ El HUD muestra nombre, contador e icono vectorial provisional: gota verde, flech
 
 El círculo amarillo marca al actor y el blanco al objetivo. Pausa y resultado permiten reiniciar o volver al menú. Ayuda por páginas, volumen y confirmaciones de abandono completos corresponden a H08.
 
-## Cómo revisar H06
+## Cómo revisar H07
 
-1. Ejecutar la build H06 y elegir Jugar, o abrir MainMenu en Unity y pulsar Play. Observar el reposo de los cuatro personajes.
+1. Ejecutar la build H07 y elegir Jugar, o abrir MainMenu en Unity y pulsar Play. Observar portón, arco, piedra, estandartes, braseros, sombras y apoyo de los cuatro personajes. El blockout anterior ya no está visible.
 2. Usar Proyectil mágico: la maga eleva el bastón, el proyectil viaja al objetivo confirmado y aplica el daño una vez. Usar básico y Golpe pesado del guerrero para comparar movimientos; observar Golpe/Machetazo del ogro.
 3. Probar Curación propia y sobre el compañero, los cinco objetos y los conjuros del chamán. Los objetos muestran un pequeño recurso en la mano izquierda. Tormenta eleva y mantiene el bastón, impacta a 1,2 s y termina a 2,5 s.
 4. Pausar durante una acción o vuelo, esperar y reanudar: pose, proyectil y efecto deben continuar desde el mismo punto. Reiniciar desde pausa y volver al menú deben retirar la secuencia anterior.
 5. Ganar o perder: los derrotados conservan su caída. Reiniciar restaura pose y recursos. Los movimientos no desplazan los anclajes.
-6. Inspeccionar Animator y CharacterAnimationPlayer en `Visual` de los prefabs H05, y clips/controladores en `Assets/Animations/H06`. Consultar [tiempos y reconstrucción](Documentation/H06_ANIMATIONS.md) y [hojas de animación](Documentation/Evidence/H06/animation-audit.json). Cada fila de las hojas recorre un clip real; el orden se indica en el JSON.
+6. Inspeccionar `Arena_Fortress_H07` en Combat y los siete prefabs de `Assets/Prefabs/H07`. Consultar [fuentes y reconstrucción](Documentation/H07_FORTRESS.md), [auditoría](Documentation/Evidence/H07/environment-audit.json) y [evidencia H07](Documentation/Evidence/H07/). La captura de cámara especial es una reserva de espacio; el movimiento final de cámara se realiza en H10. Animator y CharacterAnimationPlayer siguen en `Visual` de los prefabs H05; [documentación de animaciones](Documentation/H06_ANIMATIONS.md).
 
 Fuentes editables en `CharacterModeling.cs`, mallas en `Assets/Models/H05/Meshes`, exportaciones OBJ/MTL/jerarquía JSON en `Assets/Models/H05/Exports` y 20 materiales URP propios en `Assets/Materials/H05`. No se descargaron ni compraron recursos. Se usa un rig de piezas rígidas, alternativa admitida por el GDD, con túnicas segmentadas y sin simulación de tela.
 
@@ -75,13 +75,13 @@ Fuentes editables en `CharacterModeling.cs`, mallas en `Assets/Models/H05/Meshes
 
 ## Compilar y comprobar
 
-Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera. Build H06 terminada: **164,68 MB**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core (d3d11).
+Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera. Build H07 terminada: **166,62 MB**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core (d3d11).
 
-Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **71/71 aprobadas**, incluidas regresiones H00–H05 y tres pruebas nuevas de presentación. Auditoría aprobada de los 24 clips; cuatro hojas de secuencias y capturas del juego inspeccionadas. La matriz cubre las diez acciones y los cinco objetos con cada aliado. [Resultados y métodos](Documentation/TEST_REPORT.md), [evidencia H06](Documentation/Evidence/H06/).
+Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **71/71 aprobadas** en el escenario H07, incluidas las regresiones de reglas, input y presentación. Auditoría del entorno aprobada: 24 clips en 216 poses, 648 líneas de visión, 21 muestras de aproximación especial, contactos y márgenes de cámara. La matriz cubre las diez acciones y los cinco objetos con cada aliado. Capturas de HUD y player inspeccionadas. [Resultados y métodos](Documentation/TEST_REPORT.md), [evidencia H07](Documentation/Evidence/H07/).
 
 Las pruebas usan Keyboard/Gamepad virtuales y restauran las opciones de entrada y tiempo. El enrutamiento de entrada del editor se ajusta temporalmente para recibir eventos sin foco. No acredita un control físico. Las capturas 720p/1080p usan RenderTexture; no acreditan monitor físico 1080p. Las peleas aceleradas ×4 verifican flujo, sin medir balance o duración objetivo.
 
-La build Development admite `-foundation-smoke`: prueba menú, carga de Combat, una acción animada de la maga con pausa/reanudación e impacto, retorno y salida mediante Salir; conserva JSON y capturas en `Builds/H06/Validation`. Esta prueba no juega una pelea completa. Resultado H06 aprobado: versión `0.0.7-flow`, inicio MainMenu, `passed = true`, `animatedActionVerified = true`, salida desde Salir y código 0. Se conservan avisos de red y liberación de buffers/asignaciones al cerrar el player oculto; seguimiento en KNOWN_ISSUES. El arnés se excluye de builds sin Development Build.
+La build Development admite `-foundation-smoke`: prueba menú, carga de Combat, una acción animada de la maga con pausa/reanudación e impacto, retorno y salida mediante Salir; conserva JSON y capturas en `Builds/H07/Validation`. Esta prueba no juega una pelea completa. Resultado H07 aprobado: versión `0.0.8-flow`, inicio MainMenu, `passed = true`, `animatedActionVerified = true`, salida desde Salir y código 0. Se conservan avisos de red y liberación de buffers/asignaciones al cerrar el player oculto; seguimiento en KNOWN_ISSUES. El arnés se excluye de builds sin Development Build.
 
 ## Estructura y mantenimiento
 
@@ -92,6 +92,8 @@ Los datos siguen en `Assets/Data/H02/Resources/Encounters/` para conservar GUID 
 `CharacterRig` conserva articulaciones, pose inicial, arma y sockets. `CharacterAnimationAuthoring` genera explícitamente los clips H06 y conecta los prefabs existentes. `CharacterAnimationValidation` audita y captura secuencias. `CharacterAnimationPlayer` reproduce los clips sin reloj automático, y `CombatPresentation` sincroniza pose, proyectil e impacto desde la acción confirmada. Detalle en [H06_ANIMATIONS.md](Documentation/H06_ANIMATIONS.md).
 
 La utilidad H05 regenera modelos y reemplaza instancias; no ejecutarla sobre H06 sin conservar e integrar después los cambios de animación. Las utilidades H06 también reemplazan sus clips/controladores y requieren conservar antes ediciones manuales.
+
+`FortressAuthoring` conserva la fuente editable de los siete módulos H07, las mallas, OBJ/MTL y ocho materiales URP. La arena usa 56 renderers y 25.650 triángulos, con una sola luz de sombras. La reconstrucción explícita reemplaza recursos H07 y el entorno; conservar ediciones manuales antes de ejecutarla. `FortressValidation` audita geometría, exportaciones importadas, contacto, encuadre y espacio reservado para la especial. H07 corrige además la inclinación del pie derecho en los cuatro clips de ataque físico H06, sin cambiar tiempos ni reglas.
 
 Se conservan Input System 1.19.0, uGUI 2.0.0, Test Framework 1.6.0, ProBuilder 6.0.9 y Timeline 1.8.11. Unity MCP es herramienta de desarrollo, sin dependencia del player. No se compraron recursos ni se añadieron servicios pagos.
 
@@ -105,4 +107,4 @@ Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Exc
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-Esta entrega realiza únicamente H06. La revisión final corresponde al usuario; H07 se solicita en otro chat.
+Esta entrega realiza únicamente H07. La revisión final corresponde al usuario; H08 se solicita en otro chat.

@@ -298,3 +298,37 @@ Build Windows x86_64/Mono, Development, **164,68 MB**, **93,3874899 s**, **0 err
 El smoke usa un proceso oculto con captura explícita por Camera.Render; no es automatización de UI de Windows ni una pelea completa del player. Los logs del ejecutable en `Builds/H06/Validation/player.log` conservan Curl error 6 y avisos de buffers/asignaciones al apagar, ya observados en H00–H05. No se observó excepción de lógica; causa y rendimiento prolongado siguen pendientes H12.
 
 Los fixtures restauran enrutamiento de entrada del editor, BackgroundBehavior, ejecución en segundo plano y timeScale. Opciones de entrada a Play restauradas al valor recibido (habilitadas, opciones 0); Unity Connect restaurado a `m_Enabled = 0` después de la build. Sin cambios de estadísticas, costos, inventario o balance. [Huellas de entrega](Evidence/H06/fingerprints.json), [reconstrucción y tiempos](H06_ANIMATIONS.md), [incidencias y límites](KNOWN_ISSUES.md).
+
+## H07 · Fortaleza final, contactos y encuadre
+
+Versión **0.0.8-H07**, 21 de noviembre de 2026, cambios locales sobre commit real `4a11d47` de H06. No se creó un commit de entrega. Unity 6000.3.11f1/URP 17.3.0, Windows x86_64/Mono. H00–H07 aprobados. H07 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado. Dame nombre en ingles para el commit tambien.». Sin correcciones solicitadas. H08 no iniciado.
+
+### Auditoría e inspección visual
+
+`FortressValidation.AuditAndCapture()` completó la [auditoría final](Evidence/H07/environment-audit.json): siete tipos de módulos y 56 instancias, 25.650 triángulos, ocho materiales compartidos, una luz con sombras y relleno sin sombras. Mallas guardadas, UV y normales completos, vértices finitos y triángulos no degenerados. Los siete OBJ se importaron y remapearon a los materiales URP propios. Blockout retirado; prefabs H05, configuración del encuentro y los cuatro anclajes conservados.
+
+Se muestrearon los **24 clips en 216 poses**, incluidas caídas, armas y reposos. Se comprobaron márgenes de viewport y **648 líneas de visión** hacia cabeza, torso y punto de impacto mediante intersección real contra los triángulos del entorno. Esta auditoría geométrica verifica oclusión por escenario, no sustituye la inspección visual ni afirma visibilidad entre todos los personajes en cada píxel. Se comprobó el acercamiento especial propuesto en **21 muestras**, maga/bastón completos en el encuadre final y columnas verticales libres sobre ambos enemigos para los futuros rayos.
+
+Inspeccionadas las vistas [base 720p](Evidence/H07/fortress-base-1280x720.png), [base 1080p](Evidence/H07/fortress-base-1920x1080.png), [conjunto](Evidence/H07/fortress-overview.png), [cámara especial reservada](Evidence/H07/fortress-special-reserved.png), [HUD 720p](Evidence/H07/arena-1280x720.png), [HUD 1080p](Evidence/H07/arena-1920x1080.png), objetivo, estados coexistentes, preparación de ataques/conjuros, proyectiles, pausa y [caídas](Evidence/H07/all-deaths-1920x1080.png). Los personajes y marcadores se distinguen del suelo y de la decoración. La fachada ocupa el fondo sin interferir con acciones. El HUD es el existente, pendiente de diseño final H08.
+
+Correcciones internas: H07-C01 detectó hasta −1,54 cm/−2,17 cm en el pie derecho de ataques del guerrero/ogro H06. Compensación del tobillo y regeneración de cuatro clips, conservando duración, impacto y anclajes. Las 216 muestras finales respetan el límite de −4 mm; el mínimo de −3,38 mm corresponde a interpolación de caída del ogro. H07-C02 corrigió un recorte del bastón en la primera propuesta especial. H07-C03 añadió remapeo URP de exportaciones importadas. La auditoría final pasó después de esas correcciones; no se usa la primera pasada fallida como evidencia de cierre.
+
+### Regresión automática
+
+Suite PlayMode `UltimaGuardia.PlayModeTests`: **71/71 aprobadas**, 0 fallidas/omitidas, **151,6974113 s**, job `6ee56d0f19fe4a818bc77c78b1587ff4`. [Resultado completo](Evidence/H07/playmode-results.json). La [matriz de 20 casos](Evidence/H07/action-matrix.txt) recorre las diez acciones y los cinco objetos con cada aliado, con impacto único, trayectoria, pausa, gasto, recuperación y regreso a anclajes. Se verifican muerte estable, cancelación y ausencia de callbacks/proyectiles anteriores al salir.
+
+Peleas de regresión: victoria con teclado virtual en 22 acciones y 0 Pociones restantes; victoria con control virtual en 22 acciones y 0 Pociones. Derrotas preparadas, estados, selección, reinicio desde pausa/resultado y retorno al menú aprobados. Estos fixtures aceleran el tiempo ×4 y no miden balance o duración objetivo. Se actualizaron solo las rutas de evidencia de las suites visuales para conservar intacta la evidencia histórica de H06.
+
+La suite pasó con los cuatro clips corregidos y el entorno definitivo. Los cambios posteriores fueron exclusivamente de validación/editor: encuadre de la captura especial reservada y remapeo de OBJ de intercambio; se repitió la auditoría afectada, sin volver a ejecutar una suite de reglas sin cambios.
+
+### Build y player
+
+Build Windows x86_64/Mono, Development, **166,62 MB**, **73,7210562 s**, **0 errores / 1 advertencia**, job `build-2f205ce4bb`. MainMenu y Combat en ese orden. [Resumen](Evidence/H07/build-summary.json), [advertencia exacta](Evidence/H07/build-messages.txt): truncamiento implícito en shader DebugOccluder de Unity Core/d3d11, heredada de entregas previas.
+
+`Builds/H07/UltimaGuardia.exe -foundation-smoke -screen-fullscreen 0 -screen-width 1280 -screen-height 720` completó MainMenu, consulta de controles, Combat con la fortaleza, básico animado de maga con pausa/reanudación y daño, pausa con dispositivos virtuales, retorno y Salir. **passed = true, animatedActionVerified = true, exitedThroughMenu = true, código de salida 0**. [Resultado](Evidence/H07/player-result-1280x720.json), [acción terminada del player](Evidence/H07/player-animated-action-complete-1280x720.png). Ventana y captura 1280 × 720. Capturas del player inspeccionadas, sin materiales faltantes.
+
+El smoke ejecuta un proceso oculto y renderiza la escena/Canvas explícitamente: no es automatización de Windows ni una pelea completa del ejecutable. El log en `Builds/H07/Validation/player.log` conserva Curl error 6 y avisos de liberación de buffers/asignaciones al cerrar, como en H00–H06. No se observó excepción de lógica; evaluación prolongada y causa siguen en H12. Unity Connect restaurado a `m_Enabled = 0`; fixtures restauran tiempo, input y ejecución en segundo plano. Versión Unity, renderer, paquetes, estadísticas y MainMenu conservados.
+
+### Límites
+
+Capturas 720p/1080p mediante RenderTexture, sin acreditar monitor físico 1080p. Control virtual, sin acreditar hardware ni desconexión física. No hay partículas finales, audio ni secuencia de cámara H10: se verifican proyectiles H06 existentes y espacio reservado para el contenido posterior. Los presupuestos estáticos de geometría/materiales/luces no equivalen a una medición de FPS del producto final, prevista en H12. [Fuentes y reconstrucción](H07_FORTRESS.md), [incidencias](KNOWN_ISSUES.md).

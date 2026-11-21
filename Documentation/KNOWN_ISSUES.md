@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La versión actual 0.0.5-H04 incluye arena y modelos provisionales, ATB, acciones, inventario, IA completa, Veneno, Rapidez y Corrosión, victoria/derrota, pausa y reinicio. Las reglas de combate están completas. Arte, animación, UI final, audio y VFX se realizan en H05–H10; dispositivos físicos en H11 y balance/rendimiento en H12.
+La versión actual 0.0.8-H07 incluye reglas completas, modelos H05, animaciones H06 y arena final H07. Interfaz final, audio y VFX corresponden a H08–H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -101,3 +101,18 @@ Sin cambios de estadísticas o mecánicas ni correcciones abiertas del usuario. 
 | H06-L05 | Player oculto | Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer, Persistent y JobTempAlloc al apagar, como en H00–H05 | Smoke ampliado aprobado, acción animada comprobada y salida 0. No se observó excepción de lógica. Investigación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
 
 H06 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Esta aprobado. Dame ademas un nombre en ingles para el commit.». Se conservan 71/71 PlayMode y build/player comprobados. Sin correcciones solicitadas. H07 no iniciado.
+
+## Seguimiento H07
+
+| ID | Tareas | Descripción y alcance observado | Estado / cierre |
+| --- | --- | --- | --- |
+| H07-C01 | H07-T10 / dependencia H06 | La punta del pie derecho penetraba 1,54 cm en guerrero y 2,17 cm en ogro durante los ataques físicos H06 | Corregido compensando −5° en el tobillo; cuatro clips físicos regenerados, 24 clips/216 poses auditados y regresión 71/71 aprobada. Anclajes y tiempos conservados |
+| H07-C02 | H07-T13 | Primera propuesta de acercamiento dejaba fuera el extremo del bastón elevado | Corregida posición y mirada de la propuesta; auditoría exige maga y bastón dentro del viewport. Vista final inspeccionada y 21 muestras de ruta sin oclusión del escenario |
+| H07-C03 | H07-T07/T08/T14 | Los OBJ recién importados podían conservar materiales Standard aunque la escena usara materiales URP nativos | Remapeo explícito de los siete OBJ a los ocho materiales propios; auditoría final exige URP tanto en escena como en exportaciones importadas |
+| H07-L01 | Validación | Teclado y control virtuales; capturas 720p/1080p mediante RenderTexture | No acreditan control físico ni monitor nativo 1080p. Límites heredados, cobertura física en H11 |
+| H07-L02 | Presentación | Se reserva una propuesta de cámara especial y corredores de rayos; todavía no hay secuencia final de cámara/VFX/audio | Alcance previsto. H08 interfaz, H09 audio y H10 efectos/secuencia completa; la auditoría no afirma haber probado partículas finales inexistentes |
+| H07-L03 | Contacto | Interpolación de las caídas H06 conserva penetración máxima muestreada de 3,38 mm entre claves | Tolerancia visual menor que el bisel del suelo; auditada con límite de 4 mm. Poses terminales estables, sin desplazamiento de anclajes |
+| H07-L04 | Build | Una advertencia de truncamiento implícito en DebugOccluder de Unity Core/d3d11 | Build finalizada con 0 errores; entorno del player inspeccionado sin materiales faltantes |
+| H07-L05 | Player oculto | Curl error 6 y avisos de liberación de buffers/asignaciones al apagar el proceso con capturas explícitas, como en H00–H06 | Smoke aprobado, acción animada verificada y salida 0. No se observó excepción de lógica; revisión prolongada y causa en H12 |
+
+No hay correcciones abiertas del usuario. H07 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado. Dame nombre en ingles para el commit tambien.». H08 no iniciado. Los presupuestos geométricos y de luces no sustituyen una medición de rendimiento del producto final en H12.

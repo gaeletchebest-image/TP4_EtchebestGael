@@ -1,0 +1,9 @@
+newmtl StoneLight
+Kd 0.51 0.53 0.54
+d 1
+newmtl BannerBlue
+Kd 0.055 0.19 0.32
+d 1
+newmtl Bronze
+Kd 0.63 0.43 0.18
+d 1

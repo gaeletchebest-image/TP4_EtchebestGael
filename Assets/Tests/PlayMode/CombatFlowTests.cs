@@ -447,7 +447,7 @@ namespace UltimaGuardia.Tests
                 camera.Render(); RenderTexture.active = render;
                 image = new Texture2D(width, height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, width, height), 0, 0); image.Apply();
-                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H06");
+                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H07");
                 Directory.CreateDirectory(directory);
                 File.WriteAllBytes(Path.Combine(directory, name + ".png"), image.EncodeToPNG());
             }

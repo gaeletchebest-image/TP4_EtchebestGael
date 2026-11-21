@@ -1,0 +1,9 @@
+newmtl Limestone
+Kd 0.38 0.405 0.43
+d 1
+newmtl StoneLight
+Kd 0.51 0.53 0.54
+d 1
+newmtl StoneDark
+Kd 0.255 0.28 0.31
+d 1

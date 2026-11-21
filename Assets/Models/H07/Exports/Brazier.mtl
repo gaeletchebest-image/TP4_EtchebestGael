@@ -1,0 +1,9 @@
+newmtl StoneLight
+Kd 0.51 0.53 0.54
+d 1
+newmtl Iron
+Kd 0.11 0.14 0.18
+d 1
+newmtl Ember
+Kd 1 0.45 0.12
+d 1

@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 a H06 aprobados por el usuario. H07 a H13 pendientes.
+> Estado: H00 a H07 aprobados por el usuario. H08 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -128,7 +128,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H04. Veneno, rapidez y corrosión.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H07. Modelado modular y construcción del escenario final.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H07. Modelado modular y construcción del escenario final.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H09. Búsqueda, edición e integración de audio.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -282,6 +282,25 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Conservación: versión Unity/renderer/paquetes, estadísticas, inventario, estados, IA, arena y menús conservados. Opciones de entrada/tiempo de fixtures restauradas y opciones de entrada a Play/Unity Connect restituidas tras pruebas/build. No se compraron recursos ni se añadieron servicios pagos. [Huellas](Evidence/H06/fingerprints.json).
 - Cómo revisar: ejecutar la build H06 y elegir Jugar; observar básicos, Golpe pesado, Machetazo, Curación propia, objetos y conjuros. Pausar durante preparación o vuelo y después del impacto; reanudar, reiniciar y volver al menú. Los derrotados conservan la caída y reiniciar devuelve articulaciones y recursos al estado inicial. Guía en README y H06_ANIMATIONS.
 - Próximo hito en orden: **H07**, identificación solamente; **no iniciado**.
+
+#### Registro H07
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. H08 no iniciado.
+- Versión: **0.0.8-H07** (PlayerSettings 0.0.8), cambios locales sobre commit real `4a11d47` de H06. No se creó commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Bien. Entonces hacelo.», después de explicar el alcance H07. H00–H06 aprobados, sin correcciones abiertas del usuario.
+- Tareas completadas: **H07-T01 a H07-T15**. Ninguna tarea posterior iniciada.
+- Entrega: fortaleza final con siete módulos propios: pavimento, muro de hiladas alternadas, almenas, portón de madera con arco/herrajes, contrafuerte, estandarte y brasero. 56 instancias/renderers, 25.650 triángulos, ocho materiales URP compartidos, fuente editable y siete exportaciones OBJ/MTL con materiales remapeados. Sustituido el blockout visible; no se descargaron ni compraron recursos.
+- Integración: `Arena_Fortress_H07` en Combat, suelo con superficie Y = 0 y collider, luz principal cálida con sombras, relleno frío sin sombras y ambiente. Conservados los cuatro anclajes, modelos H05, animadores/datos, Canvas, MainMenu, estadísticas, inventario, IA, estados y reglas. Sin cambios de balance, motor, renderer ni paquetes.
+- Archivos: `Assets/Prefabs/H07`, `Assets/Models/H07/{Meshes,Exports}`, `Assets/Materials/H07`, `FortressAuthoring.cs`, `FortressValidation.cs` y Combat. [Dirección, módulos y reconstrucción](H07_FORTRESS.md), [autoría](ASSET_REGISTER.md).
+- Auditoría final: [aprobada](Evidence/H07/environment-audit.json), siete mallas/OBJ importados y materiales URP, normales/UV y triángulos válidos; 24 clips en 216 poses, 648 líneas de visión sin oclusión del entorno, contacto con tolerancia de interpolación de 4 mm y anclajes exactos. 21 muestras de cámara especial reservada, maga y bastón completos en su encuadre y corredores verticales libres para rayos. La secuencia runtime/VFX/audio final sigue en H10.
+- Inspección visual: vistas base 720p/1080p, conjunto, cámara especial reservada, HUD, selección, estados, conjuros/proyectiles, caídas, pausa y capturas del ejecutable. [Evidencia H07](Evidence/H07/). Capturas RenderTexture; no acredita monitor físico 1080p.
+- Regresión: **71/71 PlayMode**, 0 fallidas/omitidas, **151,6974113 s**, job `6ee56d0f19fe4a818bc77c78b1587ff4`. [Resultados](Evidence/H07/playmode-results.json), [matriz de 20 acciones/objetos](Evidence/H07/action-matrix.txt), [métodos y límites](TEST_REPORT.md). Victorias con teclado y control virtual, ambas de 22 acciones y 0 Pociones, derrotas preparadas y reinicios. Tiempo ×4; no mide balance, duración objetivo ni hardware físico.
+- Build: `Builds/H07/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **166,62 MB**, **73,7210562 s**, **0 errores / 1 advertencia** heredada de DebugOccluder de Unity Core/d3d11. Job `build-2f205ce4bb`. [Resumen](Evidence/H07/build-summary.json), [mensaje de compilación](Evidence/H07/build-messages.txt).
+- Player real: smoke aprobado, versión `0.0.8-flow`, MainMenu → Combat con fortaleza → básico animado de maga con pausa/reanudación e impacto → pausa → MainMenu → Salir; ventana/captura 1280 × 720, input virtual y **salida 0**. [Resultado](Evidence/H07/player-result-1280x720.json). No es una pelea completa del ejecutable. Avisos heredados de red y buffers/asignaciones al cerrar el proceso oculto conservados para H12. Unity Connect restituido tras la build.
+- Correcciones internas cerradas: **H07-C01**, contacto del pie en cuatro ataques H06, compensación de tobillo sin cambiar tiempos/anclajes; **H07-C02**, recorte del bastón en primera propuesta especial; **H07-C03**, remapeo URP de OBJ importados. Auditoría final y regresiones correspondientes aprobadas. [Incidencias y límites](KNOWN_ISSUES.md). Sin correcciones abiertas del usuario.
+- Cómo revisar: ejecutar la build H07 y elegir Jugar, o MainMenu en Unity. Observar portón, piedra, decoración, sombras y apoyos; usar ataques físicos, proyectiles, objetos y conjuros; seleccionar ambos enemigos, observar muertes, pausar/reanudar y reiniciar. Inspeccionar `Arena_Fortress_H07` y prefabs de H07 para módulos editables. La cámara especial mostrada en evidencia es una reserva, no una secuencia implementada.
+- Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Queda aprobado. Dame nombre en ingles para el commit tambien.». Sin correcciones solicitadas; no se pidió comenzar H08.
+- Próximo hito en orden: **H08**, identificación solamente; **no iniciado**.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -1014,24 +1033,24 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Producción de geometría
 
-- [ ] **H07-T01. Definir kit modular.** Dibujar o listar suelo, muro, portón, columnas o contrafuertes y remates. Mantener suficiente variedad sin construir una fortaleza completa.
-- [ ] **H07-T02. Modelar suelo.** Crear superficie con tamaño suficiente, altura estable y detalles que no confundan los anclajes de personajes.
-- [ ] **H07-T03. Modelar muros y remates.** Preparar módulos encajables con pivotes consistentes y sin huecos visibles desde la cámara.
-- [ ] **H07-T04. Modelar portón.** Crear puerta o reja central y marco de piedra reconocibles como acceso defendido.
-- [ ] **H07-T05. Modelar soportes laterales.** Crear columnas o contrafuertes que permitan cerrar el encuadre y ocultar bordes del escenario.
-- [ ] **H07-T06. Crear decoración mínima.** Preparar uno o dos recursos reutilizables, como estandarte y antorcha, y distribuirlos sin tapar participantes.
-- [ ] **H07-T07. Preparar UV y materiales del entorno.** Resolver piedra, metal, madera y tela según los módulos elegidos, usando colores y detalle coherentes con personajes.
-- [ ] **H07-T08. Exportar módulos y crear prefabs.** Comprobar unidades, pivotes, normales y reutilización; conservar fuentes y procedencia.
+- [x] **H07-T01. Definir kit modular.** Dibujar o listar suelo, muro, portón, columnas o contrafuertes y remates. Mantener suficiente variedad sin construir una fortaleza completa.
+- [x] **H07-T02. Modelar suelo.** Crear superficie con tamaño suficiente, altura estable y detalles que no confundan los anclajes de personajes.
+- [x] **H07-T03. Modelar muros y remates.** Preparar módulos encajables con pivotes consistentes y sin huecos visibles desde la cámara.
+- [x] **H07-T04. Modelar portón.** Crear puerta o reja central y marco de piedra reconocibles como acceso defendido.
+- [x] **H07-T05. Modelar soportes laterales.** Crear columnas o contrafuertes que permitan cerrar el encuadre y ocultar bordes del escenario.
+- [x] **H07-T06. Crear decoración mínima.** Preparar uno o dos recursos reutilizables, como estandarte y antorcha, y distribuirlos sin tapar participantes.
+- [x] **H07-T07. Preparar UV y materiales del entorno.** Resolver piedra, metal, madera y tela según los módulos elegidos, usando colores y detalle coherentes con personajes.
+- [x] **H07-T08. Exportar módulos y crear prefabs.** Comprobar unidades, pivotes, normales y reutilización; conservar fuentes y procedencia.
 
 #### Construcción e iluminación
 
-- [ ] **H07-T09. Montar arena con módulos finales.** Sustituir blockout y mantener los cuatro anclajes, dejando margen para efectos y HUD.
-- [ ] **H07-T10. Configurar suelo y contactos.** Resolver sombras y apoyo de personajes sin flotación, hundimientos ni desplazamientos durante ataques.
-- [ ] **H07-T11. Construir iluminación base.** Iluminar caras y siluetas de los cuatro combatientes; usar sombras y ambiente sin ocultar acciones.
-- [ ] **H07-T12. Ajustar cámara de combate.** Validar encuadre con ogro, armas, paneles y objetivo marcado en ambas resoluciones.
-- [ ] **H07-T13. Reservar cámara especial.** Comprobar que el acercamiento a la maga y los rayos no atraviesan muros ni salen del escenario.
-- [ ] **H07-T14. Revisar materiales y rendimiento.** Corregir materiales incompatibles o faltantes, geometría fuera de cuadro innecesaria y sombras demasiado costosas para el prototipo.
-- [ ] **H07-T15. Probar pelea en escenario final.** Comprobar ataques, muertes, proyectiles y partículas sin oclusiones que impidan entender el combate.
+- [x] **H07-T09. Montar arena con módulos finales.** Sustituir blockout y mantener los cuatro anclajes, dejando margen para efectos y HUD.
+- [x] **H07-T10. Configurar suelo y contactos.** Resolver sombras y apoyo de personajes sin flotación, hundimientos ni desplazamientos durante ataques.
+- [x] **H07-T11. Construir iluminación base.** Iluminar caras y siluetas de los cuatro combatientes; usar sombras y ambiente sin ocultar acciones.
+- [x] **H07-T12. Ajustar cámara de combate.** Validar encuadre con ogro, armas, paneles y objetivo marcado en ambas resoluciones.
+- [x] **H07-T13. Reservar cámara especial.** Comprobar que el acercamiento a la maga y los rayos no atraviesan muros ni salen del escenario.
+- [x] **H07-T14. Revisar materiales y rendimiento.** Corregir materiales incompatibles o faltantes, geometría fuera de cuadro innecesaria y sombras demasiado costosas para el prototipo.
+- [x] **H07-T15. Probar pelea en escenario final.** Comprobar ataques, muertes, proyectiles y partículas sin oclusiones que impidan entender el combate.
 
 #### Criterios para cerrar el hito
 

@@ -16,7 +16,7 @@ namespace UltimaGuardia.Tests
         private CombatantView[] views;
         private readonly List<Object> owned = new List<Object>();
         private bool previousBackground;
-        private string evidence => Path.Combine(Application.dataPath, "../Documentation/Evidence/H06");
+        private string evidence => Path.Combine(Application.dataPath, "../Documentation/Evidence/H07");
 
         [UnitySetUp]
         public IEnumerator Setup()

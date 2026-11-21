@@ -225,6 +225,9 @@ namespace UltimaGuardia.Editor
                 rig.hips.localPosition += new Vector3(0, 0, (ogre ? .22f : .18f) * gesture);
                 Offset(rig, rig.rightThigh, new Vector3(-12, 0, 0) * gesture);
                 Offset(rig, rig.rightShin, new Vector3(17, 0, 0) * gesture);
+                // H07 contact correction: cancel the thigh/shin net pitch at the ankle.
+                // The step still lifts the foot, but its toe cannot sink into the paving.
+                Offset(rig, rig.rightFoot, new Vector3(-5, 0, 0) * gesture);
             }
             else
             {
@@ -241,6 +244,26 @@ namespace UltimaGuardia.Editor
                 Quaternion wrist = Quaternion.Inverse(rig.rightHand.parent.rotation) * rig.transform.rotation * Quaternion.Euler(storm ? 8 : 20, 0, -8);
                 rig.rightHand.localRotation = Quaternion.Slerp(rig.rightHand.localRotation, wrist, gesture);
             }
+        }
+        // Targeted migration: preserve controllers, prefabs, data and all other H06 clips.
+        public static void CorrectPhysicalFootContact()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+                throw new InvalidOperationException("Detener Play antes de corregir los clips.");
+            foreach (string id in new[] { "warrior", "ogre" })
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(CharacterModeling.PrefabFolder + "/" + id + ".prefab");
+                var copy = Object.Instantiate(prefab);
+                try
+                {
+                    var rig = copy.GetComponentInChildren<CharacterRig>();
+                    rig.GetComponent<Animator>().enabled = false;
+                    foreach (var action in rig.GetComponent<CharacterAnimationPlayer>().animations.actions)
+                        Clip(rig, id, action.command.ToString(), action.clip.length);
+                }
+                finally { Object.DestroyImmediate(copy); }
+            }
+            AssetDatabase.SaveAssets();
         }
         private static float Envelope(float t, float peak, float hold, float end)
             => t < peak ? Mathf.SmoothStep(0, 1, t / peak) : t <= hold ? 1 : 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(hold, end, t));

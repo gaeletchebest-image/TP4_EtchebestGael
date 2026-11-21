@@ -17,7 +17,7 @@ Para cada incorporación registrar: ID, archivo/fuente, URL, autor, licencia y v
 
 ## Inventario pendiente de producción e integración
 
-Las filas **CHAR-01 a CHAR-04 y WEAP-01 a WEAP-04 se produjeron e integraron en H05**, según el registro de incorporaciones al final de este archivo. Las filas ANIM, ENV, UI, AUDIO y VFX siguen pendientes; no acreditan adquisiciones ni recursos ya creados.
+Las filas **CHAR/WEAP se produjeron en H05, ANIM en H06 y ENV en H07**, según los registros de incorporaciones al final de este archivo. UI, AUDIO y VFX finales siguen pendientes. La tabla conserva el inventario y su hito de producción; no representa un segundo conjunto de casillas.
 
 | ID | Recurso necesario | Producción / preparación | Hito |
 | --- | --- | --- | --- |
@@ -140,3 +140,20 @@ Recursos originales de Última Guardia, elaborados con Codex el 21 de noviembre 
 | H06-TEST | `AnimationPresentationTests.cs`, `CombatFlowTests.cs`, `FoundationPlayerSmoke.cs` | Matriz de veinte casos, pausa, muerte, reinicio, salida, regresiones y validación optativa de una acción animada en player Development |
 
 La representación de H05 se conserva; no se regeneran mallas ni se sustituyen modelos. Los clips guardados son recursos independientes de la fuente y se incluyen en el player. [Tiempos, funcionamiento y reconstrucción](H06_ANIMATIONS.md), [auditoría y secuencias](Evidence/H06/animation-audit.json).
+
+## Incorporaciones H07
+
+Recursos originales de Última Guardia, elaborados con Codex el 21 de noviembre de 2026. Sin recursos externos, compras, servicios pagos ni atribuciones de terceros. Se conservan fuente editable, mallas, OBJ/MTL y metadatos; no se atribuye una licencia externa a trabajo propio.
+
+| ID | Archivos | Producción e integración |
+| --- | --- | --- |
+| ENV-01 | `Assets/Prefabs/H07/Paving.prefab` | Pavimento modular de 3 × 3 m con losas biseladas y apoyo Y = 0, 35 instancias |
+| ENV-02 | `CurtainWall.prefab`, `Battlement.prefab` en H07 | Hiladas alternadas, zócalo, cornisa y almenas; seis instancias de cada módulo |
+| ENV-03 | `Gatehouse.prefab` | Portón de doce tablones, quince dovelas, jambas, herrajes, remaches y tiradores |
+| ENV-04 | `Buttress.prefab` | Cuatro contrafuertes con base, cuerpo segmentado y coronamiento |
+| ENV-05 | `Standard.prefab`, `Brazier.prefab` | Dos estandartes plegados con emblema propio y dos braseros con ascuas emisivas estáticas |
+| ENV-06 | `Assets/Materials/H07/*.mat` | Ocho materiales propios URP/Lit: piedra y variantes, roble, hierro, azul, bronce y ascuas; UV paramétricas, sin texturas externas |
+| H07-SOURCE | `FortressAuthoring.cs`, `FortressValidation.cs`, `Assets/Models/H07/{Meshes,Exports}` | Fuente poligonal paramétrica, siete mallas y siete pares OBJ/MTL, prefabs e integración explícita en Combat |
+| H07-CONTACT | Cuatro clips físicos H06 y `CharacterAnimationAuthoring.cs` | Compensación de tobillo para impedir hundimiento de la punta del pie durante el paso; no cambia reglas ni tiempos |
+
+El entorno final `Arena_Fortress_H07` reemplaza el blockout visible y conserva los anclajes, datos, modelos, animadores y Canvas recibidos. 56 instancias/renderers, 25.650 triángulos y ocho materiales compartidos. Una sola luz con sombras y relleno sin sombras. [Dirección, fuentes y reconstrucción](H07_FORTRESS.md), [auditoría geométrica y de encuadre](Evidence/H07/environment-audit.json). La cámara especial solo se reserva; la presentación completa sigue en H10.

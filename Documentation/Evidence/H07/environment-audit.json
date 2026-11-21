@@ -1,0 +1,64 @@
+{
+    "version": "0.0.8",
+    "passed": true,
+    "moduleTypes": 7,
+    "instances": 56,
+    "renderers": 56,
+    "triangles": 25650,
+    "materials": 8,
+    "shadowLights": 1,
+    "sampledClips": 24,
+    "sampledPoses": 216,
+    "sightlines": 648,
+    "specialCameraSamples": 21,
+    "minimumAnimatedY": -0.0033750534057617189,
+    "baseCamera": {
+        "x": 0.0,
+        "y": 7.800000190734863,
+        "z": -14.0
+    },
+    "proposedSpecialCamera": {
+        "x": -2.9000000953674318,
+        "y": 2.799999952316284,
+        "z": -3.3000001907348635
+    },
+    "specialLookAt": {
+        "x": -4.0,
+        "y": 1.899999976158142,
+        "z": 2.5
+    },
+    "checks": [
+        "7 modules, saved meshes, imported OBJ/MTL, URP materials, finite nondegenerate triangles and UVs",
+        "Blockout absent; original H05 prefabs, encounter data and all four world anchors preserved",
+        "All 24 saved clips sampled at nine poses: floor contact, viewport margins, environment sightlines",
+        "21 proposed special approach samples clear; overhead lightning corridors clear",
+        "Environment under 60000 triangles/65 renderers; one shadow light; no realtime decoration lights",
+        "Still captures 720p/1080p and proposed special; gameplay/HUD validation recorded separately"
+    ],
+    "framing": [
+        "shaman/shaman_Idle: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "shaman/shaman_Reaction: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "shaman/shaman_Death: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "shaman/shaman_Basic: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "shaman/shaman_Poison: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "shaman/shaman_DarkHeal: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "ogre/ogre_Idle: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "ogre/ogre_Reaction: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "ogre/ogre_Death: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "ogre/ogre_Basic: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "ogre/ogre_Cleave: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_Idle: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_Reaction: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_Death: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_Item: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_Basic: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "warrior/warrior_HeavyStrike: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Idle: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Reaction: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Death: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Item: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Basic: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_Heal: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto",
+        "mage/mage_ArcaneStorm: 9 poses dentro del margen, sin oclusión de cabeza/torso/impacto"
+    ]
+}
