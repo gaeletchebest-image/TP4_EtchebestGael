@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0869ea6fc40c8014aa548a51ec0a886f, type: 3}
+  m_Name: ogre
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CharacterAnimationSet
+  idle: {fileID: 7400000, guid: 72f1ba5407dde1c4ca7439f22f938d99, type: 2}
+  reaction: {fileID: 7400000, guid: 61eecef7e75864849ad17ad452ba117a, type: 2}
+  death: {fileID: 7400000, guid: 22c6a766229b64c42a5bdf8e49953dba, type: 2}
+  item: {fileID: 0}
+  itemImpactTime: 0.35
+  actions:
+  - command: 0
+    clip: {fileID: 7400000, guid: 16663d3e361e15e4d99c1c9332a21cad, type: 2}
+    impactTime: 0.35
+    launchTime: 0.15
+    projectile: 0
+    projectileColor: {r: 0.6, g: 0.3, b: 0.95, a: 1}
+  - command: 9
+    clip: {fileID: 7400000, guid: 5c5c16b2d9627b24ba689873d16055d5, type: 2}
+    impactTime: 0.35
+    launchTime: 0.15
+    projectile: 0
+    projectileColor: {r: 0.6, g: 0.3, b: 0.95, a: 1}

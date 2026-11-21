@@ -16,7 +16,7 @@ namespace UltimaGuardia
         [Serializable]
         private sealed class Result
         {
-            public string version = "0.0.1-H00";
+            public string version = "0.0.7-H06";
             public string unity;
             public string initialScene;
             public int width;
@@ -25,6 +25,7 @@ namespace UltimaGuardia
             public int nativeWindowHeight;
             public bool passed;
             public bool exitedThroughMenu;
+            public bool animatedActionVerified;
             public string error;
             public string devices = "Virtual Keyboard and Gamepad";
             public string captureMethod = "Offscreen Camera.Render; temporary ScreenSpaceCamera canvas in hidden validation process";
@@ -78,6 +79,29 @@ namespace UltimaGuardia
             yield return PadPress(GamepadButton.South);
             yield return WaitForScene("Combat");
             yield return Capture("combat");
+            float deadline = Time.realtimeSinceStartup + 10;
+            while (Battle().Phase != PrototypePhase.Commands && Time.realtimeSinceStartup < deadline) yield return null;
+            Check(Battle().Session.Actor?.Definition.Id == "mage", "Mage must receive the first turn");
+            yield return KeyPress(Key.Enter); yield return KeyPress(Key.Enter);
+            Check(Battle().Phase == PrototypePhase.Executing, "Basic must start animation");
+            yield return KeyPress(Key.Escape);
+            Check(Battle().IsPaused, "Pause during animated action");
+            float actionTime = Battle().ActionTime;
+            var animation = FindFirstObjectByType<CharacterAnimationPlayer>();
+            float animationTime = animation.Elapsed;
+            yield return new WaitForSecondsRealtime(.35f);
+            Check(actionTime == Battle().ActionTime && animationTime == animation.Elapsed, "Animation clock must freeze");
+            yield return Capture("animated-action-paused");
+            yield return KeyPress(Key.Escape);
+            deadline = Time.realtimeSinceStartup + 10;
+            while (Battle().Session.CompletedActions < 1 && Time.realtimeSinceStartup < deadline) yield return null;
+            Check(Battle().Session.CompletedActions >= 1, "Animated action must finish");
+            bool enemyDamaged = false;
+            foreach (var fighter in Battle().Session.Fighters)
+                if (fighter.Definition.Team == CombatTeam.Enemies && fighter.Health < fighter.Definition.MaxHealth) enemyDamaged = true;
+            Check(enemyDamaged, "Animated projectile must apply damage");
+            result.animatedActionVerified = true;
+            yield return Capture("animated-action-complete");
             yield return PadPress(GamepadButton.Start);
             Check(Battle().IsPaused, "Gamepad menu must pause");
             yield return Capture("pause");

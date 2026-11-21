@@ -86,3 +86,18 @@ Las reglas y los tres consumibles pendientes de H03 están completos en H04. Sin
 | H05-L05 | Player oculto | Curl error 6 y avisos de liberación de buffers/asignaciones al cerrar con capturas explícitas, como en H00–H04 | Smoke aprobado y salida 0, sin excepción de lógica observada. Investigación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
 
 Sin cambios de estadísticas o mecánicas ni correcciones abiertas del usuario. H05 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Lo doy por aprobado.». H06 no iniciado.
+
+## Seguimiento H06
+
+| ID | Tareas | Descripción y alcance | Estado / cierre |
+| --- | --- | --- | --- |
+| H06-C01 | H06-T14 | La utilidad de autoría usaba `??` sobre componentes Unity ausentes y recibió un MissingComponentException antes de guardar el primer prefab | Resuelto con comprobaciones del operador de nulidad de Unity y adición explícita. Regeneración posterior completa, auditoría de los cuatro controladores aprobada |
+| H06-C02 | H06-T19 | Primera matriz detenida por una expectativa del fixture: Éter exigía conservar el maná anterior a recuperar | Resuelto: expectativa limitada al máximo de maná. Primera pasada 2/3; dirigida posterior 3/3; suite final 71/71 |
+| H06-C03 | H06-T19 | Capturas síncronas del fixture conservaban matrices de render del frame anterior, aunque las articulaciones ya habían cambiado | Resuelto esperando un frame antes de capturar. Capturas finales muestran preparación, proyectil y caídas; no se usan las imágenes iniciales para acreditar animaciones |
+| H06-L01 | Representación | Se conserva el rig de piezas rígidas y ropa segmentada de H05; sin piel continua, Humanoid o simulación de tela | Alternativa autorizada por el GDD. 24 clips reales y cuatro controladores integrados, con apoyos y caída comprobados |
+| H06-L02 | Presentación | Proyectiles básicos y recurso de objeto simples. Tormenta tiene pose de 2,5 s e impacto a 1,2 s, sin la secuencia final de cámara/HUD/VFX/audio | Alcance H06. Escenario en H07, interfaz en H08, audio en H09 y VFX/secuencia especial completa en H10 |
+| H06-L03 | Validación | Input de teclado/control virtual y capturas RenderTexture; no demuestra control físico ni monitor nativo 1080p | Límite explícito; validación física en H11. Las peleas aceleradas verifican flujo, sin medir balance ni duración objetivo |
+| H06-L04 | Build | Una advertencia de truncamiento implícito en DebugOccluder de Unity Core/d3d11 | Build aprobada con 0 errores; resumen y BuildReport conservados |
+| H06-L05 | Player oculto | Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer, Persistent y JobTempAlloc al apagar, como en H00–H05 | Smoke ampliado aprobado, acción animada comprobada y salida 0. No se observó excepción de lógica. Investigación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
+
+H06 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Esta aprobado. Dame ademas un nombre en ingles para el commit.». Se conservan 71/71 PlayMode y build/player comprobados. Sin correcciones solicitadas. H07 no iniciado.

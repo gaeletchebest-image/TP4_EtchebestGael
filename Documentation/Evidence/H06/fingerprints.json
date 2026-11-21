@@ -1,0 +1,922 @@
+{
+  "version": "0.0.7-H06",
+  "gitHead": "34592c69bde6f188a9dfe27c7613826cfae422ba",
+  "userReview": "approved",
+  "files": [
+    {
+      "path": "Assets/Animations/H06.meta",
+      "bytes": 172,
+      "sha256": "2cef68733a77e5e819591df427cb584fca1da03db198934f9fc860677d20786f"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.asset",
+      "bytes": 3795,
+      "sha256": "1837bfed3838f738a55590a35a1c95b33767b8530c82804de4b35c99bda6ee6a"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.asset.meta",
+      "bytes": 188,
+      "sha256": "f2348259e3af039ff2474d7985de7659f5ced95ed50f03ae6e2bc3a0f62cc952"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.mat",
+      "bytes": 3819,
+      "sha256": "d83591cbdb7d71663df99189eec03fb0d178f55f493be15c2e5511412948b5e4"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.mat.meta",
+      "bytes": 188,
+      "sha256": "2b6a59b809746ea96ed29d908c9b18b1e3fceb029445e29618b0b4ff7d8e9d2d"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.prefab",
+      "bytes": 2632,
+      "sha256": "b4cfa3e5ac6bfa7f3ab2eb6967d6807702102c6b203ea17017a7933288815872"
+    },
+    {
+      "path": "Assets/Animations/H06/Item.prefab.meta",
+      "bytes": 154,
+      "sha256": "67e3346aee76bd972a3eede350059a8e4e3ff77c02f62928ad9595d4cc3f2d1a"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_ArcaneStorm.anim",
+      "bytes": 3425228,
+      "sha256": "0ce09b080a9722a0264b05641e3ebdb31ed8951f1d4ebff36342cb6f71f6ed1e"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_ArcaneStorm.anim.meta",
+      "bytes": 188,
+      "sha256": "e9ee84bd231f30ab7623559e621282c22174f1f99bad865cf7d2d9937101118e"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Basic.anim",
+      "bytes": 1402126,
+      "sha256": "764ad5ae9993f1e774cdbbe65b9fbf1ecc42e928dcfc003df41d2cf23d5d377c"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Basic.anim.meta",
+      "bytes": 188,
+      "sha256": "1d6d13ffa1ee82aadddfd3d7d5b6a35275db6962a67382fa8952443eaa3e4066"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Death.anim",
+      "bytes": 733948,
+      "sha256": "9ef57abfc242b3227c755609e6cdcda37f3e00f37acdee89fa7cc4643d432021"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Death.anim.meta",
+      "bytes": 188,
+      "sha256": "34a3bbbab5c5716519076ef164b98cad4de1aea7206baa94da8befe9e97c8cf8"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Heal.anim",
+      "bytes": 1401809,
+      "sha256": "345449efb15f95795038ae8cce6a0dc462cb2cd4eaba36bc62a32541ba1a201d"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Heal.anim.meta",
+      "bytes": 188,
+      "sha256": "9941967b955b2bd87cf0da0c0ad6a03fa12702a910e32343261e7fd84db8a602"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Idle.anim",
+      "bytes": 3306370,
+      "sha256": "ebaae3adefc932537fde860c092003609d39443c66edd8e200251248ff258b31"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Idle.anim.meta",
+      "bytes": 188,
+      "sha256": "78d7c6557c768cb758a3402344ca20b8c5a0057bddf15ee7e5153795e0e6b2e7"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Item.anim",
+      "bytes": 1257892,
+      "sha256": "de8dbb7cb3967979b7705061d077a318fce3f6a7c4e11fa9ce8e52b6329cb627"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Item.anim.meta",
+      "bytes": 188,
+      "sha256": "d2c378aa254b30213a49481435ea41cc341b7a9471830f83fb0d49ca7a1c4e53"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Reaction.anim",
+      "bytes": 633778,
+      "sha256": "8c14752ef8516cd708e3db92246a78d5d0b1401c8270771cf213c3d93232488b"
+    },
+    {
+      "path": "Assets/Animations/H06/mage_Reaction.anim.meta",
+      "bytes": 188,
+      "sha256": "cbb18bbf83c2bb5189d32971283d160da68ee48f0bb1d4e5bbf20e4d924bd7d5"
+    },
+    {
+      "path": "Assets/Animations/H06/mage.asset",
+      "bytes": 1383,
+      "sha256": "b7823f74d8109781f80e6eed74a6b16269853f0323cfd224eaba04b6ee4ac0a6"
+    },
+    {
+      "path": "Assets/Animations/H06/mage.asset.meta",
+      "bytes": 189,
+      "sha256": "04fd8cae0aa59126f281a0305280647c8c141beb40a0c024255f4deb8c4eedf3"
+    },
+    {
+      "path": "Assets/Animations/H06/mage.controller",
+      "bytes": 11304,
+      "sha256": "6600bc55abd0b97407bf5f3f580239c2abae09523e8a5df38b736d8b7119ed2b"
+    },
+    {
+      "path": "Assets/Animations/H06/mage.controller.meta",
+      "bytes": 188,
+      "sha256": "fe3f032b703b793e9b55c549d9f9f7176bb3c9ab6a7690cafb62ad26eba96da0"
+    },
+    {
+      "path": "Assets/Animations/H06/mageProjectile.mat",
+      "bytes": 3823,
+      "sha256": "7e4e0761b77c7a1cd5ca987701bab7884e6d72cf4a23aa680e7169a1ceb10ce0"
+    },
+    {
+      "path": "Assets/Animations/H06/mageProjectile.mat.meta",
+      "bytes": 188,
+      "sha256": "4b11f2abde5d80438c6f574499c873e0868d9183b2efcb39cbca8a71324000ae"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Basic.anim",
+      "bytes": 1269126,
+      "sha256": "b7c50cd8ed23b502b6cfa628f77abb687a7188ca0e078fb753821bf8ac80e753"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Basic.anim.meta",
+      "bytes": 188,
+      "sha256": "944a732bb1119cee993651ac9cb4aef509cf9ecc99e3cafdddea73a6ca0879fb"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Cleave.anim",
+      "bytes": 1438678,
+      "sha256": "7c1661428dbc14d4d2568eb5cb69745ba2b2db4e871a00969d6038f1683436a6"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Cleave.anim.meta",
+      "bytes": 188,
+      "sha256": "e90f148013e44d0472d6142912c953c76e0968b0efaeb8a0e0f32f46482ff219"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Death.anim",
+      "bytes": 733123,
+      "sha256": "43f595da4baeb2fde9b19bd34adbc710392685de247fdf86921737a0f2fd7572"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Death.anim.meta",
+      "bytes": 188,
+      "sha256": "6cfd47c4fa37ef27ddb6b7d43cf8bf695fbf1fdbe913c751e1653bea03f8a6d2"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Idle.anim",
+      "bytes": 3301781,
+      "sha256": "c05c912b5f6963402c7008c4161430d41d189b33b35013f5ab0e3b81e7853038"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Idle.anim.meta",
+      "bytes": 188,
+      "sha256": "8130a361347498602258024b9665332726e0bcc0428f7e507166a2a5aa94f494"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Reaction.anim",
+      "bytes": 633057,
+      "sha256": "4951e7ed4973cfe685315e12e354665c1dde61ef4b07453297da281a4ce44876"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre_Reaction.anim.meta",
+      "bytes": 188,
+      "sha256": "c8c9acea78dd12a59353d9cea687a6ed48dff2bb1360f40a23a710d3daba2e5b"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre.asset",
+      "bytes": 1145,
+      "sha256": "db05d5a5bddc440a1ce75bd7b9eddb95db58652348e8407ac0deb586d454aeea"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre.asset.meta",
+      "bytes": 189,
+      "sha256": "b3b1a8b6c9dcccce24f3c1368ec1c79dad60a52cebcabb5aaeecc29aded9939c"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre.controller",
+      "bytes": 8263,
+      "sha256": "4c640b5a4ac687c0a620fcce6417291dd6c1b231cd6a9c1a394729b4fc977abc"
+    },
+    {
+      "path": "Assets/Animations/H06/ogre.controller.meta",
+      "bytes": 188,
+      "sha256": "65d207b8f1c145f65db54bbb01b3c94dfcb2ae990e7eee0baeb1ee2dae830a3b"
+    },
+    {
+      "path": "Assets/Animations/H06/ogreProjectile.mat",
+      "bytes": 3824,
+      "sha256": "ff31d3f534968384945a5ee1fb51ca40fd66f752e89532b7a2d1c79ac36c73ea"
+    },
+    {
+      "path": "Assets/Animations/H06/ogreProjectile.mat.meta",
+      "bytes": 188,
+      "sha256": "64504171ae537f78dce47ba4460f6dad3e979f39164ee62de0b94638d4f75d38"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.asset",
+      "bytes": 3801,
+      "sha256": "632c14244835893f91b7b2950e5593622763b38a457509350b06b4189d1cf1d6"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.asset.meta",
+      "bytes": 188,
+      "sha256": "90118d7f6e7f22c678e1d9b6a93e1954d984a2fbcb1ab9f0c8e7aac9cff8affd"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.mat",
+      "bytes": 3803,
+      "sha256": "b9be91332fea30dc7a4bc98bab1191176f6477926914d45efd3a6e4cd3653802"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.mat.meta",
+      "bytes": 188,
+      "sha256": "21a9d6f0b9ccc1414e5343e90b41d8f1f4f24c33e9abede7d715fdfb1250473d"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.prefab",
+      "bytes": 2638,
+      "sha256": "d16c16043325512d6d0c47ca7341570f7bd3791701ae859436685738c2d4d5b1"
+    },
+    {
+      "path": "Assets/Animations/H06/Projectile.prefab.meta",
+      "bytes": 154,
+      "sha256": "4fd2f8c7b87905aa5d06b6142f0afd61dceaf3f3c44563a53382289c108854fe"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Basic.anim",
+      "bytes": 1402695,
+      "sha256": "d604c0df336be11e97e9b0935e1906cddf1f5cc86ae9ba4bdc8f4a5fcc2d1086"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Basic.anim.meta",
+      "bytes": 188,
+      "sha256": "a38051e04defdd5be4c58b17a39e7c06069b0b3035e2b4092ca979e8523bc863"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_DarkHeal.anim",
+      "bytes": 1402438,
+      "sha256": "4855c258258968b3d5fbcde57b288f20f355821c7e870b58886d1efdbf3f07f7"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_DarkHeal.anim.meta",
+      "bytes": 188,
+      "sha256": "6171f548e5ad1610dec5d8f0025c5b7f5feea4f1febf01b5246ee080b31e66ae"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Death.anim",
+      "bytes": 734516,
+      "sha256": "72e383979de58b5d5e50a7f1793a928bf8b07e0db51e3d8b7303ffab21b759ad"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Death.anim.meta",
+      "bytes": 188,
+      "sha256": "971233002e5357fc7f4991b2671b6b3711be4c92ac8f73f57aff91256c2b682b"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Idle.anim",
+      "bytes": 3310122,
+      "sha256": "283fb83ee0304fd2421fa96c7ee5a7a580a9061fad5399a21fc0e12f93a5af31"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Idle.anim.meta",
+      "bytes": 188,
+      "sha256": "1259e97a80e0ca99acdf240ef7dd3801f011dedfbb50707fc563845055d53f88"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Poison.anim",
+      "bytes": 1407221,
+      "sha256": "bb526777d8a4e3c967bc372a10bbb4045bf1c8982d0d808f2c125bd91274e983"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Poison.anim.meta",
+      "bytes": 188,
+      "sha256": "335343d401ad6ad2f7ad215fd20067821d43243671f19120be67eb27dd042d19"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Reaction.anim",
+      "bytes": 634449,
+      "sha256": "479f54f9edba907ad4dcbf8d0f80525390efa4c368dbeb8cd9b7f00aba12bee2"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman_Reaction.anim.meta",
+      "bytes": 188,
+      "sha256": "c213c66037a98845398cfec3c408dbab31af07448495773a8c188680a0a7605c"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman.asset",
+      "bytes": 1354,
+      "sha256": "4b48b18205dddb574f317d739f3e25fd26253a9846751e1eb0d7b4b1e1c4e180"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman.asset.meta",
+      "bytes": 189,
+      "sha256": "2512d3ace50842344c02279b39f72aa3a27e02d7963f3695de6c3cbcee71f61f"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman.controller",
+      "bytes": 9791,
+      "sha256": "3181852355fb1da3f1fff054e03e28bf6a7cc1dc7de6c4926dbefeda6a909423"
+    },
+    {
+      "path": "Assets/Animations/H06/shaman.controller.meta",
+      "bytes": 188,
+      "sha256": "fb5a5f0dcca812f3c7432fa4c329bfb190e202f13ca25a8d51ef000ff6035b6b"
+    },
+    {
+      "path": "Assets/Animations/H06/shamanProjectile.mat",
+      "bytes": 3827,
+      "sha256": "51baba395ccb2dbbe0c8f3683a92b16705d006e9565f54ea5f8a330398f0e692"
+    },
+    {
+      "path": "Assets/Animations/H06/shamanProjectile.mat.meta",
+      "bytes": 188,
+      "sha256": "d0960cc682b29b8f6c08a3cc977c30ade17db44726fa86573246b2905fc3580a"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Basic.anim",
+      "bytes": 1270771,
+      "sha256": "655d50a90d6a348d59c87e50669bf5cf7aced5886292a91dc07770982d03cf04"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Basic.anim.meta",
+      "bytes": 188,
+      "sha256": "cbc047ba3641f52d9f984251b8c71b7da26c58d3fc56b607b1c2de1d5a6d9012"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Death.anim",
+      "bytes": 734487,
+      "sha256": "1c8e2c7f71238f9ef83788000d233046db55f9648e9c17da128f3fc5af55b94e"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Death.anim.meta",
+      "bytes": 188,
+      "sha256": "155c38f44b376a3d0365bd374f1909eaa23592f82d5b454b1554860c67718384"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_HeavyStrike.anim",
+      "bytes": 1440606,
+      "sha256": "28f4f6fffb063aa83a53385ead5f99a2ed5eae539a2249033e2a3c3b3fd9ab51"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_HeavyStrike.anim.meta",
+      "bytes": 188,
+      "sha256": "5bd5ca6895db1e4f4bf296406a13894d47e105a2844848ae200eeffaf4e80057"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Idle.anim",
+      "bytes": 3309527,
+      "sha256": "ec1294bad01a644a204135971b6caf3af7d16090e14cbd94e84131b4dbc58faf"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Idle.anim.meta",
+      "bytes": 188,
+      "sha256": "1317ab58904d9ba901e05f5c3268c8c0595ba8d6b3cde205be4e75b4c867d2cd"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Item.anim",
+      "bytes": 1260187,
+      "sha256": "32487a9feebead521cd7a45f6f01d1ad665dab5fb3bdbbfeec9fe25fe220e7f3"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Item.anim.meta",
+      "bytes": 188,
+      "sha256": "773dd49bd3950107fbc29951e9be31fe47825b5a3c7ed918983d85e862cf014a"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Reaction.anim",
+      "bytes": 634373,
+      "sha256": "033f3d108a7a99c22ce712a49e5a2857d771461b1490d49978e3f61d313acaec"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior_Reaction.anim.meta",
+      "bytes": 188,
+      "sha256": "e1c4d78a1654079ca1305c44278967af21b6ad4c35d1ff099c6636d9bb0899d5"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior.asset",
+      "bytes": 1203,
+      "sha256": "c9c0b2b52afc91d6ac0ba458b10959c446af5420c64a70f356470ddbc2f02109"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior.asset.meta",
+      "bytes": 189,
+      "sha256": "6fcba2f922bdabfdabbdac1ef0c74a7e12a48d3a2ec0d29070be1049124cbf46"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior.controller",
+      "bytes": 9799,
+      "sha256": "e2d735eebc31658e6dda26df28ce64a787aad66f46ae694a840bfff1e94a86fd"
+    },
+    {
+      "path": "Assets/Animations/H06/warrior.controller.meta",
+      "bytes": 188,
+      "sha256": "3792d93e38736176dfb126814665eddfd6425544f9a06af1d8af4ab7fc528f85"
+    },
+    {
+      "path": "Assets/Animations/H06/warriorProjectile.mat",
+      "bytes": 3828,
+      "sha256": "83777969979aca7d0d452dc027992f78253d0e18861da91a0d9c51afdbae037b"
+    },
+    {
+      "path": "Assets/Animations/H06/warriorProjectile.mat.meta",
+      "bytes": 188,
+      "sha256": "b1b585bc310156c1e06b04ae76fcfa54dfff9d662072123e7c2facb6c9b4dedc"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/arcane_storm.asset",
+      "bytes": 873,
+      "sha256": "179f611b69503d242592001e8a868bdb460e136653723a34e43bea71e6205c41"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/cleave.asset",
+      "bytes": 835,
+      "sha256": "9f7f6e6d03dd3d0024b68c67bb27b32b302168280e33c18eeb9b45092c9d11ed"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/dark_heal.asset",
+      "bytes": 863,
+      "sha256": "3c9aa376a5f5724e7b350d9d56fd718dde367d111602e7b6f4b4c4c8653dc5ac"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heal.asset",
+      "bytes": 858,
+      "sha256": "01a84df8258831484dd01e63e8bf4ffb20b018b15131698955137bcb8fca024b"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset",
+      "bytes": 817,
+      "sha256": "486e5d4f3444e8aaf1118e31c7995fa0caa5a1c042e4992321a4019dabfb332e"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset",
+      "bytes": 820,
+      "sha256": "e99bb836ff543c4ec6b1bdb608f99338063931e0e17f0fa313af126d44b80177"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset",
+      "bytes": 804,
+      "sha256": "1f40e093f3c3bf2c28a60f64c758c22f0ecd56151f7d00cf9b7bfff4a18e36cb"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison_spell.asset",
+      "bytes": 920,
+      "sha256": "74036cfcbbba68bef610f4868d8f88b0cabd97444496db9a8f2cd4aaf08a8a9b"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset",
+      "bytes": 811,
+      "sha256": "fe0318d5a16e5916fca57d9526ee09d74a6c3a4ae12578888da8f533c9948e75"
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset",
+      "bytes": 823,
+      "sha256": "967767322f38cce78115315b2513969d9464f722f9cdc567836e46509a300afe"
+    },
+    {
+      "path": "Assets/Prefabs/H05/mage.prefab",
+      "bytes": 145361,
+      "sha256": "0f2f2867e5ada349f6435c32cbd0110cff7cd3e1786eb9bb11faef0d9100a005"
+    },
+    {
+      "path": "Assets/Prefabs/H05/ogre.prefab",
+      "bytes": 118381,
+      "sha256": "18adf237d458a2bae6e8eef40c986951bfac152909a28b342ae2966e11c88039"
+    },
+    {
+      "path": "Assets/Prefabs/H05/shaman.prefab",
+      "bytes": 118474,
+      "sha256": "33cbe82b43b84f80a4b6b5970f4231d18e947f2cc66210b7c4e1fe118cf206bf"
+    },
+    {
+      "path": "Assets/Prefabs/H05/warrior.prefab",
+      "bytes": 134888,
+      "sha256": "588a1bc6e9e990ec30d34ead7ac5f2483e716356e9f59b8418c35dac3c9a191a"
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity",
+      "bytes": 182314,
+      "sha256": "415432a379a68c8c6b659122565473a96a1cd882083e10708379c0b38ab3abec"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CharacterAnimationPlayer.cs",
+      "bytes": 4242,
+      "sha256": "a6ef41a52e59ddd6d563a6df3056ac3fc785aa34a6fc2e7d3b4e89762732af0c"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CharacterAnimationPlayer.cs.meta",
+      "bytes": 59,
+      "sha256": "d17fe00eaa3953cdb728ad670801854c744539d5654e4d47e6e22b7e3b331a6f"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CharacterAnimationSet.cs",
+      "bytes": 808,
+      "sha256": "9a1d01f8ccd62647446e4bf19ac321e174a6f2b1d0db4c9b4ccbbb710f679ffb"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CharacterAnimationSet.cs.meta",
+      "bytes": 59,
+      "sha256": "ac52d6d1fc03bb852a0a3f6b32289c2116751005670690fbef966cc3271615db"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs",
+      "bytes": 1518,
+      "sha256": "b41a6dbdee34a6a91900404f39655ee16882c8ccc1bc8b459fe0efe5845718c4"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPresentation.cs",
+      "bytes": 3836,
+      "sha256": "b206b03a198435e8bc583d2ce7a1a25acae98bd55fb195bbb7aeeb3ba267896a"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPresentation.cs.meta",
+      "bytes": 59,
+      "sha256": "68ea4f09908f18522243564d18803d5cb28256d2e884d2594c9da213f7595ff4"
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs",
+      "bytes": 18816,
+      "sha256": "ab31a72f5e574081422674e0ca6642d7c4f8296c0b94e7da2814626c5e18124c"
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs",
+      "bytes": 11452,
+      "sha256": "a72e141eb58da83322548138e1e413386b007a161f8c3bd6baf86d8a9e5e1715"
+    },
+    {
+      "path": "Assets/Scripts/Editor/CharacterAnimationAuthoring.cs",
+      "bytes": 17478,
+      "sha256": "cff237c941a24616c2f7d47e892563b0263041c6e02da333b09fbb392a386962"
+    },
+    {
+      "path": "Assets/Scripts/Editor/CharacterAnimationAuthoring.cs.meta",
+      "bytes": 59,
+      "sha256": "b4a60212a9ca7e70a060966853f99ce98de8fa14302356c673bf374f2570eb8c"
+    },
+    {
+      "path": "Assets/Scripts/Editor/CharacterAnimationValidation.cs",
+      "bytes": 8510,
+      "sha256": "4d87d8be228d3143d0d1e15593a242fc5bc82059c94dd72db9ad97ca1d327a9a"
+    },
+    {
+      "path": "Assets/Scripts/Editor/CharacterAnimationValidation.cs.meta",
+      "bytes": 59,
+      "sha256": "26ecfabd11d16bbd6e0f610fd1f98996b570155cf3e48724ecefc95bee5c4b2a"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/AnimationPresentationTests.cs",
+      "bytes": 13543,
+      "sha256": "eea35d5127c424229f95127317f77bd4e1d282a7ac98c5d49d6bf5d9f15ab2aa"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/AnimationPresentationTests.cs.meta",
+      "bytes": 59,
+      "sha256": "1457875e592740b278cd2c0a2e8cf0913c07e9ba1284a9e90e19b5a7469fc3cd"
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs",
+      "bytes": 29019,
+      "sha256": "68d2398f4424a6c763c61181004291c067aba139dc68967a554db8dbf12f956e"
+    },
+    {
+      "path": "Builds/H06/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.dll",
+      "bytes": 80896,
+      "sha256": "0a103d99a075ce811c30b6f003e0678bacd041d01ddd17de15a5a7c20b6880b0"
+    },
+    {
+      "path": "Builds/H06/UltimaGuardia.exe",
+      "bytes": 667648,
+      "sha256": "e3852a92c8d4350b2595c7086432a3350e25d7141fd6097bcc47d5f2d368a522"
+    },
+    {
+      "path": "Documentation/ASSET_REGISTER.md",
+      "bytes": 15428,
+      "sha256": "1e46b71c2a61b2749db9cbd84672f4958ae0916ff8c463c84d52efcbf34703ad"
+    },
+    {
+      "path": "Documentation/BALANCE_LOG.md",
+      "bytes": 6753,
+      "sha256": "0a6e2e44eda8854b42946ddf763f60bbcb1817520c361703293fc5f39f17b80e"
+    },
+    {
+      "path": "Documentation/Evidence/H06/action-matrix.txt",
+      "bytes": 1279,
+      "sha256": "6690e747110069d662a9d34c66da54bdc975c2c3b62909073fa4b57267ae2269"
+    },
+    {
+      "path": "Documentation/Evidence/H06/advancing-1280x720.png",
+      "bytes": 263652,
+      "sha256": "fdf1b3f28e5abe4e76285ec014ab05e7b0ad4f9176a3dbd7152447691ada82fa"
+    },
+    {
+      "path": "Documentation/Evidence/H06/all-deaths-1920x1080.png",
+      "bytes": 369444,
+      "sha256": "dda16364d09006ca6a8d5e24b43ea5e4710fe26559c2afe2dc5abadb793c9e72"
+    },
+    {
+      "path": "Documentation/Evidence/H06/animation-audit.json",
+      "bytes": 1513,
+      "sha256": "aaf5660d3ea68c94131b9ac490cb00b1adca7b047e7b0e58617565681c0a3078"
+    },
+    {
+      "path": "Documentation/Evidence/H06/antidote-confirmed-paused.png",
+      "bytes": 170348,
+      "sha256": "11b64c44285769b5af4c28cd3485df74d81fd98c57ddd8d4fb75b264f511aa7e"
+    },
+    {
+      "path": "Documentation/Evidence/H06/arena-1280x720.png",
+      "bytes": 247780,
+      "sha256": "a5f004d7e134167e8e5093634f2e60d3aca7bb17cc17d14ef7f97c9bb42d9538"
+    },
+    {
+      "path": "Documentation/Evidence/H06/arena-1920x1080.png",
+      "bytes": 486825,
+      "sha256": "5a6c58d044eb31abf9e2956aeb3ff8728d8ace7e2c728c9091db908b018aeb14"
+    },
+    {
+      "path": "Documentation/Evidence/H06/build-report-details.json",
+      "bytes": 1417,
+      "sha256": "f1ea47768297a1a10a2a9f1feba0d93f56d4177e0eb84e40b5c6e70cf07487f6"
+    },
+    {
+      "path": "Documentation/Evidence/H06/build-summary.json",
+      "bytes": 344,
+      "sha256": "bd143498d175d790933b7af3d3c8445d247b87a8f388cf4afcda92791deb23eb"
+    },
+    {
+      "path": "Documentation/Evidence/H06/corrosion-impact-paused.png",
+      "bytes": 172497,
+      "sha256": "314b7fccafae179d51ac2a5e609f1938846d734d103516da895efcb91c739561"
+    },
+    {
+      "path": "Documentation/Evidence/H06/defeat-forced-low-health.png",
+      "bytes": 176683,
+      "sha256": "2cea0fce24f96119bfc468ece3d526ebd90d57f84276c59961fb95320735806a"
+    },
+    {
+      "path": "Documentation/Evidence/H06/ether-target.png",
+      "bytes": 267366,
+      "sha256": "d80f51dc1b9663b4200a1ead0e032b07a665edfe47071afa67ad47b331242a85"
+    },
+    {
+      "path": "Documentation/Evidence/H06/healing-self.png",
+      "bytes": 271855,
+      "sha256": "9a9e5eb33adee614532b6a1c2df716100f020454bef3e1030c7d53550b74a0d7"
+    },
+    {
+      "path": "Documentation/Evidence/H06/items-1280x720.png",
+      "bytes": 272493,
+      "sha256": "84d88b212d3c39c06ee6dd715a2f57deea8c6e2ff76df5410f317279c65b79b5"
+    },
+    {
+      "path": "Documentation/Evidence/H06/items-1920x1080.png",
+      "bytes": 528739,
+      "sha256": "26d4b33eb71f0e4199e3e349fdcc5704780b11d46166ae1df3b7e6346b3710b0"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-animation-sheet.png",
+      "bytes": 565636,
+      "sha256": "aec80b48257f726d44bee9b9dc4a50542b6f064c8f25b634a78586cfdfa2720c"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-Antidote-anticipation.png",
+      "bytes": 189977,
+      "sha256": "2c1147a24215bbde00067107352d03e76f1651318755173fa29ab0a84b2dd9f2"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-ArcaneStorm-anticipation.png",
+      "bytes": 190571,
+      "sha256": "909acbece40173ebadbc5a5f5d8bec8a41de2ba4d35a54d619a27708b07199e0"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-Basic-anticipation.png",
+      "bytes": 190413,
+      "sha256": "286168422474364157b2bc743b053d971399b1258a1479013a8a3ac77114a3d4"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-CorrosiveFlask-anticipation.png",
+      "bytes": 189965,
+      "sha256": "64dac9c522a530785aac633564c860edea0b6cdcbcb49bab31b6159d63b37aea"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-Ether-anticipation.png",
+      "bytes": 190599,
+      "sha256": "9db0781c5939813a5a5d9e908e0c32f44daa353ddf7495a5e692d1e0d4c30ae1"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-HasteTonic-anticipation.png",
+      "bytes": 189977,
+      "sha256": "2c1147a24215bbde00067107352d03e76f1651318755173fa29ab0a84b2dd9f2"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-Heal-anticipation.png",
+      "bytes": 190682,
+      "sha256": "17caec6138a890baefd1d5254597744be238a933f92f8874a1500e4aa36c3733"
+    },
+    {
+      "path": "Documentation/Evidence/H06/mage-Potion-anticipation.png",
+      "bytes": 190578,
+      "sha256": "1d6c19f63f300ed7b4dd2c83e56e4c23be8c356bb5ff2b1cc4e1ccb41f78e73b"
+    },
+    {
+      "path": "Documentation/Evidence/H06/ogre-animation-sheet.png",
+      "bytes": 569291,
+      "sha256": "0acce980a213220af309c42f996cd18367b60542bfa358a72eb89ff74606d9d2"
+    },
+    {
+      "path": "Documentation/Evidence/H06/ogre-Basic-anticipation.png",
+      "bytes": 190882,
+      "sha256": "e3749fa82e9168b329180862ede72a50f179f02480225d24c4d023620ebe6cd0"
+    },
+    {
+      "path": "Documentation/Evidence/H06/ogre-Cleave-anticipation.png",
+      "bytes": 190581,
+      "sha256": "14032569dc5d9b581973d3aabbc2ee3bf528ce88feeb37a0fe642e995b8fd45e"
+    },
+    {
+      "path": "Documentation/Evidence/H06/pause.png",
+      "bytes": 169575,
+      "sha256": "887ddab31ba0f10252add3d8fff8c6e7bc40eb2be29fdc42ff66c8b6f35b3395"
+    },
+    {
+      "path": "Documentation/Evidence/H06/player-animated-action-complete-1280x720.png",
+      "bytes": 200273,
+      "sha256": "9b3ffea8a3b1e372b6ab9217049c36a37cb35614af6958b3a942f1ae47804192"
+    },
+    {
+      "path": "Documentation/Evidence/H06/player-animated-action-paused-1280x720.png",
+      "bytes": 123801,
+      "sha256": "8b10c2697c13a87d08e47dd7cb82da220e6fe600a771df902663c05047052590"
+    },
+    {
+      "path": "Documentation/Evidence/H06/player-exit-code-1280x720.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "Documentation/Evidence/H06/player-result-1280x720.json",
+      "bytes": 455,
+      "sha256": "d1f8a25f617a51f02fd9bb63c3836b96c6937d4ed4ff846d1037e7311d26e6d9"
+    },
+    {
+      "path": "Documentation/Evidence/H06/playmode-results.json",
+      "bytes": 26085,
+      "sha256": "1488c03ef4d29f77b4822544ae35c22ce56cf7fa0f0ed45d3970a20df67863c3"
+    },
+    {
+      "path": "Documentation/Evidence/H06/poison-lethal-defeat.png",
+      "bytes": 174197,
+      "sha256": "ba11cfa957abb7ceb131fca5d927823e50b4f6aa05c2eeb572cf334346a02c3a"
+    },
+    {
+      "path": "Documentation/Evidence/H06/recovery-1280x720.png",
+      "bytes": 229754,
+      "sha256": "a03e032d8825ca70f468a4be152ae7ddeacb9007845ed6a1a9cf9ee1b8f7b289"
+    },
+    {
+      "path": "Documentation/Evidence/H06/recovery-1920x1080.png",
+      "bytes": 467551,
+      "sha256": "b06032209f24218871824b50c177577db911fd2d31e6049a1412c465b7fd0b51"
+    },
+    {
+      "path": "Documentation/Evidence/H06/shaman-animation-sheet.png",
+      "bytes": 493328,
+      "sha256": "6123b91b6f98bf1fb74aa4846c550cdce72477b6c32ef0af5052a976146eacc8"
+    },
+    {
+      "path": "Documentation/Evidence/H06/shaman-Basic-anticipation.png",
+      "bytes": 190617,
+      "sha256": "203e02b0ae0ab19477fa489bd72141b97fa8aed37eb5e718ac73c3abff213be8"
+    },
+    {
+      "path": "Documentation/Evidence/H06/shaman-DarkHeal-anticipation.png",
+      "bytes": 191064,
+      "sha256": "9ff54c13bf1df45ffb9ff15922d35ac8146c5580249f2e0a4663cedd97c576a0"
+    },
+    {
+      "path": "Documentation/Evidence/H06/shaman-Poison-anticipation.png",
+      "bytes": 190457,
+      "sha256": "fe1738f64c239c5613ed968097bdb46c7ca46eb24f6d6e8f9de499333accbf47"
+    },
+    {
+      "path": "Documentation/Evidence/H06/statuses-coexist-1280x720.png",
+      "bytes": 245195,
+      "sha256": "8ed4b85ae2fd4e48d7d876c38a4874a7a5d598fa8cda9acc6eb47facfe7cc391"
+    },
+    {
+      "path": "Documentation/Evidence/H06/statuses-coexist-1920x1080.png",
+      "bytes": 480006,
+      "sha256": "525ebd5d0c10b89e1a9e274ee6857d13efaff89ab172e4d20ecca915fe6da1e3"
+    },
+    {
+      "path": "Documentation/Evidence/H06/storm-group-1280x720.png",
+      "bytes": 273030,
+      "sha256": "5f8192b8ed5a86ec41ec21774f522ea28a59e3a9ec7034c471fc1f73fab039a5"
+    },
+    {
+      "path": "Documentation/Evidence/H06/storm-group-1920x1080.png",
+      "bytes": 531477,
+      "sha256": "050381cf1323d585ba92c3639829943fd960ca02dbc01acf68ba7c1d94b084b7"
+    },
+    {
+      "path": "Documentation/Evidence/H06/storm-paused.png",
+      "bytes": 174805,
+      "sha256": "b721696c87c3f0110897db2551f7725406576fead81c41c5cb6e769118a1c22f"
+    },
+    {
+      "path": "Documentation/Evidence/H06/target.png",
+      "bytes": 260504,
+      "sha256": "368b0e23e85ae9bd197b9d1da66e71f1d5878706f5ce57576db867c329762bb9"
+    },
+    {
+      "path": "Documentation/Evidence/H06/victory.png",
+      "bytes": 178322,
+      "sha256": "52ec2e7c85bb209c521db9293804f1b728c0571f628640136f2376ee28581e34"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-animation-sheet.png",
+      "bytes": 554876,
+      "sha256": "4c31f1aaa0164b5e1d1addd4c1b2cfc15e8ab50c2d7aef5dfda6d01750fc43b2"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-Antidote-anticipation.png",
+      "bytes": 189829,
+      "sha256": "4437406cafa3a8acb0c8613eebc67ba83f1459fd050d2a6fd620da147a166826"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-Basic-anticipation.png",
+      "bytes": 189381,
+      "sha256": "d026f85a0a551ad2f0c4413b580074246a48fbaf5bf3dbdbf302f5d1a851e489"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-CorrosiveFlask-anticipation.png",
+      "bytes": 189759,
+      "sha256": "9df0075155204de35081f21afcf297bfe39e2eaad9a1dd1d3085557c53468ffd"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-Ether-anticipation.png",
+      "bytes": 190788,
+      "sha256": "a9ba2234ba8f604d5ecbff703292058a9c365609e80bad24dc24488e5ed29a9f"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-HasteTonic-anticipation.png",
+      "bytes": 190631,
+      "sha256": "0c8f277ea971dbf55e4f5a96f61b67cc74e3eb7f1ff398cc59a8e2461ff6b8f2"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-HeavyStrike-anticipation.png",
+      "bytes": 189244,
+      "sha256": "afc8ebeea7e348722eb87d8869746928820f4b8069e62aa3834572536ed5cefe"
+    },
+    {
+      "path": "Documentation/Evidence/H06/warrior-Potion-anticipation.png",
+      "bytes": 190402,
+      "sha256": "5dacc21bf57f12cf24ab5d2fcba42fd96119ba8036451bf3084a7ff2226ea53e"
+    },
+    {
+      "path": "Documentation/H06_ANIMATIONS.md",
+      "bytes": 5141,
+      "sha256": "6de485e8a3ead11f6dbdedd4a93955daf97688cf451c96d85dd93dd815ed3d97"
+    },
+    {
+      "path": "Documentation/KNOWN_ISSUES.md",
+      "bytes": 15248,
+      "sha256": "7fe6db517d74c1cc0573e623d192d4bbad65d560ff007a5858fdf6e644b2c087"
+    },
+    {
+      "path": "Documentation/TEST_REPORT.md",
+      "bytes": 45520,
+      "sha256": "8ee36cc0225fc5e001b7974d58d9723601ea3de2c1bed4de5ca2f395a4564620"
+    },
+    {
+      "path": "Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md",
+      "bytes": 140293,
+      "sha256": "f808b7293f743e69d5a8dda46cb2f770b47f64d1caf91aef4a727f34ee2a85bf"
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "bytes": 1585,
+      "sha256": "32d6a9be4c9aa9795a96bd951820a2d9be1bfefab82ed05a5db111af0863938f"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "bytes": 25620,
+      "sha256": "6337ed563976c8bb6ba1a95e1c5f571cc184a04c8c078120d80bfa3e758ac5a3"
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "bytes": 1063,
+      "sha256": "b7dd1e8290598f5ce86919ba1c98b42b766c8c42191a30fa2c4d12195c4ecd00"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12683,
+      "sha256": "25f47caddde554d07d028114ada3044a0e90f2473d8e3eb79cfcf0915c54831e"
+    }
+  ]
+}

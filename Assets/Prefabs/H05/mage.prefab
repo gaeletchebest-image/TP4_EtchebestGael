@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2171021276126144405}
   - component: {fileID: 6430091598788950573}
+  - component: {fileID: 6583092168028211592}
+  - component: {fileID: 959274930893869180}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -43,7 +45,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed3c03581652dab498e6c7781edc9262, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CharacterRig
   definition: {fileID: 11400000, guid: 778270ef1f596f74d9bd0ee8052e914a, type: 2}
   hips: {fileID: 494885849955727978}
@@ -117,6 +119,42 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
+--- !u!95 &6583092168028211592
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128489813691961439}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fc2c75f874d28f4591f161b178a8e6f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &959274930893869180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128489813691961439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35ccd3dcef926e439f7e581f9472f02, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CharacterAnimationPlayer
+  animations: {fileID: 11400000, guid: 88f6c8fe7506c6b4abec61fc196bf018, type: 2}
+  itemProp: {fileID: 1903906048603901112}
 --- !u!1 &451506218980759768
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +723,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1571264905727312155}
   m_Father: {fileID: 1428620148255725752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567981528546075879
@@ -1107,7 +1146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2213218544881278966}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6392663, y: -0.027053952, z: 0.10096674, w: 0.761848}
+  m_LocalRotation: {x: 0.6392663, y: -0.027053954, z: 0.10096674, w: 0.76184803}
   m_LocalPosition: {x: 0, y: -0.306, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1664,7 +1703,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe66f1320d95c874886437f8cfff9438, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CombatantView
   combatantId: mage
   visual: {fileID: 2171021276126144405}
@@ -1673,6 +1712,8 @@ MonoBehaviour:
   actorMarker: {fileID: 4951692039363816645}
   targetMarker: {fileID: 1651022584238252785}
   nameLabel: {fileID: 4837033007486729785}
+  projectilePrefab: {fileID: 3213202945878493272, guid: 6bf63ad2cfc5f5748812a5c5cb82eded, type: 3}
+  projectileMaterial: {fileID: 2100000, guid: fb55b56714c36c24781026a1d3883efc, type: 2}
 --- !u!1 &3367768170190292450
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,3 +4867,74 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &550690030435682709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8381952100714910060}
+    m_Modifications:
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146099212498437421, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_Name
+      value: H06_ItemProp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146099212498437421, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+--- !u!4 &1571264905727312155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1326926578669439118, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+  m_PrefabInstance: {fileID: 550690030435682709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1903906048603901112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2146099212498437421, guid: eb5708cbf51638d4bb6a8247b26e6eed, type: 3}
+  m_PrefabInstance: {fileID: 550690030435682709}
+  m_PrefabAsset: {fileID: 0}

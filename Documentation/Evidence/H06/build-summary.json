@@ -1,0 +1,12 @@
+{
+  "job_id": "build-bc35a877d5",
+  "result": "succeeded",
+  "platform": "StandaloneWindows64",
+  "output_path": "Builds/H06/UltimaGuardia.exe",
+  "started_at": "2026-11-21T19:03:07.1266894Z",
+  "duration_seconds": 93.38748989999999,
+  "completed_at": "2026-11-21T19:04:40.5141793Z",
+  "total_size_mb": 164.68,
+  "errors": 0,
+  "warnings": 1
+}

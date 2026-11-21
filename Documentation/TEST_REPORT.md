@@ -263,3 +263,38 @@ Player real oculto con `-foundation-smoke`: versión `0.0.6-flow`, inicio MainMe
 `Builds/H05/Validation/player.log` conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al cerrar el proceso oculto con capturas, como en H00–H04. Sin excepción de lógica observada; seguimiento en H12. No se presenta esta ejecución como prueba de rendimiento ni de hardware físico.
 
 Configuraciones de entrada y tiempo restauradas por fixtures; configuración de entrada a Play conservada y Unity Connect restaurado a `m_Enabled = 0` después de la build. Recursos temporales del paquete de pruebas retirados automáticamente por su postproceso. [Huellas de entrega](Evidence/H05/fingerprints.json). H05 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Lo doy por aprobado.». Sin correcciones solicitadas. H06 no iniciado.
+
+## H06 · Animaciones, impactos y limpieza de presentación
+
+Versión **0.0.7-H06**, 21 de noviembre de 2026. Cambios locales sobre commit real `34592c6` de H05; sin commit de entrega. Unity 6000.3.11f1, URP 17.3.0, Windows x86_64/Mono. H06 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Esta aprobado. Dame ademas un nombre en ingles para el commit.». Sin correcciones solicitadas. H07 no iniciado.
+
+### Recursos e inspección visual
+
+`CharacterAnimationAuthoring.BuildAndIntegrate()` produjo 24 `.anim`, cuatro controladores y cuatro conjuntos de datos, conservando los modelos H05. `CharacterAnimationValidation.AuditAndCapture()` completó la [auditoría](Evidence/H06/animation-audit.json): 16 articulaciones y 112 curvas por clip; ausencia de eventos de gameplay; controladores conectados; muerte sin salida; root motion desactivado; retorno de posiciones y rotaciones al final de clips no terminales; tiempos de lanzamiento/impacto dentro de la duración; caída sobre suelo, mínimo Y = 0 en los cuatro modelos.
+
+Inspeccionadas las hojas de [guerrero](Evidence/H06/warrior-animation-sheet.png), [maga](Evidence/H06/mage-animation-sheet.png), [ogro](Evidence/H06/ogre-animation-sheet.png) y [chamán](Evidence/H06/shaman-animation-sheet.png). Filas en el orden del JSON, ocho muestras temporales por clip, cámara fija por fila. Se observan reposos, preparación/golpe/regreso, elevación de bastón, gesto de objeto, reacción y caída; armas y ropa segmentada siguen unidas. No se presentan estas hojas como una partida jugada.
+
+Capturas de runtime por cada caso de la matriz y de los cuatro derrotados muestran el uso de los clips con los modelos finales en la arena real. Las capturas de CombatFlowTests comprueban HUD, selección, estados, pausa y resultados a 720p/1080p con RenderTexture. Capturas del ejecutable a 720p inspeccionadas. No demuestra monitor físico 1080p ni una nueva prueba con control físico.
+
+### Pruebas automáticas
+
+Suite PlayMode `UltimaGuardia.PlayModeTests`: **71/71 aprobadas**, 0 fallidas/omitidas, **148,2203066 segundos**, job `a5e373a2386d4d4f95924c960b2e80b9`. [Resultado completo](Evidence/H06/playmode-results.json).
+
+- Las 68 pruebas existentes conservan cobertura de reglas, ATB, cola, gasto, IA, estados, foco, pausa y flujo.
+- `EveryActionAndBothAlliesItemsAnimateWithSingleImpactAndFixedRecovery` recorre **20 casos**: diez acciones y los cinco objetos por cada aliado. Comprueba pose visible, ausencia de impacto anticipado, objetivos, cantidad de impactos, rechazo de señal duplicada, gasto único, maná recuperado por Éter, pausa tras impacto, recuperación original y anclajes sin deriva. [Matriz](Evidence/H06/action-matrix.txt).
+- `ProjectilePauseCancelAndRestartCannotAffectNextSession` pausa antes del impacto con proyectil en vuelo, comprueba inmovilidad, reinicia y espera sin daño heredado; luego abandona a MainMenu y verifica ausencia de personajes/proyectiles antiguos.
+- `DeathHoldsFinalPoseRejectsNewActionsAndRestartRestoresAllJoints` derrota a los cuatro participantes, exige rotación efectiva de cadera, conserva la pose terminal aunque termine una acción y comprueba restauración de todas las articulaciones al reiniciar.
+
+Los fixtures de presentación usan velocidades preparadas para aislar cada actor y pasos explícitos de reloj; son comprobaciones de integración, no partidas naturales. Las regresiones de flujo usan input virtual y avanzan peleas a ×4: victoria con teclado en 22 acciones/0 Pociones y con control virtual en 22 acciones/0 Pociones; derrotas preparadas y reinicios aprobados. No acreditan balance ni duración objetivo de tres a cinco minutos.
+
+Historial: primera ejecución dirigida `130ab3d7d92840d4bee0599711bf4944`, **2/3**, falló una expectativa del fixture que exigía no recuperar maná con Éter. Corregida la expectativa, segunda dirigida `67c0045fd47b45dd9ff67837dfc523c0`, **3/3**, 12,3632058 s. Después se unificó el tiempo de muestreo del actor con el controlador de impacto y la suite completa final pasó 71/71. Se corrigieron además la nulidad Unity en autoría y las capturas que requerían esperar un frame para actualizar matrices de render. No se conservan afirmaciones de aprobación de las primeras pasadas fallidas.
+
+### Build y player real
+
+Build Windows x86_64/Mono, Development, **164,68 MB**, **93,3874899 s**, **0 errores y 1 advertencia** del shader DebugOccluder de Unity Core/d3d11. Job `build-bc35a877d5`; [resumen](Evidence/H06/build-summary.json), [detalles del BuildReport](Evidence/H06/build-report-details.json). MainMenu y Combat, en ese orden.
+
+`Builds/H06/UltimaGuardia.exe -foundation-smoke -screen-fullscreen 0 -screen-width 1280 -screen-height 720` completó MainMenu, consulta de controles, Combat, primer básico animado de la maga, pausa de ejecución con reloj/animación congelados, reanudación y daño, pausa con ambos dispositivos virtuales, retorno al menú y Salir. **passed = true, animatedActionVerified = true, exitedThroughMenu = true, salida 0**. [Resultado](Evidence/H06/player-result-1280x720.json), [pausa de la acción](Evidence/H06/player-animated-action-paused-1280x720.png), [acción terminada](Evidence/H06/player-animated-action-complete-1280x720.png).
+
+El smoke usa un proceso oculto con captura explícita por Camera.Render; no es automatización de UI de Windows ni una pelea completa del player. Los logs del ejecutable en `Builds/H06/Validation/player.log` conservan Curl error 6 y avisos de buffers/asignaciones al apagar, ya observados en H00–H05. No se observó excepción de lógica; causa y rendimiento prolongado siguen pendientes H12.
+
+Los fixtures restauran enrutamiento de entrada del editor, BackgroundBehavior, ejecución en segundo plano y timeScale. Opciones de entrada a Play restauradas al valor recibido (habilitadas, opciones 0); Unity Connect restaurado a `m_Enabled = 0` después de la build. Sin cambios de estadísticas, costos, inventario o balance. [Huellas de entrega](Evidence/H06/fingerprints.json), [reconstrucción y tiempos](H06_ANIMATIONS.md), [incidencias y límites](KNOWN_ISSUES.md).

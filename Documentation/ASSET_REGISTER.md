@@ -123,3 +123,20 @@ Todos los recursos de esta sección son **originales para Última Guardia, elabo
 Los cuatro prefabs sustituyen los placeholders dentro de Combat y están vinculados a los datos H02 conservando identidad, estadísticas y acciones. Las armas son hijas del agarre de la mano derecha; `CastOrigin`, `HitAnchor` e `ItemOrigin` quedan disponibles para presentación posterior. Se conservan los prefabs H01 como fuentes históricas, sin instancias visibles en el encuentro.
 
 Dirección visual, convenciones y reconstrucción en [H05_CHARACTER_ART.md](H05_CHARACTER_ART.md). Auditoría, vistas frontal/trasera y seis poses estáticas por personaje en [Evidence/H05](Evidence/H05/). Estas poses comprueban articulación; los clips/controladores jugables se realizan en H06. El escenario, iconos y marcadores conservan sus recursos provisionales.
+
+## Incorporaciones H06
+
+Recursos originales de Última Guardia, elaborados con Codex el 21 de noviembre de 2026. Sin descargas, compras, URL de adquisición, licencias ni atribuciones de terceros. No se añadieron paquetes ni servicios pagos.
+
+| ID | Recurso y archivos | Producción / integración |
+| --- | --- | --- |
+| ANIM-01 | `Assets/Animations/H06/warrior_*.anim` | Seis clips: reposo, básico, Golpe pesado, objeto, reacción y muerte. Fuente paramétrica propia sobre las 16 articulaciones H05 |
+| ANIM-02 | `Assets/Animations/H06/mage_*.anim` | Siete clips: reposo, proyectil, Curación, carga de Tormenta, objeto, reacción y muerte |
+| ANIM-03 | `Assets/Animations/H06/ogre_*.anim` | Cinco clips: reposo, Golpe, Machetazo, reacción y muerte |
+| ANIM-04 | `Assets/Animations/H06/shaman_*.anim` | Seis clips: reposo, Descarga, Veneno, Curación oscura, reacción y muerte |
+| H06-CONTROL | Cuatro `.controller` y cuatro `CharacterAnimationSet` en `Assets/Animations/H06` | Estados, parámetros Dead/Executing, muerte terminal, tiempos de lanzamiento/impacto y referencias conectadas en los prefabs H05. Diez ActionData referencian sus clips |
+| H06-PROP | `Assets/Animations/H06/{Projectile,Item}.{asset,prefab,mat}`, cuatro materiales de proyectil por personaje | Mallas de ocho triángulos propias, materiales URP. Proyectil cian para la maga y violeta para Descarga; recurso de objeto en la mano izquierda de ambos aliados. Geometría funcional de H06; acabado VFX de H10 pendiente |
+| H06-SOURCE | `CharacterAnimationAuthoring.cs`, `CharacterAnimationValidation.cs`, `CharacterAnimationPlayer.cs`, `CharacterAnimationSet.cs`, `CombatPresentation.cs` | Fuente editable de animación, muestreo explícito, sincronización, limpieza y auditoría. Sin eventos de gameplay en clips |
+| H06-TEST | `AnimationPresentationTests.cs`, `CombatFlowTests.cs`, `FoundationPlayerSmoke.cs` | Matriz de veinte casos, pausa, muerte, reinicio, salida, regresiones y validación optativa de una acción animada en player Development |
+
+La representación de H05 se conserva; no se regeneran mallas ni se sustituyen modelos. Los clips guardados son recursos independientes de la fuente y se incluyen en el player. [Tiempos, funcionamiento y reconstrucción](H06_ANIMATIONS.md), [auditoría y secuencias](Evidence/H06/animation-audit.json).

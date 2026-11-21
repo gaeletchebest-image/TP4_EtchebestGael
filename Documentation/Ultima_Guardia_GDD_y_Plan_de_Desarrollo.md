@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00, H01, H02, H03, H04 y H05 aprobados por el usuario. H06 a H13 pendientes.
+> Estado: H00 a H06 aprobados por el usuario. H07 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -127,7 +127,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H04. Veneno, rapidez y corrosión.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H07. Modelado modular y construcción del escenario final.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H09. Búsqueda, edición e integración de audio.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -261,6 +261,27 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Cómo revisar: ejecutar la build H05 o MainMenu en Unity; observar las cuatro siluetas, materiales y armas, seleccionar objetivos, atacar, usar objetos, pausar y reiniciar. Para revisar articulación, consultar las hojas de poses o inspeccionar `CharacterRig` en los prefabs H05. Guía en README. La presentación de acciones continúa provisional hasta H06.
 - Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Lo doy por aprobado.». Sin correcciones solicitadas. H06 permanece pendiente para otro chat.
 - Próximo hito en orden: **H06**, identificación solamente; **no iniciado**.
+
+#### Registro H06
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. H07 no iniciado.
+- Revisión del usuario: **aprobada**. Evidencia: «Bien. Esta aprobado. Dame ademas un nombre en ingles para el commit.». Sin correcciones solicitadas; no se pidió comenzar H07.
+- Versión: **0.0.7-H06** (PlayerSettings 0.0.7), cambios locales sobre commit real `34592c6` de H05. No se creó commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Bien, hacelo entonces.», después de explicar el alcance H06. H00–H05 aprobados, sin correcciones abiertas del usuario.
+- Tareas completadas: **H06-T01 a H06-T19**. Ningún hito posterior iniciado.
+- Entrega: 24 clips propios (6 guerrero, 7 maga, 5 ogro, 6 chamán), cuatro controladores Animator y cuatro CharacterAnimationSet sobre los prefabs H05 existentes. Reposos cíclicos, básicos/pesados, conjuros, gesto de los cinco objetos en ambos aliados, reacciones y muerte terminal. Armas, ropa segmentada y sockets conservados.
+- Ejecución: CombatPresentation es el único dueño del tiempo de cada acción y de la señal de impacto, con protección adicional de CombatSession. Proyectiles desde CastOrigin hacia HitAnchor del objetivo confirmado, sin volver a elegirlo. Pausa congela clips, trayectoria e impacto; reinicio y salida cancelan y limpian la presentación. Sin eventos de gameplay en los clips.
+- Tiempos visuales: físicos 0,85 s, pesados 1 s, magia ordinaria 0,95 s, objetos 0,85 s; impacto ordinario a 0,35 s y lanzamiento de básicos mágicos a 0,15 s. La pose de Tormenta dura 2,5 s e impacta a 1,2 s; cámara, ocultamiento de HUD y efectos/sonido finales siguen en H10. Recuperaciones y demás reglas de H04 conservadas, sin cambios de balance.
+- Archivos: `Assets/Animations/H06`, los cuatro prefabs H05, diez referencias ActionData.animationClip, `CharacterAnimationAuthoring.cs`, `CharacterAnimationValidation.cs`, `CharacterAnimationSet.cs`, `CharacterAnimationPlayer.cs`, `CombatPresentation.cs`, integración en CombatPrototype/CombatantView y pruebas. [Funcionamiento y reconstrucción](H06_ANIMATIONS.md), [autoría](ASSET_REGISTER.md).
+- Auditoría: [aprobada](Evidence/H06/animation-audit.json), 24 clips con 112 curvas cada uno, controladores conectados, muerte sin transición de salida, sin root motion ni eventos de gameplay. Retorno de posiciones/rotaciones comprobado en cada clip no terminal; caída sobre el suelo con mínimo Y = 0 en los cuatro personajes. Cuatro hojas de secuencias inspeccionadas.
+- Pruebas: **71/71 PlayMode**, 0 fallidas/omitidas, **148,2203066 s**, job `a5e373a2386d4d4f95924c960b2e80b9`. Incluye regresiones H00–H05 y tres nuevas pruebas de presentación: [matriz de 20 casos](Evidence/H06/action-matrix.txt), pausa antes/después de impacto, gasto único, recuperación, trayectoria, muerte estable, restauración y salida sin callbacks anteriores. [Resultados completos](Evidence/H06/playmode-results.json), [métodos](TEST_REPORT.md).
+- Peleas de regresión: victorias con teclado y control virtual, ambas de 22 acciones y 0 Pociones restantes, derrotas preparadas y reinicios. Tiempo ×4 en los fixtures de pelea; no son mediciones de balance, duración objetivo o hardware físico. Capturas de juego en 720p/1080p con cámara/Canvas reales mediante RenderTexture; no acredita monitor físico 1080p.
+- Build: `Builds/H06/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **164,68 MB**, **93,3874899 s**, **0 errores / 1 advertencia** heredada de DebugOccluder de Unity Core/d3d11. Job `build-bc35a877d5`. [Resumen](Evidence/H06/build-summary.json), [BuildReport](Evidence/H06/build-report-details.json).
+- Player real: smoke ampliado aprobado, versión `0.0.7-flow`, MainMenu → Combat → básico animado de maga con pausa/reanudación e impacto → pausa → MainMenu → Salir, captura/ventana 1280 × 720 y **salida 0**. [Resultado](Evidence/H06/player-result-1280x720.json). Capturas del player inspeccionadas. Las peleas completas corresponden a PlayMode. Avisos heredados de red y liberación de buffers/asignaciones al apagar el player oculto conservados, seguimiento en H12; no se atribuye una causa no demostrada.
+- Correcciones internas H06-C01 a C03 cerradas: nulidad de componentes Unity en autoría, expectativa de Éter en el fixture y espera de frame para capturas de poses. Primera pasada dirigida 2/3, segunda 3/3 y suite final 71/71. [Incidencias y límites](KNOWN_ISSUES.md). Sin correcciones abiertas del usuario.
+- Conservación: versión Unity/renderer/paquetes, estadísticas, inventario, estados, IA, arena y menús conservados. Opciones de entrada/tiempo de fixtures restauradas y opciones de entrada a Play/Unity Connect restituidas tras pruebas/build. No se compraron recursos ni se añadieron servicios pagos. [Huellas](Evidence/H06/fingerprints.json).
+- Cómo revisar: ejecutar la build H06 y elegir Jugar; observar básicos, Golpe pesado, Machetazo, Curación propia, objetos y conjuros. Pausar durante preparación o vuelo y después del impacto; reanudar, reiniciar y volver al menú. Los derrotados conservan la caída y reiniciar devuelve articulaciones y recursos al estado inicial. Guía en README y H06_ANIMATIONS.
+- Próximo hito en orden: **H07**, identificación solamente; **no iniciado**.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -954,28 +975,28 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Producción de clips
 
-- [ ] **H06-T01. Completar reposo del guerrero.** Crear o adaptar un ciclo estable con espada en mano, sin desplazamiento acumulado.
-- [ ] **H06-T02. Completar ataques del guerrero.** Crear básico y Golpe pesado, permitiendo reutilización con variación clara de pose, velocidad o recorrido.
-- [ ] **H06-T03. Completar reacción y muerte del guerrero.** Mostrar impacto y caída legibles, evitando volver automáticamente al reposo al estar muerto.
-- [ ] **H06-T04. Completar reposo y básico de la maga.** Crear reposo y lanzamiento del Proyectil mágico con punto de emisión sincronizado.
-- [ ] **H06-T05. Completar conjuro de Curación.** Crear pose dirigida al objetivo y regreso al reposo, compatible con curarse a sí misma.
-- [ ] **H06-T06. Completar pose especial de la maga.** Crear elevación de bastón y carga para Tormenta arcana dentro de los tiempos del GDD.
-- [ ] **H06-T07. Completar reacción y muerte de la maga.** Evitar intersecciones evidentes con suelo, vestimenta y bastón.
-- [ ] **H06-T08. Completar reposo y ataques del ogro.** Crear Golpe y Machetazo diferenciables, conservando su posición inicial al terminar.
-- [ ] **H06-T09. Completar reacción y muerte del ogro.** Dar peso a las respuestas sin ocultar permanentemente a otros participantes.
-- [ ] **H06-T10. Completar reposo y conjuros del chamán.** Preparar Descarga, Veneno y Curación oscura, con clips reutilizados si los efectos distinguen la acción.
-- [ ] **H06-T11. Completar reacción y muerte del chamán.** Conservar el modelo derrotado en un estado estable y sin volver a actuar.
-- [ ] **H06-T12. Preparar uso de objetos.** Dar a ambos aliados un gesto corto reutilizable y un punto de presentación del consumible.
-- [ ] **H06-T13. Resolver movimiento de ataque.** Añadir un paso corto o inclinación de ataque cuando corresponda y regresar exactamente al anclaje, sin locomoción libre.
+- [x] **H06-T01. Completar reposo del guerrero.** Crear o adaptar un ciclo estable con espada en mano, sin desplazamiento acumulado.
+- [x] **H06-T02. Completar ataques del guerrero.** Crear básico y Golpe pesado, permitiendo reutilización con variación clara de pose, velocidad o recorrido.
+- [x] **H06-T03. Completar reacción y muerte del guerrero.** Mostrar impacto y caída legibles, evitando volver automáticamente al reposo al estar muerto.
+- [x] **H06-T04. Completar reposo y básico de la maga.** Crear reposo y lanzamiento del Proyectil mágico con punto de emisión sincronizado.
+- [x] **H06-T05. Completar conjuro de Curación.** Crear pose dirigida al objetivo y regreso al reposo, compatible con curarse a sí misma.
+- [x] **H06-T06. Completar pose especial de la maga.** Crear elevación de bastón y carga para Tormenta arcana dentro de los tiempos del GDD.
+- [x] **H06-T07. Completar reacción y muerte de la maga.** Evitar intersecciones evidentes con suelo, vestimenta y bastón.
+- [x] **H06-T08. Completar reposo y ataques del ogro.** Crear Golpe y Machetazo diferenciables, conservando su posición inicial al terminar.
+- [x] **H06-T09. Completar reacción y muerte del ogro.** Dar peso a las respuestas sin ocultar permanentemente a otros participantes.
+- [x] **H06-T10. Completar reposo y conjuros del chamán.** Preparar Descarga, Veneno y Curación oscura, con clips reutilizados si los efectos distinguen la acción.
+- [x] **H06-T11. Completar reacción y muerte del chamán.** Conservar el modelo derrotado en un estado estable y sin volver a actuar.
+- [x] **H06-T12. Preparar uso de objetos.** Dar a ambos aliados un gesto corto reutilizable y un punto de presentación del consumible.
+- [x] **H06-T13. Resolver movimiento de ataque.** Añadir un paso corto o inclinación de ataque cuando corresponda y regresar exactamente al anclaje, sin locomoción libre.
 
 #### Programación de presentación
 
-- [ ] **H06-T14. Configurar controladores de animación.** Definir estados, transiciones y parámetros en los cuatro prefabs. Evitar entradas que cancelen una muerte.
-- [ ] **H06-T15. Conectar momento de impacto.** Usar un único evento o controlador por acción para daño, curación o estado. Proteger contra señales duplicadas.
-- [ ] **H06-T16. Integrar proyectiles y objetivos.** Mover el proyectil visual hacia el objetivo ya confirmado sin recalcular el destinatario durante el vuelo.
-- [ ] **H06-T17. Soportar pausa y reanudación.** Congelar clips y movimiento visual al pausar; reanudar desde el mismo punto sin repetir eventos.
-- [ ] **H06-T18. Soportar reinicio y salida.** Cancelar secuencias y devolver animadores y transformaciones a su estado inicial.
-- [ ] **H06-T19. Comprobar todas las acciones animadas.** Reproducir las diez acciones y objetos con modelos finales y registrar que efecto y animación coinciden.
+- [x] **H06-T14. Configurar controladores de animación.** Definir estados, transiciones y parámetros en los cuatro prefabs. Evitar entradas que cancelen una muerte.
+- [x] **H06-T15. Conectar momento de impacto.** Usar un único evento o controlador por acción para daño, curación o estado. Proteger contra señales duplicadas.
+- [x] **H06-T16. Integrar proyectiles y objetivos.** Mover el proyectil visual hacia el objetivo ya confirmado sin recalcular el destinatario durante el vuelo.
+- [x] **H06-T17. Soportar pausa y reanudación.** Congelar clips y movimiento visual al pausar; reanudar desde el mismo punto sin repetir eventos.
+- [x] **H06-T18. Soportar reinicio y salida.** Cancelar secuencias y devolver animadores y transformaciones a su estado inicial.
+- [x] **H06-T19. Comprobar todas las acciones animadas.** Reproducir las diez acciones y objetos con modelos finales y registrar que efecto y animación coinciden.
 
 #### Criterios para cerrar el hito
 

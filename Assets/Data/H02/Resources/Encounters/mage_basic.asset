@@ -24,6 +24,6 @@ MonoBehaviour:
   targetMode: 0
   appliedEffect: {fileID: 0}
   specialPresentation: 0
-  animationClip: {fileID: 0}
+  animationClip: {fileID: 7400000, guid: 5ef9a24044ff6b04780ef92e8e32e6c5, type: 2}
   audioClip: {fileID: 0}
   vfxPrefab: {fileID: 0}

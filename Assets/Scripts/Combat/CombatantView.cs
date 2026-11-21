@@ -12,6 +12,8 @@ namespace UltimaGuardia
         public GameObject actorMarker;
         public GameObject targetMarker;
         public TextMesh nameLabel;
+        public GameObject projectilePrefab;
+        public Material projectileMaterial;
         private Quaternion initialRotation;
         private Vector3 initialScale;
 
@@ -25,8 +27,11 @@ namespace UltimaGuardia
         {
             actorMarker.SetActive(active && state.IsAlive);
             targetMarker.SetActive(targeted && state.IsAlive);
-            visual.localRotation = initialRotation * (state.IsAlive ? Quaternion.identity : Quaternion.Euler(0, 0, 80));
-            visual.localScale = initialScale * (1 + pulse * 0.08f);
+            if (visual.GetComponent<CharacterAnimationPlayer>() == null)
+            {
+                visual.localRotation = initialRotation * (state.IsAlive ? Quaternion.identity : Quaternion.Euler(0, 0, 80));
+                visual.localScale = initialScale * (1 + pulse * 0.08f);
+            }
             nameLabel.text = state.Definition.Name + (state.IsAlive ? "" : " · Derrotado");
             if (Camera.main != null) nameLabel.transform.rotation = Camera.main.transform.rotation;
         }

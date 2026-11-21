@@ -33,6 +33,8 @@ namespace UltimaGuardia
         private CombatAction selectedAction;
         private string notice;
         private StatusHud[] statusHud;
+        private CombatPresentation presentation;
+        public CombatPresentation Presentation => presentation;
         public CombatSession Session { get; private set; }
         public PrototypePhase Phase { get; private set; }
         public CombatMenu Menu { get; private set; }
@@ -69,21 +71,30 @@ namespace UltimaGuardia
             cameraPosition = combatCamera.transform.position;
             cameraRotation = combatCamera.transform.rotation;
             foreach (var view in views) view.RememberPose();
+            presentation = new CombatPresentation(views);
             statusHud = resourceLabels.Select(label => new StatusHud(label)).ToArray();
             RestartCombat();
         }
 
         private void OnEnable() => input.Enable();
         private void OnDisable() => input.Disable();
-        private void OnDestroy() { if (input != null) Destroy(input); }
+        private void OnDestroy() { presentation?.Dispose(); if (input != null) Destroy(input); }
 
         public void RestartCombat()
         {
+            presentation?.Cancel();
             Session = new CombatSession(encounter);
             foreach (var slot in encounter.participants)
             {
                 var view = views.First(v => v.combatantId == slot.combatant.id);
                 view.transform.parent.SetPositionAndRotation(slot.position, Quaternion.Euler(slot.rotation));
+                var animation = view.GetComponentInChildren<CharacterAnimationPlayer>();
+                if (animation != null)
+                {
+                    var fighter = Session.Fighters.First(f => f.Definition.Id == view.combatantId);
+                    if (animation.CurrentState == null) animation.Initialize(fighter);
+                    else animation.ResetPresentation(fighter);
+                }
             }
             Phase = PrototypePhase.Advancing;
             IsPaused = transitioning = false;
@@ -133,9 +144,9 @@ namespace UltimaGuardia
 
             if (Phase == PrototypePhase.Executing)
             {
-                actionTime += Time.deltaTime;
-                if (actionTime >= 0.35f) Session.ApplyImpact();
-                if (actionTime >= 0.85f)
+                bool finished = presentation.Tick(Time.deltaTime);
+                actionTime = presentation.Time;
+                if (finished)
                 {
                     Session.FinishAction();
                     Phase = Session.Outcome != CombatOutcome.Ongoing ? PrototypePhase.Result :
@@ -193,8 +204,8 @@ namespace UltimaGuardia
             }
         }
 
-        private void BeginPresentation() { actionTime = 0; notice = null; Phase = PrototypePhase.Executing; }
-        private void ReturnToMenu() { transitioning = true; SceneManager.LoadScene("MainMenu"); }
+        private void BeginPresentation() { actionTime = 0; notice = null; presentation.Begin(Session); Phase = PrototypePhase.Executing; }
+        private void ReturnToMenu() { transitioning = true; presentation.Cancel(); SceneManager.LoadScene("MainMenu"); }
         private CombatAction[] Commands() => Menu == CombatMenu.Root ? new[] { CombatAction.Basic } :
             Session.AvailableCommands().Where(a => Menu == CombatMenu.Items ? CombatSession.IsItem(a) : !CombatSession.IsItem(a) && a != CombatAction.Basic).ToArray();
         private void RememberSelection()
@@ -220,7 +231,14 @@ namespace UltimaGuardia
         }
 
         private static int Wrap(int value, int count) => count == 0 ? 0 : (value % count + count) % count;
-        private void LateUpdate() => RefreshDisplay();
+        private void LateUpdate()
+        {
+            if (!transitioning && Session != null)
+                foreach (var view in views)
+                    view.GetComponentInChildren<CharacterAnimationPlayer>()?.Tick(IsPaused ? 0 : Time.deltaTime,
+                        Session.Fighters.First(f => f.Definition.Id == view.combatantId));
+            RefreshDisplay();
+        }
 
         private void RefreshDisplay()
         {

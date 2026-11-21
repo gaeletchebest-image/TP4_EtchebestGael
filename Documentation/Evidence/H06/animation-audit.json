@@ -1,0 +1,62 @@
+{
+    "version": "0.0.7",
+    "passed": true,
+    "characters": [
+        {
+            "id": "warrior",
+            "rows": [
+                "warrior_Idle",
+                "warrior_Basic",
+                "warrior_HeavyStrike",
+                "warrior_Item",
+                "warrior_Reaction",
+                "warrior_Death"
+            ],
+            "clips": 6,
+            "joints": 16,
+            "minimumDeathY": 0.0
+        },
+        {
+            "id": "mage",
+            "rows": [
+                "mage_Idle",
+                "mage_Basic",
+                "mage_Heal",
+                "mage_ArcaneStorm",
+                "mage_Item",
+                "mage_Reaction",
+                "mage_Death"
+            ],
+            "clips": 7,
+            "joints": 16,
+            "minimumDeathY": 0.0
+        },
+        {
+            "id": "ogre",
+            "rows": [
+                "ogre_Idle",
+                "ogre_Basic",
+                "ogre_Cleave",
+                "ogre_Reaction",
+                "ogre_Death"
+            ],
+            "clips": 5,
+            "joints": 16,
+            "minimumDeathY": 0.0
+        },
+        {
+            "id": "shaman",
+            "rows": [
+                "shaman_Idle",
+                "shaman_Basic",
+                "shaman_Poison",
+                "shaman_DarkHeal",
+                "shaman_Reaction",
+                "shaman_Death"
+            ],
+            "clips": 6,
+            "joints": 16,
+            "minimumDeathY": 0.0
+        }
+    ]
+}

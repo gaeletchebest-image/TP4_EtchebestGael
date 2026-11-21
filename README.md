@@ -1,16 +1,16 @@
 # Última Guardia
 
 Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Versión **0.0.6-H05**. H00–H05 aprobados por el usuario. H05 aprobado el 21 de noviembre de 2026; H06 no iniciado.
+Versión **0.0.7-H06**. H00–H06 aprobados por el usuario. H06 aprobado el 21 de noviembre de 2026. H07 no iniciado.
 
 ## Abrir y jugar
 
 - Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, calidad PC, Windows x86_64, Mono.
 - Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona `Assets/Scenes/Combat.unity` directamente.
-- Ejecutable de revisión: `Builds/H05/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds H00–H04.
+- Ejecutable de revisión H06: `Builds/H06/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds H00–H05.
 - Ventana inicial redimensionable de **1280 × 720**. uGUI usa esa resolución de referencia y correspondencia ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
-Una arena enfrenta a guerrero y maga contra ogro y chamán. No hay exploración ni movimiento libre. Todos empiezan con recursos completos, sin estados, ATB 0 y sin recuperación. Los cuatro modelos y sus armas son los recursos H05 propios del prototipo. Arena, interfaz y presentación animada siguen siendo provisionales.
+Una arena enfrenta a guerrero y maga contra ogro y chamán. No hay exploración ni movimiento libre. Todos empiezan con recursos completos, sin estados, ATB 0 y sin recuperación. Los cuatro modelos H05 tienen 24 clips H06 de reposo, acciones, objetos, reacción y muerte. Arena, interfaz, audio y acabado de efectos corresponden a hitos posteriores.
 
 ## Reglas del combate
 
@@ -18,7 +18,7 @@ ATB sube de 0 a 100 según velocidad: Maga 28, Guerrero 22, Chamán 20 y Ogro 16
 
 Después de actuar, ATB vuelve a cero y se consume la recuperación fija antes de llenarlo. El sobrante de una actualización se usa para ATB. Decisión, ejecución, pausa y resultado congelan reloj y recuperación. No hay regeneración pasiva ni resurrección.
 
-El guerrero tiene básico gratuito (potencia 1, recuperación 0,6 s) y Golpe pesado (8 de maná, potencia 1,8, 2,2 s). La maga tiene Proyectil mágico gratuito (potencia 1, 0,6 s), Curación (36 de vida, 10 de maná, 1,2 s) y Tormenta arcana (potencia 1,6 a todos los enemigos vivos, un único costo de 18 de maná, 2,8 s). Tormenta conserva presentación provisional de impacto/cierre a 0,35/0,85 s hasta H10.
+El guerrero tiene básico gratuito (potencia 1, recuperación 0,6 s) y Golpe pesado (8 de maná, potencia 1,8, 2,2 s). La maga tiene Proyectil mágico gratuito (potencia 1, 0,6 s), Curación (36 de vida, 10 de maná, 1,2 s) y Tormenta arcana (potencia 1,6 a todos los enemigos vivos, un único costo de 18 de maná, 2,8 s). Tormenta reproduce una pose de carga de 2,5 s con impacto a 1,2 s; cámara, ocultamiento de HUD, VFX y sonido finales corresponden a H10.
 
 El inventario es compartido: **3 Pociones** (50 de vida), **2 Éteres** (20 de maná), **1 Tónico de rapidez**, **1 Frasco corrosivo** y **2 Antídotos**. Cada objeto cuesta cero maná, una unidad y recuperación de 0,8 s. Poción y Éter requieren recurso faltante; Antídoto exige un aliado vivo envenenado. Tónico admite aliados vivos y Frasco enemigos vivos, incluyendo renovación de un efecto activo. Cancelar no consume recursos; confirmar valida y cobra una sola vez.
 
@@ -51,13 +51,14 @@ El HUD muestra nombre, contador e icono vectorial provisional: gota verde, flech
 
 El círculo amarillo marca al actor y el blanco al objetivo. Pausa y resultado permiten reiniciar o volver al menú. Ayuda por páginas, volumen y confirmaciones de abandono completos corresponden a H08.
 
-## Cómo revisar H05
+## Cómo revisar H06
 
-1. Ejecutar `Builds/H05/UltimaGuardia.exe` y elegir Jugar, o abrir MainMenu en Unity y pulsar Play. Revisar espada/armadura del guerrero, túnica/sombrero/bastón de la maga, volumen/colmillos/machete del ogro y máscara/cuernos/bastón del chamán.
-2. Seleccionar objetivos y habilidades. Las cuatro siluetas, armas y apoyos deben permanecer visibles, con los modelos ubicados en los anclajes originales. La cámara se ajustó para reservar espacio a los contadores de estados.
-3. Atacar, usar objetos, pausar y reiniciar. Se conservan las reglas y la presentación provisional de impactos y caída; los clips completos corresponden a H06.
-4. Inspeccionar `Assets/Prefabs/H05/`: cada `Visual` contiene `CharacterRig`, 16 articulaciones, arma en la mano derecha y sockets de conjuro, objeto e impacto. Solo guarda referencias visuales y datos, sin duplicar vida o inventario.
-5. Consultar [dirección visual y fuentes](Documentation/H05_CHARACTER_ART.md), [vista frontal](Documentation/Evidence/H05/character-lineup-front.png) y [hojas de poses](Documentation/H05_CHARACTER_ART.md#referencias-producidas-y-lectura-de-las-hojas). Las seis poses son comprobaciones de articulación, no animaciones del juego.
+1. Ejecutar la build H06 y elegir Jugar, o abrir MainMenu en Unity y pulsar Play. Observar el reposo de los cuatro personajes.
+2. Usar Proyectil mágico: la maga eleva el bastón, el proyectil viaja al objetivo confirmado y aplica el daño una vez. Usar básico y Golpe pesado del guerrero para comparar movimientos; observar Golpe/Machetazo del ogro.
+3. Probar Curación propia y sobre el compañero, los cinco objetos y los conjuros del chamán. Los objetos muestran un pequeño recurso en la mano izquierda. Tormenta eleva y mantiene el bastón, impacta a 1,2 s y termina a 2,5 s.
+4. Pausar durante una acción o vuelo, esperar y reanudar: pose, proyectil y efecto deben continuar desde el mismo punto. Reiniciar desde pausa y volver al menú deben retirar la secuencia anterior.
+5. Ganar o perder: los derrotados conservan su caída. Reiniciar restaura pose y recursos. Los movimientos no desplazan los anclajes.
+6. Inspeccionar Animator y CharacterAnimationPlayer en `Visual` de los prefabs H05, y clips/controladores en `Assets/Animations/H06`. Consultar [tiempos y reconstrucción](Documentation/H06_ANIMATIONS.md) y [hojas de animación](Documentation/Evidence/H06/animation-audit.json). Cada fila de las hojas recorre un clip real; el orden se indica en el JSON.
 
 Fuentes editables en `CharacterModeling.cs`, mallas en `Assets/Models/H05/Meshes`, exportaciones OBJ/MTL/jerarquía JSON en `Assets/Models/H05/Exports` y 20 materiales URP propios en `Assets/Materials/H05`. No se descargaron ni compraron recursos. Se usa un rig de piezas rígidas, alternativa admitida por el GDD, con túnicas segmentadas y sin simulación de tela.
 
@@ -74,21 +75,23 @@ Fuentes editables en `CharacterModeling.cs`, mallas en `Assets/Models/H05/Meshes
 
 ## Compilar y comprobar
 
-Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera. Build H05 terminada: **164,21 MB**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core (d3d11).
+Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera. Build H06 terminada: **164,68 MB**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core (d3d11).
 
-Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **68/68 aprobadas** y **4/4 regresiones de flujo** después del ajuste de cámara. Auditoría de los cuatro modelos aprobada y seis poses estáticas por personaje inspeccionadas. [Resultados y métodos](Documentation/TEST_REPORT.md), [evidencia H05](Documentation/Evidence/H05/).
+Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **71/71 aprobadas**, incluidas regresiones H00–H05 y tres pruebas nuevas de presentación. Auditoría aprobada de los 24 clips; cuatro hojas de secuencias y capturas del juego inspeccionadas. La matriz cubre las diez acciones y los cinco objetos con cada aliado. [Resultados y métodos](Documentation/TEST_REPORT.md), [evidencia H06](Documentation/Evidence/H06/).
 
 Las pruebas usan Keyboard/Gamepad virtuales y restauran las opciones de entrada y tiempo. El enrutamiento de entrada del editor se ajusta temporalmente para recibir eventos sin foco. No acredita un control físico. Las capturas 720p/1080p usan RenderTexture; no acreditan monitor físico 1080p. Las peleas aceleradas ×4 verifican flujo, sin medir balance o duración objetivo.
 
-La build Development admite `-foundation-smoke`: prueba menú, carga de Combat, pausa, retorno y salida mediante Salir; conserva JSON y capturas en `Builds/H05/Validation`. Esta prueba no juega una pelea completa. Resultado H05 aprobado: versión `0.0.6-flow`, inicio MainMenu, `passed = true`, salida desde Salir y código 0. Se conservan avisos de red y liberación de buffers/asignaciones al cerrar el player oculto; seguimiento en KNOWN_ISSUES. El arnés se excluye de builds sin Development Build.
+La build Development admite `-foundation-smoke`: prueba menú, carga de Combat, una acción animada de la maga con pausa/reanudación e impacto, retorno y salida mediante Salir; conserva JSON y capturas en `Builds/H06/Validation`. Esta prueba no juega una pelea completa. Resultado H06 aprobado: versión `0.0.7-flow`, inicio MainMenu, `passed = true`, `animatedActionVerified = true`, salida desde Salir y código 0. Se conservan avisos de red y liberación de buffers/asignaciones al cerrar el player oculto; seguimiento en KNOWN_ISSUES. El arnés se excluye de builds sin Development Build.
 
 ## Estructura y mantenimiento
 
 `CombatSession` contiene reglas, reloj, cola, IA y acciones pendientes. `CombatantState` mantiene recursos y estados; `EffectDefinition` conserva snapshots de datos y `StatusState` la identidad y duración de cada aplicación. `CombatPrototype` controla input, fases y presentación; `StatusHud`/`StatusIcon` muestran los estados provisionales; `CombatantView` vincula figuras y sockets.
 
-Los datos siguen en `Assets/Data/H02/Resources/Encounters/` para conservar GUID y referencias. Los ScriptableObjects configuran el encuentro; cada intento crea estado independiente. Los datos inválidos impiden iniciar y explican el campo que debe corregirse. Las referencias de arte, audio y animación pueden seguir vacías hasta sus hitos.
+Los datos siguen en `Assets/Data/H02/Resources/Encounters/` para conservar GUID y referencias. Los ScriptableObjects configuran el encuentro; cada intento crea estado independiente. Los datos inválidos impiden iniciar y explican el campo que debe corregirse. Modelos y animaciones están conectados; audio y VFX finales pueden seguir sin referencias hasta sus hitos.
 
-`CharacterRig` conserva articulaciones, pose inicial, arma y sockets de cada modelo. `CharacterModeling` es la fuente de autoría H05 y `CharacterArtValidation` genera auditoría y hojas de poses desde el editor. No se ejecutan automáticamente. La utilidad `Ultima Guardia/H05/Crear modelos e integrar personajes` regenera los modelos H05 y reemplaza sus instancias; conservar cambios manuales de esos recursos antes de usarla. Las estadísticas y la arena no se regeneran. Detalle en la dirección visual enlazada arriba.
+`CharacterRig` conserva articulaciones, pose inicial, arma y sockets. `CharacterAnimationAuthoring` genera explícitamente los clips H06 y conecta los prefabs existentes. `CharacterAnimationValidation` audita y captura secuencias. `CharacterAnimationPlayer` reproduce los clips sin reloj automático, y `CombatPresentation` sincroniza pose, proyectil e impacto desde la acción confirmada. Detalle en [H06_ANIMATIONS.md](Documentation/H06_ANIMATIONS.md).
+
+La utilidad H05 regenera modelos y reemplaza instancias; no ejecutarla sobre H06 sin conservar e integrar después los cambios de animación. Las utilidades H06 también reemplazan sus clips/controladores y requieren conservar antes ediciones manuales.
 
 Se conservan Input System 1.19.0, uGUI 2.0.0, Test Framework 1.6.0, ProBuilder 6.0.9 y Timeline 1.8.11. Unity MCP es herramienta de desarrollo, sin dependencia del player. No se compraron recursos ni se añadieron servicios pagos.
 
@@ -102,4 +105,4 @@ Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Exc
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-Este chat realiza únicamente H05. La revisión final corresponde al usuario; H06 se solicita en otro chat.
+Esta entrega realiza únicamente H06. La revisión final corresponde al usuario; H07 se solicita en otro chat.

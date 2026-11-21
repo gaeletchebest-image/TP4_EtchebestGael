@@ -44,3 +44,9 @@ Victorias automatizadas desde el encuentro normal: teclado virtual **22 acciones
 **Sin ajustes de balance.** Los cuatro datos de combatiente solo cambian su referencia de prefab; estadísticas, acciones, inventario, efectos y costos se conservan. Cámara ajustada para la lectura de modelos y estados; ningún cambio del reloj o de las reglas.
 
 Regresión de flujo con modelos finales: victoria con teclado virtual en **21 acciones y 1 Poción restante**; control virtual en **22 acciones y 0 Pociones**. Son muestras nuevas de la suite, con selección enemiga aleatoria y reloj ×4. No prueban una diferencia de dificultad ni se comparan estadísticamente con H04. Balance, duración objetivo y rendimiento continúan pendientes de H12.
+
+## H06 · Animaciones e impactos
+
+**Sin ajustes de balance.** Estadísticas, potencias, maná, inventario, IA, estados, ATB y recuperaciones conservados. Las diez acciones solo agregan referencias de animación. Cambian los tiempos de presentación: básicos físicos 0,85 s, pesados 1 s, magia ordinaria 0,95 s, objetos 0,85 s y pose de Tormenta 2,5 s con impacto a 1,2 s. El reloj ATB y las recuperaciones permanecen congelados durante la ejecución; estos tiempos visuales no sustituyen la recuperación de cada acción.
+
+Regresión automatizada: victoria con teclado virtual y con control virtual, ambas de **22 acciones y 0 Pociones restantes**. Decisiones inmediatas y reloj ×4 verifican flujo; no miden la duración real de una partida con animaciones ni validan balance. Los veinte casos preparados de presentación no se usan como partidas naturales. Duración objetivo, balance y rendimiento siguen pendientes de H12.

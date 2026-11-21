@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe66f1320d95c874886437f8cfff9438, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CombatantView
   combatantId: ogre
   visual: {fileID: 4247744281542402319}
@@ -154,6 +154,8 @@ MonoBehaviour:
   actorMarker: {fileID: 8991641657634570910}
   targetMarker: {fileID: 7364286617224631786}
   nameLabel: {fileID: 3330564522704804208}
+  projectilePrefab: {fileID: 3213202945878493272, guid: 6bf63ad2cfc5f5748812a5c5cb82eded, type: 3}
+  projectileMaterial: {fileID: 2100000, guid: ffcce1a9db6d84a41ba89b4c13ae0039, type: 2}
 --- !u!1 &225832557491137170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4247744281542402319}
   - component: {fileID: 8988303272619621625}
+  - component: {fileID: 2084772318619301025}
+  - component: {fileID: 8036119915443212208}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -3629,7 +3633,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed3c03581652dab498e6c7781edc9262, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CharacterRig
   definition: {fileID: 11400000, guid: e8b960735f252d14da3ef861c4fd845f, type: 2}
   hips: {fileID: 1026777291154862923}
@@ -3703,6 +3707,42 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 1}
+--- !u!95 &2084772318619301025
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432406941514493263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a6b15e8be510134faecee33ae6726ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8036119915443212208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432406941514493263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35ccd3dcef926e439f7e581f9472f02, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.CharacterAnimationPlayer
+  animations: {fileID: 11400000, guid: e37da76ec78b19b419433d012ad722dc, type: 2}
+  itemProp: {fileID: 0}
 --- !u!1 &8648499284401563087
 GameObject:
   m_ObjectHideFlags: 0
