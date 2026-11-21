@@ -1,0 +1,252 @@
+{
+  "version": "0.0.4-H03",
+  "baseCommit": "52b3306193e9a72ac9d0b3a7ac0664ee3e560f7d",
+  "deliveryCommit": null,
+  "files": [
+    {
+      "path": "Builds/H03/UltimaGuardia.exe",
+      "sha256": "e3852a92c8d4350b2595c7086432a3350e25d7141fd6097bcc47d5f2d368a522",
+      "bytes": 667648
+    },
+    {
+      "path": "Builds/H03/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.dll",
+      "sha256": "96f5e40c8dcc2d18093f344a2a06b7daa080a56715376828dc9242055e901677",
+      "bytes": 63488
+    },
+    {
+      "path": "Assets/Scripts/Combat/ActionData.cs",
+      "sha256": "ec914f3db0cbdfc01764957d655e4e5ff42e0c769e194af91937d3c9e959072a",
+      "bytes": 734
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantData.cs",
+      "sha256": "297bfa72e3ec6c300fa3ea0e50c8604e1c24042eb7e720148d30979cd58a7208",
+      "bytes": 532
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs",
+      "sha256": "0ee26b1b9877cb7bed0485d09125a03f956678169943a5014da84a21b6472718",
+      "bytes": 1320
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs",
+      "sha256": "9125d6439669c13dc3dcee1231d3931397e5499dfdceb7753860bfbffc4ab7ad",
+      "bytes": 17624
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs",
+      "sha256": "73db229ce1bb647d71b2e61ade38ba93cce3bb2e42ed473e343ec36e8a3d49fa",
+      "bytes": 20531
+    },
+    {
+      "path": "Assets/Scripts/Combat/EffectData.cs",
+      "sha256": "0d26bc70b8a14f39e3068960dc3aab7604db516b4f2d3cef94fbd6f8c9207748",
+      "bytes": 504
+    },
+    {
+      "path": "Assets/Scripts/Combat/EncounterData.cs",
+      "sha256": "82ee13c32daa9abeb31673abd33ed0f422673f855dd532ba68fab18f64da9ad5",
+      "bytes": 7307
+    },
+    {
+      "path": "Assets/Scripts/Combat/ItemData.cs",
+      "sha256": "b14c6509dd30949cbe47d1dfe168f2785701f027eccb067761f162d429faf76e",
+      "bytes": 575
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationMenu.cs",
+      "sha256": "7d7c9e545c47b0a4cb39c8a86d433c4aa1ab20d7c52198a5d4dd2ff54134e608",
+      "bytes": 5121
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs",
+      "sha256": "96e9b45b01451c19e34289931ab5079a9f4d43d243849077a79fa390d51318cb",
+      "bytes": 9668
+    },
+    {
+      "path": "Assets/Scripts/Editor/ActionsSetup.cs",
+      "sha256": "e877fc1a742211955985484311bf23e3b2e51da7c737e2d567ba33c4c5877ea8",
+      "bytes": 6052
+    },
+    {
+      "path": "Assets/Scripts/Editor/AtbSetup.cs",
+      "sha256": "8d83359aa65cae06facebefff709540e9c2b75534a43c838d26b3ecf6b6b945b",
+      "bytes": 8389
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs",
+      "sha256": "bb1578e77f200feda61178148bd48d6a04b98580718196ac76ea9269804bdb32",
+      "bytes": 11786
+    },
+    {
+      "path": "Assets/Scripts/Editor/FoundationSetup.cs",
+      "sha256": "5afeedfd76d7d2466e113cab1efe51144b026563551eceaee012f2682a89e2f4",
+      "bytes": 8759
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs",
+      "sha256": "4d0936b93d4c86f507d7d78b056515d29d0ce5b3e7bbcf674e579240212f9e2e",
+      "bytes": 22042
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs",
+      "sha256": "6b39de406beef4ecb6ef9e547546d4f0cef6314b3263793cbeee64c106e1302d",
+      "bytes": 24671
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs",
+      "sha256": "3ec11867e16251928a4b2d0eea48c70c9ba03fcdd0fd6c531e660aadf86fcba5",
+      "bytes": 6671
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/antidote.asset",
+      "sha256": "8f9d70bdeb05d8f8946e052d1f191118b9b58e0aa4960b6018dad7dd96de468b",
+      "bytes": 736
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/arcane_storm.asset",
+      "sha256": "4002510107490b27ab38b457067882d73f9d2fdbf92cd6807d2b0867a41631a5",
+      "bytes": 818
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/cleave.asset",
+      "sha256": "68166ad9e138e1472b53fbf3e6c9f9cee2bad8fb68d83dba5caedbfee8d0e500",
+      "bytes": 780
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosion.asset",
+      "sha256": "180ae097564f07aa4aea682ffe31f59c14ab8955fd28c485324d58cde0c9b52b",
+      "bytes": 583
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosive_flask.asset",
+      "sha256": "c473e293d08b0553dcf1a6575604adf2e54bf22cd833e3d221c2d0b04cb79113",
+      "bytes": 785
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/dark_heal.asset",
+      "sha256": "d32edfe4f100fec41be255bcdbb4b5fb383e8497791aa92a216e3204ce54accc",
+      "bytes": 808
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ether.asset",
+      "sha256": "54bc6f4c985a62fa0f2d72d601e123c7f187c00cc65a5126ee93947b925c72f6",
+      "bytes": 675
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste.asset",
+      "sha256": "5ee9c90d4cef21c31fbf9a1c198e7a8c6284a511f73e9002b2f61ed16aaf1471",
+      "bytes": 568
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste_tonic.asset",
+      "sha256": "d1f7cd87c87275780de0100b45ba41e62117d2318522755d7cbd7f44c6b49b5f",
+      "bytes": 784
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heal.asset",
+      "sha256": "44c25ecd42027be13a6d6d7799e4b2533ed1774e40bf9c0b658c2c5ef57b8d79",
+      "bytes": 803
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset",
+      "sha256": "83394d762b6032500e4a31ee795b82d2b4f787e55e10a627acecf3756d1a4e71",
+      "bytes": 762
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage.asset",
+      "sha256": "8a724f0582f1808c47b264f8049001f621411c3685aec24fe697666f680695a7",
+      "bytes": 880
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset",
+      "sha256": "7ccb7b1d03f049a7a8aef5913159bdbad743019ce791064c2bfcc885a14d82c2",
+      "bytes": 765
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/MainEncounter.asset",
+      "sha256": "9895f763a9ad25c4a3e576ea633f85c44159b82962e6c87c508a972095c6a61b",
+      "bytes": 1590
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre.asset",
+      "sha256": "48021cd85d3f75a8b04980312d965f8a5e07f48388fef35e3b9133759365e3a7",
+      "bytes": 808
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset",
+      "sha256": "df201de96df12950b15c5f2cc5c087fe682b394514e29dfa034d6f8c7af515b4",
+      "bytes": 749
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison.asset",
+      "sha256": "2480c61de0a550c24ef666ec3b7348aeca16c4656a7e900634eac5e8b873a2dc",
+      "bytes": 567
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison_spell.asset",
+      "sha256": "d1e06549b4b672e47d9167fd6c7c6f67a4f2b82991c1e842fe5300b6c95d81bb",
+      "bytes": 887
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/potion.asset",
+      "sha256": "050fb95b32624872fc2cf1b5a5e47b6ca5cf0d4293fe3ca7939e28cf93f6ad4e",
+      "bytes": 660
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman.asset",
+      "sha256": "c67e6ab77a1030ad29ccb2e944be6fc9058112744fcace173bb6bce6acacb1c2",
+      "bytes": 891
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset",
+      "sha256": "75c6ef6a55c274bf463db0ee4acf0cc9b6b5ec21569c3e4e6b389cce57e14a25",
+      "bytes": 756
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior.asset",
+      "sha256": "88dfb899cf37d6bb699b7e008b2fb9a2962fc04e9886ab299ded50eb9b06d291",
+      "bytes": 818
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset",
+      "sha256": "6b56e283f6b8e59870289b67894649f696d757686f053970707105b3219b9f0f",
+      "bytes": 768
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity",
+      "sha256": "5cbbe07e34337635e31af3afdb86e56afa6930531d46cd7611d86e9ce84101a7",
+      "bytes": 70528
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity",
+      "sha256": "9b19a325b8c3c305ad567dea15b470268d89d4b639679c4378b8a9c02f476409",
+      "bytes": 181361
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions",
+      "sha256": "e0af755702547e692ce5bac79ef0fd47421b5b051e46e21876034b49d9006f75",
+      "bytes": 5833
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4b0815d694fa4ee0eb6bf0955aa2c1d014c04d6850b0e9946393331bc3781b02",
+      "bytes": 2158
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "0d3bbe23c73678700370443e84eb5ff196d889b17d0e6eee94eda3aa424d2fc9",
+      "bytes": 14007
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "6c6b42e886118b4b5d2c06c8f48b56067ce2e44db79319dac3639e72da650cf9",
+      "bytes": 25620
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "a717ed4b946e370ce6e6af9dd000b8acf89495b44c84bf8f768159924cfa66c3",
+      "bytes": 85
+    }
+  ]
+}

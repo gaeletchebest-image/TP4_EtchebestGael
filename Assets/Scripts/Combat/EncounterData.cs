@@ -76,6 +76,7 @@ namespace UltimaGuardia
                     if (string.IsNullOrWhiteSpace(a.displayName) || a.manaCost < 0 || a.fixedAmount < 0 || !Finite(a.potency) || a.potency < 0 || !Finite(a.recovery) || a.recovery < 0)
                         errors.Add(a.name + ": nombre, costo, potencia, cantidad o recuperación inválidos.");
                     if (!Enum.IsDefined(typeof(CombatAction), a.command) || !Enum.IsDefined(typeof(ActionEffect), a.effect) || !Enum.IsDefined(typeof(TargetMode), a.targetMode)) errors.Add(a.name + ": tipo de acción u objetivo inválido.");
+                    if (CombatSession.IsItem(a.command)) errors.Add(a.name + ": una habilidad no puede usar un comando de objeto.");
                     if (a.effect == ActionEffect.ApplyStatus) effect(a.appliedEffect);
                 }
                 if (!(c.actions ?? new ActionData[0]).Any(a => a != null && a.command == CombatAction.Basic && a.manaCost == 0 && a.effect == ActionEffect.Damage && a.targetMode == TargetMode.Enemy))
@@ -83,12 +84,14 @@ namespace UltimaGuardia
             }
             if (allies != 2 || enemies != 2) errors.Add("El encuentro requiere dos aliados y dos enemigos.");
             var itemIds = new HashSet<string>();
+            var itemCommands = new HashSet<CombatAction>();
             foreach (var entry in inventory ?? new InitialItem[0])
             {
                 if (entry == null || entry.item == null) { errors.Add("Falta referencia de objeto del inventario."); continue; }
                 var item = entry.item;
                 unique(item.id, item);
                 if (!itemIds.Add(item.id ?? "")) errors.Add(item.name + ": objeto duplicado en inventario.");
+                if (!CombatSession.IsItem(item.command) || !itemCommands.Add(item.command)) errors.Add(item.name + ": comando de objeto inválido o duplicado.");
                 if (entry.quantity < 0 || item.amount < 0 || !Finite(item.recovery) || item.recovery < 0 || string.IsNullOrWhiteSpace(item.displayName)) errors.Add(item.name + ": cantidad, nombre o recuperación inválidos.");
                 if (!Enum.IsDefined(typeof(ItemEffect), item.effect) || !Enum.IsDefined(typeof(TargetMode), item.targetMode)) errors.Add(item.name + ": efecto u objetivo inválido.");
                 if (item.effect == ItemEffect.ApplyStatus || item.effect == ItemEffect.RemovePoison) effect(item.appliedEffect);

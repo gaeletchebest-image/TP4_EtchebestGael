@@ -81,6 +81,7 @@ namespace UltimaGuardia.Editor
             Asset<EffectData>(id, e => { e.id = id; e.displayName = label; e.kind = kind; e.duration = duration; e.fixedDamage = damage; e.multiplier = multiplier; e.trigger = trigger; });
         private static ItemData Item(string id, string label, ItemEffect kind, int amount, TargetMode targets, EffectData status = null) =>
             Asset<ItemData>(id, item => { item.id = id; item.displayName = label; item.description = kind == ItemEffect.Heal ? "Un aliado vivo herido" : "Configuración preparada; ejecución en H03/H04";
+                item.command = id == "potion" ? CombatAction.Potion : id == "ether" ? CombatAction.Ether : id == "haste_tonic" ? CombatAction.HasteTonic : id == "corrosive_flask" ? CombatAction.CorrosiveFlask : CombatAction.Antidote;
                 item.effect = kind; item.amount = amount; item.targetMode = targets; item.appliedEffect = status; });
         private static EncounterData CreateData()
         {

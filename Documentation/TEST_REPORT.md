@@ -129,3 +129,42 @@ Player final ejecutado como proceso oculto con `-foundation-smoke`: [resultado J
 Esta prueba del ejecutable utiliza teclado/control virtual y captura offscreen explícita; las peleas completas corresponden a PlayMode. El log conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones al apagar el proceso oculto, como en H00/H01; no hubo excepción de lógica. No se atribuye una causa del juego no demostrada. Log completo en `Builds/H02/Validation/player-1280x720.log`. Ajustes de entrada a Play y Unity Connect alterados por el entorno de pruebas/build se restauraron al valor recibido; se conservan versión de motor, pipeline, paquetes y entrada precargada. [Huellas de la entrega](Evidence/H02/fingerprints.json).
 
 Revisión final del usuario: **H02 aprobado el 21 de noviembre de 2026**, mediante «Bien. Lo doy por aprobado y te pido que me des un nombre en ingles para el commit». Sin correcciones solicitadas; H03 permanece pendiente.
+
+## H03 · 21 de noviembre de 2026
+
+Versión **0.0.4-H03**, cambios locales sobre `52b3306` (H02). Autorización: «Bien. Entonces implementalo». H02 aprobado y sin correcciones abiertas. Unity 6000.3.11f1, URP 17.3.0, Windows x86_64/Mono; se conservan motor, pipeline, paquetes y arena recibidos.
+
+### Resultado y cobertura
+
+**49/49 pruebas PlayMode aprobadas**, 0 fallidas, 0 omitidas, **88,2797253 s**. Job `00c3fe8fd4fb4ff2a9a10eaa1902fa4b`. [Resultados completos](Evidence/H03/playmode-results.json). Consola sin errores ni advertencias antes de compilar la build.
+
+| Tareas | Método y resultado observado |
+| --- | --- |
+| H03-T01/T02/T12/T14/T15 | Encuentro real con diez ActionData distintos; costos, potencias, cantidades y recuperaciones del GDD. Veneno preparado con efecto sin daño directo, bloqueado hasta H04 |
+| H03-T03 | Curación a guerrero y propia, límite al máximo, rechazo de enemigo/vida completa, gasto único de 10 y recuperación 1,2 s. Recorrido de UI con herida preparada de 50: maga 60 → 96 y maná 45 → 35 |
+| H03-T04/T06 | Tormenta a uno/dos enemigos: costo único 18, daños 32 al ogro y 34 al chamán; repetición de confirmación/impacto rechazada; pausa congela impacto; recuperación 2,8 s; victoria cierra presentación sin reanudar ATB |
+| H03-T05/T11 | Input virtual real recorre raíz, Habilidades, Objetos y objetivos. Mantener confirmar no ejecuta el objetivo automáticamente; cancelar conserva recursos y selección. Cinco objetos consultables; bloqueo por recurso completo o dependencia H04. Capturas de grupo y lista en 720p/1080p |
+| H03-T07/T08/T10 | Cantidades compartidas 3/2/1/1/2, Poción de 50, Éter de 20, cero maná y recuperación 0,8 s. Éter del guerrero restaura a la maga con límite de 18 faltantes; rechazo de recurso completo y cero unidades. Cancelar Éter en UI conserva unidades |
+| H03-T09 | Datos/equipo y bloqueo explícito de Tónico, Frasco y Antídoto. No consumen unidades, maná ni turno. No se acredita aplicación de estados |
+| H03-T13 | Diez acciones consecutivas del ogro verifican Golpe/Machetazo, tres gastos de 8, daño y recuperación; agotado el maná continúa alternando intentos con Golpe. Segunda confirmación no avanza contador |
+| H03-T14/T16 | Ogro a 120: no cura; a 119 y maná 10 o 36: cura 40, cobra 10 y recupera 1,5 s; maná 9/0 u ogro muerto: Descarga. Curación oscura rechaza al chamán y se limita al máximo del ogro. Veneno sigue indisponible: su prioridad está condicionada a ejecución y H04 completa la selección sin veneno |
+| H03-T17/T18 | Semilla 1, 100 decisiones por enemigo: ambos aliados reciben objetivos, dentro de 30–70 por aliado; selección única conservada al rechazar una confirmación repetida. Un único aliado superviviente es el único objetivo. No se interpreta esta muestra como prueba estadística general |
+| Reinicio/regresión | Nueva sesión restaura recursos, inventario, ATB, recuperación y contadores, con snapshots independientes de cambios de assets. Reinicio en pausa de Tormenta limpia pendientes y marcadores. Regresiones de fórmula, reloj, cola, muerte, menú, pausa, confirmación mantenida, teclado y control virtual |
+
+Las dos peleas normales usan la configuración de producto y priorizan al chamán con básicos, Golpe pesado, Curación, Tormenta o Poción según recursos y heridas. Teclado virtual: **19 acciones, 2 Pociones**; control virtual: **22 acciones, 0 Pociones**. Se aceleran a `Time.timeScale = 4`, restaurado después. La derrota parte de ambos aliados a 1 de vida exclusivamente en el fixture. Estas comprobaciones acreditan flujo y recursos, no balance, duración objetivo ni hardware físico.
+
+### Integración y evidencia visual
+
+La primera petición de integración por código no encontró el nuevo tipo de editor porque el refresh de solo scripts no había importado el archivo nuevo. Se forzó refresh de assets, se comprobó compilación sin errores y se integró antes de iniciar pruebas. La única ejecución de la suite fue **49/49**; no se cuentan resultados de una configuración sin integrar.
+
+Se inspeccionaron selección de Curación propia y Éter, lista de objetos a 720p, grupo de Tormenta a 1080p, pausa de Tormenta y victoria. Los nombres, costos, recuperaciones, cantidades, equipos y marcadores son legibles y completos. La captura usa cámara y Canvas reales sobre RenderTexture, cambiando temporalmente Overlay a ScreenSpaceCamera y restaurándolo después; no acredita monitor físico 1080p. [Capturas](Evidence/H03/). La UI/modelos continúan siendo provisionales.
+
+### Build
+
+Build `build-aaabbd3673`: `Builds/H03/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **163,17 MB**, **57,2910924 s**, **0 errores / 1 advertencia**. [Resumen](Evidence/H03/build-summary.json). La advertencia corresponde al truncamiento implícito del shader `Hidden/Core/DebugOccluder` de Unity Core (d3d11); no es un error de lógica de combate.
+
+Player real ejecutado como proceso oculto con `-foundation-smoke`, ventana real y captura 1280 × 720: [JSON](Evidence/H03/player-result-1280x720.json), `version = 0.0.4-flow`, `initialScene = MainMenu`, `passed = true`, `exitedThroughMenu = true`, [código de salida 0](Evidence/H03/player-exit-code-1280x720.txt). Se verifica navegación, ayuda de controles, carga de Combat, pausa con teclado/control virtual, retorno y cierre desde Salir. Se inspeccionó la [captura de Combat del player](Evidence/H03/player-combat-1280x720.png), con materiales y textos presentes; también se conserva [pausa](Evidence/H03/player-pause-1280x720.png). Esta comprobación externa no juega una pelea completa: las peleas anteriores son PlayMode.
+
+El log `Builds/H03/Validation/player-1280x720.log` conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones persistentes/JobTempAlloc al cerrar el proceso oculto con capturas explícitas, como en H00–H02. Sin excepción de lógica observada, smoke aprobado y salida 0; no se atribuye una causa del juego no demostrada. Evaluación interactiva/prolongada pendiente de H12. Entrada a Play y asset de input precargado conservados; Unity Connect restaurado al valor recibido tras la build. [Huellas de archivos entregados](Evidence/H03/fingerprints.json).
+
+H03 fue **aprobado por el usuario el 21 de noviembre de 2026**, mediante «Bien. Queda aprobado. Dame nombre en ingles para el commit». Sin correcciones solicitadas; H04 permanece pendiente. Estados completos y selección de Veneno/Antídoto según estado real se verifican en H04; secuencia final de Tormenta en H10; control físico/desconexión en H11; balance y rendimiento en H12.

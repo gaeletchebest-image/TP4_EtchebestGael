@@ -85,3 +85,13 @@ No se descargaron recursos ni se compraron assets. Las filas CHAR, ENV y demás 
 | H02-UI | Cuatro barras uGUI de Combat | Componentes uGUI y sprite `UI/Skin/UISprite.psd` integrados en Unity; sin archivo externo | Barras provisionales y texto Llenando/Recuperando/Listo; UI final pendiente H08 |
 
 Los datos de efectos no representan estados activos implementados. Las referencias de iconos, animación, sonido y VFX pueden estar vacías hasta sus hitos; no se marcaron como completos los recursos finales correspondientes. Se conservaron arena, materiales y prefabs de H01.
+
+## Incorporaciones H03
+
+| ID | Recurso / ruta | Procedencia | Integración |
+| --- | --- | --- | --- |
+| H03-DATA | `Assets/Data/H02/Resources/Encounters/{heal,arcane_storm,cleave,poison_spell,dark_heal}.asset` | Configuración propia del GDD; sin archivos externos | Cinco acciones añadidas sobre el encuentro existente, diez en total. Se conservan rutas/GUID de H02; objetos con comando explícito, descripciones y cantidades originales |
+| H03-CODE | CombatSession, CombatPrototype, ItemData, EncounterData, ActionsSetup y pruebas | Elaborados para el proyecto | Resolución de curación/maná/área, IA, inventario y menús; configuración separada del estado. Estados activos pendientes H04 |
+| H03-UI | Panel de decisión de Combat | uGUI y fuente integrada existentes | Listas de cinco objetos y confirmación grupal legibles; arte y UI final siguen pendientes H08 |
+
+No se descargaron ni compraron recursos. Se conservan modelos, materiales, arena, motor y paquetes; esta entrega no completa recursos de arte, animación, audio o VFX posteriores.

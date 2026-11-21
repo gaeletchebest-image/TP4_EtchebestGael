@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ItemData
   id: potion
   displayName: "Poci\xF3n"
-  description: Un aliado vivo herido
+  command: 2
+  description: Recupera 50 de vida de un aliado vivo herido.
   icon: {fileID: 0}
   targetMode: 1
   effect: 0

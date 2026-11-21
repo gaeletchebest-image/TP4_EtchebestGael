@@ -44,3 +44,15 @@ La derrota automatizada de H01 utiliza un fixture con aliados a 1 de vida para f
 | H02-L05 | Player oculto de validación | Curl error 6, avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones al apagar el proceso con capturas explícitas, como en H00/H01 | Sin excepción de lógica, smoke aprobado y salida 0. Evaluación interactiva/prolongada de estos avisos pendiente, conservada para H12 |
 
 Los valores de los ScriptableObjects se leen al crear cada intento; un cambio durante Play se refleja al reiniciar, no altera retroactivamente el snapshot de un turno en curso. Los modelos, menús y barras conservan presentación provisional. No hay correcciones abiertas del usuario.
+
+## Seguimiento H03
+
+| ID | Tareas | Descripción y alcance | Estado / cierre |
+| --- | --- | --- | --- |
+| H03-L01 | H03-T09/T15/T16 | Tónico, Frasco, Antídoto y Veneno tienen datos y equipo preparados, pero no instancias ni contadores activos de estados. Permanecen bloqueados con motivo explícito, sin gasto. La IA prioriza curación, consulta Veneno y usa Descarga al no ser ejecutable | Alcance previsto; completar en H04-T04/T05/T08/T15. No se acredita selección según presencia/ausencia de veneno todavía |
+| H03-L02 | H03-T04 | Tormenta tiene daño de área, confirmación grupal, costo único y recuperación; usa presentación provisional 0,35/0,85 s | Cámara, HUD oculto, animación, VFX y sonido finales en H10 |
+| H03-L03 | Validación | Teclado/control virtuales y capturas RenderTexture; sin hardware físico ni monitor nativo 1080p | Limitaciones heredadas, prueba física en H11 |
+| H03-L04 | Build | 1 advertencia por truncamiento implícito de DebugOccluder (Unity Core/d3d11) | Build aprobada, 0 errores; sin modificación de paquetes |
+| H03-L05 | Player oculto de validación | Curl error 6 y avisos al liberar buffers/asignaciones persistentes/JobTempAlloc al apagar el proceso con capturas explícitas, como en H00–H02 | Sin excepción de lógica, smoke aprobado y salida 0. Evaluación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
+
+No hay correcciones abiertas del usuario. La implementación H03 y sus 49 pruebas no acreditan estados completos ni balance final.

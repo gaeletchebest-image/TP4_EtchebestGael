@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ItemData
   id: corrosive_flask
   displayName: Frasco corrosivo
-  description: "Configuraci\xF3n preparada; ejecuci\xF3n en H03/H04"
+  command: 7
+  description: "Un enemigo vivo: defensa \xD70,5 durante sus pr\xF3ximas 2 acciones.
+    Pendiente de H04."
   icon: {fileID: 0}
   targetMode: 0
   effect: 2

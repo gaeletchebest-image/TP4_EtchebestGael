@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00, H01 y H02 aprobados por el usuario. H03 a H13 pendientes.
+> Estado: H00, H01, H02 y H03 aprobados por el usuario. H04 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -124,7 +124,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H00. Preparación del proyecto y control del alcance.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H01. Arena provisional y combate básico terminable.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H02. Datos configurables, ATB y recuperación.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H04. Veneno, rapidez y corrosión.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -198,6 +198,26 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Cómo revisarlo: ejecutar la build H02 o MainMenu en Unity. Observar que la maga queda lista primero; esperar en su menú sin que avancen barras; usar básico y después Golpe pesado del guerrero; observar recuperación de 2,2 s, cancelar sin gasto, pausar y reiniciar. Ganar o perder y reiniciar. Inspeccionar los assets y modificar un valor fuera de Play para comprobarlo en el nuevo intento; restaurar el valor al terminar. Detalle en README.
 - Correcciones abiertas del usuario: ninguna. Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Lo doy por aprobado y te pido que me des un nombre en ingles para el commit». No se solicitaron correcciones ni comenzar H03.
 - Próximo hito en orden: **H03**, identificación solamente; **no iniciado en este chat**.
+
+#### Registro H03
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. No se inició H04.
+- Versión: **0.0.4-H03** (PlayerSettings 0.0.4), cambios locales sobre commit real `52b3306` (H02). No se creó un commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Bien. Entonces implementalo», después de explicar el alcance de H03. H02 aprobado, sin correcciones abiertas.
+- Tareas: **H03-T01 a H03-T18**, con las dependencias de estados diferidas expresamente a H04 según T09/T15 y los criterios de cierre.
+- Entrega: diez acciones configuradas, Curación, Tormenta arcana a todos los enemigos vivos, inventario compartido con Poción/Éter ejecutables, menús Atacar/Habilidades/Objetos, selección individual o grupal, gasto único, validación de disponibilidad, alternancia del ogro y prioridad de curación del chamán.
+- Alcance de **H03-T09/T15/T16**: Tónico, Frasco, Antídoto y Veneno tienen datos, costos, recuperación y equipo objetivo preparados; están bloqueados con motivo explícito y no gastan recursos. La prioridad del chamán consulta Curación oscura → Veneno ejecutable → Descarga. Como Veneno todavía no tiene estados runtime, en H03 omite esa opción y usa Descarga; **no se acredita aplicación de Veneno ni selección por ausencia del estado**. H04-T04/T15 completan y verifican esos comportamientos. No se simula un Veneno sin efecto ni se desperdicia un turno.
+- Configuración: se mantienen rutas y GUID de H02 en `Assets/Data/H02/Resources/Encounters/`. Se agregan `heal`, `arcane_storm`, `cleave`, `poison_spell` y `dark_heal`. No se cambian estadísticas, inventario inicial ni balance. ItemData incorpora un comando explícito validado; la sesión conserva snapshots independientes.
+- Archivos principales: `CombatSession.cs`, `CombatPrototype.cs`, `ItemData.cs`, `EncounterData.cs`, `Assets/Scripts/Editor/ActionsSetup.cs`, assets anteriores y `Combat.unity`. La utilidad explícita integra sin regenerar arena, prefabs o MainMenu y preserva datos existentes. H02/AtbSetup se adapta al nuevo campo de comando de objetos.
+- Reglas: Curación 36/10/1,2 s; Tormenta potencia 1,6/18/2,8 s, **32 al ogro y 34 al chamán**; Machetazo potencia 1,5/8/2,2 s; Curación oscura 40/10/1,5 s, exclusivamente sobre el ogro vivo. Poción 50 y Éter 20, con 0,8 s y cero maná. Básicos y Golpe pesado mantienen sus valores originales.
+- Pruebas: **49/49 PlayMode**, 0 fallidas/omitidas, 88,2797253 s; job `00c3fe8fd4fb4ff2a9a10eaa1902fa4b`. Regresiones H00–H02 incluidas. [Resultado](Evidence/H03/playmode-results.json) y [métodos/cobertura](TEST_REPORT.md).
+- Flujo: victoria normal con teclado virtual en 19 acciones, 2 Pociones restantes; control virtual en 22 acciones, 0 Pociones. Derrota con ambos aliados preparados a 1 de vida desde el fixture; reinicios tras ambos resultados. Las peleas se aceleran a ×4 para verificar flujo; no miden balance o duración objetivo.
+- Visual: selección grupal y lista de cinco objetos capturadas a 720p y 1080p; curación propia, Éter, pausa de área, recuperación, victoria y derrota. Capturas por RenderTexture, no monitor físico 1080p. [Evidencia](Evidence/H03/).
+- Build: `Builds/H03/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **163,17 MB**, 57,2910924 s, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core. Job `build-aaabbd3673`. [Resumen](Evidence/H03/build-summary.json).
+- Player real: `-foundation-smoke` aprobado, MainMenu → Combat → pausa → MainMenu → Salir, ventana 1280 × 720, input virtual, **código de salida 0**. [Resultado](Evidence/H03/player-result-1280x720.json). Combat del ejecutable inspeccionada sin materiales faltantes. Las peleas completas corresponden a PlayMode. Se conservan avisos de red y liberación de buffers/asignaciones al apagar el proceso oculto, como en H00–H02, sin excepción de lógica. Configuraciones de entrada a Play, entrada precargada y Unity Connect conservadas/restauradas. [Huellas SHA-256](Evidence/H03/fingerprints.json).
+- Limitaciones: estados activos en H04, arte/animaciones/UI/audio/VFX finales en H05–H10, dispositivos físicos en H11 y balance/rendimiento en H12. [Seguimiento](KNOWN_ISSUES.md). Tormenta utiliza impacto a 0,35 s y cierre a 0,85 s provisionales; la secuencia audiovisual final de H10 no se adelanta.
+- Cómo revisar: ejecutar la build H03 o abrir MainMenu en Unity; consultar Habilidades de la maga, cancelar y confirmar Tormenta, curar tras una herida, usar Éter tras gastar maná, revisar los tres objetos pendientes, observar alternancia del ogro y curación del chamán bajo 120 de vida. Pausar, reiniciar, ganar/perder y reiniciar. Pasos y valores esperados en [README](../README.md).
+- Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Queda aprobado. Dame nombre en ingles para el commit». Sin correcciones solicitadas. H04 permanece pendiente para otro chat.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -758,30 +778,30 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Acciones aliadas
 
-- [ ] **H03-T01. Configurar Ataque básico y Proyectil mágico.** Crear sus datos definitivos con costo cero, potencia 1 y recuperación de 0,6 segundos.
-- [ ] **H03-T02. Configurar Golpe pesado.** Aplicar 8 de maná, potencia 1,8 y recuperación de 2,2 segundos; bloquear confirmación sin maná.
-- [ ] **H03-T03. Implementar Curación.** Recuperar 36 de vida por 10 de maná y 1,2 segundos de recuperación, permitiendo curar a la maga y excluyendo vida completa.
-- [ ] **H03-T04. Implementar efecto de Tormenta arcana.** Aplicar potencia 1,6 a los enemigos vivos por un único costo de 18 y recuperación de 2,8 segundos. La secuencia final se integra en H10.
-- [ ] **H03-T05. Construir menús de acciones.** Atacar, Habilidades y Objetos muestran opciones del actor actual, descripción, costo, recuperación y disponibilidad.
-- [ ] **H03-T06. Validar confirmación atómica.** Revisar actor, objetivo y recursos antes del gasto. Bloquear confirmaciones repetidas y acciones simultáneas.
+- [x] **H03-T01. Configurar Ataque básico y Proyectil mágico.** Crear sus datos definitivos con costo cero, potencia 1 y recuperación de 0,6 segundos.
+- [x] **H03-T02. Configurar Golpe pesado.** Aplicar 8 de maná, potencia 1,8 y recuperación de 2,2 segundos; bloquear confirmación sin maná.
+- [x] **H03-T03. Implementar Curación.** Recuperar 36 de vida por 10 de maná y 1,2 segundos de recuperación, permitiendo curar a la maga y excluyendo vida completa.
+- [x] **H03-T04. Implementar efecto de Tormenta arcana.** Aplicar potencia 1,6 a los enemigos vivos por un único costo de 18 y recuperación de 2,8 segundos. La secuencia final se integra en H10.
+- [x] **H03-T05. Construir menús de acciones.** Atacar, Habilidades y Objetos muestran opciones del actor actual, descripción, costo, recuperación y disponibilidad.
+- [x] **H03-T06. Validar confirmación atómica.** Revisar actor, objetivo y recursos antes del gasto. Bloquear confirmaciones repetidas y acciones simultáneas.
 
 #### Inventario completo
 
-- [ ] **H03-T07. Crear inventario compartido.** Una sola colección para ambos aliados, inicializada con 3 Pociones, 2 Éteres, 1 Tónico, 1 Frasco y 2 Antídotos.
-- [ ] **H03-T08. Configurar Poción y Éter.** Recuperar 50 de vida o 20 de maná, limitar al máximo y mostrar unidades restantes.
-- [ ] **H03-T09. Preparar Tónico, Frasco y Antídoto.** Crear datos y selección correcta de equipo. Mantenerlos identificados como pendientes hasta integrar los estados de H04.
-- [ ] **H03-T10. Implementar reglas de consumibles.** Todos usan recuperación de 0,8 segundos, no gastan maná y descuentan una unidad solo al confirmar.
-- [ ] **H03-T11. Mostrar indisponibilidad.** Permitir consultar la descripción de opciones agotadas o sin objetivos, informar el motivo y bloquear su ejecución.
+- [x] **H03-T07. Crear inventario compartido.** Una sola colección para ambos aliados, inicializada con 3 Pociones, 2 Éteres, 1 Tónico, 1 Frasco y 2 Antídotos.
+- [x] **H03-T08. Configurar Poción y Éter.** Recuperar 50 de vida o 20 de maná, limitar al máximo y mostrar unidades restantes.
+- [x] **H03-T09. Preparar Tónico, Frasco y Antídoto.** Crear datos y selección correcta de equipo. Mantenerlos identificados como pendientes hasta integrar los estados de H04.
+- [x] **H03-T10. Implementar reglas de consumibles.** Todos usan recuperación de 0,8 segundos, no gastan maná y descuentan una unidad solo al confirmar.
+- [x] **H03-T11. Mostrar indisponibilidad.** Permitir consultar la descripción de opciones agotadas o sin objetivos, informar el motivo y bloquear su ejecución.
 
 #### IA y acciones enemigas
 
-- [ ] **H03-T12. Configurar Golpe y Machetazo.** Aplicar las potencias, costos y recuperaciones de la tabla enemiga.
-- [ ] **H03-T13. Implementar alternancia del ogro.** Comenzar con Golpe, intentar Machetazo en la siguiente acción y alternar. Si falta maná, usar Golpe sin romper el contador.
-- [ ] **H03-T14. Configurar Descarga y Curación oscura.** Descarga es gratuita. La curación recupera 40 al ogro por 10 de maná y recuperación de 1,5 segundos.
-- [ ] **H03-T15. Preparar acción Veneno del chamán.** Configurar costo 6, recuperación 1,2 y efecto sin daño directo; completar su funcionamiento con H04.
-- [ ] **H03-T16. Implementar prioridades del chamán.** Curar al ogro por debajo del 50 %, luego envenenar un aliado sin veneno si puede pagarlo y por último usar Descarga.
-- [ ] **H03-T17. Implementar selección aleatoria válida.** Elegir uniformemente entre aliados vivos al comenzar la acción. Con un superviviente, seleccionarlo siempre.
-- [ ] **H03-T18. Comprobar agotamiento y supervivientes.** Probar maná cero, muerte del ogro, último enemigo, último aliado y habilidades de área con un único objetivo.
+- [x] **H03-T12. Configurar Golpe y Machetazo.** Aplicar las potencias, costos y recuperaciones de la tabla enemiga.
+- [x] **H03-T13. Implementar alternancia del ogro.** Comenzar con Golpe, intentar Machetazo en la siguiente acción y alternar. Si falta maná, usar Golpe sin romper el contador.
+- [x] **H03-T14. Configurar Descarga y Curación oscura.** Descarga es gratuita. La curación recupera 40 al ogro por 10 de maná y recuperación de 1,5 segundos.
+- [x] **H03-T15. Preparar acción Veneno del chamán.** Configurar costo 6, recuperación 1,2 y efecto sin daño directo; completar su funcionamiento con H04.
+- [x] **H03-T16. Implementar prioridades del chamán.** Curar al ogro por debajo del 50 %, luego envenenar un aliado sin veneno si puede pagarlo y por último usar Descarga.
+- [x] **H03-T17. Implementar selección aleatoria válida.** Elegir uniformemente entre aliados vivos al comenzar la acción. Con un superviviente, seleccionarlo siempre.
+- [x] **H03-T18. Comprobar agotamiento y supervivientes.** Probar maná cero, muerte del ogro, último enemigo, último aliado y habilidades de área con un único objetivo.
 
 #### Criterios para cerrar el hito
 

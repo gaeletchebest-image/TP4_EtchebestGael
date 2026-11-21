@@ -23,4 +23,6 @@ MonoBehaviour:
   prefab: {fileID: 4510273438934739529, guid: 18e0fc51c4e49294fad41e183b61688a, type: 3}
   actions:
   - {fileID: 11400000, guid: 38584c42eb4ac5c47b5ed36004e52210, type: 2}
-  brain: 1
+  - {fileID: 11400000, guid: 9380e44142dc4c24aaefa53b594283f8, type: 2}
+  - {fileID: 11400000, guid: 0ff4cc62e29d1ee4593c7799e56bec76, type: 2}
+  brain: 3

@@ -56,6 +56,8 @@ namespace UltimaGuardia.Tests
             yield return Capture("arena-1920x1080", 1920, 1080);
             yield return Press(Key.DownArrow);
             yield return Press(Key.Enter);
+            Assert.AreEqual(CombatMenu.Skills, Battle.Menu);
+            yield return Press(Key.Enter);
             Assert.AreEqual(PrototypePhase.Targets, Battle.Phase);
             Assert.AreEqual(30, Battle.Session.Actor.Mana);
             yield return Press(Key.RightArrow);
@@ -112,6 +114,7 @@ namespace UltimaGuardia.Tests
             Assert.AreEqual("warrior", Battle.Session.Actor.Definition.Id);
             yield return Press(Key.DownArrow);
             yield return Press(Key.Enter); yield return Press(Key.Enter);
+            yield return Press(Key.Enter);
             while (Battle.Session.CompletedActions < 2 || Battle.Session.Actor == null) yield return null;
             var warrior = Battle.Session.Fighters[0];
             Assert.Greater(warrior.RecoveryRemaining, 0);
@@ -133,6 +136,84 @@ namespace UltimaGuardia.Tests
         }
 
         [UnityTest]
+        public IEnumerator NestedMenusGroupSelectionAndPendingItemsPreserveFocusAndResources()
+        {
+            double clock = Battle.Session.ActiveTime;
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            Assert.AreEqual(CombatMenu.Skills, Battle.Menu);
+            yield return Press(Key.Enter); // Full health: unavailable healing stays in the list.
+            Assert.AreEqual(PrototypePhase.Commands, Battle.Phase); Assert.IsNull(Battle.Session.Pending);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            Assert.AreEqual(PrototypePhase.Targets, Battle.Phase);
+            yield return Capture("storm-group-1280x720", 1280, 720);
+            yield return Capture("storm-group-1920x1080", 1920, 1080);
+            foreach (var view in Object.FindObjectsByType<CombatantView>(FindObjectsSortMode.None))
+                Assert.AreEqual(view.combatantId == "ogre" || view.combatantId == "shaman", view.targetMarker.activeSelf);
+            yield return Press(Key.Escape); Assert.AreEqual(1, Battle.SelectedCommand);
+            yield return Press(Key.Escape); Assert.AreEqual(CombatMenu.Root, Battle.Menu); Assert.AreEqual(1, Battle.SelectedCommand);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            Assert.AreEqual(CombatMenu.Items, Battle.Menu);
+            for (int i = 0; i < 5; i++)
+            {
+                Assert.AreEqual(i, Battle.SelectedCommand);
+                yield return Press(Key.Enter);
+                Assert.AreEqual(PrototypePhase.Commands, Battle.Phase); Assert.IsNull(Battle.Session.Pending);
+                if (i < 4) yield return Press(Key.DownArrow);
+            }
+            yield return Capture("items-pending-1280x720", 1280, 720);
+            yield return Capture("items-pending-1920x1080", 1920, 1080);
+            Assert.AreEqual(clock, Battle.Session.ActiveTime);
+            CollectionAssert.AreEqual(new[] { 3, 2, 1, 1, 2 }, Battle.Session.Inventory.Values);
+            yield return Pad(GamepadButton.Start); Assert.IsTrue(Battle.IsPaused);
+            yield return Pad(GamepadButton.East); Assert.IsFalse(Battle.IsPaused);
+            Assert.AreEqual(CombatMenu.Items, Battle.Menu); Assert.AreEqual(4, Battle.SelectedCommand);
+            yield return Press(Key.Escape); Assert.AreEqual(CombatMenu.Root, Battle.Menu); Assert.AreEqual(2, Battle.SelectedCommand);
+        }
+
+        [UnityTest]
+        public IEnumerator HealingEtherAndStormWorkThroughMenusAndRestartDuringAreaPauseIsClean()
+        {
+            var mage = Battle.Session.Actor; mage.Damage(50);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter); // Skills
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.Enter));
+            yield return null; yield return null;
+            yield return new WaitForSecondsRealtime(0.2f);
+            Assert.AreEqual(PrototypePhase.Targets, Battle.Phase); Assert.IsNull(Battle.Session.Pending);
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); yield return null; yield return null;
+            Assert.AreSame(mage, Battle.SelectedTarget);
+            yield return Capture("healing-self", 1280, 720);
+            yield return Press(Key.Enter);
+            yield return WaitForCommands();
+            Assert.AreEqual(96, mage.Health); Assert.AreEqual(35, mage.Mana);
+            Assert.AreEqual("warrior", Battle.Session.Actor.Definition.Id);
+            yield return Press(Key.DownArrow); yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter); // Ether
+            Assert.AreSame(mage, Battle.SelectedTarget);
+            yield return Capture("ether-target", 1280, 720);
+            yield return Press(Key.Escape); Assert.AreEqual(2, Battle.Session.QuantityFor(CombatAction.Ether));
+            yield return Press(Key.Enter); yield return Press(Key.Enter);
+            yield return WaitForCommands();
+            Assert.AreEqual(45, mage.Mana); Assert.AreEqual(1, Battle.Session.QuantityFor(CombatAction.Ether));
+            // Wait through enemy turns to the next player decision, then reach the mage using basics.
+            while (Battle.Session.Actor == null || Battle.Session.Actor.Definition.Id != "mage")
+            {
+                if (Battle.Phase == PrototypePhase.Commands && Battle.Session.Actor?.Definition.Team == CombatTeam.Allies)
+                { yield return Press(Key.Enter); yield return Press(Key.Enter); }
+                yield return null;
+            }
+            while (Battle.Phase != PrototypePhase.Commands) yield return null;
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter); yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            yield return Press(Key.Enter); // Storm commit
+            Assert.AreEqual(27, Battle.Session.Actor.Mana);
+            yield return Press(Key.Escape); Assert.IsTrue(Battle.IsPaused);
+            yield return Capture("storm-paused", 1280, 720);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            AssertFreshBattle();
+            CollectionAssert.AreEqual(new[] { 3, 2, 1, 1, 2 }, Battle.Session.Inventory.Values);
+            foreach (var view in Object.FindObjectsByType<CombatantView>(FindObjectsSortMode.None)) Assert.IsFalse(view.targetMarker.activeSelf);
+        }
+
+        [UnityTest]
         public IEnumerator KeyboardWinsNormalEncounterAndRestartsFromResult()
         {
             yield return PlayToResult(false);
@@ -146,7 +227,7 @@ namespace UltimaGuardia.Tests
         [UnityTest]
         public IEnumerator VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts()
         {
-            Battle.Session.Fighters[0].Damage(1); // Make the mage's Potion a valid cancelable selection.
+            // Stick opens Skills; cancel returns to the root without spending.
             // Stick navigation and cancellation before the full dpad/button route.
             InputSystem.QueueStateEvent(gamepad, new GamepadState { leftStick = Vector2.down });
             yield return null; yield return null;
@@ -186,14 +267,26 @@ namespace UltimaGuardia.Tests
                 {
                     var s = Battle.Session;
                     bool potion = useResources && s.Potions > 0 && s.Fighters.Any(f => f.Definition.Team == CombatTeam.Allies && f.IsAlive && f.Health <= f.Definition.MaxHealth - 50);
+                    bool heal = useResources && !potion && s.Actor.Definition.Id == "mage" && s.Actor.Mana >= 10 &&
+                        s.Fighters.Any(f => f.IsAlive && f.Definition.Team == CombatTeam.Allies && f.Health <= f.Definition.MaxHealth - 36);
                     bool heavy = useResources && !potion && s.Actor.Definition.Id == "warrior" && s.Actor.Mana >= 8;
-                    int desired = potion ? (s.Actor.Definition.Id == "warrior" ? 2 : 1) : heavy ? 1 : 0;
+                    bool storm = useResources && !potion && !heal && s.Actor.Definition.Id == "mage" && s.Actor.Mana >= 18 &&
+                        s.Fighters.Count(f => f.IsAlive && f.Definition.Team == CombatTeam.Enemies) == 2;
+                    CombatAction chosen = potion ? CombatAction.Potion : heal ? CombatAction.Heal : heavy ? CombatAction.HeavyStrike : storm ? CombatAction.ArcaneStorm : CombatAction.Basic;
+                    int desired = potion ? 2 : chosen != CombatAction.Basic ? 1 : 0;
                     while (Battle.SelectedCommand != desired) yield return Direction(pad, false);
                     yield return Confirm(pad);
+                    if (chosen != CombatAction.Basic)
+                    {
+                        var commands = s.AvailableCommands().Where(a => potion ? CombatSession.IsItem(a) : !CombatSession.IsItem(a) && a != CombatAction.Basic).ToArray();
+                        int selected = System.Array.IndexOf(commands, chosen);
+                        while (Battle.SelectedCommand != selected) yield return Direction(pad, false);
+                        yield return Confirm(pad);
+                    }
                     Assert.AreEqual(PrototypePhase.Targets, Battle.Phase);
-                    var wanted = potion ? s.Fighters.Where(f => f.Definition.Team == CombatTeam.Allies && f.IsAlive && f.Health < f.Definition.MaxHealth)
+                    var wanted = potion || heal ? s.Fighters.Where(f => f.Definition.Team == CombatTeam.Allies && f.IsAlive && f.Health < f.Definition.MaxHealth)
                         .OrderBy(f => (float)f.Health / f.Definition.MaxHealth).First()
-                        : s.Fighters.Where(f => f.Definition.Team == CombatTeam.Enemies && f.IsAlive).OrderBy(f => f.Definition.Id == "shaman" ? 0 : 1).First();
+                        : storm ? Battle.SelectedTarget : s.Fighters.Where(f => f.Definition.Team == CombatTeam.Enemies && f.IsAlive).OrderBy(f => f.Definition.Id == "shaman" ? 0 : 1).First();
                     int steps = 0;
                     while (Battle.SelectedTarget != wanted && steps++ < 4) yield return Direction(pad, true);
                     Assert.AreSame(wanted, Battle.SelectedTarget);
@@ -268,7 +361,7 @@ namespace UltimaGuardia.Tests
                 camera.Render(); RenderTexture.active = render;
                 image = new Texture2D(width, height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, width, height), 0, 0); image.Apply();
-                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H02");
+                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H03");
                 Directory.CreateDirectory(directory);
                 File.WriteAllBytes(Path.Combine(directory, name + ".png"), image.EncodeToPNG());
             }

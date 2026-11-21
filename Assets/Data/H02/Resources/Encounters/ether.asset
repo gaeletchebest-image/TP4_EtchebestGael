@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ItemData
   id: ether
   displayName: "\xC9ter"
-  description: "Configuraci\xF3n preparada; ejecuci\xF3n en H03/H04"
+  command: 5
+  description: "Recupera 20 de man\xE1 de un aliado vivo con man\xE1 faltante."
   icon: {fileID: 0}
   targetMode: 1
   effect: 1

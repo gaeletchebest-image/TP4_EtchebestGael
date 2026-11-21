@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ItemData
   id: antidote
   displayName: "Ant\xEDdoto"
-  description: "Configuraci\xF3n preparada; ejecuci\xF3n en H03/H04"
+  command: 8
+  description: Elimina Veneno de un aliado vivo afectado. Pendiente de H04.
   icon: {fileID: 0}
   targetMode: 1
   effect: 3

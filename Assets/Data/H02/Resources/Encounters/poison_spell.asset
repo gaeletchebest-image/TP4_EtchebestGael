@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ffba13828b6834db1df53fd1fd41f0, type: 3}
+  m_Name: poison_spell
+  m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ActionData
+  id: poison_spell
+  displayName: Veneno
+  description: "Sin da\xF1o directo. Veneno: 8 de da\xF1o en tres inicios de turno.
+    Pendiente de H04."
+  command: 10
+  effect: 3
+  manaCost: 6
+  fixedAmount: 0
+  potency: 0
+  recovery: 1.2
+  targetMode: 0
+  appliedEffect: {fileID: 11400000, guid: b705536740e374c4c80744ae7ca6cf2d, type: 2}
+  specialPresentation: 0
+  animationClip: {fileID: 0}
+  audioClip: {fileID: 0}
+  vfxPrefab: {fileID: 0}

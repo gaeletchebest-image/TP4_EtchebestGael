@@ -5,7 +5,8 @@ using System.Linq;
 namespace UltimaGuardia
 {
     public enum CombatTeam { Allies, Enemies }
-    public enum CombatAction { Basic, HeavyStrike, Potion }
+    // Append only: existing ScriptableObjects serialize these numeric values.
+    public enum CombatAction { Basic, HeavyStrike, Potion, Heal, ArcaneStorm, Ether, HasteTonic, CorrosiveFlask, Antidote, Cleave, Poison, DarkHeal }
     public enum TargetMode { Enemy, Ally, AllEnemies }
     public enum CombatOutcome { Ongoing, Victory, Defeat }
 
@@ -31,6 +32,7 @@ namespace UltimaGuardia
     }
     public sealed class ItemDefinition
     {
+        public CombatAction Command { get; }
         public string Id { get; }
         public string Name { get; }
         public string Description { get; }
@@ -39,7 +41,7 @@ namespace UltimaGuardia
         public TargetMode TargetMode { get; }
         public ItemEffect Effect { get; }
         public ItemDefinition(ItemData data)
-        { Id = data.id; Name = data.displayName; Description = data.description; Amount = data.amount; Recovery = data.recovery; TargetMode = data.targetMode; Effect = data.effect; }
+        { Command = data.command; Id = data.id; Name = data.displayName; Description = data.description; Amount = data.amount; Recovery = data.recovery; TargetMode = data.targetMode; Effect = data.effect; }
     }
     public sealed class CombatantDefinition
     {
@@ -111,8 +113,23 @@ namespace UltimaGuardia
         public ItemDefinition Item { get; }
         public bool ImpactApplied { get; internal set; }
         public int EffectiveAmount { get; internal set; }
-        internal PendingCombatAction(CombatantState actor, CombatantState target, CombatAction kind, ActionDefinition action, ItemDefinition item)
-        { Actor = actor; Target = target; Kind = kind; Action = action; Item = item; Recovery = item != null ? item.Recovery : action.Recovery; }
+        public IReadOnlyList<CombatantState> Targets { get; }
+        private readonly List<CombatImpact> impacts = new List<CombatImpact>();
+        public IReadOnlyList<CombatImpact> Impacts { get; }
+        internal void Record(CombatantState target, int amount) { impacts.Add(new CombatImpact(target, amount)); EffectiveAmount += amount; }
+        internal PendingCombatAction(CombatantState actor, CombatantState target, CombatAction kind, ActionDefinition action, ItemDefinition item, IEnumerable<CombatantState> targets)
+        {
+            Actor = actor; Target = target; Kind = kind; Action = action; Item = item;
+            Recovery = item != null ? item.Recovery : action.Recovery;
+            Targets = Array.AsReadOnly(targets.ToArray()); Impacts = impacts.AsReadOnly();
+        }
+    }
+
+    public sealed class CombatImpact
+    {
+        public CombatantState Target { get; }
+        public int Amount { get; }
+        internal CombatImpact(CombatantState target, int amount) { Target = target; Amount = amount; }
     }
 
     // Owns the active clock, ready queue, validation, spending and impact; no Unity frame timing.
@@ -200,10 +217,27 @@ namespace UltimaGuardia
             Math.Max(1, (int)Math.Round(attack * potency - defense, MidpointRounding.AwayFromZero));
         public ActionDefinition ActionFor(CombatAction command) => Actor?.Definition.Actions.FirstOrDefault(a => a.Command == command);
         public ItemDefinition Potion => items["potion"];
+        public ItemDefinition ItemFor(CombatAction command) => items.Values.FirstOrDefault(i => i.Command == command);
+        public int QuantityFor(CombatAction command) => ItemFor(command) is ItemDefinition item ? inventory[item.Id] : 0;
+        public static bool IsItem(CombatAction command) => command == CombatAction.Potion || command == CombatAction.Ether ||
+            command == CombatAction.HasteTonic || command == CombatAction.CorrosiveFlask || command == CombatAction.Antidote;
         public CombatAction[] AvailableCommands() => Actor == null ? new CombatAction[0] : Actor.Definition.Actions.Select(a => a.Command)
-            .Concat(Actor.Definition.Team == CombatTeam.Allies ? new[] { CombatAction.Potion } : new CombatAction[0]).ToArray();
-        public double RecoveryFor(CombatAction command) => command == CombatAction.Potion ? Potion.Recovery : ActionFor(command)?.Recovery ?? 0;
-        public string NameFor(CombatAction command) => command == CombatAction.Potion ? Potion.Name : ActionFor(command)?.Name ?? "Acción no disponible";
+            .Concat(Actor.Definition.Team == CombatTeam.Allies ? items.Values.Select(i => i.Command) : Enumerable.Empty<CombatAction>()).ToArray();
+        public double RecoveryFor(CombatAction command) => IsItem(command) ? ItemFor(command)?.Recovery ?? 0 : ActionFor(command)?.Recovery ?? 0;
+        public string NameFor(CombatAction command) => IsItem(command) ? ItemFor(command)?.Name ?? "Objeto no disponible" : ActionFor(command)?.Name ?? "Acción no disponible";
+        public bool IsArea(CombatAction command) => !IsItem(command) && ActionFor(command)?.TargetMode == TargetMode.AllEnemies;
+
+        public string Describe(CombatAction command)
+        {
+            var item = ItemFor(command);
+            var action = ActionFor(command);
+            if (IsItem(command))
+                return item == null ? "Objeto no disponible." : item.Description + "\nUnidades: " + QuantityFor(command) + " · Maná: 0 · Recuperación: " + item.Recovery.ToString("0.0") + " s";
+            if (action == null) return "Acción no disponible.";
+            return action.Description + "\n" + (action.Effect == ActionEffect.Heal ? "Recupera " + action.Amount + " vida" :
+                action.Effect == ActionEffect.Damage ? "Potencia " + action.Potency.ToString("0.##") : "Sin daño directo") +
+                " · Maná: " + action.ManaCost + " · Recuperación: " + action.Recovery.ToString("0.0") + " s";
+        }
         public List<CombatantState> ResolveTargets(CombatantState actor, TargetMode mode)
         {
             if (actor == null || !actor.IsAlive || !fighters.Contains(actor)) return new List<CombatantState>();
@@ -212,9 +246,16 @@ namespace UltimaGuardia
         public List<CombatantState> TargetsFor(CombatAction command)
         {
             var action = ActionFor(command);
-            if (Actor == null || (command != CombatAction.Potion && action == null)) return new List<CombatantState>();
-            var targets = ResolveTargets(Actor, command == CombatAction.Potion ? Potion.TargetMode : action.TargetMode);
-            if (command == CombatAction.Potion || action.Effect == ActionEffect.Heal) targets.RemoveAll(f => f.Health == f.Definition.MaxHealth);
+            var item = ItemFor(command);
+            if (Actor == null || (IsItem(command) ? item == null || Actor.Definition.Team != CombatTeam.Allies : action == null)) return new List<CombatantState>();
+            var targets = ResolveTargets(Actor, IsItem(command) ? item.TargetMode : action.TargetMode);
+            bool healing = IsItem(command) ? item.Effect == ItemEffect.Heal : action.Effect == ActionEffect.Heal;
+            bool mana = IsItem(command) ? item.Effect == ItemEffect.RestoreMana : action.Effect == ActionEffect.RestoreMana;
+            if (healing) targets.RemoveAll(f => f.Health == f.Definition.MaxHealth);
+            if (mana) targets.RemoveAll(f => f.Mana == f.Definition.MaxMana);
+            if (command == CombatAction.DarkHeal) targets.RemoveAll(f => f.Definition.Id != "ogre");
+            // H04 will filter Antidote to poisoned allies and Poison to unpoisoned allies.
+            // Both remain non-executable until actual status instances exist.
             return targets;
         }
         public string UnavailableReason(CombatAction command)
@@ -225,16 +266,18 @@ namespace UltimaGuardia
             if (Actor == null) return "Esperando ATB.";
             if (!Actor.IsAlive) return "El participante está derrotado.";
             if (!Enum.IsDefined(typeof(CombatAction), command)) return "Acción desconocida.";
-            if (command == CombatAction.Potion)
+            if (IsItem(command))
             {
-                if (Actor.Definition.Team != CombatTeam.Allies) return "Objeto no disponible.";
-                if (Potions == 0) return "Sin unidades.";
+                var item = ItemFor(command);
+                if (Actor.Definition.Team != CombatTeam.Allies || item == null) return "Objeto no disponible.";
+                if (QuantityFor(command) == 0) return "Sin unidades.";
+                if (item.Effect == ItemEffect.ApplyStatus || item.Effect == ItemEffect.RemovePoison) return "Pendiente de H04: estados temporales.";
             }
             else
             {
                 var action = ActionFor(command);
                 if (action == null) return "Habilidad no disponible.";
-                if (action.TargetMode == TargetMode.AllEnemies || (action.Effect != ActionEffect.Damage && action.Effect != ActionEffect.Heal)) return "Efecto pendiente de implementación.";
+                if (action.Effect == ActionEffect.ApplyStatus) return "Pendiente de H04: estados temporales.";
                 if (Actor.Mana < action.ManaCost) return "Maná insuficiente.";
             }
             return TargetsFor(command).Count == 0 ? "No hay objetivos válidos." : null;
@@ -244,27 +287,45 @@ namespace UltimaGuardia
             ReconcileDeaths(); reason = UnavailableReason(command);
             if (reason != null) return false;
             if (!TargetsFor(command).Contains(target)) { reason = "Objetivo inválido."; return false; }
-            Pending = new PendingCombatAction(Actor, target, command, ActionFor(command), command == CombatAction.Potion ? Potion : null);
-            if (command == CombatAction.Potion) inventory["potion"]--;
+            var targets = IsArea(command) ? TargetsFor(command).ToArray() : new[] { target };
+            Pending = new PendingCombatAction(Actor, target, command, ActionFor(command), IsItem(command) ? ItemFor(command) : null, targets);
+            if (IsItem(command)) inventory[Pending.Item.Id]--;
             else Actor.SpendMana(Pending.Action.ManaCost);
-            LastEvent = Actor.Definition.Name + " prepara " + NameFor(command) + " → " + target.Definition.Name;
+            LastEvent = Actor.Definition.Name + " prepara " + NameFor(command) + " → " + string.Join(", ", targets.Select(t => t.Definition.Name));
             return true;
         }
         public bool CommitEnemyAction()
         {
             if (Actor == null || Actor.Definition.Team != CombatTeam.Enemies || Pending != null || Outcome != CombatOutcome.Ongoing) return false;
-            var targets = TargetsFor(CombatAction.Basic);
-            return targets.Count > 0 && TryCommit(CombatAction.Basic, targets[random.Next(targets.Count)], out _);
+            CombatAction choice = CombatAction.Basic;
+            if (Actor.Definition.Brain == EnemyBrain.Ogre && Actor.AiActionsCompleted % 2 == 1 && UnavailableReason(CombatAction.Cleave) == null)
+                choice = CombatAction.Cleave;
+            else if (Actor.Definition.Brain == EnemyBrain.Shaman)
+            {
+                var ogre = fighters.FirstOrDefault(f => f.Definition.Id == "ogre" && f.IsAlive);
+                if (ogre != null && ogre.Health < ogre.Definition.MaxHealth * 0.5 && UnavailableReason(CombatAction.DarkHeal) == null)
+                    choice = CombatAction.DarkHeal;
+                else if (UnavailableReason(CombatAction.Poison) == null) choice = CombatAction.Poison;
+                // H03: Poison is configured but unavailable; fall back without spending or wasting a turn.
+            }
+            var targets = TargetsFor(choice);
+            return targets.Count > 0 && TryCommit(choice, targets[random.Next(targets.Count)], out _);
         }
         public bool ApplyImpact()
         {
             if (IsPaused || Pending == null || Pending.ImpactApplied || Outcome != CombatOutcome.Ongoing) return false;
             Pending.ImpactApplied = true;
-            bool healing = Pending.Item != null || Pending.Action.Effect == ActionEffect.Heal;
-            Pending.EffectiveAmount = healing ? Pending.Target.Heal(Pending.Item?.Amount ?? Pending.Action.Amount) :
-                Pending.Target.Damage(CalculateDamage(Pending.Actor.Definition.Attack, Pending.Action.Potency, Pending.Target.Definition.Defense));
-            LastEvent = Pending.Actor.Definition.Name + ": " + NameFor(Pending.Kind) + " → " + Pending.Target.Definition.Name +
-                (healing ? " +" : " −") + Pending.EffectiveAmount + " vida" + (Pending.Target.IsAlive ? "." : ". Derrotado.");
+            bool healing = Pending.Item != null ? Pending.Item.Effect == ItemEffect.Heal : Pending.Action.Effect == ActionEffect.Heal;
+            bool mana = Pending.Item != null ? Pending.Item.Effect == ItemEffect.RestoreMana : Pending.Action.Effect == ActionEffect.RestoreMana;
+            int fixedAmount = Pending.Item?.Amount ?? Pending.Action.Amount;
+            foreach (var target in Pending.Targets.Where(t => t.IsAlive))
+            {
+                int amount = healing ? target.Heal(fixedAmount) : mana ? target.RestoreMana(fixedAmount) :
+                    target.Damage(CalculateDamage(Pending.Actor.Definition.Attack, Pending.Action.Potency, target.Definition.Defense));
+                Pending.Record(target, amount);
+            }
+            LastEvent = Pending.Actor.Definition.Name + ": " + NameFor(Pending.Kind) + " → " + string.Join(" · ", Pending.Impacts.Select(i =>
+                i.Target.Definition.Name + (healing || mana ? " +" : " −") + i.Amount + (mana ? " maná" : " vida") + (i.Target.IsAlive ? "" : " (Derrotado)")));
             ReconcileDeaths(); return true;
         }
         public bool FinishAction()

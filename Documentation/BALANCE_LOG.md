@@ -21,3 +21,11 @@ Las victorias automatizadas de H01 prueban que la pelea puede terminar. Las deci
 Sin ajustes de balance: se trasladan los valores del GDD a assets. Velocidades: guerrero 22, maga 28, ogro 16, chamán 20. Recuperaciones: básicos 0,6 s, Golpe pesado 2,2 s y Poción 0,8 s. Todos comienzan con ATB 0 y sin recuperación. El costo temporal usa únicamente el reloj activo, separado de los 0,35 s hasta impacto y 0,85 s de presentación provisional.
 
 Las pruebas de reglas verificaron 5 s activos a velocidad 20 y 100/28 s a velocidad 28, empates, recuperación y sobrante. Las peleas PlayMode se aceleran a `Time.timeScale = 4` para comprobar flujo con input virtual: no miden duración de experiencia ni hardware. Victoria con teclado: 26 acciones, 0 Pociones restantes. Victoria con control virtual: 23 acciones, 2 Pociones restantes; este segundo recorrido prepara una herida de 1 de vida en el guerrero para comprobar cancelación de Poción antes de jugar. Son muestras de validación, no resultados de balance. H12 mantiene el playtesting y la meta de tres a cinco minutos pendientes.
+
+## H03 · Acciones e IA
+
+**Sin ajustes de balance.** Se conservan estadísticas, fórmula, velocidades e inventario del GDD. Se agregan Curación (36/10/1,2 s), Tormenta arcana (potencia 1,6/18/2,8 s), Machetazo (1,5/8/2,2 s), Curación oscura (40/10/1,5 s) y Éter (20 de maná/0,8 s). Tormenta causa 32 al ogro y 34 al chamán. Los costos temporales utilizan el reloj activo; impacto/cierre de presentación provisional siguen en 0,35/0,85 s.
+
+El ogro alterna intentos de Golpe/Machetazo; el chamán cura solo al ogro por debajo de 50 %. Veneno y los tres objetos de estados siguen bloqueados hasta H04, por lo que la dificultad todavía no representa el sistema completo. No se modifican números para compensarlo.
+
+Victorias automatizadas desde el encuentro normal: teclado virtual 19 acciones y 2 Pociones restantes; control virtual 22 acciones y 0 Pociones. Decisiones inmediatas y reloj acelerado ×4 exclusivamente en pruebas; derrota con aliados preparados a 1 de vida. No son mediciones de duración, balance, dificultad ni comparación de estrategias de H12.

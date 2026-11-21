@@ -8,6 +8,7 @@ namespace UltimaGuardia
     public sealed class ItemData : ScriptableObject
     {
         public string id, displayName;
+        public CombatAction command;
         [TextArea] public string description;
         public Sprite icon;
         public TargetMode targetMode;
