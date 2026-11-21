@@ -1,0 +1,14 @@
+{
+    "version": "0.0.1-H00",
+    "unity": "6000.3.11f1",
+    "initialScene": "MainMenu",
+    "width": 1920,
+    "height": 1080,
+    "nativeWindowWidth": 1366,
+    "nativeWindowHeight": 768,
+    "passed": true,
+    "exitedThroughMenu": true,
+    "error": "",
+    "devices": "Virtual Keyboard and Gamepad",
+    "captureMethod": "Offscreen Camera.Render; temporary ScreenSpaceCamera canvas in hidden validation process"
+}

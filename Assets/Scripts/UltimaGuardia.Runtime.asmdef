@@ -1,0 +1,5 @@
+{
+  "name": "UltimaGuardia.Runtime",
+  "rootNamespace": "UltimaGuardia",
+  "references": ["Unity.InputSystem", "Unity.ugui"]
+}
