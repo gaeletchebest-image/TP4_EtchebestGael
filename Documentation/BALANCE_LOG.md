@@ -38,3 +38,9 @@ Victorias automatizadas desde el encuentro normal: teclado virtual 19 acciones y
 La defensa 6 del ogro queda en 3 con Corrosión: básico del guerrero 25 en vez de 22. La velocidad 28 de la maga queda en 42 con Rapidez. Los decimales se conservan en estadísticas efectivas y se redondea solo el daño final. Menús, animación y pausa no consumen cargas. No se modificaron los tiempos provisionales de presentación ni los costos temporales de acciones anteriores.
 
 Victorias automatizadas desde el encuentro normal: teclado virtual **22 acciones, 0 Pociones**; control virtual **22 acciones, 0 Pociones**. Prioridad de eliminar al chamán y uso de básicos, pesado, Tormenta, Curación y Poción según recursos/heridas. Son dos muestras de flujo con decisiones inmediatas y reloj acelerado ×4. No acreditan duración objetivo, balance validado, equivalencia estadística de dispositivos ni hardware físico. La derrota por veneno y casos de estados coexistentes usan fixtures explícitos, sin modificar el producto. Balance y rendimiento siguen pendientes de H12.
+
+## H05 · Modelos integrados
+
+**Sin ajustes de balance.** Los cuatro datos de combatiente solo cambian su referencia de prefab; estadísticas, acciones, inventario, efectos y costos se conservan. Cámara ajustada para la lectura de modelos y estados; ningún cambio del reloj o de las reglas.
+
+Regresión de flujo con modelos finales: victoria con teclado virtual en **21 acciones y 1 Poción restante**; control virtual en **22 acciones y 0 Pociones**. Son muestras nuevas de la suite, con selección enemiga aleatoria y reloj ×4. No prueban una diferencia de dificultad ni se comparan estadísticamente con H04. Balance, duración objetivo y rendimiento continúan pendientes de H12.

@@ -70,4 +70,19 @@ No hay correcciones abiertas del usuario. La implementación H03 y sus 49 prueba
 | H04-L03 | Build | 1 advertencia de truncamiento implícito del shader DebugOccluder de Unity Core/d3d11 | Build aprobada con 0 errores; BuildReport confirmado y Combat del player inspeccionada |
 | H04-L04 | Player oculto | Curl error 6 y avisos al liberar GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al apagar con capturas explícitas | Flujo aprobado y salida 0, sin excepción de lógica observada. No se atribuye causa no demostrada; revisión interactiva/prolongada en H12 |
 
-Las reglas y los tres consumibles pendientes de H03 están completos en H04. Sin correcciones abiertas del usuario ni bloqueos de flujo detectados. H04 fue aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien! Queda aprobado entonces.»; H05 no iniciado. Las pruebas automatizadas no acreditan balance final, duración de tres a cinco minutos ni hardware físico.
+Las reglas y los tres consumibles pendientes de H03 están completos en H04. Sin correcciones abiertas del usuario ni bloqueos de flujo detectados. H04 fue aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien! Queda aprobado entonces.»; H05 no iniciado en aquella entrega. Las pruebas automatizadas no acreditan balance final, duración de tres a cinco minutos ni hardware físico.
+
+## Seguimiento H05
+
+| ID | Tareas | Descripción y alcance | Estado / cierre |
+| --- | --- | --- | --- |
+| H05-C01 | H05-T21 | La primera exportación OBJ omitía normales explícitas; Unity las recalculaba al importar | Resuelto: normales por vértice, importación de normales y remapeo a materiales URP propios. Cuatro OBJ importados con todos sus materiales URP |
+| H05-C02 | H05-T22 | La hoja de caída del ogro quedaba recortada por el aspecto de captura vertical | Resuelto: aspecto explícito por RenderTexture y encuadre con los vértices de cada pose. Cuatro hojas finales inspeccionadas; margen de fondo comprobado en la caída del ogro |
+| H05-C03 | H05-T24 | Los tres estados sobre la maga tapaban el sombrero con el encuadre heredado | Resuelto: cámara de combate FOV 50 y mirada a (0; 0,1; 2), conservando posición y anclajes. Capturas finales 720p/1080p y 4/4 regresiones de flujo |
+| H05-L01 | Representación | Rig de piezas rígidas con 16 articulaciones y ropa segmentada; sin deformación continua, Humanoid ni simulación de tela | Alternativa admitida por H05-T22, comprobada en seis poses estáticas por modelo. Clips, transiciones, impactos y muerte animada en H06. El combate conserva pulso y caída provisionales |
+| H05-L02 | Presentación | Modelos y armas H05 finales para el prototipo; escenario, UI, marcadores, audio, animaciones y VFX aún provisionales o pendientes | H06–H10, según el GDD. Las poses de validación no completan esas tareas |
+| H05-L03 | Validación | Teclado/Gamepad virtuales y capturas RenderTexture; sin evidencia nueva de control físico ni monitor nativo 1080p | Límites heredados; comprobaciones físicas en H11 |
+| H05-L04 | Build | 1 advertencia de truncamiento implícito del shader DebugOccluder de Unity Core/d3d11 | Build aprobada con 0 errores; BuildReport y captura del player comprobados |
+| H05-L05 | Player oculto | Curl error 6 y avisos de liberación de buffers/asignaciones al cerrar con capturas explícitas, como en H00–H04 | Smoke aprobado y salida 0, sin excepción de lógica observada. Investigación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
+
+Sin cambios de estadísticas o mecánicas ni correcciones abiertas del usuario. H05 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Lo doy por aprobado.». H06 no iniciado.

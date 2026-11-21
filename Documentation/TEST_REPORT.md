@@ -219,4 +219,47 @@ Player real ejecutado como proceso oculto con `-foundation-smoke`: ventana y cap
 
 `Builds/H04/Validation/player-1280x720.log` conserva Curl error 6 y avisos de GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al apagar el proceso oculto con capturas explícitas, como en las entregas anteriores. Sin excepción de lógica observada; flujo aprobado y salida 0. No se atribuye una causa de juego no demostrada; seguimiento interactivo/prolongado en H12.
 
-Se conserva la configuración de entrada a Play recibida; los fixtures restauran entrada del editor, BackgroundBehavior, ejecución en segundo plano y timeScale. Unity Connect se restauró al valor recibido (`m_Enabled = 0`) después de la build. [Huellas de archivos](Evidence/H04/fingerprints.json). H04 fue **aprobado por el usuario el 21 de noviembre de 2026**, mediante «Bien! Queda aprobado entonces.». Sin correcciones solicitadas. H05 no iniciado.
+Se conserva la configuración de entrada a Play recibida; los fixtures restauran entrada del editor, BackgroundBehavior, ejecución en segundo plano y timeScale. Unity Connect se restauró al valor recibido (`m_Enabled = 0`) después de la build. [Huellas de archivos](Evidence/H04/fingerprints.json). H04 fue **aprobado por el usuario el 21 de noviembre de 2026**, mediante «Bien! Queda aprobado entonces.». Sin correcciones solicitadas. H05 no iniciado en aquella entrega.
+
+## H05 · Personajes finales preparados para animar
+
+Versión **0.0.6-H05**, 21 de noviembre de 2026. Cambios locales sobre commit real `3e1bec1` de H04; no se creó commit de entrega. Unity 6000.3.11f1, URP 17.3.0, Windows x86_64/Mono. Alcance exclusivo H05: modelos, armas, materiales, representación articulada, fuentes e integración. No se implementaron clips ni controladores H06.
+
+### Auditoría de recursos
+
+`CharacterArtValidation.AuditAndCapture()` ejecutado desde el editor sobre Combat guardada. [Resultado](Evidence/H05/model-audit.json): cuatro instancias H05 y referencias de datos coherentes; 16 articulaciones únicas por modelo y poses locales guardadas; arma ligada a mano derecha; sockets de conjuro, objeto e impacto; mallas persistidas, vértices finitos, índices válidos, triángulos no degenerados y normales completas; materiales URP; mínimo Y = 0; exportaciones OBJ/MTL/jerarquía presentes e importadas.
+
+| Modelo | Triángulos | Renderers | Materiales usados | Altura con accesorios |
+| --- | --- | --- | --- | --- |
+| Guerrero | 1.812 | 37 | 8 | 2,52 m |
+| Maga | 2.132 | 41 | 9 | 2,71 m |
+| Ogro | 1.734 | 32 | 8 | 3 m |
+| Chamán | 1.920 | 32 | 9 | 2,37 m |
+
+Se comprobaron además los cuatro OBJ importados: todos sus materiales remapeados a URP/Lit. Exportaciones estáticas separadas del rig de piezas rígidas conservado en prefab y JSON. [Dirección visual y fuentes](H05_CHARACTER_ART.md), [registro de recursos](ASSET_REGISTER.md).
+
+### Inspección visual
+
+Inspeccionadas las vistas [frontal](Evidence/H05/character-lineup-front.png) y [trasera](Evidence/H05/character-lineup-back.png), y las hojas de [guerrero](Evidence/H05/warrior-pose-sheet.png), [maga](Evidence/H05/mage-pose-sheet.png), [ogro](Evidence/H05/ogre-pose-sheet.png) y [chamán](Evidence/H05/shaman-pose-sheet.png). Cada hoja contiene reposo, ataque, conjuro, reacción, objeto y caída, en ese orden. Armas siguen el agarre; extremidades, máscara, casco, túnicas segmentadas y focos permanecen unidos. Las poses son evidencia de rango articular, no animaciones jugables ni todas las coreografías finales.
+
+La primera hoja del ogro quedó recortada; se corrigieron encuadre y aspecto explícito de captura y se inspeccionaron de nuevo las cuatro hojas. La primera exportación OBJ carecía de normales explícitas; se reexportó con normales y materiales remapeados. El encuadre heredado ocultaba el sombrero de la maga bajo tres estados; se ajustó la cámara a FOV 50, mirando a (0; 0,1; 2), conservando posición, arena y anclajes.
+
+Capturas finales [720p](Evidence/H05/arena-1280x720.png), [1080p](Evidence/H05/arena-1920x1080.png), tres estados [720p](Evidence/H05/statuses-coexist-1280x720.png) y [1080p](Evidence/H05/statuses-coexist-1920x1080.png), objetivos, listas, pausa y reinicio. Siluetas, armas y modelos se mantienen dentro del área de combate. Cámara, Canvas y RenderTexture reales; no acredita monitor físico 1080p.
+
+### Regresión de combate
+
+**68/68 pruebas PlayMode aprobadas**, 0 fallidas/omitidas, **117,155875 s**, job `2f8f396d49b84754b8f538c24cb99b18`. [Resultado completo](Evidence/H05/playmode-results.json). Incluye las regresiones H00–H04: fórmulas, ATB, recuperación, cola, costos, inventario, IA, estados, pausa, confirmación, navegación, victoria, derrota y reinicios. El único cambio del fixture existente es escribir capturas en H05 para conservar la evidencia histórica H04.
+
+Victoria normal con teclado virtual: 21 acciones, 1 Poción restante. Con control virtual: 22 acciones, 0 Pociones. Derrota con fixture de aliados a 1 de vida y muerte por veneno con último aliado a 8. Peleas ×4 para automatizar flujo, sin acreditar hardware, balance ni duración objetivo.
+
+Después del ajuste de cámara: **4/4 regresiones de flujo aprobadas**, job `ab768f9dfe5044d1afc8d9a566c77dc0`. Cancelación/pausa/reinicio, listas/selección grupal/objetos, coexistencia de estados y muerte por veneno/reinicio. [Estado final del job](Evidence/H05/flow-after-framing-fix.json): `succeeded`, 4 completadas de 4, sin fallos; el resultado NUnit detallado dejó de estar disponible tras la recarga de dominio, por lo que no se atribuye una duración individual ni se inventa el resumen perdido.
+
+### Build y player real
+
+Build `build-56b0a79878`: `Builds/H05/UltimaGuardia.exe`, Development, **164,21 MB**, **153,4675862 s**, **0 errores / 1 advertencia**. [Resumen](Evidence/H05/build-summary.json), [BuildReport](Evidence/H05/build-report-details.json). Advertencia heredada de `Hidden/Core/DebugOccluder` de Unity Core/d3d11; sin modificar paquetes ni shaders.
+
+Player real oculto con `-foundation-smoke`: versión `0.0.6-flow`, inicio MainMenu, ventana/captura 1280 × 720, `passed = true`, `exitedThroughMenu = true`, [salida 0](Evidence/H05/player-exit-code-1280x720.txt). [Resultado](Evidence/H05/player-result-1280x720.json). Comprueba menú, ayuda, carga de Combat, pausa, retorno y salida con dispositivos virtuales. [Combat](Evidence/H05/player-combat-1280x720.png) inspeccionada sin materiales faltantes; [pausa](Evidence/H05/player-pause-1280x720.png) conservada. Las peleas completas corresponden a PlayMode, no al smoke externo.
+
+`Builds/H05/Validation/player.log` conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al cerrar el proceso oculto con capturas, como en H00–H04. Sin excepción de lógica observada; seguimiento en H12. No se presenta esta ejecución como prueba de rendimiento ni de hardware físico.
+
+Configuraciones de entrada y tiempo restauradas por fixtures; configuración de entrada a Play conservada y Unity Connect restaurado a `m_Enabled = 0` después de la build. Recursos temporales del paquete de pruebas retirados automáticamente por su postproceso. [Huellas de entrega](Evidence/H05/fingerprints.json). H05 aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien. Lo doy por aprobado.». Sin correcciones solicitadas. H06 no iniciado.

@@ -1,0 +1,24 @@
+newmtl Skin
+Kd 0.784314 0.556863 0.439216
+
+newmtl Ink
+Kd 0.141176 0.156863 0.239216
+
+newmtl Ivory
+Kd 0.913726 0.839216 0.658824
+
+newmtl GuardPlate
+Kd 0.466667 0.607843 0.682353
+
+newmtl Brass
+Kd 0.866667 0.701961 0.4
+
+newmtl GuardBlue
+Kd 0.207843 0.423529 0.568627
+
+newmtl Leather
+Kd 0.333333 0.235294 0.219608
+
+newmtl Steel
+Kd 0.713726 0.788235 0.819608
+

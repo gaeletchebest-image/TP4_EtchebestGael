@@ -1,0 +1,1246 @@
+{
+    "id": "mage",
+    "convention": "metres; Y up; Z forward; rigid pieces, 100% parent joint",
+    "joints": [
+        {
+            "path": "",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.1736481934785843,
+                "z": 0.0,
+                "w": 0.9848077893257141
+            }
+        },
+        {
+            "path": "Hips",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.9399999976158142,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.14000000059604646,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.75,
+                "z": 0.014999999664723874
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_00",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_01",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_02",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_03",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_04",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_05",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_06",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/mage_07",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.3100000023841858,
+                "y": 0.6499999761581421,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.11258307844400406,
+                "y": -0.011832958087325096,
+                "z": -0.10385654121637345,
+                "w": 0.9881290197372437
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3400000035762787,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.4617486298084259,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.8870108723640442
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3059999942779541,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.639266312122345,
+                "y": -0.02705395221710205,
+                "z": 0.10096673667430878,
+                "w": 0.761847972869873
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.014999999664723874,
+                "z": 0.07999999821186066
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/CastOrigin",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 1.1799999475479127,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/mage_08",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/mage_09",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/mage_10",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/mage_11",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/mage_12",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/mage_13",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/mage_14",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/mage_15",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/mage_16",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": -0.3100000023841858,
+                "y": 0.6499999761581421,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.13813574612140656,
+                "y": 0.016960937529802324,
+                "z": 0.12068332731723786,
+                "w": 0.982886791229248
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3400000035762787,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.2588190734386444,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9659258723258972
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3059999942779541,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/ItemOrigin",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.12999999523162843
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/mage_17",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/mage_18",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/mage_19",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/mage_20",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/mage_21",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/mage_22",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/HitAnchor",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.32499998807907107,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/mage_23",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/mage_24",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/mage_25",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/mage_26",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R",
+            "parent": "Hips",
+            "position": {
+                "x": 0.20999999344348908,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R/mage_27",
+            "parent": "Hips/Thigh_R/Shin_R/Foot_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/mage_28",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/mage_29",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/mage_30",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/mage_31",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L",
+            "parent": "Hips",
+            "position": {
+                "x": -0.20999999344348908,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L/mage_32",
+            "parent": "Hips/Thigh_L/Shin_L/Foot_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/mage_33",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/mage_34",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/mage_35",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/mage_36",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/mage_37",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/mage_38",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/mage_39",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/mage_40",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        }
+    ]
+}

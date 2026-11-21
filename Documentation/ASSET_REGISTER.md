@@ -17,7 +17,7 @@ Para cada incorporación registrar: ID, archivo/fuente, URL, autor, licencia y v
 
 ## Inventario pendiente de producción e integración
 
-Todas las filas siguientes están **pendientes**. No acreditan adquisiciones ni recursos ya creados.
+Las filas **CHAR-01 a CHAR-04 y WEAP-01 a WEAP-04 se produjeron e integraron en H05**, según el registro de incorporaciones al final de este archivo. Las filas ANIM, ENV, UI, AUDIO y VFX siguen pendientes; no acreditan adquisiciones ni recursos ya creados.
 
 | ID | Recurso necesario | Producción / preparación | Hito |
 | --- | --- | --- | --- |
@@ -106,3 +106,20 @@ No se descargaron ni compraron recursos. Se conservan modelos, materiales, arena
 | H04-TEST | `StatusRulesTests.cs`, ampliaciones de pruebas de reglas/flujo/input | Elaboradas para este proyecto | Casos de duración, reaplicación, muerte, coexistencia, objetos e IA, con capturas de la UI real |
 
 No se descargaron ni compraron recursos. Se mantienen modelos, arena, materiales y paquetes existentes. Los iconos de H04 son provisionales y no completan UI-06 ni otras tareas de arte final de H08. Las referencias `EffectData.icon` siguen disponibles para ese hito; H04 dibuja sus formas provisionales mediante `StatusIcon`.
+
+## Incorporaciones H05
+
+Todos los recursos de esta sección son **originales para Última Guardia, elaborados con Codex el 21 de noviembre de 2026**. No derivan de recursos externos, no tienen URL de adquisición ni exigen atribución de terceros. La fuente editable y los metadatos acompañan la entrega; no se afirma una licencia comercial de terceros ni se incorporan servicios pagos.
+
+| ID | Recurso y archivos | Producción / integración |
+| --- | --- | --- |
+| CHAR-01 / WEAP-01 | `Assets/Prefabs/H05/warrior.prefab`, `Assets/Models/H05/Exports/warrior.{obj,mtl,rig.json}` | Guerrero con cuerpo, cara, armadura, casco, espada con guarda y empuñadura. 1.812 triángulos, 37 renderers, 16 articulaciones |
+| CHAR-02 / WEAP-02 | `Assets/Prefabs/H05/mage.prefab`, `Assets/Models/H05/Exports/mage.{obj,mtl,rig.json}` | Maga con túnica partida, manto, cabello, sombrero y bastón con cristal cian. 2.132 triángulos, 41 renderers, 16 articulaciones |
+| CHAR-03 / WEAP-03 | `Assets/Prefabs/H05/ogre.prefab`, `Assets/Models/H05/Exports/ogre.{obj,mtl,rig.json}` | Ogro de mayor volumen, mandíbula, colmillos, hombrera asimétrica, correaje y machete. 1.734 triángulos, 32 renderers, 16 articulaciones |
+| CHAR-04 / WEAP-04 | `Assets/Prefabs/H05/shaman.prefab`, `Assets/Models/H05/Exports/shaman.{obj,mtl,rig.json}` | Chamán con túnica, máscara de hueso, cuernos, colgantes y bastón ritual con foco verde. 1.920 triángulos, 32 renderers, 16 articulaciones |
+| H05-MAT | `Assets/Materials/H05/*.mat` | 20 materiales propios URP/Lit, opacos, colores planos y variantes de metal. Sin texturas externas. Exportaciones OBJ remapeadas a esos materiales |
+| H05-SOURCE | `Assets/Scripts/Editor/CharacterModeling.cs`, `CharacterArtValidation.cs`, `Assets/Scripts/Combat/CharacterRig.cs` | Fuente paramétrica editable, mallas guardadas en `Assets/Models/H05/Meshes/`, exportador OBJ/MTL/jerarquía JSON y validación. Rig por piezas rígidas; no es Humanoid ni piel deformable |
+
+Los cuatro prefabs sustituyen los placeholders dentro de Combat y están vinculados a los datos H02 conservando identidad, estadísticas y acciones. Las armas son hijas del agarre de la mano derecha; `CastOrigin`, `HitAnchor` e `ItemOrigin` quedan disponibles para presentación posterior. Se conservan los prefabs H01 como fuentes históricas, sin instancias visibles en el encuentro.
+
+Dirección visual, convenciones y reconstrucción en [H05_CHARACTER_ART.md](H05_CHARACTER_ART.md). Auditoría, vistas frontal/trasera y seis poses estáticas por personaje en [Evidence/H05](Evidence/H05/). Estas poses comprueban articulación; los clips/controladores jugables se realizan en H06. El escenario, iconos y marcadores conservan sus recursos provisionales.

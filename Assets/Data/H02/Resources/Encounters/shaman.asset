@@ -20,7 +20,7 @@ MonoBehaviour:
   attack: 18
   defense: 4
   speed: 20
-  prefab: {fileID: 4510273438934739529, guid: 18e0fc51c4e49294fad41e183b61688a, type: 3}
+  prefab: {fileID: 3683139640729559308, guid: 725b29c25931f3347b338b5103f02ce1, type: 3}
   actions:
   - {fileID: 11400000, guid: 38584c42eb4ac5c47b5ed36004e52210, type: 2}
   - {fileID: 11400000, guid: 9380e44142dc4c24aaefa53b594283f8, type: 2}

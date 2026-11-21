@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UltimaGuardia
 {
-    // Deliberately provisional geometry. Stable sockets survive replacement in H05/H06.
+    // Presentation binding shared by the H05 characters and earlier archived prototypes.
     public sealed class CombatantView : MonoBehaviour
     {
         public string combatantId;

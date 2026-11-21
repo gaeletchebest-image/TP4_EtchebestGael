@@ -1,0 +1,103 @@
+{
+    "version": "0.0.6",
+    "passed": true,
+    "checks": [
+        "Four scene instances and data references use H05 prefabs",
+        "16 unique joints with captured local rest transforms each",
+        "Weapons follow right-hand grips; cast/item/hit sockets assigned",
+        "All triangles non-degenerate, finite and indexed; saved meshes and URP materials",
+        "Ground contact and metre-scale bounds",
+        "OBJ/MTL and hierarchy source exports present, OBJ imported",
+        "Budget below 10000 triangles and 65 renderers each"
+    ],
+    "characters": [
+        {
+            "id": "warrior",
+            "triangles": 1812,
+            "vertices": 5436,
+            "renderers": 37,
+            "materials": 8,
+            "joints": 16,
+            "size": {
+                "x": 1.2704246044158936,
+                "y": 2.5199999809265138,
+                "z": 0.8570747971534729
+            },
+            "minimumY": 0.0,
+            "poses": [
+                "Reposo",
+                "Ataque",
+                "Conjuro",
+                "Reaccion",
+                "Objeto",
+                "Caida"
+            ]
+        },
+        {
+            "id": "mage",
+            "triangles": 2132,
+            "vertices": 6396,
+            "renderers": 41,
+            "materials": 9,
+            "joints": 16,
+            "size": {
+                "x": 0.869209349155426,
+                "y": 2.7064785957336427,
+                "z": 1.0611259937286378
+            },
+            "minimumY": 0.0,
+            "poses": [
+                "Reposo",
+                "Ataque",
+                "Conjuro",
+                "Reaccion",
+                "Objeto",
+                "Caida"
+            ]
+        },
+        {
+            "id": "ogre",
+            "triangles": 1734,
+            "vertices": 5202,
+            "renderers": 32,
+            "materials": 8,
+            "joints": 16,
+            "size": {
+                "x": 1.9871575832366944,
+                "y": 3.0,
+                "z": 1.1009268760681153
+            },
+            "minimumY": 0.0,
+            "poses": [
+                "Reposo",
+                "Ataque",
+                "Conjuro",
+                "Reaccion",
+                "Objeto",
+                "Caida"
+            ]
+        },
+        {
+            "id": "shaman",
+            "triangles": 1920,
+            "vertices": 5760,
+            "renderers": 32,
+            "materials": 9,
+            "joints": 16,
+            "size": {
+                "x": 0.949077844619751,
+                "y": 2.3727478981018068,
+                "z": 0.9692113399505615
+            },
+            "minimumY": 0.0,
+            "poses": [
+                "Reposo",
+                "Ataque",
+                "Conjuro",
+                "Reaccion",
+                "Objeto",
+                "Caida"
+            ]
+        }
+    ]
+}

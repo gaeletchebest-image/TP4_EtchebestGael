@@ -1,0 +1,12 @@
+{
+  "job_id": "build-56b0a79878",
+  "result": "succeeded",
+  "platform": "StandaloneWindows64",
+  "output_path": "Builds/H05/UltimaGuardia.exe",
+  "started_at": "2026-11-21T18:29:19.018443Z",
+  "duration_seconds": 153.4675862,
+  "completed_at": "2026-11-21T18:31:52.4860292Z",
+  "total_size_mb": 164.21,
+  "errors": 0,
+  "warnings": 1
+}

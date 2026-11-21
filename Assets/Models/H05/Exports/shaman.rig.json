@@ -1,0 +1,1066 @@
+{
+    "id": "shaman",
+    "convention": "metres; Y up; Z forward; rigid pieces, 100% parent joint",
+    "joints": [
+        {
+            "path": "",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.1736481934785843,
+                "z": 0.0,
+                "w": 0.9848077893257141
+            }
+        },
+        {
+            "path": "Hips",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.8500000238418579,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.14000000059604646,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.7100000381469727,
+                "z": 0.014999999664723874
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/shaman_00",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/shaman_01",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/shaman_02",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/shaman_03",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.3700000047683716,
+                "y": 0.6100000143051148,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.1294095367193222,
+                "y": -0.01703708805143833,
+                "z": -0.1294095367193222,
+                "w": 0.982962965965271
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.33000001311302187,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.36650121212005618,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9304175972938538
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.296999990940094,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.5686693787574768,
+                "y": -0.018165728077292444,
+                "z": 0.12925592064857484,
+                "w": 0.8121441006660461
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.014999999664723874,
+                "z": 0.07999999821186066
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/CastOrigin",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 1.1200000047683716,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/shaman_04",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/shaman_05",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/shaman_06",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/shaman_07",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/shaman_08",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/shaman_09",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/shaman_10",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": -0.3700000047683716,
+                "y": 0.6100000143051148,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.14618584513664246,
+                "y": 0.021847618743777276,
+                "z": 0.14618584513664246,
+                "w": 0.9781523942947388
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.33000001311302187,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.30070579051971438,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9537169337272644
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.296999990940094,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/ItemOrigin",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.12999999523162843
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/shaman_11",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/shaman_12",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/shaman_13",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/shaman_14",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/HitAnchor",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.3050000071525574,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/shaman_15",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/shaman_16",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/shaman_17",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R",
+            "parent": "Hips",
+            "position": {
+                "x": 0.1899999976158142,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3500000238418579,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3500000238418579,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R/shaman_18",
+            "parent": "Hips/Thigh_R/Shin_R/Foot_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/shaman_19",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/shaman_20",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/shaman_21",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/shaman_22",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L",
+            "parent": "Hips",
+            "position": {
+                "x": -0.1899999976158142,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3500000238418579,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3500000238418579,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L/shaman_23",
+            "parent": "Hips/Thigh_L/Shin_L/Foot_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/shaman_24",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/shaman_25",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/shaman_26",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/shaman_27",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/shaman_28",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/shaman_29",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/shaman_30",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/shaman_31",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        }
+    ]
+}

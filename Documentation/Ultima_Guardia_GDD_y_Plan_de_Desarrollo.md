@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00, H01, H02, H03 y H04 aprobados por el usuario. H05 a H13 pendientes.
+> Estado: H00, H01, H02, H03, H04 y H05 aprobados por el usuario. H06 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -126,7 +126,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H02. Datos configurables, ATB y recuperación.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H04. Veneno, rapidez y corrosión.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H07. Modelado modular y construcción del escenario final.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -240,6 +240,27 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Limitaciones: control físico y monitor nativo 1080p no comprobados; modelos, escenario, UI, audio, animación y VFX finales posteriores. Sin ajustes de balance.
 - Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien! Queda aprobado entonces.». Sin correcciones solicitadas. H05 permanece pendiente para otro chat.
 - Próximo hito en orden: **H05**, identificación solamente; **no iniciado**.
+
+#### Registro H05
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. H06 no iniciado.
+- Versión: **0.0.6-H05** (PlayerSettings 0.0.6), cambios locales sobre commit real `3e1bec1` de H04. No se creó commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Bien. Hacelo entonces.», después de leer y explicar el alcance H05. H00–H04 aprobados y sin correcciones abiertas.
+- Tareas completadas: **H05-T01 a H05-T25**. No se inició H06 ni otro hito posterior.
+- Entrega: cuatro modelos propios de estilo facetado con materiales de color plano; guerrero con armadura/espada, maga con túnica/sombrero/bastón de cristal, ogro voluminoso con colmillos/hombrera/machete y chamán con máscara/cuernos/bastón ritual. 20 materiales URP, 7.598 triángulos en total y 16 articulaciones por personaje. Armas en agarres de mano y sockets de conjuro, objeto e impacto.
+- Representación animable: alternativa de piezas rígidas admitida por H05-T22. Articulaciones de cadera, torso, cabeza, hombros, codos, manos, muslos, rodillas, pies y agarre; túnicas segmentadas. Sin piel continua, rig Humanoid ni simulación de tela. Seis poses estáticas por modelo comprueban reposo, ataque, conjuro, reacción, objeto y caída; no completan clips ni controladores H06.
+- Fuentes: `Assets/Scripts/Editor/CharacterModeling.cs`, `CharacterArtValidation.cs`, `Assets/Scripts/Combat/CharacterRig.cs`; mallas guardadas en `Assets/Models/H05/Meshes`, exportaciones OBJ/MTL/jerarquía JSON en `Assets/Models/H05/Exports`, materiales en `Assets/Materials/H05` y prefabs en `Assets/Prefabs/H05`. [Dirección visual y reconstrucción](H05_CHARACTER_ART.md), [autoría y recursos](ASSET_REGISTER.md).
+- Integración: prefabs sustituidos en los anclajes existentes de Combat; cuatro referencias de prefab actualizadas en los datos H02. Se conservan estadísticas, costos, inventario, IA, estados, arena y MainMenu. Cámara fija ajustada a FOV 50 y mirada a (0; 0,1; 2) para reservar espacio a tres filas de estados. Sin ajustes de balance.
+- Comprobación de recursos: [auditoría aprobada](Evidence/H05/model-audit.json), modelos importados, mallas/normales/índices válidos, materiales URP, referencias y sockets coherentes, altura y contacto con suelo. Los cuatro OBJ importados conservan materiales remapeados. Vistas [frontal](Evidence/H05/character-lineup-front.png) y [trasera](Evidence/H05/character-lineup-back.png) y cuatro hojas de poses inspeccionadas.
+- Regresión: **68/68 PlayMode**, 0 fallidas/omitidas, **117,155875 s**, job `2f8f396d49b84754b8f538c24cb99b18`. Después del ajuste de cámara, **4/4 regresiones de flujo**, job `ab768f9dfe5044d1afc8d9a566c77dc0`. [Suite](Evidence/H05/playmode-results.json), [estado final de regresión](Evidence/H05/flow-after-framing-fix.json), [métodos y límites](TEST_REPORT.md). El resultado detallado del segundo job no se conservó tras recarga de dominio; se registra su estado real sin inventar una duración.
+- Peleas de regresión: victoria con teclado virtual en 21 acciones, 1 Poción restante; control virtual en 22 acciones, 0 Pociones. Derrotas preparadas y reinicios comprobados. Reloj ×4 y dispositivos virtuales; no acredita balance, duración objetivo o hardware.
+- Visual en juego: capturas 720p/1080p con cámara/Canvas reales mediante RenderTexture, incluyendo tres estados sobre la maga, objetivos, listas, pausa y reinicio. No acredita monitor físico 1080p. [Evidencia](Evidence/H05/).
+- Build: `Builds/H05/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **164,21 MB**, **153,4675862 s**, **0 errores / 1 advertencia** heredada de DebugOccluder de Unity Core/d3d11. Job `build-56b0a79878`. [Resumen](Evidence/H05/build-summary.json), [BuildReport](Evidence/H05/build-report-details.json).
+- Player real: smoke aprobado, versión `0.0.6-flow`, MainMenu → Combat → pausa → MainMenu → Salir, ventana/captura 1280 × 720, input virtual y **salida 0**. [Resultado](Evidence/H05/player-result-1280x720.json). Captura del ejecutable inspeccionada sin materiales faltantes. Las peleas completas corresponden a PlayMode. Se conservan avisos de red y liberación de buffers/asignaciones al apagar el proceso oculto, como en H00–H04; seguimiento H12. Configuración de entrada a Play y Unity Connect conservada/restaurada. [Huellas de entrega](Evidence/H05/fingerprints.json).
+- Correcciones internas cerradas: normales explícitas de OBJ, encuadre/aspecto de hojas de poses y cámara de combate para estados sobre modelos. [Seguimiento H05-C01 a C03](KNOWN_ISSUES.md). Sin correcciones abiertas del usuario.
+- Cómo revisar: ejecutar la build H05 o MainMenu en Unity; observar las cuatro siluetas, materiales y armas, seleccionar objetivos, atacar, usar objetos, pausar y reiniciar. Para revisar articulación, consultar las hojas de poses o inspeccionar `CharacterRig` en los prefabs H05. Guía en README. La presentación de acciones continúa provisional hasta H06.
+- Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Lo doy por aprobado.». Sin correcciones solicitadas. H06 permanece pendiente para otro chat.
+- Próximo hito en orden: **H06**, identificación solamente; **no iniciado**.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -876,46 +897,46 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Dirección visual y preparación
 
-- [ ] **H05-T01. Fijar estilo y proporciones.** Preparar una hoja breve de referencias: personajes simples, materiales legibles, guerrero y maga diferenciados y ogro más grande.
-- [ ] **H05-T02. Elegir producción por recurso.** Decidir para cada personaje si se modela desde cero o se adapta un recurso permitido. Registrar la opción, procedencia y trabajo pendiente.
-- [ ] **H05-T03. Definir escala y presupuesto.** Comparar siluetas en la cámara real y fijar complejidad suficiente para el prototipo, sin perseguir detalle que no se verá.
-- [ ] **H05-T04. Preparar convenciones de exportación.** Definir unidades, orientación, pivote, nombres de huesos y puntos de sujeción. Guardar archivos fuente y exportaciones con nombres estables.
+- [x] **H05-T01. Fijar estilo y proporciones.** Preparar una hoja breve de referencias: personajes simples, materiales legibles, guerrero y maga diferenciados y ogro más grande.
+- [x] **H05-T02. Elegir producción por recurso.** Decidir para cada personaje si se modela desde cero o se adapta un recurso permitido. Registrar la opción, procedencia y trabajo pendiente.
+- [x] **H05-T03. Definir escala y presupuesto.** Comparar siluetas en la cámara real y fijar complejidad suficiente para el prototipo, sin perseguir detalle que no se verá.
+- [x] **H05-T04. Preparar convenciones de exportación.** Definir unidades, orientación, pivote, nombres de huesos y puntos de sujeción. Guardar archivos fuente y exportaciones con nombres estables.
 
 #### Guerrero
 
-- [ ] **H05-T05. Modelar cuerpo y armadura.** Construir silueta humana robusta, cabeza, torso y extremidades con articulaciones que permitan reposo, ataque y muerte.
-- [ ] **H05-T06. Modelar espada.** Crear hoja, guarda y empuñadura y un punto de agarre correcto, con un material distinguible de la armadura.
-- [ ] **H05-T07. Preparar UV y materiales.** Crear UV si las texturas las requieren o materiales de color plano, revisar superficies, normales y lectura a tamaño de juego.
-- [ ] **H05-T08. Preparar rig y pesos.** Crear o adaptar esqueleto y asignar pesos. Probar deformaciones de hombros, codos, cadera y manos antes de exportar.
+- [x] **H05-T05. Modelar cuerpo y armadura.** Construir silueta humana robusta, cabeza, torso y extremidades con articulaciones que permitan reposo, ataque y muerte.
+- [x] **H05-T06. Modelar espada.** Crear hoja, guarda y empuñadura y un punto de agarre correcto, con un material distinguible de la armadura.
+- [x] **H05-T07. Preparar UV y materiales.** Crear UV si las texturas las requieren o materiales de color plano, revisar superficies, normales y lectura a tamaño de juego.
+- [x] **H05-T08. Preparar rig y pesos.** Crear o adaptar esqueleto y asignar pesos. Probar deformaciones de hombros, codos, cadera y manos antes de exportar.
 
 #### Maga
 
-- [ ] **H05-T09. Modelar cuerpo y vestimenta.** Crear una silueta distinta, vestimenta simple y brazos con libertad para elevar el bastón, sin requerir simulación de tela.
-- [ ] **H05-T10. Modelar bastón y foco mágico.** Preparar agarre, extremo emisor y forma visible durante la cámara especial.
-- [ ] **H05-T11. Preparar UV y materiales.** Resolver colores, superficies y detalles del bastón que permitan distinguir magia aliada.
-- [ ] **H05-T12. Preparar rig y pesos.** Verificar hombros, brazos y manos durante la pose de conjuro y evitar deformaciones graves de la vestimenta.
+- [x] **H05-T09. Modelar cuerpo y vestimenta.** Crear una silueta distinta, vestimenta simple y brazos con libertad para elevar el bastón, sin requerir simulación de tela.
+- [x] **H05-T10. Modelar bastón y foco mágico.** Preparar agarre, extremo emisor y forma visible durante la cámara especial.
+- [x] **H05-T11. Preparar UV y materiales.** Resolver colores, superficies y detalles del bastón que permitan distinguir magia aliada.
+- [x] **H05-T12. Preparar rig y pesos.** Verificar hombros, brazos y manos durante la pose de conjuro y evitar deformaciones graves de la vestimenta.
 
 #### Ogro
 
-- [ ] **H05-T13. Modelar cuerpo y rasgos.** Crear mayor volumen que los aliados, torso pesado y una cabeza reconocible desde la cámara.
-- [ ] **H05-T14. Modelar arma del ogro.** Crear un machete o arma pesada coherente con Machetazo y dejar el agarre alineado.
-- [ ] **H05-T15. Preparar UV y materiales.** Diferenciar piel, ropa y arma con materiales simples y coherentes con los demás modelos.
-- [ ] **H05-T16. Preparar rig y pesos.** Comprobar brazos, torso y piernas en golpe, reacción y caída, con proporciones propias del ogro.
+- [x] **H05-T13. Modelar cuerpo y rasgos.** Crear mayor volumen que los aliados, torso pesado y una cabeza reconocible desde la cámara.
+- [x] **H05-T14. Modelar arma del ogro.** Crear un machete o arma pesada coherente con Machetazo y dejar el agarre alineado.
+- [x] **H05-T15. Preparar UV y materiales.** Diferenciar piel, ropa y arma con materiales simples y coherentes con los demás modelos.
+- [x] **H05-T16. Preparar rig y pesos.** Comprobar brazos, torso y piernas en golpe, reacción y caída, con proporciones propias del ogro.
 
 #### Chamán
 
-- [ ] **H05-T17. Modelar cuerpo y vestimenta.** Crear una silueta menor que el ogro, con elementos que comuniquen su función de conjurador.
-- [ ] **H05-T18. Modelar foco de conjuro.** Crear un bastón, tótem de mano o pieza equivalente con punto de emisión de magia.
-- [ ] **H05-T19. Preparar UV y materiales.** Reservar detalles verdes para sus efectos sin confundirlos con la identificación del equipo.
-- [ ] **H05-T20. Preparar rig y pesos.** Comprobar poses de conjuro, reacción y muerte con la vestimenta y el accesorio.
+- [x] **H05-T17. Modelar cuerpo y vestimenta.** Crear una silueta menor que el ogro, con elementos que comuniquen su función de conjurador.
+- [x] **H05-T18. Modelar foco de conjuro.** Crear un bastón, tótem de mano o pieza equivalente con punto de emisión de magia.
+- [x] **H05-T19. Preparar UV y materiales.** Reservar detalles verdes para sus efectos sin confundirlos con la identificación del equipo.
+- [x] **H05-T20. Preparar rig y pesos.** Comprobar poses de conjuro, reacción y muerte con la vestimenta y el accesorio.
 
 #### Exportación e integración
 
-- [ ] **H05-T21. Exportar e importar los cuatro modelos.** Conservar escala, orientación, materiales, rig y archivos fuente en formatos utilizables por el proyecto.
-- [ ] **H05-T22. Validar representación final.** Si se usa rig de huesos o jerarquía de piezas rígidas, demostrar que permite todas las animaciones del siguiente hito.
-- [ ] **H05-T23. Crear prefabs finales.** Añadir referencias de animación, arma, anclajes VFX, nombre y datos de personaje, sin duplicar el estado de combate.
-- [ ] **H05-T24. Sustituir placeholders.** Colocar los prefabs en los anclajes existentes, ajustar encuadre y verificar lectura de las cuatro siluetas.
-- [ ] **H05-T25. Registrar licencias y créditos.** Registrar fuente, autor, licencia, modificaciones y ruta de cada recurso externo. Para los propios, registrar autoría y archivo fuente.
+- [x] **H05-T21. Exportar e importar los cuatro modelos.** Conservar escala, orientación, materiales, rig y archivos fuente en formatos utilizables por el proyecto.
+- [x] **H05-T22. Validar representación final.** Si se usa rig de huesos o jerarquía de piezas rígidas, demostrar que permite todas las animaciones del siguiente hito.
+- [x] **H05-T23. Crear prefabs finales.** Añadir referencias de animación, arma, anclajes VFX, nombre y datos de personaje, sin duplicar el estado de combate.
+- [x] **H05-T24. Sustituir placeholders.** Colocar los prefabs en los anclajes existentes, ajustar encuadre y verificar lectura de las cuatro siluetas.
+- [x] **H05-T25. Registrar licencias y créditos.** Registrar fuente, autor, licencia, modificaciones y ruta de cada recurso externo. Para los propios, registrar autoría y archivo fuente.
 
 #### Criterios para cerrar el hito
 

@@ -1,0 +1,1166 @@
+{
+    "id": "warrior",
+    "convention": "metres; Y up; Z forward; rigid pieces, 100% parent joint",
+    "joints": [
+        {
+            "path": "",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.1736481934785843,
+                "z": 0.0,
+                "w": 0.9848077893257141
+            }
+        },
+        {
+            "path": "Hips",
+            "parent": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.9399999976158142,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.14000000059604646,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.75,
+                "z": 0.014999999664723874
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_00",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_01",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_02",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_03",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_04",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/Head/warrior_05",
+            "parent": "Hips/Chest/Head",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.4300000071525574,
+                "y": 0.6499999761581421,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.12981116771697999,
+                "y": -0.013643703423440457,
+                "z": -0.10363420844078064,
+                "w": 0.986013650894165
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3400000035762787,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.2923716902732849,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9563047885894775
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.3059999942779541,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.5047580599784851,
+                "y": -0.006381301674991846,
+                "z": 0.10433349013328552,
+                "w": 0.8569090962409973
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.014999999664723874,
+                "z": 0.07999999821186066
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/CastOrigin",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 1.1100000143051148,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/warrior_06",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/warrior_07",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon/warrior_08",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/WeaponGrip_R/Weapon",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R/warrior_09",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R/Hand_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/warrior_10",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/Forearm_R/warrior_11",
+            "parent": "Hips/Chest/UpperArm_R/Forearm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/warrior_12",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/warrior_13",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_R/warrior_14",
+            "parent": "Hips/Chest/UpperArm_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": -0.4300000071525574,
+                "y": 0.6499999761581421,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.06081623584032059,
+                "y": -0.005320730619132519,
+                "z": 0.08699317276477814,
+                "w": 0.9943366050720215
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3400000035762787,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.10452846437692642,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9945219159126282
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.3059999942779541,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/ItemOrigin",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.12999999523162843
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L/warrior_15",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L/Hand_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/warrior_16",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/Forearm_L/warrior_17",
+            "parent": "Hips/Chest/UpperArm_L/Forearm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/warrior_18",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/warrior_19",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/UpperArm_L/warrior_20",
+            "parent": "Hips/Chest/UpperArm_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/HitAnchor",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.32499998807907107,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/warrior_21",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/warrior_22",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Chest/warrior_23",
+            "parent": "Hips/Chest",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R",
+            "parent": "Hips",
+            "position": {
+                "x": 0.20999999344348908,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/Foot_R/warrior_24",
+            "parent": "Hips/Thigh_R/Shin_R/Foot_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/warrior_25",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/Shin_R/warrior_26",
+            "parent": "Hips/Thigh_R/Shin_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/warrior_27",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_R/warrior_28",
+            "parent": "Hips/Thigh_R",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L",
+            "parent": "Hips",
+            "position": {
+                "x": -0.20999999344348908,
+                "y": -0.029999999329447748,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": -0.39499998092651369,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/Foot_L/warrior_29",
+            "parent": "Hips/Thigh_L/Shin_L/Foot_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/warrior_30",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/Shin_L/warrior_31",
+            "parent": "Hips/Thigh_L/Shin_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/warrior_32",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/Thigh_L/warrior_33",
+            "parent": "Hips/Thigh_L",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/warrior_34",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/warrior_35",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "path": "Hips/warrior_36",
+            "parent": "Hips",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        }
+    ]
+}
