@@ -46,6 +46,8 @@ namespace UltimaGuardia
                 if (data.duration <= 0 || data.fixedDamage < 0 || !Finite(data.multiplier) || data.multiplier <= 0)
                     errors.Add(data.name + ": duración, daño o multiplicador de efecto inválido.");
                 if (!Enum.IsDefined(typeof(StatusKind), data.kind) || !Enum.IsDefined(typeof(EffectTrigger), data.trigger)) errors.Add(data.name + ": tipo o activación de efecto inválidos.");
+                if (string.IsNullOrWhiteSpace(data.displayName) || data.trigger != (data.kind == StatusKind.Poison ? EffectTrigger.TurnStart : EffectTrigger.ActionEnd))
+                    errors.Add(data.name + ": nombre o activación incompatible con el tipo de efecto.");
             };
             unique(id, this);
             if (participants == null || participants.Length != 4)

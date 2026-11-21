@@ -12,6 +12,9 @@ namespace UltimaGuardia.Tests
     // Integration tests drive real bindings and the EventSystem, rather than invoking UI callbacks.
     public class FoundationInputTests
     {
+#if UNITY_EDITOR
+        private InputSettings.EditorInputBehaviorInPlayMode previousEditorInput;
+#endif
         private Keyboard keyboard;
         private Gamepad gamepad;
         private bool previousBackground;
@@ -24,6 +27,10 @@ namespace UltimaGuardia.Tests
             previousBehavior = InputSystem.settings.backgroundBehavior;
             Application.runInBackground = true;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
+#if UNITY_EDITOR
+            previousEditorInput = InputSystem.settings.editorInputBehaviorInPlayMode;
+            InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+#endif
             keyboard = InputSystem.AddDevice<Keyboard>();
             gamepad = InputSystem.AddDevice<Gamepad>();
             yield return SceneManager.LoadSceneAsync("MainMenu");
@@ -37,6 +44,9 @@ namespace UltimaGuardia.Tests
         {
             if (keyboard != null && keyboard.added) InputSystem.RemoveDevice(keyboard);
             if (gamepad != null && gamepad.added) InputSystem.RemoveDevice(gamepad);
+#if UNITY_EDITOR
+            InputSystem.settings.editorInputBehaviorInPlayMode = previousEditorInput;
+#endif
             InputSystem.settings.backgroundBehavior = previousBehavior;
             Application.runInBackground = previousBackground;
             yield return null;

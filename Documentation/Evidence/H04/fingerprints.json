@@ -1,0 +1,2877 @@
+{
+  "version": "0.0.5-H04",
+  "baseCommit": "8ea908e36f4a2ea34395f1205186e03aa90d1441",
+  "deliveryCommit": null,
+  "files": [
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/antidote.asset",
+      "sha256": "cc93ecc34c6a65d4726b764e314b8a3bce7ff8a31bd11af499fdfdb9c3f4546b",
+      "bytes": 718
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/antidote.asset.meta",
+      "sha256": "27b8ffd05235104df7db6218c302f181ccc19fbe9a9ed8e4c5a09ec65493508b",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/arcane_storm.asset",
+      "sha256": "4002510107490b27ab38b457067882d73f9d2fdbf92cd6807d2b0867a41631a5",
+      "bytes": 818
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/arcane_storm.asset.meta",
+      "sha256": "dd1b82c385443aac008fa405c2ee0724c272946415b8beace7544f962a503bc3",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/cleave.asset",
+      "sha256": "68166ad9e138e1472b53fbf3e6c9f9cee2bad8fb68d83dba5caedbfee8d0e500",
+      "bytes": 780
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/cleave.asset.meta",
+      "sha256": "e50a909dbb5aa51f5a69fdf3595f80defdbdb7bf944e77085bd399c9242e0a38",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosion.asset",
+      "sha256": "180ae097564f07aa4aea682ffe31f59c14ab8955fd28c485324d58cde0c9b52b",
+      "bytes": 583
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosion.asset.meta",
+      "sha256": "1b477a4a5a5a43798bca54d50e724a85789365bc2ae60b3f532b3280ad7be339",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosive_flask.asset",
+      "sha256": "45dd9a45e95a45e428fa6bd2881a87dafbc01274d1ba05f2e1714107795f8a89",
+      "bytes": 763
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/corrosive_flask.asset.meta",
+      "sha256": "1408d1614c6b49d70b421fc10d9fc8e426c3777089e0fc2ba93358ba85c0ee93",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/dark_heal.asset",
+      "sha256": "d32edfe4f100fec41be255bcdbb4b5fb383e8497791aa92a216e3204ce54accc",
+      "bytes": 808
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/dark_heal.asset.meta",
+      "sha256": "7a6a5a0e480821964a785e0eadcadbf9f97618bd4346f7f5daf68d0c1d7a4795",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ether.asset",
+      "sha256": "54bc6f4c985a62fa0f2d72d601e123c7f187c00cc65a5126ee93947b925c72f6",
+      "bytes": 675
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ether.asset.meta",
+      "sha256": "ba3cf56f20b72b6ba8036a27885ccd9ad1a5655cbb446e69ec934cc771167db6",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste.asset",
+      "sha256": "5ee9c90d4cef21c31fbf9a1c198e7a8c6284a511f73e9002b2f61ed16aaf1471",
+      "bytes": 568
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste.asset.meta",
+      "sha256": "e4db3d335bbad927e72ca5b05626d120b1bcd57a28c651fec3c8759d3fb3ff5f",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste_tonic.asset",
+      "sha256": "971a3455654a258727fedff6a5509861305bf1b51716f0ae2a2331f41935fb2b",
+      "bytes": 762
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/haste_tonic.asset.meta",
+      "sha256": "05a61145578ec21ef3061c22ef9fdf45bb62ee73484aa27e123684eb2bc32781",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heal.asset",
+      "sha256": "44c25ecd42027be13a6d6d7799e4b2533ed1774e40bf9c0b658c2c5ef57b8d79",
+      "bytes": 803
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heal.asset.meta",
+      "sha256": "f219937e7d4be44c9e5ad6e169534fa047ace70e2f00a9aa77c249b611d8c278",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset",
+      "sha256": "83394d762b6032500e4a31ee795b82d2b4f787e55e10a627acecf3756d1a4e71",
+      "bytes": 762
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/heavy_strike.asset.meta",
+      "sha256": "ff03a978a0b722212e96058f31279660d02ef797b7dde46725a430f143422f0a",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage.asset",
+      "sha256": "8a724f0582f1808c47b264f8049001f621411c3685aec24fe697666f680695a7",
+      "bytes": 880
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage.asset.meta",
+      "sha256": "1b7065ca677ad404b07747e877b99de9b89fea237ccd1ff6f1b057c2b1dc757f",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset",
+      "sha256": "7ccb7b1d03f049a7a8aef5913159bdbad743019ce791064c2bfcc885a14d82c2",
+      "bytes": 765
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/mage_basic.asset.meta",
+      "sha256": "2884ef4c74d9f200240dcc51a5abee1133bfc96ec9e3392ebe19af1492bb069a",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/MainEncounter.asset",
+      "sha256": "9895f763a9ad25c4a3e576ea633f85c44159b82962e6c87c508a972095c6a61b",
+      "bytes": 1590
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/MainEncounter.asset.meta",
+      "sha256": "abcbbca5d60ad003f066dd5fbc581d6cd3cdcb2a5293f112be928945b37285e4",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre.asset",
+      "sha256": "48021cd85d3f75a8b04980312d965f8a5e07f48388fef35e3b9133759365e3a7",
+      "bytes": 808
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre.asset.meta",
+      "sha256": "6e29a73806523ee0fa569773370dd5aad9886c48d8ad669fc44552a160099f17",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset",
+      "sha256": "df201de96df12950b15c5f2cc5c087fe682b394514e29dfa034d6f8c7af515b4",
+      "bytes": 749
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/ogre_basic.asset.meta",
+      "sha256": "98e933e0d55b10b002cccdfe350fb2fd20928e4579398e9be445e1dc2415448f",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison.asset",
+      "sha256": "2480c61de0a550c24ef666ec3b7348aeca16c4656a7e900634eac5e8b873a2dc",
+      "bytes": 567
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison.asset.meta",
+      "sha256": "a0d38456e8b658037210217bc895a2c2ab83a6d10de97f8f18e3949ee319bf24",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison_spell.asset",
+      "sha256": "0b2ccddc14093214de4fbc87e441079f50245d5fd2fca796989a3e66af73ea1b",
+      "bytes": 865
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/poison_spell.asset.meta",
+      "sha256": "3b36bf0fcf720e0bcf67238d01a773b8e68cf2489af8fd85f4ec894f50f6564c",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/potion.asset",
+      "sha256": "050fb95b32624872fc2cf1b5a5e47b6ca5cf0d4293fe3ca7939e28cf93f6ad4e",
+      "bytes": 660
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/potion.asset.meta",
+      "sha256": "f396b33461f73c345a895178faa077cbd74008f7bbea278c3b5519cac7bc3f75",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman.asset",
+      "sha256": "c67e6ab77a1030ad29ccb2e944be6fc9058112744fcace173bb6bce6acacb1c2",
+      "bytes": 891
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman.asset.meta",
+      "sha256": "9f15db6e67ced68d4f30b455ef95482e280cfce7b8a2c90c6a27581a74a3f06b",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset",
+      "sha256": "75c6ef6a55c274bf463db0ee4acf0cc9b6b5ec21569c3e4e6b389cce57e14a25",
+      "bytes": 756
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/shaman_basic.asset.meta",
+      "sha256": "9d3b3169dc75f007bd510fb5be8134782c6f717815b5722b34dc89c8d5fdd049",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior.asset",
+      "sha256": "88dfb899cf37d6bb699b7e008b2fb9a2962fc04e9886ab299ded50eb9b06d291",
+      "bytes": 818
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior.asset.meta",
+      "sha256": "2dba0945d8712de3461341f5c998fa954d8d1e4c4363bc7fb695dc1240cb74dd",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset",
+      "sha256": "6b56e283f6b8e59870289b67894649f696d757686f053970707105b3219b9f0f",
+      "bytes": 768
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters/warrior_basic.asset.meta",
+      "sha256": "932ebc7b04266741f0698908027f213a7abc72f7965859d8a0c724a079def8e2",
+      "bytes": 189
+    },
+    {
+      "path": "Assets/Data/H02/Resources/Encounters.meta",
+      "sha256": "425c728c3dd5f44e7ac47cd646bb9d42d28cdf2c50feeeab8b2838226ac232d1",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/H02/Resources.meta",
+      "sha256": "251278c0eb714247bf5076976308e348a292be6d38a231a0f5890b2af413bc1c",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/H02.meta",
+      "sha256": "912fd6b157106625fdcc08453cfdca3bc42d85f147e27296fe02044833c0c0c2",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions",
+      "sha256": "e0af755702547e692ce5bac79ef0fd47421b5b051e46e21876034b49d9006f75",
+      "bytes": 5833
+    },
+    {
+      "path": "Assets/Data/Input/GuardiaInput.inputactions.meta",
+      "sha256": "c1fc28aa70edff45d44f95743ee41ece416b223e83acb899482a9debb75777a2",
+      "bytes": 376
+    },
+    {
+      "path": "Assets/Data/Input.meta",
+      "sha256": "6f2d386e6b10fd340a5d6a0171f0aadccfeb8f6878fc5818b24e1f791df5e956",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Materials/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Assets/Materials/H01/ActorMarker.mat",
+      "sha256": "8021a334dc3d195b454f776752a100086f767f29fa0bb7f5744f6b4e96d509f9",
+      "bytes": 3820
+    },
+    {
+      "path": "Assets/Materials/H01/ActorMarker.mat.meta",
+      "sha256": "757e98a62ee524af596d6b6b6adca57d6fa2ea23f7463c004fef9a35696133b0",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/Floor.mat",
+      "sha256": "f089b33cf0fac602abc9166d7c5a4389e636340e4994756f03aa908b90965534",
+      "bytes": 3834
+    },
+    {
+      "path": "Assets/Materials/H01/Floor.mat.meta",
+      "sha256": "0863c2090b5a18a1bce894462224fa7248d33651d6472645ad9c99aa000134f9",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/Gate.mat",
+      "sha256": "9457e7cb32a56fa1ec8aace01743bc47da86354790477605a7b7f507fad5193d",
+      "bytes": 3832
+    },
+    {
+      "path": "Assets/Materials/H01/Gate.mat.meta",
+      "sha256": "ce9d3d2cd2811076679b0751bc99d9f32b8a58a713c205f35b30f9fd00734d20",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/mage.mat",
+      "sha256": "2b4b69c43182b5b504cb1e907392bb92227e005f4e4cff70234d522d0e8eca2a",
+      "bytes": 3821
+    },
+    {
+      "path": "Assets/Materials/H01/mage.mat.meta",
+      "sha256": "6918bf4d74f1b6d5e1a6a21da6d305c8d7eb85d2f32a97a5e36bffe22ad99511",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/ogre.mat",
+      "sha256": "e9b1e7555a1d17c46d9ff902eeb92316051b3b15a2e2e6b3642e49038fb0648a",
+      "bytes": 3828
+    },
+    {
+      "path": "Assets/Materials/H01/ogre.mat.meta",
+      "sha256": "275e36c2a348487b4ff393585d87987e354fcdb806e00f71652a2956e2313c3f",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/shaman.mat",
+      "sha256": "0506c9023cf864c348f3d5ff8a9973d6842b831b2f462c6061d3d879e3ed210c",
+      "bytes": 3829
+    },
+    {
+      "path": "Assets/Materials/H01/shaman.mat.meta",
+      "sha256": "ccebbf75e2b9f1a890848eca60a138ee9aaeb0f3d4cd4de55d206c5b56e391cc",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/Stone.mat",
+      "sha256": "efd61d5fe3200b878e913db5c7d2bb6a9e0f933156918c8b9eee3db81b086a3d",
+      "bytes": 3833
+    },
+    {
+      "path": "Assets/Materials/H01/Stone.mat.meta",
+      "sha256": "0045e214d35c1e55d691bb49704435224c7dfc2867efa35db7c1906ee6d37258",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/TargetMarker.mat",
+      "sha256": "1847e1494cc0c1fc2427c6db6eae6183ded1af625d4436a9a61b5cdde6214128",
+      "bytes": 3806
+    },
+    {
+      "path": "Assets/Materials/H01/TargetMarker.mat.meta",
+      "sha256": "b7f4500ace6327d5bab51b9a5bb2c10169e7bbf109a06a1a8407c1b6f864724d",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01/warrior.mat",
+      "sha256": "2d0f07ad1401d410c615a7a01e91e8f7ba4b3be08b78eddf85dc956724b0a478",
+      "bytes": 3830
+    },
+    {
+      "path": "Assets/Materials/H01/warrior.mat.meta",
+      "sha256": "b9639471bd84dd2d4eae80552aa04d5b37d5998ba3db204fbf85bd3a0a6211e4",
+      "bytes": 188
+    },
+    {
+      "path": "Assets/Materials/H01.meta",
+      "sha256": "5780a91c7e042d422c4656a71d9845918977af92fe7620c7152df15606ce6d6a",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Prefabs/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Assets/Prefabs/H01/mage.prefab",
+      "sha256": "93ed0177170f6802cb5befd4ba223006514681a736c95b7391ede5fd1fc0f47c",
+      "bytes": 14914
+    },
+    {
+      "path": "Assets/Prefabs/H01/mage.prefab.meta",
+      "sha256": "7d1f1d2c1dc2f98a581756af70f98bd8369e6d5fd5a4b9a786e9fab75f28d3be",
+      "bytes": 154
+    },
+    {
+      "path": "Assets/Prefabs/H01/ogre.prefab",
+      "sha256": "512e7bf4af6b5df35ec89c8bae934313218ea3f2aa739e46fe3f59a4cdd55d6e",
+      "bytes": 14910
+    },
+    {
+      "path": "Assets/Prefabs/H01/ogre.prefab.meta",
+      "sha256": "dcf4c9a49dfda559cbfed8a7ee5076328377a4b69737d9f40fcf98b7648ec0cb",
+      "bytes": 154
+    },
+    {
+      "path": "Assets/Prefabs/H01/shaman.prefab",
+      "sha256": "97e493cae432ecff46d5390c2c43f4ae6e0528f447151043cd4e8d25df2ff423",
+      "bytes": 14901
+    },
+    {
+      "path": "Assets/Prefabs/H01/shaman.prefab.meta",
+      "sha256": "ab37454633bc35b1e90bebcdadfc23e2d2d036ef6fa5731ef383867e95861e36",
+      "bytes": 154
+    },
+    {
+      "path": "Assets/Prefabs/H01/warrior.prefab",
+      "sha256": "9e0c3b4edb58a6fbfed3530ffb7bf73f7f359f5cd894a4c54ae9d29f0a7f20c1",
+      "bytes": 14915
+    },
+    {
+      "path": "Assets/Prefabs/H01/warrior.prefab.meta",
+      "sha256": "fe6f05a688f4c2c97b59ccad82afc68cf386b486eb0ecef666b700143772a892",
+      "bytes": 154
+    },
+    {
+      "path": "Assets/Prefabs/H01.meta",
+      "sha256": "7472319bb5d0f0190362b336550edb1a3a1790e5ad46613a66b5562e8eea2252",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity",
+      "sha256": "68b4a6c7b81f38ab7b561992113fcae39434b270192fb4a249c83f9f2a9d32a7",
+      "bytes": 181358
+    },
+    {
+      "path": "Assets/Scenes/Combat.unity.meta",
+      "sha256": "5308f142958731a9c1f34350276d0f5e0b610a0a3301236cd9b7191cd9e6d7e6",
+      "bytes": 155
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity",
+      "sha256": "5cbbe07e34337635e31af3afdb86e56afa6930531d46cd7611d86e9ce84101a7",
+      "bytes": 70528
+    },
+    {
+      "path": "Assets/Scenes/MainMenu.unity.meta",
+      "sha256": "f00240954570685cf24aec19edcd8fe98bf5be7f5cad151c1173e0200dca4a9f",
+      "bytes": 155
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "sha256": "07fce8b04804ddccb3026db5b43d8dc41ba138e49d50d36a5c24877081eacdca",
+      "bytes": 11413
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity.meta",
+      "sha256": "b5815a6b12afaf810577bc89041c4ce46516c7cd6609693f8db616f8e5584d80",
+      "bytes": 155
+    },
+    {
+      "path": "Assets/Scripts/Combat/ActionData.cs",
+      "sha256": "ec914f3db0cbdfc01764957d655e4e5ff42e0c769e194af91937d3c9e959072a",
+      "bytes": 734
+    },
+    {
+      "path": "Assets/Scripts/Combat/ActionData.cs.meta",
+      "sha256": "00493e1d20158e7aef545adbc591f57555a2dd9494425c5394ec392d882086b8",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantData.cs",
+      "sha256": "297bfa72e3ec6c300fa3ea0e50c8604e1c24042eb7e720148d30979cd58a7208",
+      "bytes": 532
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantData.cs.meta",
+      "sha256": "410980e0bc34d97596ef81509c0170d8bf77d1cffa95750d2b111ec544a763fb",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs",
+      "sha256": "0ee26b1b9877cb7bed0485d09125a03f956678169943a5014da84a21b6472718",
+      "bytes": 1320
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatantView.cs.meta",
+      "sha256": "67e79423fbe47862056e954e03b3cdaa7b2c515e90738f17cf0c7d82d2c2ffed",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs",
+      "sha256": "cf5349a52f1627c2f35f25a67401f0b6762d5b34bce3ec871e715ecf5ee30c30",
+      "bytes": 17796
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatPrototype.cs.meta",
+      "sha256": "7a62409e7c3ffcd835c54ea028de674b073bb61628447c0c5da122cf8c32d56c",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs",
+      "sha256": "8261987533001bc9eac1f2bb24ddcc6aa95d42fe6cff033f212360dc21986463",
+      "bytes": 24125
+    },
+    {
+      "path": "Assets/Scripts/Combat/CombatSession.cs.meta",
+      "sha256": "830c759d3472d0c77f869688d98249a2754891caadd2e81e43025eaa3eaf305f",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/EffectData.cs",
+      "sha256": "0d26bc70b8a14f39e3068960dc3aab7604db516b4f2d3cef94fbd6f8c9207748",
+      "bytes": 504
+    },
+    {
+      "path": "Assets/Scripts/Combat/EffectData.cs.meta",
+      "sha256": "b05474b7dad4f7c6040f08c3f29b20c22a062f8023a862491c1e0f6f3ef7aa37",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/EncounterData.cs",
+      "sha256": "2afeb72a7b16228467bd7cea5d4e43e94b0d6fed5c04ebf95e1872aeec1efd39",
+      "bytes": 7582
+    },
+    {
+      "path": "Assets/Scripts/Combat/EncounterData.cs.meta",
+      "sha256": "bb0c2cbc778ea62a7bec4506706f76387f87ebb0d7feb72238b8ba324a5de4d2",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/ItemData.cs",
+      "sha256": "b14c6509dd30949cbe47d1dfe168f2785701f027eccb067761f162d429faf76e",
+      "bytes": 575
+    },
+    {
+      "path": "Assets/Scripts/Combat/ItemData.cs.meta",
+      "sha256": "d5a073ab62a5024273248a3ed11121d2ed0e411af9c449cac54e6e884b03d8e0",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusHud.cs",
+      "sha256": "827dab6d02a86c3a2948da77bf3c4cd808b0c4a26ba792b9bf14f39db62ed0f6",
+      "bytes": 2812
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusHud.cs.meta",
+      "sha256": "8314504cdabdf2a0ff123141cd36da8dad8810cc559f037d39a3f1e6a7a52882",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusIcon.cs",
+      "sha256": "0fd5f869d463380aeb00314202c0f9a5c16f2366a1617ab33d3c63f6a2852390",
+      "bytes": 1515
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusIcon.cs.meta",
+      "sha256": "cc727628b3fefdcea0359cb4d829d76d240496796336e2156f45a4199244801c",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusState.cs",
+      "sha256": "f6184db026180ed3af46e139267a3155d5ec221435d94fb1e96286179d0d625e",
+      "bytes": 1165
+    },
+    {
+      "path": "Assets/Scripts/Combat/StatusState.cs.meta",
+      "sha256": "ff1c0326b07ef007f61966ed382f2f652e730f496006a3cd62c676fee33af597",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Combat.meta",
+      "sha256": "e02b6d26a6043c2183e217d4b52518318a84334547efcee68b6b59b756b2e029",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationMenu.cs",
+      "sha256": "7d7c9e545c47b0a4cb39c8a86d433c4aa1ab20d7c52198a5d4dd2ff54134e608",
+      "bytes": 5121
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationMenu.cs.meta",
+      "sha256": "58946413af221a049d94bf6ec59a9653f38b7d96ef5c06d404a2941434330e12",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs",
+      "sha256": "96e9b45b01451c19e34289931ab5079a9f4d43d243849077a79fa390d51318cb",
+      "bytes": 9668
+    },
+    {
+      "path": "Assets/Scripts/Core/FoundationPlayerSmoke.cs.meta",
+      "sha256": "1bf5aae09a16e0eac9f7ec4566b2440b9a6e9206d481f9c35aa81fe9151f94bf",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Core.meta",
+      "sha256": "708811bfd74cfc407ce200d689d2b5c3e42f8b755fb0bcba61c7479bf0d3d5fe",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/Editor/ActionsSetup.cs",
+      "sha256": "e877fc1a742211955985484311bf23e3b2e51da7c737e2d567ba33c4c5877ea8",
+      "bytes": 6052
+    },
+    {
+      "path": "Assets/Scripts/Editor/ActionsSetup.cs.meta",
+      "sha256": "c03d02842b0c2b7648c4d5aaab0579ebd12ff3a3944c29011c949012241d4a96",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/AtbSetup.cs",
+      "sha256": "8d83359aa65cae06facebefff709540e9c2b75534a43c838d26b3ecf6b6b945b",
+      "bytes": 8389
+    },
+    {
+      "path": "Assets/Scripts/Editor/AtbSetup.cs.meta",
+      "sha256": "fd9356843748b9153f077088982482d2f13d5500c0fb9d5bb87f4c8d9013d327",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs",
+      "sha256": "bb1578e77f200feda61178148bd48d6a04b98580718196ac76ea9269804bdb32",
+      "bytes": 11786
+    },
+    {
+      "path": "Assets/Scripts/Editor/CombatPrototypeSetup.cs.meta",
+      "sha256": "cc6d56783dcf2efe7b5923d40e236f0b65b42e53adfb51ed5c38031b19731ff4",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/FoundationSetup.cs",
+      "sha256": "5afeedfd76d7d2466e113cab1efe51144b026563551eceaee012f2682a89e2f4",
+      "bytes": 8759
+    },
+    {
+      "path": "Assets/Scripts/Editor/FoundationSetup.cs.meta",
+      "sha256": "a66544f2dcafd1ebba05b5421694a920dcd5f33f83d80b6672b76c0bdc78b3e6",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/StatusSetup.cs",
+      "sha256": "43b5703a87e9aa605f2145b9c68fbe521706b30494389e497117ed0b0d0c1e17",
+      "bytes": 2258
+    },
+    {
+      "path": "Assets/Scripts/Editor/StatusSetup.cs.meta",
+      "sha256": "18102ecc0f055f90a7556173db7176f16c25fbd0a02ad3cb86c246ea3392ec9d",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Scripts/Editor/UltimaGuardia.Editor.asmdef",
+      "sha256": "ca14ace546a27cea455bc6f88f2a586d1c9360e52fef548495164e8f318cacef",
+      "bytes": 212
+    },
+    {
+      "path": "Assets/Scripts/Editor/UltimaGuardia.Editor.asmdef.meta",
+      "sha256": "2a21c1534e4c9e8ac0b305c1cb56aedbf63522456ff18f80a9cbb7dc16ed2c04",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/Scripts/Editor.meta",
+      "sha256": "5abb99ebbad2f5ee50a7f802cde640b0e637ae1eebefd06d36d47172d225b72b",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Scripts/UltimaGuardia.Runtime.asmdef",
+      "sha256": "6d16d518e8cf527d236166c9f0d7c4aa0ca699fcd007fbeb211170c8a25f2e6b",
+      "bytes": 127
+    },
+    {
+      "path": "Assets/Scripts/UltimaGuardia.Runtime.asmdef.meta",
+      "sha256": "7fe9b2fba23916329d31819c96085152d077338347b14f4f0ed16cac63206354",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs",
+      "sha256": "f520292912d319b201a0d146fa75cea906a2132e5c1adfef9542ac0e959605dd",
+      "bytes": 29019
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatFlowTests.cs.meta",
+      "sha256": "362e914fbf4f1376e2b1ec601331432932d37baa8af632676045aa00c27d9a1f",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs",
+      "sha256": "48118a70a73d57b17d078aade37adc3d75a855f3677c83318403e2d3a767135c",
+      "bytes": 26120
+    },
+    {
+      "path": "Assets/Tests/PlayMode/CombatRulesTests.cs.meta",
+      "sha256": "ad5241ba9154f18df6d6ecfa0d10ccba00641af14e557d502d00efb4d6902dcc",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs",
+      "sha256": "4bf76ee59e58d89884cf63a8c4d5a75e0865e166c2ae21592db6baca237c40b6",
+      "bytes": 7308
+    },
+    {
+      "path": "Assets/Tests/PlayMode/FoundationInputTests.cs.meta",
+      "sha256": "90f294ce3d6e967bb546e773b887a4499ab10e5b4fc1697986214904bc08c9a3",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/StatusRulesTests.cs",
+      "sha256": "6eaa1d07352055faa2d7115152065fe0e42715d2054336e89291c25da72f606d",
+      "bytes": 14190
+    },
+    {
+      "path": "Assets/Tests/PlayMode/StatusRulesTests.cs.meta",
+      "sha256": "b87dd5d7093ac39c864c170978a7d24235a44b36eda18adfed4ec8497ec01f57",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/Tests/PlayMode/UltimaGuardia.PlayModeTests.asmdef",
+      "sha256": "90ef29c3a4f3d7e3fa02fdb8e644eb324fe44a0e8e2fe190bc4d31303137f31c",
+      "bytes": 246
+    },
+    {
+      "path": "Assets/Tests/PlayMode/UltimaGuardia.PlayModeTests.asmdef.meta",
+      "sha256": "645632361763a96549bf02be25b08fd69bd2debe19c4bb146cbe1b28cf16e8d4",
+      "bytes": 166
+    },
+    {
+      "path": "Assets/Tests/PlayMode.meta",
+      "sha256": "81f22a2bdcfe59627f10b546a911ffd599757166a4927a7169fd24e79fe5a886",
+      "bytes": 172
+    },
+    {
+      "path": "Builds/H04/D3D12/D3D12Core.dll",
+      "sha256": "625bd40005b1c3708695d5256ecf230d278e6b8edba5a88af70f3d91324f3052",
+      "bytes": 4725304
+    },
+    {
+      "path": "Builds/H04/D3D12/d3d12SDKLayers.dll",
+      "sha256": "c0730cc70d3250d3de19c04c17845ba9e70eecaf502d684d1409195ebc5b5959",
+      "bytes": 4930104
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
+      "sha256": "9bb6fcae95d7a361cf1a57808954fe214565447cd03fd96c92b3897d988d2ad5",
+      "bytes": 7828912
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+      "sha256": "869edf52cc6b0cd30c7838e151d82c6474a667967c99f7e13ba1df990fe62616",
+      "bytes": 611240
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741",
+      "bytes": 1605
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a",
+      "bytes": 60575
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/2.0/machine.config",
+      "sha256": "e91782a27fa39fc6c1d6ee8b08529f5d35052310d0006034b878eb04b8f2af30",
+      "bytes": 29066
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/2.0/settings.map",
+      "sha256": "49c6160f9d54af4270a3b4e997fc4a8301f79b9e2070118fa46ddbcbbc44f9a2",
+      "bytes": 2622
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/2.0/web.config",
+      "sha256": "cf2b54339e069b9e42f7d6795eecbf562c50c1011f4ca8f65f578fe52d97ff92",
+      "bytes": 11635
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741",
+      "bytes": 1605
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a",
+      "bytes": 60575
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.0/machine.config",
+      "sha256": "e60aec2c5115d65b3acb3c55ea21576dbd770f579166c017125571e46ae560ed",
+      "bytes": 33598
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.0/settings.map",
+      "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8",
+      "bytes": 2622
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.0/web.config",
+      "sha256": "e38bb8cc68fe5b4edecdfd288d094b9e8ced7629039b2a347682aba0d8bd7492",
+      "bytes": 18802
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741",
+      "bytes": 1605
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a",
+      "bytes": 60575
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.5/machine.config",
+      "sha256": "ee950004b576fb28dc85f4b0435ed04bf96612de2e8b53be84d07afe85a0de6c",
+      "bytes": 34056
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.5/settings.map",
+      "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8",
+      "bytes": 2622
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/4.5/web.config",
+      "sha256": "c4cbddd4fd9347b58cc5a72b36dc4ba1ad2bb699e65869d05cd3fb9865f0d824",
+      "bytes": 18811
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/browscap.ini",
+      "sha256": "4ddd50f31fb968f30bedefc253a46dc3f2890192d05cdaa9e0a64a056eee807e",
+      "bytes": 311984
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/config",
+      "sha256": "5776169973a26a387b8b3e5c0f2301a7ab9a6dd7c7d3efa22a96abc47fbf8662",
+      "bytes": 3815
+    },
+    {
+      "path": "Builds/H04/MonoBleedingEdge/etc/mono/mconfig/config.xml",
+      "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d",
+      "bytes": 25817
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia.exe",
+      "sha256": "e3852a92c8d4350b2595c7086432a3350e25d7141fd6097bcc47d5f2d368a522",
+      "bytes": 667648
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/app.info",
+      "sha256": "dc8b2f2bc1291911f2107c69cacfc8075accd76903b9c54ddb4c0c7d7b19528e",
+      "bytes": 29
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/boot.config",
+      "sha256": "8a04bab20c9af0581a41f2db8b9dc9d90b63101f7c7f711c21f032e0ed7568e9",
+      "bytes": 358
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/globalgamemanagers",
+      "sha256": "cefda5f735651788dfb3f66c11425fa2dbb1fc3117214a96bfd2756217b3c3d3",
+      "bytes": 228580
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/globalgamemanagers.assets",
+      "sha256": "bc1cf2fa8e147ce5878e46421c55463c63a4f581e8e86077f5c24149bdc80816",
+      "bytes": 1315560
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/globalgamemanagers.assets.resS",
+      "sha256": "f122983b2e999b7f97c5b76ff4a4d07663df0407e3d921d2826aa61d3671a70a",
+      "bytes": 6176992
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/level0",
+      "sha256": "b5446303c7f5565312ce155cfb1fe2ebb569ed59ee5c8de591732ad18e1f80a5",
+      "bytes": 16128
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/level1",
+      "sha256": "39da32d0046cafff8374fa564bb7265a1bc2979cdfbeaf9f69db7c12f45bad31",
+      "bytes": 41684
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/MCPForUnity.Runtime.dll",
+      "sha256": "67838a165238b52700a262975c9005dcf93bf5431d7f4893bed272c5e24b4a54",
+      "bytes": 34816
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/MCPForUnity.Runtime.pdb",
+      "sha256": "f1f03457f31254286a350919a053a6bfd26a0fd6499caeb6cc09d91a7bef0b70",
+      "bytes": 29676
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Mono.Security.dll",
+      "sha256": "618009319dbf3ae374f9b5dc0d0522e1e1bdd172200c120a5471747b7991a584",
+      "bytes": 241152
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/mscorlib.dll",
+      "sha256": "6c76e06e6d44cf0f39bf59e6a90770968b70093ad4c1572dfbc5e46e431c5fbf",
+      "bytes": 4632064
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/netstandard.dll",
+      "sha256": "6ae62e082dc494a2433984177f60ca4db5fae69b1f360a8b33754172b310b8c5",
+      "bytes": 90112
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Newtonsoft.Json.dll",
+      "sha256": "a56146202232958f46bd6a28b5a7da166aea123ee0d646735a46e5c341dfbf1f",
+      "bytes": 691712
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Newtonsoft.Json.pdb",
+      "sha256": "17cbab4d4207187ed94173c0d59d7a39fabed7c9035b73634c1f02188dd60168",
+      "bytes": 2174464
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.ComponentModel.Composition.dll",
+      "sha256": "0c3e81771a5fe9657bea02887996de72606c3cb247e4fbe413f743f40e2af244",
+      "bytes": 257024
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Configuration.dll",
+      "sha256": "04907729e87a101e62d3a5c93cfa16688bee745d05440d6daa0c541964be27ab",
+      "bytes": 124928
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Core.dll",
+      "sha256": "a5e7d47313da0eca0b92a901a30498f5e970916faf63b70b74dd62b09760ed72",
+      "bytes": 1113088
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Data.DataSetExtensions.dll",
+      "sha256": "498f14c37d83f946a47a79e01de777e62f269ee9c3820f2026b59ab1c1b9222f",
+      "bytes": 29696
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Data.dll",
+      "sha256": "427478545ce66b632414ca838088ea073f250ed16b21c70005f48cb571350e47",
+      "bytes": 2125312
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.dll",
+      "sha256": "7019d6b6dbfa07cf30f62e7d3ccb969f70cbf001fd72112938ffb535c7f75d81",
+      "bytes": 2641920
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Drawing.dll",
+      "sha256": "e182e688223acedb8135227e8fbff17d5ed22f47f81141aa9cb96ef1ab9926fc",
+      "bytes": 489984
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.EnterpriseServices.dll",
+      "sha256": "84af394ad863e31407eb2b9555ca7e96a9f1966630f5d7f0eec54f0011f6babc",
+      "bytes": 44544
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.IO.Compression.dll",
+      "sha256": "80421a67b4162a5f1b4aad6a8327c6d1fb4b04dedd39dae14a770b812594fae2",
+      "bytes": 114688
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.IO.Compression.FileSystem.dll",
+      "sha256": "2730d2a27f9362259a406ea14727e5f0a71bc21a6825be94f8623a84bd9f9c79",
+      "bytes": 18432
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.IO.Hashing.dll",
+      "sha256": "ac7ac3e83805b0b621c48b90543dc733c9a89106835278618357d6187e3da74e",
+      "bytes": 50488
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Memory.dll",
+      "sha256": "c4f030a2cba7da7cdcf493257c24560e203d355904aee490d645a935842f834a",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Net.Http.dll",
+      "sha256": "3cd3ac19050d5031c13644cd87958ad8029b79ce16c7747faf3d0542e7fb45a3",
+      "bytes": 122880
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Numerics.dll",
+      "sha256": "ac9224b32355a09f09b706cab568384f64cf8116825c5911cef1e13221c61c38",
+      "bytes": 119296
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Runtime.CompilerServices.Unsafe.dll",
+      "sha256": "01748200f2400c742aa689f1f5101bd6298efdfd92c00c18f4fa473847235ba9",
+      "bytes": 18024
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Runtime.dll",
+      "sha256": "e0a7334b7ba419aaab6bd3bb6992d693e689341a9178172c9bf99c2aa6a085bd",
+      "bytes": 12288
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Runtime.Serialization.dll",
+      "sha256": "1152ef687dbe39e0ccb6b9a68f6501004415a729072df29abab3bc7c66840217",
+      "bytes": 934400
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Security.dll",
+      "sha256": "2101a4dd4475285f96b1ac3ba1715a52aa8067690709e675cc49a9eb8ed901a4",
+      "bytes": 320000
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.ServiceModel.Internals.dll",
+      "sha256": "888ec94a59c127854871b76afa49fdcefdf723c0f0b6fd78e87f73a8495b63b5",
+      "bytes": 215040
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Transactions.dll",
+      "sha256": "f65dbc257d26a361dcc01edd58bf3e542d186c8ee492a4f7a62b0dd7d59f7050",
+      "bytes": 35328
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Xml.dll",
+      "sha256": "79194220adfcf027a334c87b1adcc6d07b9660a4061e04b3d9500c10d30f7d49",
+      "bytes": 3160064
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/System.Xml.Linq.dll",
+      "sha256": "4f5d6bf313cbf091e7bff83d07dd03ed93d0ecb3ddb025ae786aadd6b5f477fb",
+      "bytes": 136704
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.dll",
+      "sha256": "d06579d90dd3b7656f52fb8693173046a8a8a092427935878d577027a8745867",
+      "bytes": 71680
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UltimaGuardia.Runtime.pdb",
+      "sha256": "b9d6772c4d1ee4587c702ebf93d1c308309c360f2786e705ae8cc8f7b341ad58",
+      "bytes": 36788
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.AI.Navigation.dll",
+      "sha256": "313ff6f308543f7972a3883c81f6626cb80bfe60cdf28eb7120788e2ae522a76",
+      "bytes": 26112
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.AI.Navigation.pdb",
+      "sha256": "46edfe0f350e9653a3f28e25505a7e39317557ac5b3f3518dc420e4301188029",
+      "bytes": 26300
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Burst.dll",
+      "sha256": "421f1c45537be7e0e8cf878b7eb70096d1d7a7f8bd94151b710fc6932812d1e7",
+      "bytes": 335360
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Burst.pdb",
+      "sha256": "c490df18faa902b656a0abcbd2f545fd52aed1b3317e7db16b978c5dfedc56c0",
+      "bytes": 220920
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Burst.Unsafe.dll",
+      "sha256": "9d9c1ff52411decbee5d9f0d1cd61ebeaa222077aa77a52101ea3debafae98e2",
+      "bytes": 5632
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Collections.dll",
+      "sha256": "b64018e13d7c713198053555ee66ffbd6e7dce933c024af39eb849fde8b288aa",
+      "bytes": 496640
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll",
+      "sha256": "ff50383f807f9692e4913b97e47d86fefcb8faa33d6d48cd3e3fd6fc7ffb448d",
+      "bytes": 5120
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Collections.pdb",
+      "sha256": "473848db0fe506be9cd59a2fc7e7895f19bf69a87523602e1801c7d4f9048fd0",
+      "bytes": 313792
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InputSystem.dll",
+      "sha256": "44e49c46aecf3e8bc3522f0442f66b34c81771093275955263eb596f62d56892",
+      "bytes": 1268224
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InputSystem.ForUI.dll",
+      "sha256": "90620894b8b8d79c9a2bbe4f52664f1a0cde444b088525c6eb713eff0f8773e5",
+      "bytes": 16896
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InputSystem.ForUI.pdb",
+      "sha256": "027aae8f0ee74524eec207f73433e91f1f76c724d8744cac1a4c183bb633a007",
+      "bytes": 21548
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InputSystem.pdb",
+      "sha256": "f199202bd840b544da42fc6e7425bffab3f4656ec03ef8741f92aa053a77a1d1",
+      "bytes": 576712
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InternalAPIEngineBridge.004.dll",
+      "sha256": "bbdb7cc555965c26b8b2df8a7eb9bc5f14e831da5e0391a2e9f182dd8b1d3e60",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.InternalAPIEngineBridge.004.pdb",
+      "sha256": "585286ab092531c970101cbcdd6c2c2241fcbe091489922cfc0de83be236beda",
+      "bytes": 16980
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Mathematics.dll",
+      "sha256": "7259321d04ecaf480f1f1fe7f49609b3250f224562a8d6899304fcf172ade1f0",
+      "bytes": 886784
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Mathematics.pdb",
+      "sha256": "4283eaeb53ead701c1ad566db6a047d3d64af2818eecd70630eaa6790fb15aa8",
+      "bytes": 516324
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Multiplayer.Center.Common.dll",
+      "sha256": "7e35e494c610ab81bd4a7bb4116f1e4b865e5855d7f7e95d036318d722dc0ab1",
+      "bytes": 10752
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Multiplayer.Center.Common.pdb",
+      "sha256": "f5c5ed927dba1c2886a0246008f4d394a96482d1ddc8ac7dfe6f76b251e80555",
+      "bytes": 18644
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Csg.dll",
+      "sha256": "3164d3fd59f7053889d596d014cf1886b4f709d7510a0ec25f50eba3b0cabbc9",
+      "bytes": 20480
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Csg.pdb",
+      "sha256": "6ff2ac3000023a982d557bb3ea89f2f111459d2e6882424f35224af9418f17f4",
+      "bytes": 26440
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.dll",
+      "sha256": "735916515a8ea096a2199cf8a1a8f326730626144413635e13bf95d0812ecaad",
+      "bytes": 439808
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.KdTree.dll",
+      "sha256": "372455e4d26e7c7bf94deb264d1a497d24bd6da6e571facdee53c13340629107",
+      "bytes": 23552
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.KdTree.pdb",
+      "sha256": "92b91adb164fc9445e384b752b0d32f281d0ee6002a73e0ac162a10501355c74",
+      "bytes": 27340
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.pdb",
+      "sha256": "ee8bbe7140b2c6f261a4df3ffa612de36192212f7631cc63c122b2bb890579fb",
+      "bytes": 234080
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Poly2Tri.dll",
+      "sha256": "cac7438b6ee0e904aae13fb68411679a74d3ac09e961a0f513c845466703a415",
+      "bytes": 44032
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Poly2Tri.pdb",
+      "sha256": "87528357ead899ece0cbffe9bf3d4a081e3bab84ab2e133cd5ed7e885a892843",
+      "bytes": 39500
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Stl.dll",
+      "sha256": "55687c524caef0918fca6457b08912b683a697d413f3a6dc5d6eff99f36925e3",
+      "bytes": 14848
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.ProBuilder.Stl.pdb",
+      "sha256": "66edf07d66fbe4b0aa05ad9332aa78547cc613f195e3cdf7a899563f5e4d8e79",
+      "bytes": 22112
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll",
+      "sha256": "135072bc70419a7dc6fd56a24fc017096fa8aa3bdffe1b0da43d875b49427960",
+      "bytes": 9216
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.pdb",
+      "sha256": "4ded0027705e600a152f9b41f410cc6bbf7890a9b01bfff4b1c0b4094aa03821",
+      "bytes": 17392
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll",
+      "sha256": "e01325d49dd2aca855953180d2a8281ed7ba12114020bd3f03bd2cf819e14647",
+      "bytes": 1291776
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.Runtime.pdb",
+      "sha256": "9e770124067c5c54f6542f86db25861e54c316a2eaacc670b2d58dd3d726953f",
+      "bytes": 480988
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.Runtime.Shared.dll",
+      "sha256": "660b65f6aa74e9275471f1e4bc851657ea8c8ea4745ba6a50166846d0e6aeae3",
+      "bytes": 5632
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.Runtime.Shared.pdb",
+      "sha256": "554f3dce3552a625dddc8306592ad7bb3159eacdedeea71c6f3bd2fb6e92bdda",
+      "bytes": 17156
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll",
+      "sha256": "86fbe12beaf38265a2a9c745200d9debf27bce672e17bf43a4b06dc3682fc5a5",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.pdb",
+      "sha256": "ba0b4102e2ba411d7d9ca5847bb9ddba0e3363c5d2264781ce71a25791678f8c",
+      "bytes": 16892
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.GPUDriven.Runtime.dll",
+      "sha256": "2ac9c1b8d0b031249d56ae062a0836b3e1d1b4b65771ecc912a8dfa5d5e16ee5",
+      "bytes": 258560
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.GPUDriven.Runtime.pdb",
+      "sha256": "e963c283c5b8af27a492eacfa3ffa58a17772eb7da0a12bfc157302aff48ea19",
+      "bytes": 130084
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
+      "sha256": "f8378c0e317eb0466eeacfe6157df2436cacffb6cc7888bf9528226bd604bd62",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.pdb",
+      "sha256": "4cf6aca9195d70e9854e3f19e46e913401c53889de036cca22dc01ae2f34de04",
+      "bytes": 16884
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.2D.Runtime.dll",
+      "sha256": "c5140329fab4d15d3137ba8756c340f84244d9ee609f96e38d85c1eeb58083bd",
+      "bytes": 256000
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.2D.Runtime.pdb",
+      "sha256": "a3c693744978f40bd7f889152eb8f247458b3c5921f8e2d2dafd141b9b952080",
+      "bytes": 155304
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Config.Runtime.dll",
+      "sha256": "2f847f496352fded9d1a8906c4848adc84da782e441bba881a0ef1d76850fc51",
+      "bytes": 5632
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Config.Runtime.pdb",
+      "sha256": "5a615366bc5b37498a573717372098b2a01325df4048161cd5fe20115f9169dd",
+      "bytes": 17052
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll",
+      "sha256": "e603b157eb39d7371299898219d40caafbbaaab245f0258d646dd286baf8c205",
+      "bytes": 801792
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Runtime.pdb",
+      "sha256": "d2a4eff776ffbeffdc69698b91835f266cd831e08cf0b9998a7706eca371e65c",
+      "bytes": 325872
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll",
+      "sha256": "cd14113d8a1a32675b242d652807ed60dc6583ca7fc502b23191fa59369ca674",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.RenderPipelines.Universal.Shaders.pdb",
+      "sha256": "fe0803648a1b31c112568d6ad308dc567103bd358bf04c4d00923ea4eb780b41",
+      "bytes": 16888
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.TextMeshPro.dll",
+      "sha256": "d1d24a2cbf3277b059cef319871d238e71fad3585eff2eaaa784d6fc9a796905",
+      "bytes": 506880
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.TextMeshPro.pdb",
+      "sha256": "dc155b8f75d1a0b7a1ca1a39d04a173a0f9a2ec9719c29610b2d743e53de1036",
+      "bytes": 257612
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Timeline.dll",
+      "sha256": "80f99a77193dd4a692cf0ec930dd2d23c65346f1f69b529c6776e3c71cebd2e3",
+      "bytes": 148992
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.Timeline.pdb",
+      "sha256": "467baf243a2e113e7a71439860c0be0074ccb1acd3d74be99399394e98e2fa89",
+      "bytes": 91448
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.UnifiedRayTracing.Runtime.dll",
+      "sha256": "ab1aa3aa4d2379e2c2ddf094318a01f70a7c1010587a1547b5f2b74427039677",
+      "bytes": 111104
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.UnifiedRayTracing.Runtime.pdb",
+      "sha256": "66d72eb897a4d81e9715807ebfbbf5b10c4538d34412063f8295114419d479ff",
+      "bytes": 60056
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll",
+      "sha256": "ed7ce205f66eafe39bbb5d084d42e7fe11cb4b386ff208e5d5110891be0b7b37",
+      "bytes": 86016
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.Core.dll",
+      "sha256": "4b94c3679c700c984515670193fd7d105973eb3369819f34724898b7d89785b7",
+      "bytes": 673280
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.Core.pdb",
+      "sha256": "a284a105e003987e9298358e3a68808a3a49a33248293a4335d42ae76c1f3a08",
+      "bytes": 336768
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.DocCodeExamples.dll",
+      "sha256": "3953ca163febf8ebea0e94d9401791f410313b6cc8c38094f271f6d3d0ba4a00",
+      "bytes": 7168
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.DocCodeExamples.pdb",
+      "sha256": "bed0a71cd44734100d2a6860b22f19a4d172abddb17c47240294bb547bd9a7f6",
+      "bytes": 17576
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.Flow.dll",
+      "sha256": "a2c407b7b0ebc1f96e661c65a3ed564c4767fa2b7010dd2a890250b6cdb20890",
+      "bytes": 433152
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.Flow.pdb",
+      "sha256": "b8a4035c8f0679611e5f3088e4a0efdaf4b77b78118fdc39c9d0a185973d2d9f",
+      "bytes": 221564
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.State.dll",
+      "sha256": "8932fb7e446726ad31b60c024734096670d2869ad6f63da554d3c12364bf20da",
+      "bytes": 33792
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/Unity.VisualScripting.State.pdb",
+      "sha256": "8614953aded6db20e4037ed907916dbe5c4f677619c9d359edfaacab101f27f2",
+      "bytes": 29988
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AccessibilityModule.dll",
+      "sha256": "8a7d6800d62413423e9bb6ec2af87eda9bae762b08aabc7345f18fb4c1d0eb4c",
+      "bytes": 50088
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AccessibilityModule.pdb",
+      "sha256": "4f7287dc3bb85743f02d249ac87395fca533960beac021269db9b2e8ef23be2e",
+      "bytes": 22684
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AdaptivePerformanceModule.dll",
+      "sha256": "34316eff025ccdc7be76e3671a7bc1fc02d507c5734c3ce43e9a8844fc190dc4",
+      "bytes": 124328
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AdaptivePerformanceModule.pdb",
+      "sha256": "ddc1982836eed5b98a2a5b85817533a97b4d101d8ace59650b978b3c60f21080",
+      "bytes": 52712
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AIModule.dll",
+      "sha256": "4aadd8305f54c7b5889d75bde6750717ffb17dbf5db3cb92fc2dd7521d117e32",
+      "bytes": 77232
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AIModule.pdb",
+      "sha256": "17875e76ee0edd07cc25b8a69a32fbd83baa0b68b2cdd26dac2a8a5169c7a287",
+      "bytes": 20628
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AMDModule.dll",
+      "sha256": "280750e510454cb16478521e7fff89b1724c8ddf66d4d703fc3fe159ba4b5ef0",
+      "bytes": 21928
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AMDModule.pdb",
+      "sha256": "1473dc15d2215cfbfcc4dedf463a4f0607e6e165783ae1a7e26f6c2604934a9b",
+      "bytes": 11996
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AndroidJNIModule.dll",
+      "sha256": "e33fdf721a3b5dd680d870ebdfa73e94d9b44cea45a4f6da5c40fd11eec5009e",
+      "bytes": 121256
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AndroidJNIModule.pdb",
+      "sha256": "81643bc6b0c9a17116e28f28f3fc42197773f9f963dc27f33d347e1a1696a778",
+      "bytes": 50196
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AnimationModule.dll",
+      "sha256": "008753c45bebf40abbe9606307247ae7b3b3e67964e2542d0ed33f8e79ca392d",
+      "bytes": 225192
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AnimationModule.pdb",
+      "sha256": "76f01c802cdc21b21cbd3f11b71641aed9de7a47e2ff210b21a36461a54fe153",
+      "bytes": 60740
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ARModule.dll",
+      "sha256": "72731aef55639c4365a8b45948be27578ca239c2e38e22cc8e7a642f89df946c",
+      "bytes": 25512
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ARModule.pdb",
+      "sha256": "0d2f5692c76c85ce4d4ba3983fdf6ffcf1746f212123d93531da9dcb0e43da60",
+      "bytes": 9976
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AssetBundleModule.dll",
+      "sha256": "73b5fb9e8c41c8d9be1dd7c1561fc87e5ea9c738b3dea9398dcc2ae25162e9f9",
+      "bytes": 41896
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AssetBundleModule.pdb",
+      "sha256": "c179eaaa36af48ce784e9c58a83afd93541c0cc50d1e7d14ae9e031f5c71db93",
+      "bytes": 14116
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AudioModule.dll",
+      "sha256": "1df8646d65f68e1723f8f016b00505bc3ea6622fe3e935b667a256b422956b3e",
+      "bytes": 142248
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.AudioModule.pdb",
+      "sha256": "b63a2f95ff34c3a71cc021a28ab88b75d6a882e92e86a4bf2d77e8c47cd82539",
+      "bytes": 35052
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClothModule.dll",
+      "sha256": "5982a557a201ff09a327d7207ea96b343d01c6cac39f306d30d06ed97caf1e71",
+      "bytes": 36272
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClothModule.pdb",
+      "sha256": "be3c77db4796a224e3f138854b15149d96ff295acd8ef46760e0d6cecda14e77",
+      "bytes": 10560
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClusterInputModule.dll",
+      "sha256": "5df372f2c71f7492779eee968c812ac8d4391dba3d77d011e51b15992980b27b",
+      "bytes": 28080
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClusterInputModule.pdb",
+      "sha256": "77cae2d2148923ea52248ba41349f19645bbb451e279595945dde96d9242f2b5",
+      "bytes": 9360
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClusterRendererModule.dll",
+      "sha256": "61fd7640635d91d39db90bd12622186f7113b84dd544739cc6c025945f6a2fec",
+      "bytes": 26536
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ClusterRendererModule.pdb",
+      "sha256": "8d9d8ed47ebbcd553fc20fb4f4a0332b251a4a67b60eea0827451ec218e5bc3d",
+      "bytes": 9968
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ContentLoadModule.dll",
+      "sha256": "c4bcdf5f71715efac2f5c583c2d3922ec30b8cb4e416096d38ac18b8090649d3",
+      "bytes": 32680
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ContentLoadModule.pdb",
+      "sha256": "364e934779cc82a05c8b55869861ea8edfdd91988f3652f2724a95790d3ccb07",
+      "bytes": 11140
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.CoreModule.dll",
+      "sha256": "7de56d1259f25d8b0cfdc9f4c77030056886bb9ac119854d3155bd87a54c0af7",
+      "bytes": 1982376
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.CoreModule.pdb",
+      "sha256": "59f7b00c179e2b1f2610987493620ccbe7b4d66a0fd551bbe52fcc153ad372a8",
+      "bytes": 572204
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.CrashReportingModule.dll",
+      "sha256": "fc740563b94f895f4f837490fb5712ee0f1f4ff82b8b54ff718ddfe67058005d",
+      "bytes": 26544
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.CrashReportingModule.pdb",
+      "sha256": "8410057774e0091b5daf25bf1357ca500bbd8fa9563fba4c2eaea68aef33e7ca",
+      "bytes": 9972
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.DirectorModule.dll",
+      "sha256": "8fed23041f8f5c24745f5cb89cf10d0cc31408cdce2d3980234d952c88d11392",
+      "bytes": 41384
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.DirectorModule.pdb",
+      "sha256": "da6fb123bf6fbc41bbd1617f5ac7916c650fa5e9191048832b4f3caab29c15d1",
+      "bytes": 13888
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.dll",
+      "sha256": "b12b4cfd78ef40386959e28966b9e96ed2f4b2bb438908994fa35731f1e1aee7",
+      "bytes": 197032
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.DSPGraphModule.dll",
+      "sha256": "feda09b22583da44c76c1644a387fe6c1013a7741ae7c5bc6e43042a981f8eb6",
+      "bytes": 31664
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.DSPGraphModule.pdb",
+      "sha256": "2c5f552394c328f7b3374b36b767a478f023e95a1e94ca4a57112e56cad7b2e5",
+      "bytes": 9568
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GameCenterModule.dll",
+      "sha256": "60c7b69cfa6aef59a7c4d8ddfa20285d324ca0c1a332d4ef8a561257b0a7945f",
+      "bytes": 45480
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GameCenterModule.pdb",
+      "sha256": "24a16ae030f5c8472f5fc8d8062540a281da1ea1fe457576dd2cf33732caa7d2",
+      "bytes": 17452
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GIModule.dll",
+      "sha256": "2a24153e84e3ec1e0bf599637d487d55f623660e035ba40405cda11f20621115",
+      "bytes": 24488
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GIModule.pdb",
+      "sha256": "1f85d4c1bed01a7cb79451b1e9046e03e6c0868969055b695517f34aeecc28dc",
+      "bytes": 9240
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+      "sha256": "04600af02941031611bdc371f459c51cdef344d4ae0ffd8f73763b083667fb42",
+      "bytes": 14248
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GraphicsStateCollectionSerializerModule.pdb",
+      "sha256": "c8d0e8e2f312b43eb06667ff148ffab4ded2f050f781efb69fbadcb742065c14",
+      "bytes": 9268
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GridModule.dll",
+      "sha256": "424ff6bfcfc3c27ea074809a5e77413e9f4c7ba379a81f8ae924a24bf033e6d2",
+      "bytes": 30120
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.GridModule.pdb",
+      "sha256": "f4dc845dc5587535dcec856d0d125a53f52a6cc961bf48133a7b1ff963644fb4",
+      "bytes": 9996
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HierarchyCoreModule.dll",
+      "sha256": "83bb4bfb97da1b629ef0a4c262c08c33a7b7f9d5d36fde0d0e30c2e5016e6e4e",
+      "bytes": 109480
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HierarchyCoreModule.pdb",
+      "sha256": "af998b3c532bff7f67c97830439e2f9f16c9d4348bcf3e6e4617f1b5dc06d657",
+      "bytes": 36404
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HierarchyModule.dll",
+      "sha256": "f85e894c1588e95af4deae1ed8704874fe0c0764700b05c178f1f60b2facbdee",
+      "bytes": 102320
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HierarchyModule.pdb",
+      "sha256": "105d070a1433ff628e6890f9e08c6510447bc6d8806ab477426f1b72a74616ea",
+      "bytes": 47624
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HotReloadModule.dll",
+      "sha256": "516a300cffd8c03b623225bf103fa07b7792feb41064dfa3e17b2b631b8bf1e6",
+      "bytes": 24496
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.HotReloadModule.pdb",
+      "sha256": "3a6538207d4dcbc147bde8b3f81bd93618a157adf37a92789e9f3b619e0e128c",
+      "bytes": 9240
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.IdentifiersModule.dll",
+      "sha256": "228e6a653a1b4a0499a13267e06846773b6e3be6b02bcfca3838f8cfa4c9f7e5",
+      "bytes": 14768
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.IdentifiersModule.pdb",
+      "sha256": "4540f05d520298c92d0699133a024ffa13e0e34fc1ed3f24358e64dc58c5f183",
+      "bytes": 9504
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ImageConversionModule.dll",
+      "sha256": "fa36e41f29ef7351e087286ca590305e8a613861e604cd93977514396fb544a1",
+      "bytes": 31144
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ImageConversionModule.pdb",
+      "sha256": "5ea96ae058404f5b9b10e73f55d46640697483f146f585101c432eb04c57d903",
+      "bytes": 10580
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.IMGUIModule.dll",
+      "sha256": "577712fb19f217f2e9dcc870e6cf430d4a5836c5c4a745ae89466877dfbb9745",
+      "bytes": 213424
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.IMGUIModule.pdb",
+      "sha256": "10866f541da172c33e366789a9e93c08a2a55fc08308c21deebe69e2053884f6",
+      "bytes": 89996
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputForUIModule.dll",
+      "sha256": "978899464c6719184f17ac1aa28e4a20f6d74bc5e7219b8b885851398c0bc57b",
+      "bytes": 57768
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputForUIModule.pdb",
+      "sha256": "733d0a40b2c6195d6f7ca28b6ba4d5ed7e015130a983feaceb174c8b6c183c8b",
+      "bytes": 26072
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputLegacyModule.dll",
+      "sha256": "392d2fc69b06f6102d3215fb4bf49a2abe6b0256a2ff86afda9ea1bc61aea0e2",
+      "bytes": 45480
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputLegacyModule.pdb",
+      "sha256": "333989036ad5917b16e93c3c3945ad90d802a1d63b647bfb78febde6aaf594e1",
+      "bytes": 15348
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputModule.dll",
+      "sha256": "096f29f53b639959d392eacf8f94b44ce12adc8f2da46d35f722e86ce0127916",
+      "bytes": 28080
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InputModule.pdb",
+      "sha256": "66126232616522e4242c2a43a479437ed2d8656296a65db0bd4da0e0a2fc5f13",
+      "bytes": 10612
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InsightsModule.dll",
+      "sha256": "d621d49e218476f49c2f70f66c9b5a3bc7e7484ba70dcf583e85c40da2ad006c",
+      "bytes": 14248
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.InsightsModule.pdb",
+      "sha256": "30e8d58f58bf07dba97d60bc8ca8eaf69d77377cad58d04a8097aba0a74f32d7",
+      "bytes": 9564
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.JSONSerializeModule.dll",
+      "sha256": "14fb2cb2aa2b460e1d8924368f8747c08e81f9d8db90373cb6537a9ed3c82728",
+      "bytes": 27056
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.JSONSerializeModule.pdb",
+      "sha256": "1a2f2328ead14e1ae51c31770afcd51f539fddb43a96d54b1ac7c4e2426ee891",
+      "bytes": 9864
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.LocalizationModule.dll",
+      "sha256": "d32820f90848f871c0e138969cf8b0b140b27fa6dad42c61ce3ff753e3d235e7",
+      "bytes": 27048
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.LocalizationModule.pdb",
+      "sha256": "5e4efa5ebb97987d08bf35d1ab4cd2d1e04602f5895216149010491731601a09",
+      "bytes": 9660
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.MarshallingModule.dll",
+      "sha256": "8bfd18d750fda9f8c3fbaf600edd673034d9ede0498f0c36c117acfd24bd4a1d",
+      "bytes": 83368
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.MarshallingModule.pdb",
+      "sha256": "3812b160e16a8b840037c5ab059cc0e68b89e03eea162629d4b058b0365d2f93",
+      "bytes": 14252
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.MultiplayerModule.dll",
+      "sha256": "361e7815ab75f99817cba6940d4cced8864011abd91432d0e4f918b827b91cf8",
+      "bytes": 17840
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.MultiplayerModule.pdb",
+      "sha256": "ddd9ac47df1e93260bdff762d7883e69238e9ef1b5b49dc4df6bb060b0368bd1",
+      "bytes": 10332
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.NVIDIAModule.dll",
+      "sha256": "ffaef80f2422ffe3b293abe93851c5d451c82c97af6d9b8c70a266ff650d82f4",
+      "bytes": 40360
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.NVIDIAModule.pdb",
+      "sha256": "8ae15e69e4687e95512265d44f75dab4ad8c2c9154a3da3ccc9f080a3d02ce96",
+      "bytes": 16200
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ParticleSystemModule.dll",
+      "sha256": "fedf012eb30ab6b74b4b19f227733c621b619ff0f234c4d95b8bd04588a6aa0c",
+      "bytes": 171440
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ParticleSystemModule.pdb",
+      "sha256": "a52d6610afac659d2a6a246664f69a5525be17d57a704c1d5e13566751709bbb",
+      "bytes": 40428
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.pdb",
+      "sha256": "66f04a254195102a9c030b1779231e218696d50646bc6123538672d3d7c9df43",
+      "bytes": 12676
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
+      "sha256": "ee91e4fb6fbd4344014679f837ce65b4d5d8f9bcbf233098d70045445a8815be",
+      "bytes": 25000
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PerformanceReportingModule.pdb",
+      "sha256": "fe0f1b7c997d9b9525ba3f7bb8daf0ca8dc8f4cb97d615a0c0c97966453f8375",
+      "bytes": 9448
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.Physics2DModule.dll",
+      "sha256": "614ccdc5623b52a6ed1c233e15daa00a74c010298ce321c1091b076e7e89c14f",
+      "bytes": 578992
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.Physics2DModule.pdb",
+      "sha256": "da97ea85b90d0acc8f5d1527dcd4aa17d33f196069718cf74a379b3153cf3bc0",
+      "bytes": 133648
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PhysicsBackendPhysXModule.dll",
+      "sha256": "2cf5db024b21bcfe7ed05bf2dd717193cf18eb5788dad96471fa85fc71c98e42",
+      "bytes": 14256
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PhysicsBackendPhysXModule.pdb",
+      "sha256": "3eeafdb1a8cbdfa5d4d7530d75e4b5aae0f945adfee96bf76119345e3e95e042",
+      "bytes": 9260
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PhysicsModule.dll",
+      "sha256": "7a2817369078b9bfeb5a7d806a24ce135073b4459d87bc70a89e3308c3bb4575",
+      "bytes": 182184
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PhysicsModule.pdb",
+      "sha256": "95a7183d7d963a406d4360da56eb91ea758e5bdb96937cbeb4afcf3d0286e43b",
+      "bytes": 45660
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PropertiesModule.dll",
+      "sha256": "42e9e2f41987a6bd61087378f7255f23cc9178fcd4e8100fea6b93d6ef966bc0",
+      "bytes": 133032
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.PropertiesModule.pdb",
+      "sha256": "0fc2b91fb4ecf7633f4e48f39969a37cfdbcf97bceda7a741c646cb06d9481bd",
+      "bytes": 62156
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.RenderAs2DModule.dll",
+      "sha256": "a4ea39e89d9ea3d49879a97654743e382582bff4499948d5e00b12762b2ae285",
+      "bytes": 25520
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.RenderAs2DModule.pdb",
+      "sha256": "5318cba1cf6cc81d24ef2f9c025301167e14d8e8d2f7e4fe06be7c26700a66e9",
+      "bytes": 9288
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+      "sha256": "063e3a7f293b3725b9c05719ca0fac5a28efb47396ad5f2a78efaa88cc073bbf",
+      "bytes": 24496
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.pdb",
+      "sha256": "b80654a4466684ef3442b7799de5c4286c02caa709990d923be5b4280c24e9a0",
+      "bytes": 9304
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
+      "sha256": "ce286ca8fc641183b7159d0bab488100e85c900e887908d9303da6d50b11573e",
+      "bytes": 26024
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ScreenCaptureModule.pdb",
+      "sha256": "45cda027dbd3e8786141e399239962b941a12cca17b0cb3f4f1a6b6dd6d628e4",
+      "bytes": 9844
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ShaderRuntimeModule.dll",
+      "sha256": "ba43cbe234c150a447a9aec35f8c554cb33f3aef50e1c8442ba246f6af98bd4f",
+      "bytes": 25512
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ShaderRuntimeModule.pdb",
+      "sha256": "d0cdab7abaa7c75c55fb210e1d447a11b96194d453fac694c156d9ded8cfcdd2",
+      "bytes": 9280
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ShaderVariantAnalyticsModule.dll",
+      "sha256": "4875baada4ee36877fb0d77055dd808f05c918e9269f7ed33b6a9254648e791f",
+      "bytes": 24488
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.ShaderVariantAnalyticsModule.pdb",
+      "sha256": "9b777bcf5aa160172f3ab6b868dd5cba10e17e49a5c23160d081971a4db5a31c",
+      "bytes": 9364
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SharedInternalsModule.dll",
+      "sha256": "69e234a4a346106a23b8f82c936621d08e7cc407ba1ca793098613bb1078b44c",
+      "bytes": 37800
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SharedInternalsModule.pdb",
+      "sha256": "6e7c17a8cf1e6dab8f8e1f032075f28d5b6667e7facb4cd9198edbdecd6679a5",
+      "bytes": 14252
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SpriteMaskModule.dll",
+      "sha256": "06dddcff8b20949215b46bce3b7692379e16dc6a13cbf9899624fc1734f98fee",
+      "bytes": 28592
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SpriteMaskModule.pdb",
+      "sha256": "68f2253a62c816a6285ba118393c8c68d3ef59108ba25697995ff38d4e76abb8",
+      "bytes": 9572
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SpriteShapeModule.dll",
+      "sha256": "0f6f7f44a078b65a778281721f24cc2c413eb1203fd60ae03b1bdb11ee407da3",
+      "bytes": 31664
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SpriteShapeModule.pdb",
+      "sha256": "3e6f73099f44e56298e42ed9d790009ba512828074162a4704f57bc3ee57eade",
+      "bytes": 10800
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.StreamingModule.dll",
+      "sha256": "e33bc70f2449ce288270dd33855e63c117abf0ea9e4614dc737c7dac7ba47bab",
+      "bytes": 25520
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.StreamingModule.pdb",
+      "sha256": "ac2778ae999f5e15bd66baeb29d3088824888add097f5a143a51333679c78375",
+      "bytes": 9316
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SubstanceModule.dll",
+      "sha256": "b249790bd635e0640b97455a37a10b4a79177f6cf8e716e4266094c3e677bb0d",
+      "bytes": 29104
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SubstanceModule.pdb",
+      "sha256": "59785686d7789313b74270fd95818b4bf4ebedb26ded32e65102fab71df5aa32",
+      "bytes": 11444
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SubsystemsModule.dll",
+      "sha256": "f25824d57c5f394b514df03bab7ace58d9e6eb8b55f52c5895404cb591eacf49",
+      "bytes": 41896
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.SubsystemsModule.pdb",
+      "sha256": "37b1f03ad73111b004126717dd21877236c9588d319ca9f477bbc77261c816cd",
+      "bytes": 15984
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TerrainModule.dll",
+      "sha256": "3b3c39ea0383effef29d600b203789b45bcd3f308f5bd67650057306a2dcc530",
+      "bytes": 133552
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TerrainModule.pdb",
+      "sha256": "f5fb803c669f1b8f35edd9137355f537bed20d8cb24c4c59a0ee31c7af6e805f",
+      "bytes": 33936
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
+      "sha256": "f9d3cc596e1ed6c6af31d1d874c64c44b0c1b6c37d4be9552831a355a7ad5265",
+      "bytes": 25520
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TerrainPhysicsModule.pdb",
+      "sha256": "88f4764d83f0e16f986821cf523c947323dff8ab9960d589cb743f18e88b5226",
+      "bytes": 9704
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll",
+      "sha256": "ff444583b096dac46a7f166f4b31f4dfdec8215ddb0c194a642e0d556022ee45",
+      "bytes": 81832
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextCoreFontEngineModule.pdb",
+      "sha256": "84b2f2ea655553f0f337be5625e277cf863d651613671082205e584b3e851976",
+      "bytes": 29276
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll",
+      "sha256": "7d22466042f90ebcf1b4edd3b1899b7a648396736a835789a6b3682b9bf03ee6",
+      "bytes": 331688
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextCoreTextEngineModule.pdb",
+      "sha256": "e30dd94e259b3112fe06b081eecb2e05a5ef5fbdaa159d5fa165d9034e352896",
+      "bytes": 151940
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextRenderingModule.dll",
+      "sha256": "08101957cbac2a025d98722f19b7be6397a493055d4fe1c71921dbad1a6ff5f5",
+      "bytes": 39344
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TextRenderingModule.pdb",
+      "sha256": "1afe1bdace588151f262300ef04a7a85daa05f715b86d70b1f7f2ec7fb766771",
+      "bytes": 15344
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TilemapModule.dll",
+      "sha256": "20417bd172680153cebbb8a627fe8f3fd1bcd53ad6ed7ecd66f406f3c25ee6bb",
+      "bytes": 58280
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TilemapModule.pdb",
+      "sha256": "940c708337eddf1f56a272b28ba7cf5fa5cce76e652147dfabea09cbb73dbd2a",
+      "bytes": 18976
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TLSModule.dll",
+      "sha256": "1640aae47dc1eb5b9b92b862ddc13cc11ac46f24aa0c3d4557d1d486b4c39a39",
+      "bytes": 31144
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.TLSModule.pdb",
+      "sha256": "b2b55000c8cd859ca7ab8b9a13d61f1bb17bbb5c12a4a600bd5484537670195e",
+      "bytes": 9260
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UI.dll",
+      "sha256": "b334f197bd8eb42ef3ac185cebea1ee7be1f5ac3b21f886ac2e4c8e8c081c4b8",
+      "bytes": 309248
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UI.pdb",
+      "sha256": "23c76376db96d5853b41ddc650edf609910c143f9731aa9ef9b46300afcbfd30",
+      "bytes": 188080
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UIElementsModule.dll",
+      "sha256": "17665e29b26331de4ea8d55a0cb179caaded9392e502e830639746de7a2c0ff8",
+      "bytes": 2443184
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UIElementsModule.pdb",
+      "sha256": "2f0f5a075599e340ef9ded04c70ac437720aa29ce5eebde11b06ed42c2aef50a",
+      "bytes": 1094136
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UIModule.dll",
+      "sha256": "ff6bd636bae03824036846de78fe508a93511ad9326026ee7d6045ea62304559",
+      "bytes": 49576
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UIModule.pdb",
+      "sha256": "d0dbbd886b934846fee7834fa6bf1c8bd99fe91fc1e67800e72c8711202d9f35",
+      "bytes": 13832
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UmbraModule.dll",
+      "sha256": "b5cdca42e0c9c6d76b0cd81ab74949afe517463432498c65ef894f650bd1c8b6",
+      "bytes": 24496
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UmbraModule.pdb",
+      "sha256": "eace71129dc9024e4a71889b2fcb9be685535fa5752b5880d1eccdd8548dd796",
+      "bytes": 9240
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll",
+      "sha256": "e2c977632a6af6c2494787d3e0270398ab76f4bdaeafb8b4035996e0ee7ac743",
+      "bytes": 35760
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.pdb",
+      "sha256": "4aa7d55f7312db8e797ae2514fd334f870044932e2e7f0e1b686fe7545db7eb8",
+      "bytes": 13720
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
+      "sha256": "305fe38f6b4859aa68e69778dce6b349e3e072ac2652dcc9ad5288c96593667a",
+      "bytes": 60848
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityAnalyticsModule.pdb",
+      "sha256": "f389de57ff0bfef88e3d66921388d5f3f57544449e886b0e7e977aaa9bbdb6c2",
+      "bytes": 17964
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityConnectModule.dll",
+      "sha256": "4d85e209723e6dc2dc88b13f4f0ab72d8f152b3da8e3e50e2231edde14c10f79",
+      "bytes": 27568
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityConnectModule.pdb",
+      "sha256": "8080b4c2d2ccabc560ed5ff01f226d4731eb6e9193c981d7617c24e76545eaa2",
+      "bytes": 9836
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityConsentModule.dll",
+      "sha256": "07fedc3b5d2ef2ec7050e46a25dfd23c5a3611cb6de84ed214e081c71001d539",
+      "bytes": 16296
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityConsentModule.pdb",
+      "sha256": "259aeb0152121ea63a0df20d48b30b5315894dd3dce4abfe6d2b00670e5222ae",
+      "bytes": 9868
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityCurlModule.dll",
+      "sha256": "4b127fd008a7396304cd6e213719ab629c4ba9d0d10dc23a5712ab49414bb58e",
+      "bytes": 26024
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityCurlModule.pdb",
+      "sha256": "f61773656cb55dfce640567c39480e7470ae4b026cbb0cc0c4bb84b54433a689",
+      "bytes": 9632
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+      "sha256": "564cedeb2e15dd24729f096adee910cdb2c9328755e8491bb3a9d99d914975f8",
+      "bytes": 28592
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.pdb",
+      "sha256": "7e1e80c463ff553368a29555c6a8d8b787ba2d113d00ff34bb09fe4dc4dab6a6",
+      "bytes": 10812
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
+      "sha256": "1e605943be8901cc5d5489423039f9a43ed913be8e56391d6ae38e1480659fef",
+      "bytes": 28072
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestAudioModule.pdb",
+      "sha256": "e917d33576e662b92ddd4974eaa9ee5cdf6342c96c8b873884ab11025a677de7",
+      "bytes": 10616
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+      "sha256": "226eed6b554a778c6a1af6154da7a87563c3c113dd4b3b02d0344c4eb90c8d14",
+      "bytes": 69040
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestModule.pdb",
+      "sha256": "be0e5a366c651b6324530a1779744ffdb66dccb7aa5705697b2253f6c6505cdd",
+      "bytes": 28308
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
+      "sha256": "3e2dae58b362347e1a13e9e72988756cfc273254b3f57f178b6363911545fe53",
+      "bytes": 27568
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestTextureModule.pdb",
+      "sha256": "ca00c2b532bea93f660a34397932a124cb79ec1735e5277707db25da298b8b4a",
+      "bytes": 10780
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
+      "sha256": "ef5f352d7910fd6e11fc7563523ad5e15389222d07aaaf8ff322634bcebbdf4a",
+      "bytes": 36272
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.UnityWebRequestWWWModule.pdb",
+      "sha256": "99bc4402231788cf5b2b4a4af4872e7699ce20dfd7e298f67f58c728c08ef662",
+      "bytes": 13684
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VectorGraphicsModule.dll",
+      "sha256": "16699575d6a87f2937d4117e08da2749452f30a53ce2b496de065bcc0c73c810",
+      "bytes": 252336
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VectorGraphicsModule.pdb",
+      "sha256": "5a4214f64281edf989008f772c6ad77fd50ed6c8ca7dff53c8f92abfafa709ed",
+      "bytes": 142692
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VehiclesModule.dll",
+      "sha256": "947fb814d69e7a716038fa4a596ec8ee85aa22ef97aee4de9772c7bdf840e514",
+      "bytes": 31144
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VehiclesModule.pdb",
+      "sha256": "bbee64f04cf5a1d94db8de79441067af5bbf27dbc4c5a3c5d4d7754fe3dc8928",
+      "bytes": 10484
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VFXModule.dll",
+      "sha256": "d4069b37af15c756ab95d6bc8480de804486b5403eb21e4a31f7806545e147bb",
+      "bytes": 78248
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VFXModule.pdb",
+      "sha256": "4f9cc68d3917619f808ea9a83eaa41356e74328e2cd50bc6ddc505fbaa772403",
+      "bytes": 18748
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VideoModule.dll",
+      "sha256": "558fc72602c7e4dffd5c1921e931047c6c9968009c3c3bcfabc9242e852d881d",
+      "bytes": 49072
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VideoModule.pdb",
+      "sha256": "b42cd098068ab52e986760cd58d573db262f7db93e538e30c3b8b40ca739d367",
+      "bytes": 14128
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VirtualTexturingModule.dll",
+      "sha256": "a169678e1b5e1c50bcdcb52f15609ab3eec8069f9a9af80f0b67dcf150d98b16",
+      "bytes": 42928
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VirtualTexturingModule.pdb",
+      "sha256": "7f522a3cadddd5b380264aa9b0af867986705ee3c9041c4fd8108637ade6d9e5",
+      "bytes": 13488
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VRModule.dll",
+      "sha256": "1f592610baf060823ffd2e5d7428fadaa69628de5fc299f83918d791c9cf052d",
+      "bytes": 31656
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.VRModule.pdb",
+      "sha256": "3793f9d3dfce9c7d80a28c503b288042371d7d277b5fa3de277d8ca7ef77fd52",
+      "bytes": 10368
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.WindModule.dll",
+      "sha256": "6fab10a1a8759596fbbceb6831249b3158d007d6ab0f9e0584fb687c561202af",
+      "bytes": 26536
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.WindModule.pdb",
+      "sha256": "a145711eb39883630786d3f6b204c9cf9d417d84b4ee9351960f0d01ed641211",
+      "bytes": 9376
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.XRModule.dll",
+      "sha256": "2b930c1f84e8e30df154db52f1efc0b2327401a75d1b91ffecc408a509922af5",
+      "bytes": 88488
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Managed/UnityEngine.XRModule.pdb",
+      "sha256": "2e31a69ebb0d9a3fc7a1822ed4584d654a738dd3fdc1df925bae971ecfdd4126",
+      "bytes": 24256
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Plugins/x86_64/lib_burst_generated.dll",
+      "sha256": "8b21d512062d017d46fde4f6787da097aca05f8f0b5f508e2410d21e737b9963",
+      "bytes": 480256
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Plugins/x86_64/lib_burst_generated.pdb",
+      "sha256": "50f9be6354dcb23d25301660db82c4fbf4118f2cc3552e0d778385b43b047e6e",
+      "bytes": 2936832
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Resources/unity default resources",
+      "sha256": "fb2492cd1ad7c38dda8a4ce5f1a1fb57edcff44e3ae250b263e44beae3660ec4",
+      "bytes": 5923140
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/Resources/unity_builtin_extra",
+      "sha256": "4532f22993fe9e2935c4247f7d4f11ac5b93ebd437c9b4148cb7839656979ab2",
+      "bytes": 401736
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/resources.assets",
+      "sha256": "e0d8e4ad67f3acd34fdbb4917b5e2135650ed53d40411eb26692b31b94737cb8",
+      "bytes": 687112
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/resources.assets.resS",
+      "sha256": "3db7dcaf83ac2c45687f79a160f4a43eca266d8abb1b6c18f0f411694d1fd290",
+      "bytes": 1055904
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/RuntimeInitializeOnLoads.json",
+      "sha256": "c1ef0bf75957ba519953db91b4b2a9520d96fe0af14818bc98a75c6cc9a601f7",
+      "bytes": 3388
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/ScriptingAssemblies.json",
+      "sha256": "cfb15918c71af0c7ae4650358fa519e704009619626b35ed05fe62e8f94d82d4",
+      "bytes": 4608
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/sharedassets0.assets",
+      "sha256": "bdcfae3cf6ec741dcc250246443c73435ee3d70b6fcb13dcea4dcadd855aa1b3",
+      "bytes": 9988
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/sharedassets0.assets.resS",
+      "sha256": "393efe6399536384aa91bdfc4e64f244b4d3e1fbb6a4ff145c483ffee64ccb36",
+      "bytes": 524288
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/sharedassets1.assets",
+      "sha256": "9bbdc428aa80789547e45be1efb6411580682987471be09b1b14a03735153462",
+      "bytes": 8092
+    },
+    {
+      "path": "Builds/H04/UltimaGuardia_Data/sharedassets1.assets.resS",
+      "sha256": "017a3722d8a95dd580d04534769c467d7752e1e920a1010f384ac4226d79220c",
+      "bytes": 5472
+    },
+    {
+      "path": "Builds/H04/UnityCrashHandler64.exe",
+      "sha256": "10369e4e3902b03e7fafa9712cb2524d83bad349983fc9a9b79bcae5bd9366d5",
+      "bytes": 1674152
+    },
+    {
+      "path": "Builds/H04/UnityPlayer.dll",
+      "sha256": "4eb8a6554d3a67abe9e6e6a90fcc94129fdd008ef19448fc15ae12326472e7c6",
+      "bytes": 83737008
+    },
+    {
+      "path": "Builds/H04/WinPixEventRuntime.dll",
+      "sha256": "81adcfd8253c3489be720da7e30f16004dc9a1f02a8b418c6c3aef4993032e6d",
+      "bytes": 58368
+    },
+    {
+      "path": "Builds/H04/Última Guardia_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt",
+      "sha256": "77a566109ff81d404c481a619fa675e89f25d5d80bc70560b7f6541404766cb0",
+      "bytes": 193241
+    },
+    {
+      "path": "Documentation/ASSET_REGISTER.md",
+      "sha256": "10eaed0aadf86ef2d07fb74b6d6a801da37c56cae139fd2ed72976c1e997beb2",
+      "bytes": 10200
+    },
+    {
+      "path": "Documentation/BALANCE_LOG.md",
+      "sha256": "88a1112ab7efae040fdc99c95658bab0b7f986ddb711f633985f50a37d836821",
+      "bytes": 5136
+    },
+    {
+      "path": "Documentation/Evidence/H00/build-summary.json",
+      "sha256": "89122cf908ab457622cab8911831b302ebbbc5ade028c7d16146490b4d1bd5b9",
+      "bytes": 424
+    },
+    {
+      "path": "Documentation/Evidence/H00/combat-1280x720.png",
+      "sha256": "d8cbe9d36f2f52fa0b9ea73ce12128743e95881a577bfaf0611cf231999e19ab",
+      "bytes": 44103
+    },
+    {
+      "path": "Documentation/Evidence/H00/combat-1920x1080.png",
+      "sha256": "2c752fd29950f1859ca94b8d59af877f87f3e2b272d2f44152d45738d0657d37",
+      "bytes": 146158
+    },
+    {
+      "path": "Documentation/Evidence/H00/controls-1280x720.png",
+      "sha256": "13a741f12ccd2f049aa72822ab1a15a68851d709393c35459c4d8dc91822a165",
+      "bytes": 47164
+    },
+    {
+      "path": "Documentation/Evidence/H00/controls-1920x1080.png",
+      "sha256": "09e19467cb3beaf7bd9c97be3d36a0a1a09b06cb4864680248b1992942958321",
+      "bytes": 142575
+    },
+    {
+      "path": "Documentation/Evidence/H00/first-build-summary.json",
+      "sha256": "daca1a8686334aa07dddb1e029e372cd45bb7e5fcd02217b65e6387666247626",
+      "bytes": 424
+    },
+    {
+      "path": "Documentation/Evidence/H00/main-menu-1280x720.png",
+      "sha256": "d4aee7fa69f259cc07809a10928ce628d95483117b9eb95d636602d1703e2719",
+      "bytes": 45955
+    },
+    {
+      "path": "Documentation/Evidence/H00/main-menu-1920x1080.png",
+      "sha256": "ce9a67c7b506360ad632d8ae282e4107227be77f71027024ce541c8a34dbd090",
+      "bytes": 141972
+    },
+    {
+      "path": "Documentation/Evidence/H00/pause-1280x720.png",
+      "sha256": "4ce21ec1176505ac7a8e302b0ec1479dd50f10acea1bd891d9daf4de878d6a1d",
+      "bytes": 24120
+    },
+    {
+      "path": "Documentation/Evidence/H00/pause-1920x1080.png",
+      "sha256": "ffaf1dc8e79129e19189c43aea8801483f8cc43d15b9564f096ab2e6968e332d",
+      "bytes": 55795
+    },
+    {
+      "path": "Documentation/Evidence/H00/playmode-results.json",
+      "sha256": "d9f268712adb3ced153ef46c911ad8bdb444d14ac17839935e982a49e689a15d",
+      "bytes": 878
+    },
+    {
+      "path": "Documentation/Evidence/H00/result-1280x720.json",
+      "sha256": "c23edc84672c0602cdd96060c690140ee233ea651c6a1b8cb4b6bfa6c5d8aa7b",
+      "bytes": 418
+    },
+    {
+      "path": "Documentation/Evidence/H00/result-1920x1080.json",
+      "sha256": "8403e05e9f59b787285fd8220329fbe1aa7bfbe32724eaffbd037bfce58a68ca",
+      "bytes": 419
+    },
+    {
+      "path": "Documentation/Evidence/H01/arena-1280x720.png",
+      "sha256": "8015b84166ceb61255700a697160734761f5d48f2a8f6e9bda106890a874b80b",
+      "bytes": 296875
+    },
+    {
+      "path": "Documentation/Evidence/H01/arena-1920x1080.png",
+      "sha256": "2e604cd79edd6b125327eb3dbb9f99f5944ea49d9726f973a704b62dfed23a02",
+      "bytes": 580058
+    },
+    {
+      "path": "Documentation/Evidence/H01/build-summary.json",
+      "sha256": "9edac0c48b41297be016d49cecfedb11ef8935c582b01c1a0e3dccbbdd2d53cd",
+      "bytes": 617
+    },
+    {
+      "path": "Documentation/Evidence/H01/defeat-forced-low-health.png",
+      "sha256": "df4efd6f0ff790a6c8cabb756b01ffdb57c0d03354dde93d7fdde6dd513ce922",
+      "bytes": 193258
+    },
+    {
+      "path": "Documentation/Evidence/H01/pause.png",
+      "sha256": "e0420b6e241e0f57662438a8d2710d5a1a03478e889ba1f01187a902eaa8a5a9",
+      "bytes": 184795
+    },
+    {
+      "path": "Documentation/Evidence/H01/player-combat-1280x720.png",
+      "sha256": "a5b44d8c461814803ba1d999c67ea6ba454ff879dd9c6be9dc237f1442a6f620",
+      "bytes": 222878
+    },
+    {
+      "path": "Documentation/Evidence/H01/player-exit-code-1280x720.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "bytes": 3
+    },
+    {
+      "path": "Documentation/Evidence/H01/player-result-1280x720.json",
+      "sha256": "3fdf1637e6126e7da340badf6124bc38651c91bf1d212996cace06fa9b049210",
+      "bytes": 419
+    },
+    {
+      "path": "Documentation/Evidence/H01/playmode-results.json",
+      "sha256": "9243edd2578bf549b5eb7cd06a109e9ebe87170eb7c92d84f14bd7cffec22837",
+      "bytes": 6696
+    },
+    {
+      "path": "Documentation/Evidence/H01/target.png",
+      "sha256": "a0c866861ac3f54b10dc22ec508857de0ea73738ac32490049cee48039b7db30",
+      "bytes": 291260
+    },
+    {
+      "path": "Documentation/Evidence/H01/victory.png",
+      "sha256": "01aa6245315a250141d63e818c2184936eb8be2067d83c5bcecf5e23b1e17fda",
+      "bytes": 191964
+    },
+    {
+      "path": "Documentation/Evidence/H02/advancing-1280x720.png",
+      "sha256": "4da594c7814b0f4a51c4e0a68a0a30b89d1e85ad902f7aaa24736735a20d9e5d",
+      "bytes": 282786
+    },
+    {
+      "path": "Documentation/Evidence/H02/arena-1280x720.png",
+      "sha256": "3a58ae4d68ef2ff11f66e10c4095178dc8a1685c274c0271d7ae6666446cad65",
+      "bytes": 283856
+    },
+    {
+      "path": "Documentation/Evidence/H02/arena-1920x1080.png",
+      "sha256": "14e16ccc34ea489dd6538b2112c97a9d20665c5cb0b614e873377b6548773d5c",
+      "bytes": 551082
+    },
+    {
+      "path": "Documentation/Evidence/H02/build-summary.json",
+      "sha256": "f907418fa5068aadc95f3dad79455c8a2339866913bb669ea9cf379b2f2cceeb",
+      "bytes": 425
+    },
+    {
+      "path": "Documentation/Evidence/H02/defeat-forced-low-health.png",
+      "sha256": "ad1fbc73fd85b9e4659df93a98f3f823e3885671252cbde1fe8470dab1a6ce9d",
+      "bytes": 176596
+    },
+    {
+      "path": "Documentation/Evidence/H02/flow-after-ui-fix.json",
+      "sha256": "4af9c561422abac169b0bdcfc69fa6d25b7f30fac5589c3dbabd01a3ce262f54",
+      "bytes": 2757
+    },
+    {
+      "path": "Documentation/Evidence/H02/pause.png",
+      "sha256": "d846521d7529baed1f3a06d795107fa718e975d62423d91dc50ae5ce5a8a86bc",
+      "bytes": 169773
+    },
+    {
+      "path": "Documentation/Evidence/H02/player-combat-1280x720.png",
+      "sha256": "e0f4185fa285f014e906a07511d4b1d79a19b42a279d2ed913c79207267addee",
+      "bytes": 212306
+    },
+    {
+      "path": "Documentation/Evidence/H02/player-exit-code-1280x720.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "bytes": 3
+    },
+    {
+      "path": "Documentation/Evidence/H02/player-pause-1280x720.png",
+      "sha256": "8a3dd20812d8683af80c166d89c6591e2b6b1c7675190ac901eb8fc8e05f72c5",
+      "bytes": 126190
+    },
+    {
+      "path": "Documentation/Evidence/H02/player-result-1280x720.json",
+      "sha256": "ccb7e04244ffa0e812c26f7c73e5ca5b649283dd57dbd23e5deffd7f99babafc",
+      "bytes": 419
+    },
+    {
+      "path": "Documentation/Evidence/H02/playmode-results.json",
+      "sha256": "120e7bf05121df9c6191cf414743463607029be45b696486625c8e9d947ae11d",
+      "bytes": 10765
+    },
+    {
+      "path": "Documentation/Evidence/H02/recovery-1280x720.png",
+      "sha256": "2dc8538d15bfffe98114c782ffaa2d75274cd2697f906cbd16451097922a9329",
+      "bytes": 246535
+    },
+    {
+      "path": "Documentation/Evidence/H02/recovery-1920x1080.png",
+      "sha256": "e58f09d92083bdb06ce09c5229b73ed9020bc198f4d3e6ea684bf102d1883517",
+      "bytes": 491375
+    },
+    {
+      "path": "Documentation/Evidence/H02/target.png",
+      "sha256": "bda86c3b848ad2b18f510f967c98074fb877e880a731685db6ee0d488ad8d902",
+      "bytes": 270532
+    },
+    {
+      "path": "Documentation/Evidence/H02/victory.png",
+      "sha256": "7dda763173da8d2e3f58feb3d5e675a9ea9f6cee3eb68917f5a13ba71dd6e546",
+      "bytes": 175938
+    },
+    {
+      "path": "Documentation/Evidence/H03/advancing-1280x720.png",
+      "sha256": "66e3cbf8c7f74759ea7aebc7968db1a23adc7df5506431f30ab7befae19d7faf",
+      "bytes": 276219
+    },
+    {
+      "path": "Documentation/Evidence/H03/arena-1280x720.png",
+      "sha256": "f6a03e8b6587c9387fac609351b0ed2c21359e9ec7ca4ddad2e377b14246a9a2",
+      "bytes": 262040
+    },
+    {
+      "path": "Documentation/Evidence/H03/arena-1920x1080.png",
+      "sha256": "fc1607e1f473410d19e4ce8d1827c0a7c86d7fc85fa874a9c0f4439e00ec57dd",
+      "bytes": 512522
+    },
+    {
+      "path": "Documentation/Evidence/H03/build-summary.json",
+      "sha256": "1944e731d3cbe59e88a9e790085a7aca6389af4d2cefeeb9008c0bd07ffc7ef3",
+      "bytes": 425
+    },
+    {
+      "path": "Documentation/Evidence/H03/defeat-forced-low-health.png",
+      "sha256": "0a9499b491176679aef31c1d76d48f1a02c887f444a596639ba902d022bb8d9a",
+      "bytes": 176014
+    },
+    {
+      "path": "Documentation/Evidence/H03/ether-target.png",
+      "sha256": "53caed5b1ed1d09828b8942c4a98cd3c5d24255ac6f583f2a092340781f859d4",
+      "bytes": 282931
+    },
+    {
+      "path": "Documentation/Evidence/H03/healing-self.png",
+      "sha256": "00eeceac1135ee0e63f3568a8cdadcb85c3be3a584232d58d7d937afb5ca19f7",
+      "bytes": 285322
+    },
+    {
+      "path": "Documentation/Evidence/H03/items-pending-1280x720.png",
+      "sha256": "740a18b48773d042fe9a2654ea875a88062aca6aaf7824fa079d9f0a800ea95d",
+      "bytes": 293166
+    },
+    {
+      "path": "Documentation/Evidence/H03/items-pending-1920x1080.png",
+      "sha256": "2b1226129b9018788811a78a03793008c20b6bb4a05f878538d77ed3b652185e",
+      "bytes": 568674
+    },
+    {
+      "path": "Documentation/Evidence/H03/pause.png",
+      "sha256": "bb0a6afea83c1690234c6928e266fbdbdefe3b90a686c4a26e5f6f5ef09b9de9",
+      "bytes": 167185
+    },
+    {
+      "path": "Documentation/Evidence/H03/player-combat-1280x720.png",
+      "sha256": "3f042785aaa885888d4b3bed9c29dfc9f423034a587825f6a35bceeb538d36cc",
+      "bytes": 210238
+    },
+    {
+      "path": "Documentation/Evidence/H03/player-exit-code-1280x720.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "bytes": 3
+    },
+    {
+      "path": "Documentation/Evidence/H03/player-pause-1280x720.png",
+      "sha256": "15d07a9b980e254d1d3632f8bfa6ce12eeb8997695c2fddf85764d12ad9a8ab8",
+      "bytes": 123924
+    },
+    {
+      "path": "Documentation/Evidence/H03/player-result-1280x720.json",
+      "sha256": "392fc631c4fb38fd9859821af1ec47da7f616bd1c6ca8102645d3084cd27af9c",
+      "bytes": 419
+    },
+    {
+      "path": "Documentation/Evidence/H03/playmode-results.json",
+      "sha256": "33038f4e15536adca2624283e727e2acd41e5c1d6ad78f9599cf73dba9f8c9fe",
+      "bytes": 19159
+    },
+    {
+      "path": "Documentation/Evidence/H03/recovery-1280x720.png",
+      "sha256": "80bc47d130a6380e42776fccac38e13ad9a5185e58d246b8a6cd1d6db6f9625c",
+      "bytes": 245355
+    },
+    {
+      "path": "Documentation/Evidence/H03/recovery-1920x1080.png",
+      "sha256": "c0eb54db34387aae961e836abc58323823b53580aef585e01bac1be38a281ab0",
+      "bytes": 486605
+    },
+    {
+      "path": "Documentation/Evidence/H03/storm-group-1280x720.png",
+      "sha256": "907cabe6046835b37ec4ce5f62dbc9c410c1eddd5adac44d25fdbe1989bcbdcc",
+      "bytes": 287691
+    },
+    {
+      "path": "Documentation/Evidence/H03/storm-group-1920x1080.png",
+      "sha256": "b272a2496a2fe67e1084ea2ae5e3d5fb1610f3f3b5e4e615a153d2fda2cbbd1e",
+      "bytes": 557265
+    },
+    {
+      "path": "Documentation/Evidence/H03/storm-paused.png",
+      "sha256": "08060d48aaa07f53ec1eea9f0d2d990ff81ce48a5014b084e4b926ef7544ee5f",
+      "bytes": 170544
+    },
+    {
+      "path": "Documentation/Evidence/H03/target.png",
+      "sha256": "729dfcd7de46e9fa8ccad2056020cc39a565dadb455d1d63d8300e1f2288f0f1",
+      "bytes": 275202
+    },
+    {
+      "path": "Documentation/Evidence/H03/victory.png",
+      "sha256": "59ae6bfd912ca0ffe8afa825fb7742226538a38ab4d72b22a28bf67f94a01bd9",
+      "bytes": 174720
+    },
+    {
+      "path": "Documentation/Evidence/H04/advancing-1280x720.png",
+      "sha256": "6760ece8d7146d5eedb2e3a8a9141f60a5d1bff9cd43c5e4ec5bda30a299d169",
+      "bytes": 256634
+    },
+    {
+      "path": "Documentation/Evidence/H04/antidote-confirmed-paused.png",
+      "sha256": "461b529ff1f9d457a9bcaae032b90a5bdcf2e3b365ef938764bf0d7ed4f89c88",
+      "bytes": 164760
+    },
+    {
+      "path": "Documentation/Evidence/H04/arena-1280x720.png",
+      "sha256": "65fca98aa03da5dce113819af6517e42cb72e5119575d7bbf11aeb9bbcd2b6a9",
+      "bytes": 250375
+    },
+    {
+      "path": "Documentation/Evidence/H04/arena-1920x1080.png",
+      "sha256": "29c5dc6c12306015f8b94421c5c1aff1235d69b966b5985db80a64105ea53d5d",
+      "bytes": 488283
+    },
+    {
+      "path": "Documentation/Evidence/H04/build-report-details.json",
+      "sha256": "262c42a6852284e6abdae107c860bd722f44b1ac09d981f1952f0098e77afe73",
+      "bytes": 455
+    },
+    {
+      "path": "Documentation/Evidence/H04/build-summary.json",
+      "sha256": "92d54b2f8ff8f5b53992c5c9e0fe418e16820bd49cabfc560979a3eec384c7d6",
+      "bytes": 468
+    },
+    {
+      "path": "Documentation/Evidence/H04/corrosion-impact-paused.png",
+      "sha256": "fa5869427e69b980c8975baaee8996438c17d1173a6d2a2bed7f86d43c7b6444",
+      "bytes": 167755
+    },
+    {
+      "path": "Documentation/Evidence/H04/defeat-forced-low-health.png",
+      "sha256": "0bbfbef338f97149cd9029c2e7862855f6486cb071b35e5b724ced432dd8aa9e",
+      "bytes": 170448
+    },
+    {
+      "path": "Documentation/Evidence/H04/ether-target.png",
+      "sha256": "d356bf6736d055580be0ba2f8d7fad911f762f65c1bc5d21c360da0cb635b556",
+      "bytes": 264946
+    },
+    {
+      "path": "Documentation/Evidence/H04/flow-after-ui-fix.json",
+      "sha256": "4ca7dc1ce3af8ce7ac61f4723f956e6316e8ba91a45ec6164d9d9e5529eba699",
+      "bytes": 2473
+    },
+    {
+      "path": "Documentation/Evidence/H04/healing-self.png",
+      "sha256": "fb7f550582e20c37450cc3eb12c7f9addbb19f2b92c7957cc22e8dd19c3b640d",
+      "bytes": 267753
+    },
+    {
+      "path": "Documentation/Evidence/H04/initial-targeted-results.json",
+      "sha256": "0680cea50418aaaa0072637bd0e71a5ef9ab6f789877c0f7c13fd92bbd415ec8",
+      "bytes": 27722
+    },
+    {
+      "path": "Documentation/Evidence/H04/items-1280x720.png",
+      "sha256": "d91965728da15cf6751cc8a9d972fcfb78f4a50b5d1abbf65021bf70dbd5fb12",
+      "bytes": 274413
+    },
+    {
+      "path": "Documentation/Evidence/H04/items-1920x1080.png",
+      "sha256": "044fd2c1736fd3ed5b6c0c241bd307c3ad3abd705c26855cbdf7b683ddca2b9f",
+      "bytes": 530042
+    },
+    {
+      "path": "Documentation/Evidence/H04/pause.png",
+      "sha256": "690f59d03e95e1ec25373591a1454b60a5ced3e4fb5eafc0c1110bbce874c31d",
+      "bytes": 163524
+    },
+    {
+      "path": "Documentation/Evidence/H04/player-combat-1280x720.png",
+      "sha256": "76e4fbf6355bfec7b77566affffb5796c8545633d8777d054a89d17c467b77ab",
+      "bytes": 197251
+    },
+    {
+      "path": "Documentation/Evidence/H04/player-exit-code-1280x720.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "bytes": 3
+    },
+    {
+      "path": "Documentation/Evidence/H04/player-pause-1280x720.png",
+      "sha256": "10e7132bed4f63d3a72233c7e9dbfaac8db95330dbf60ff885bb6a3d56f9e249",
+      "bytes": 121234
+    },
+    {
+      "path": "Documentation/Evidence/H04/player-result-1280x720.json",
+      "sha256": "d34ed71f9af164564778c28f191005ec38c23a217588cbde329c00aaf7f46541",
+      "bytes": 419
+    },
+    {
+      "path": "Documentation/Evidence/H04/playmode-results.json",
+      "sha256": "e40919970a0fd022dcb4fdd2a4b438e481ee657239b1dee328867cecf9f185ff",
+      "bytes": 24975
+    },
+    {
+      "path": "Documentation/Evidence/H04/poison-lethal-defeat.png",
+      "sha256": "186fb4b82f606e2171c1c68330f39247bf22ee77c2505c4543b8a73b1b9d42f3",
+      "bytes": 168455
+    },
+    {
+      "path": "Documentation/Evidence/H04/recovery-1280x720.png",
+      "sha256": "924f5ead2ad20cbd270d6fe72f3960281c97a2baaf67fe6418af735209f55059",
+      "bytes": 225835
+    },
+    {
+      "path": "Documentation/Evidence/H04/recovery-1920x1080.png",
+      "sha256": "e5898595dd85a91402eb664a1a43ea700b60ba30f2d4617bde6102554ac0d714",
+      "bytes": 444913
+    },
+    {
+      "path": "Documentation/Evidence/H04/statuses-coexist-1280x720.png",
+      "sha256": "cbb29c2c9ea9e8c34b6a3d82045504c6ba41529c736e5ebc09dd70917444f36c",
+      "bytes": 247718
+    },
+    {
+      "path": "Documentation/Evidence/H04/statuses-coexist-1920x1080.png",
+      "sha256": "e8dcefc4420a4a9437d6c4f674a8b9ff5b295ac6460c8c6dbba531d42197bbb9",
+      "bytes": 479267
+    },
+    {
+      "path": "Documentation/Evidence/H04/storm-group-1280x720.png",
+      "sha256": "1f6cdc2bcdb70b538ab41e45ca1633f4fd6082799a7cb2ed8bed52f7dc105d6f",
+      "bytes": 276629
+    },
+    {
+      "path": "Documentation/Evidence/H04/storm-group-1920x1080.png",
+      "sha256": "1183e78a824845a8d4bf750c2266cba6ff8b32abdbdafc16eb089a8a6a74e2ce",
+      "bytes": 531986
+    },
+    {
+      "path": "Documentation/Evidence/H04/storm-paused.png",
+      "sha256": "30331ea2b08bf31a60e867b35a778706def4f99897675523236897557809c119",
+      "bytes": 166980
+    },
+    {
+      "path": "Documentation/Evidence/H04/target.png",
+      "sha256": "76fc413bf98c7a56051728b3f2aba088b37deaaf99b94d02474cce417f73d98a",
+      "bytes": 263520
+    },
+    {
+      "path": "Documentation/Evidence/H04/victory.png",
+      "sha256": "6bfbc1007e46be71dc358bfd600498eead4d6765d12b8958a066bb30d69d7f4b",
+      "bytes": 167154
+    },
+    {
+      "path": "Documentation/KNOWN_ISSUES.md",
+      "sha256": "faa23504d12aec399217f6179b0495d1d41c94ebc2147ac5f59f97b420552924",
+      "bytes": 10360
+    },
+    {
+      "path": "Documentation/TEST_REPORT.md",
+      "sha256": "dfaf1986ef72cc1ded085941ecdd88468f2073c793ecebc02dae046ae466fff7",
+      "bytes": 33595
+    },
+    {
+      "path": "Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md",
+      "sha256": "609a7f5cced7f662b489b6e6767409ca9ee36213a679e73b1399c01cbe928a64",
+      "bytes": 131008
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4b0815d694fa4ee0eb6bf0955aa2c1d014c04d6850b0e9946393331bc3781b02",
+      "bytes": 2158
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "0d3bbe23c73678700370443e84eb5ff196d889b17d0e6eee94eda3aa424d2fc9",
+      "bytes": 14007
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+      "bytes": 413
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "sha256": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+      "bytes": 114
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "sha256": "b7c9a9dc08b98990109d4346f68745e15e238de400f96c583e53e1c83c743a78",
+      "bytes": 1254
+    },
+    {
+      "path": "ProjectSettings/EditorBuildSettings.asset",
+      "sha256": "8373b73607851d9314479db8892c2b1597ed59207b8cb933ba0fea5bbb93c279",
+      "bytes": 493
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "sha256": "32d6a9be4c9aa9795a96bd951820a2d9be1bfefab82ed05a5db111af0863938f",
+      "bytes": 1585
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "c5e4cea4e106ebe19cc9d801a05f26317fd01661cfae490d0aefef5e8e6d9ea5",
+      "bytes": 2559
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "sha256": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2",
+      "bytes": 9731
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "sha256": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd",
+      "bytes": 1192
+    },
+    {
+      "path": "ProjectSettings/MultiplayerManager.asset",
+      "sha256": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd",
+      "bytes": 157
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "sha256": "80106cfa7e6181a1928b142c075f3e510d527441e3d79bc83590e4ac91e7cd66",
+      "bytes": 1308
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "sha256": "a7dabba589abe7fc2b45bd3d3fba3fe9be97043492703f716da2d9131c13a807",
+      "bytes": 1003
+    },
+    {
+      "path": "ProjectSettings/Packages/com.unity.probuilder/Settings.json",
+      "sha256": "fb37612d2e2cd6ef661678882af3dbb1326f9874e134007024c1c80e70ea915a",
+      "bytes": 2263
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "sha256": "d57a0fe55659c33879e8b70bc01c5ea9cdf082069dab649905c6c5138531e6eb",
+      "bytes": 2028
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "sha256": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+      "bytes": 146
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "a96bdf382837c9146185c33e8da3885116ecadfa25b83e04bc9575115a4d3a1a",
+      "bytes": 25620
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "a717ed4b946e370ce6e6af9dd000b8acf89495b44c84bf8f768159924cfa66c3",
+      "bytes": 85
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "sha256": "e174097fc4262801ba256b5aa4cb448192c78f64ae46903f3f742fadc3a4803c",
+      "bytes": 3709
+    },
+    {
+      "path": "ProjectSettings/SceneTemplateSettings.json",
+      "sha256": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a",
+      "bytes": 3535
+    },
+    {
+      "path": "ProjectSettings/ShaderGraphSettings.asset",
+      "sha256": "cdba1e5d65bcf6e3269d76ed3e60b6c21f98322002996642c9d74f1eb89f6b91",
+      "bytes": 556
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "sha256": "23fc56b484aa3d7edf5914cd3591f7a823ccef5e3f3496f8a51f30388ead63dc",
+      "bytes": 657
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "sha256": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd",
+      "bytes": 202
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "sha256": "b7dd1e8290598f5ce86919ba1c98b42b766c8c42191a30fa2c4d12195c4ecd00",
+      "bytes": 1063
+    },
+    {
+      "path": "ProjectSettings/URPProjectSettings.asset",
+      "sha256": "c317fe22b9488785c0611f0642429922e5d324430d929bffb41648130f30c218",
+      "bytes": 461
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "sha256": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071",
+      "bytes": 188
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "sha256": "f066c6483919961332415ee64204f74fe52f38c02e82892eb02b7a5b2e381f0e",
+      "bytes": 308
+    },
+    {
+      "path": "ProjectSettings/XRSettings.asset",
+      "sha256": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f",
+      "bytes": 158
+    },
+    {
+      "path": "README.md",
+      "sha256": "3f24b7d749e694a1ae1b313ba63aefa005a96b7675b00ff9ea4ef2ae8570610f",
+      "bytes": 9913
+    }
+  ]
+}

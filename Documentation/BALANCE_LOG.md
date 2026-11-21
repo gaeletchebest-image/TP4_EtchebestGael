@@ -29,3 +29,12 @@ Las pruebas de reglas verificaron 5 s activos a velocidad 20 y 100/28 s a veloci
 El ogro alterna intentos de Golpe/Machetazo; el chamán cura solo al ogro por debajo de 50 %. Veneno y los tres objetos de estados siguen bloqueados hasta H04, por lo que la dificultad todavía no representa el sistema completo. No se modifican números para compensarlo.
 
 Victorias automatizadas desde el encuentro normal: teclado virtual 19 acciones y 2 Pociones restantes; control virtual 22 acciones y 0 Pociones. Decisiones inmediatas y reloj acelerado ×4 exclusivamente en pruebas; derrota con aliados preparados a 1 de vida. No son mediciones de duración, balance, dificultad ni comparación de estrategias de H12.
+
+
+## H04 · Estados completos
+
+**Sin ajustes de balance.** Veneno: 8 de daño fijo que ignora defensa durante tres inicios de turno. Rapidez: velocidad base ×1,5 durante las próximas dos acciones del afectado. Corrosión: defensa base ×0,5 durante las próximas dos acciones. Tónico/Frasco/Antídoto conservan 1/1/2 unidades iniciales y recuperación de 0,8 s. Veneno del chamán conserva costo 6 y recuperación 1,2 s. El Antídoto elimina el estado al confirmar, sin recuperar vida.
+
+La defensa 6 del ogro queda en 3 con Corrosión: básico del guerrero 25 en vez de 22. La velocidad 28 de la maga queda en 42 con Rapidez. Los decimales se conservan en estadísticas efectivas y se redondea solo el daño final. Menús, animación y pausa no consumen cargas. No se modificaron los tiempos provisionales de presentación ni los costos temporales de acciones anteriores.
+
+Victorias automatizadas desde el encuentro normal: teclado virtual **22 acciones, 0 Pociones**; control virtual **22 acciones, 0 Pociones**. Prioridad de eliminar al chamán y uso de básicos, pesado, Tormenta, Curación y Poción según recursos/heridas. Son dos muestras de flujo con decisiones inmediatas y reloj acelerado ×4. No acreditan duración objetivo, balance validado, equivalencia estadística de dispositivos ni hardware físico. La derrota por veneno y casos de estados coexistentes usan fixtures explícitos, sin modificar el producto. Balance y rendimiento siguen pendientes de H12.

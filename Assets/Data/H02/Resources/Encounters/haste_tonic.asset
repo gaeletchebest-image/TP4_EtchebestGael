@@ -15,8 +15,7 @@ MonoBehaviour:
   id: haste_tonic
   displayName: "T\xF3nico de rapidez"
   command: 6
-  description: "Un aliado vivo: velocidad \xD71,5 durante sus pr\xF3ximas 2 acciones.
-    Pendiente de H04."
+  description: "Un aliado vivo: velocidad \xD71,5 durante sus pr\xF3ximas 2 acciones."
   icon: {fileID: 0}
   targetMode: 1
   effect: 2

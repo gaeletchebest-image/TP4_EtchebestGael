@@ -23,11 +23,13 @@ namespace UltimaGuardia
         public double Recovery { get; }
         public TargetMode TargetMode { get; }
         public ActionEffect Effect { get; }
+        public EffectDefinition AppliedEffect { get; }
         public ActionDefinition(ActionData data)
         {
             Id = data.id; Name = data.displayName; Description = data.description;
             Command = data.command; ManaCost = data.manaCost; Amount = data.fixedAmount;
             Potency = data.potency; Recovery = data.recovery; TargetMode = data.targetMode; Effect = data.effect;
+            AppliedEffect = data.appliedEffect == null ? null : new EffectDefinition(data.appliedEffect);
         }
     }
     public sealed class ItemDefinition
@@ -40,8 +42,10 @@ namespace UltimaGuardia
         public double Recovery { get; }
         public TargetMode TargetMode { get; }
         public ItemEffect Effect { get; }
+        public EffectDefinition AppliedEffect { get; }
         public ItemDefinition(ItemData data)
-        { Command = data.command; Id = data.id; Name = data.displayName; Description = data.description; Amount = data.amount; Recovery = data.recovery; TargetMode = data.targetMode; Effect = data.effect; }
+        { Command = data.command; Id = data.id; Name = data.displayName; Description = data.description; Amount = data.amount; Recovery = data.recovery; TargetMode = data.targetMode; Effect = data.effect;
+            AppliedEffect = data.appliedEffect == null ? null : new EffectDefinition(data.appliedEffect); }
     }
     public sealed class CombatantDefinition
     {
@@ -69,16 +73,43 @@ namespace UltimaGuardia
         public int Mana { get; private set; }
         public double Atb { get; internal set; }
         public double RecoveryRemaining { get; internal set; }
-        public double EffectiveSpeed => Definition.Speed;
+        private readonly List<StatusState> effects = new List<StatusState>();
+        private long applicationId;
+        public IReadOnlyList<StatusState> Effects { get; }
+        public bool HasStatus(StatusKind kind) => effects.Any(e => e.Definition.Kind == kind);
+        private double Multiplier(StatusKind kind) => effects.FirstOrDefault(e => e.Definition.Kind == kind)?.Definition.Multiplier ?? 1;
+        public double EffectiveSpeed => Definition.Speed * Multiplier(StatusKind.Haste);
+        public double EffectiveDefense => Definition.Defense * Multiplier(StatusKind.Corrosion);
         public int AiActionsCompleted { get; internal set; }
         public bool IsAlive => Health > 0;
         public event Action Changed;
         public CombatantState(CombatantDefinition definition)
-        { Definition = definition ?? throw new ArgumentNullException(nameof(definition)); Health = definition.MaxHealth; Mana = definition.MaxMana; }
+        { Definition = definition ?? throw new ArgumentNullException(nameof(definition)); Health = definition.MaxHealth; Mana = definition.MaxMana; Effects = effects.AsReadOnly(); }
+        public bool ApplyStatus(EffectDefinition definition)
+        {
+            if (!IsAlive || definition == null) return false;
+            var previous = effects.FirstOrDefault(e => e.Definition.Kind == definition.Kind);
+            // A refresh keeps the original potency, gets a fresh identity and full duration.
+            if (previous != null) effects.Remove(previous);
+            effects.Add(new StatusState(previous?.Definition ?? definition, ++applicationId));
+            Changed?.Invoke(); return true;
+        }
+        public bool RemoveStatus(StatusKind kind)
+        {
+            bool removed = effects.RemoveAll(e => e.Definition.Kind == kind) > 0;
+            if (removed) Changed?.Invoke();
+            return removed;
+        }
+        internal bool ConsumeCharge(StatusState effect)
+        {
+            if (!effects.Contains(effect)) return false;
+            if (--effect.Remaining == 0) effects.Remove(effect);
+            Changed?.Invoke(); return true;
+        }
         public int Damage(int amount)
         {
             int actual = Math.Min(Health, Math.Max(0, amount)); Health -= actual;
-            if (!IsAlive) { Atb = 0; RecoveryRemaining = 0; }
+            if (!IsAlive) { Atb = 0; RecoveryRemaining = 0; effects.Clear(); }
             if (actual > 0) Changed?.Invoke();
             return actual;
         }
@@ -141,6 +172,8 @@ namespace UltimaGuardia
         private readonly List<ReadyEntry> ready = new List<ReadyEntry>();
         private readonly Dictionary<string, int> inventory;
         private readonly Dictionary<string, ItemDefinition> items;
+        private StatusState[] turnEffects = Array.Empty<StatusState>();
+        private bool startingTurn;
         public IReadOnlyList<CombatantState> Fighters { get; }
         public IReadOnlyDictionary<string, int> Inventory { get; }
         public CombatantState Actor { get; private set; }
@@ -201,8 +234,26 @@ namespace UltimaGuardia
             {
                 var next = ready[0].Fighter; ready.RemoveAt(0);
                 if (!next.IsAlive) continue;
-                // H04 adds status processing before either decision path.
-                Actor = next; return;
+                Actor = next;
+                turnEffects = next.Effects.ToArray();
+                // Damage raises Changed synchronously. Do not dispatch a second turn from that callback.
+                startingTurn = true;
+                try
+                {
+                    foreach (var effect in turnEffects.Where(e => e.Definition.Trigger == EffectTrigger.TurnStart))
+                    {
+                        if (!next.IsAlive) break;
+                        int amount = next.Damage(effect.Definition.FixedDamage);
+                        next.ConsumeCharge(effect);
+                        LastEvent = next.Definition.Name + ": " + effect.Definition.Name + " −" + amount + " vida" +
+                            (!next.IsAlive ? " (Derrotado)" : " · " + effect.Remaining + " cargas restantes");
+                    }
+                    ReconcileDeaths();
+                }
+                finally { startingTurn = false; }
+                if (Outcome != CombatOutcome.Ongoing) { Actor = null; return; }
+                if (next.IsAlive) return;
+                Actor = null; turnEffects = Array.Empty<StatusState>();
             }
         }
         private void ReconcileDeaths()
@@ -211,7 +262,7 @@ namespace UltimaGuardia
             if (!fighters.Any(f => f.Definition.Team == CombatTeam.Enemies && f.IsAlive)) Outcome = CombatOutcome.Victory;
             else if (!fighters.Any(f => f.Definition.Team == CombatTeam.Allies && f.IsAlive)) Outcome = CombatOutcome.Defeat;
             if (Outcome != CombatOutcome.Ongoing) { ready.Clear(); if (Pending == null) Actor = null; return; }
-            if (Actor != null && !Actor.IsAlive && Pending == null) { Actor = null; BeginNextTurn(); }
+            if (!startingTurn && Actor != null && !Actor.IsAlive && Pending == null) { Actor = null; BeginNextTurn(); }
         }
         public static int CalculateDamage(int attack, double potency, double defense) =>
             Math.Max(1, (int)Math.Round(attack * potency - defense, MidpointRounding.AwayFromZero));
@@ -254,8 +305,8 @@ namespace UltimaGuardia
             if (healing) targets.RemoveAll(f => f.Health == f.Definition.MaxHealth);
             if (mana) targets.RemoveAll(f => f.Mana == f.Definition.MaxMana);
             if (command == CombatAction.DarkHeal) targets.RemoveAll(f => f.Definition.Id != "ogre");
-            // H04 will filter Antidote to poisoned allies and Poison to unpoisoned allies.
-            // Both remain non-executable until actual status instances exist.
+            if (command == CombatAction.Antidote) targets.RemoveAll(f => !f.HasStatus(StatusKind.Poison));
+            if (command == CombatAction.Poison) targets.RemoveAll(f => f.HasStatus(StatusKind.Poison));
             return targets;
         }
         public string UnavailableReason(CombatAction command)
@@ -271,13 +322,11 @@ namespace UltimaGuardia
                 var item = ItemFor(command);
                 if (Actor.Definition.Team != CombatTeam.Allies || item == null) return "Objeto no disponible.";
                 if (QuantityFor(command) == 0) return "Sin unidades.";
-                if (item.Effect == ItemEffect.ApplyStatus || item.Effect == ItemEffect.RemovePoison) return "Pendiente de H04: estados temporales.";
             }
             else
             {
                 var action = ActionFor(command);
                 if (action == null) return "Habilidad no disponible.";
-                if (action.Effect == ActionEffect.ApplyStatus) return "Pendiente de H04: estados temporales.";
                 if (Actor.Mana < action.ManaCost) return "Maná insuficiente.";
             }
             return TargetsFor(command).Count == 0 ? "No hay objetivos válidos." : null;
@@ -291,6 +340,7 @@ namespace UltimaGuardia
             Pending = new PendingCombatAction(Actor, target, command, ActionFor(command), IsItem(command) ? ItemFor(command) : null, targets);
             if (IsItem(command)) inventory[Pending.Item.Id]--;
             else Actor.SpendMana(Pending.Action.ManaCost);
+            if (Pending.Item?.Effect == ItemEffect.RemovePoison) target.RemoveStatus(StatusKind.Poison);
             LastEvent = Actor.Definition.Name + " prepara " + NameFor(command) + " → " + string.Join(", ", targets.Select(t => t.Definition.Name));
             return true;
         }
@@ -306,7 +356,6 @@ namespace UltimaGuardia
                 if (ogre != null && ogre.Health < ogre.Definition.MaxHealth * 0.5 && UnavailableReason(CombatAction.DarkHeal) == null)
                     choice = CombatAction.DarkHeal;
                 else if (UnavailableReason(CombatAction.Poison) == null) choice = CombatAction.Poison;
-                // H03: Poison is configured but unavailable; fall back without spending or wasting a turn.
             }
             var targets = TargetsFor(choice);
             return targets.Count > 0 && TryCommit(choice, targets[random.Next(targets.Count)], out _);
@@ -317,15 +366,20 @@ namespace UltimaGuardia
             Pending.ImpactApplied = true;
             bool healing = Pending.Item != null ? Pending.Item.Effect == ItemEffect.Heal : Pending.Action.Effect == ActionEffect.Heal;
             bool mana = Pending.Item != null ? Pending.Item.Effect == ItemEffect.RestoreMana : Pending.Action.Effect == ActionEffect.RestoreMana;
+            bool status = Pending.Item != null ? Pending.Item.Effect == ItemEffect.ApplyStatus : Pending.Action.Effect == ActionEffect.ApplyStatus;
+            bool cleanse = Pending.Item?.Effect == ItemEffect.RemovePoison;
+            var effect = Pending.Item != null ? Pending.Item.AppliedEffect : Pending.Action.AppliedEffect;
             int fixedAmount = Pending.Item?.Amount ?? Pending.Action.Amount;
             foreach (var target in Pending.Targets.Where(t => t.IsAlive))
             {
-                int amount = healing ? target.Heal(fixedAmount) : mana ? target.RestoreMana(fixedAmount) :
-                    target.Damage(CalculateDamage(Pending.Actor.Definition.Attack, Pending.Action.Potency, target.Definition.Defense));
+                if (status) target.ApplyStatus(effect);
+                int amount = status || cleanse ? 0 : healing ? target.Heal(fixedAmount) : mana ? target.RestoreMana(fixedAmount) :
+                    target.Damage(CalculateDamage(Pending.Actor.Definition.Attack, Pending.Action.Potency, target.EffectiveDefense));
                 Pending.Record(target, amount);
             }
             LastEvent = Pending.Actor.Definition.Name + ": " + NameFor(Pending.Kind) + " → " + string.Join(" · ", Pending.Impacts.Select(i =>
-                i.Target.Definition.Name + (healing || mana ? " +" : " −") + i.Amount + (mana ? " maná" : " vida") + (i.Target.IsAlive ? "" : " (Derrotado)")));
+                i.Target.Definition.Name + (status ? " · " + effect.Name + " (" + effect.Duration + ")" : cleanse ? " · Veneno eliminado" :
+                    (healing || mana ? " +" : " −") + i.Amount + (mana ? " maná" : " vida")) + (i.Target.IsAlive ? "" : " (Derrotado)")));
             ReconcileDeaths(); return true;
         }
         public bool FinishAction()
@@ -334,7 +388,9 @@ namespace UltimaGuardia
             var actor = Pending.Actor;
             actor.Atb = 0; actor.RecoveryRemaining = actor.IsAlive ? Pending.Recovery : 0;
             if (actor.Definition.Team == CombatTeam.Enemies) actor.AiActionsCompleted++;
-            // H04 adds action-end status expiration before dispatching another turn.
+            foreach (var effect in turnEffects.Where(e => e.Definition.Trigger == EffectTrigger.ActionEnd))
+                if (actor.ConsumeCharge(effect) && effect.Remaining == 0) LastEvent += " · Fin de " + effect.Definition.Name + " en " + actor.Definition.Name;
+            turnEffects = Array.Empty<StatusState>();
             Pending = null; Actor = null; CompletedActions++;
             ReconcileDeaths(); BeginNextTurn(); return true;
         }

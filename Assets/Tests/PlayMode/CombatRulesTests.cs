@@ -263,14 +263,24 @@ namespace UltimaGuardia.Tests
         [TestCase(CombatAction.HasteTonic, CombatTeam.Allies)]
         [TestCase(CombatAction.CorrosiveFlask, CombatTeam.Enemies)]
         [TestCase(CombatAction.Antidote, CombatTeam.Allies)]
-        public void StatusItemsAreExplicitlyPendingAndNeverConsume(CombatAction command, CombatTeam team)
+        public void StatusItemsValidateTeamSpendOnceAndNeverCostMana(CombatAction command, CombatTeam team)
         {
-            var s = OnlyActor("mage"); int quantity = s.QuantityFor(command);
+            var s = OnlyActor("mage"); var actor = s.Actor; int quantity = s.QuantityFor(command);
+            if (command == CombatAction.Antidote)
+            {
+                Assert.AreEqual("No hay objetivos válidos.", s.UnavailableReason(command));
+                Assert.IsFalse(s.TryCommit(command, actor, out _));
+                actor.ApplyStatus(new EffectDefinition(data.inventory.Single(e => e.item.command == command).item.appliedEffect));
+            }
             Assert.IsTrue(s.TargetsFor(command).All(f => f.IsAlive && f.Definition.Team == team));
-            StringAssert.Contains("H04", s.UnavailableReason(command));
-            Assert.IsFalse(s.TryCommit(command, s.TargetsFor(command)[0], out _));
-            Assert.AreEqual(quantity, s.QuantityFor(command)); Assert.AreEqual(45, s.Actor.Mana);
-            Assert.AreEqual(0.8, s.RecoveryFor(command), 1e-6);
+            var target = s.TargetsFor(command)[0];
+            var wrong = s.Fighters.First(f => f.Definition.Team != team);
+            Assert.IsFalse(s.TryCommit(command, wrong, out _)); Assert.AreEqual(quantity, s.QuantityFor(command));
+            Assert.IsTrue(s.TryCommit(command, target, out _));
+            Assert.IsFalse(s.TryCommit(command, target, out _)); Assert.AreEqual(quantity - 1, s.QuantityFor(command));
+            Assert.AreEqual(45, actor.Mana); Assert.AreEqual(0.8, s.Pending.Recovery, 1e-6);
+            if (command == CombatAction.Antidote) Assert.IsFalse(target.HasStatus(StatusKind.Poison));
+            s.ApplyImpact(); Assert.AreEqual(0, s.Pending.EffectiveAmount); Assert.IsFalse(s.ApplyImpact()); s.FinishAction();
         }
 
         [Test] public void OgreAlternatesAttemptsAndFallsBackAtZeroManaWithoutAdvancingOnFailedCommit()
@@ -293,24 +303,29 @@ namespace UltimaGuardia.Tests
             Assert.AreEqual(0, ogre.Mana);
         }
 
-        [TestCase(120, 36, CombatAction.Basic)] [TestCase(119, 36, CombatAction.DarkHeal)]
-        [TestCase(119, 10, CombatAction.DarkHeal)] [TestCase(119, 9, CombatAction.Basic)]
-        [TestCase(119, 0, CombatAction.Basic)] [TestCase(0, 36, CombatAction.Basic)]
-        public void ShamanUsesStrictHealingThresholdAndSafeFallbackUntilH04(int ogreHealth, int mana, CombatAction expected)
+        [TestCase(120, 36, CombatAction.Poison)] [TestCase(119, 36, CombatAction.DarkHeal)]
+        [TestCase(119, 10, CombatAction.DarkHeal)] [TestCase(119, 9, CombatAction.Poison)]
+        [TestCase(119, 0, CombatAction.Basic)] [TestCase(0, 36, CombatAction.Poison)]
+        public void ShamanUsesStrictHealingThresholdPoisonAndSafeFallback(int ogreHealth, int mana, CombatAction expected)
         {
             data.participants[3].combatant.maxMana = mana;
             var s = OnlyActor("shaman"); var shaman = s.Actor; var ogre = s.Fighters[2];
             ogre.Damage(240 - ogreHealth);
             Assert.AreEqual(6, s.ActionFor(CombatAction.Poison).ManaCost);
-            StringAssert.Contains("H04", s.UnavailableReason(CombatAction.Poison));
             Assert.IsTrue(s.CommitEnemyAction()); Assert.AreEqual(expected, s.Pending.Kind);
             if (expected == CombatAction.DarkHeal)
             {
                 Assert.AreSame(ogre, s.Pending.Target); Assert.AreEqual(mana - 10, shaman.Mana);
                 s.ApplyImpact(); Assert.AreEqual(ogreHealth + 40, ogre.Health); Assert.AreEqual(40, s.Pending.EffectiveAmount);
             }
-            else { Assert.AreEqual(mana, shaman.Mana); Assert.AreEqual(CombatTeam.Allies, s.Pending.Target.Definition.Team); s.ApplyImpact(); }
-            s.FinishAction(); Assert.AreEqual(expected == CombatAction.DarkHeal ? 1.5 : 0.6, shaman.RecoveryRemaining, 1e-6);
+            else
+            {
+                Assert.AreEqual(mana - (expected == CombatAction.Poison ? 6 : 0), shaman.Mana);
+                var target = s.Pending.Target; int hp = target.Health;
+                Assert.AreEqual(CombatTeam.Allies, target.Definition.Team); s.ApplyImpact();
+                if (expected == CombatAction.Poison) { Assert.AreEqual(hp, target.Health); Assert.IsTrue(target.HasStatus(StatusKind.Poison)); }
+            }
+            s.FinishAction(); Assert.AreEqual(expected == CombatAction.DarkHeal ? 1.5 : expected == CombatAction.Poison ? 1.2 : 0.6, shaman.RecoveryRemaining, 1e-6);
         }
 
         [Test] public void DarkHealingCannotTargetShamanAndCapsAtOgresMaximum()

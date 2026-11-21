@@ -1,0 +1,13 @@
+{
+  "job_id": "build-91496c0737",
+  "result": "succeeded",
+  "platform": "StandaloneWindows64",
+  "output_path": "Builds/H04/UltimaGuardia.exe",
+  "started_at": "2026-11-21T16:30:30.2001464Z",
+  "duration_seconds": 77.8586972,
+  "completed_at": "2026-11-21T16:31:48.0588436Z",
+  "total_size_mb": 163.18,
+  "errors": 0,
+  "warnings": 1,
+  "source": "Successful manage_build status response captured in this conversation; job history no longer retained after reload."
+}

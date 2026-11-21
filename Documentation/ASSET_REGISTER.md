@@ -95,3 +95,14 @@ Los datos de efectos no representan estados activos implementados. Las referenci
 | H03-UI | Panel de decisión de Combat | uGUI y fuente integrada existentes | Listas de cinco objetos y confirmación grupal legibles; arte y UI final siguen pendientes H08 |
 
 No se descargaron ni compraron recursos. Se conservan modelos, materiales, arena, motor y paquetes; esta entrega no completa recursos de arte, animación, audio o VFX posteriores.
+
+
+## Incorporaciones H04
+
+| ID | Recurso / ruta | Procedencia | Integración |
+| --- | --- | --- | --- |
+| H04-CODE | `StatusState.cs`, `CombatSession.cs`, `EncounterData.cs`, `StatusSetup.cs` | Elaborados para este proyecto; reglas del GDD | Snapshots de efectos, instancias con identidad, duración, estadísticas efectivas, objetos, IA, validación y migración explícita |
+| H04-UI | `StatusHud.cs`, `StatusIcon.cs`, fondo de Header en `Combat.unity` | Geometría vectorial propia generada con uGUI; fuente LegacyRuntime existente | Gota verde, flecha azul y escudo roto naranja con nombre y contador. Filas compactadas con fondos opacos; sin texturas externas |
+| H04-TEST | `StatusRulesTests.cs`, ampliaciones de pruebas de reglas/flujo/input | Elaboradas para este proyecto | Casos de duración, reaplicación, muerte, coexistencia, objetos e IA, con capturas de la UI real |
+
+No se descargaron ni compraron recursos. Se mantienen modelos, arena, materiales y paquetes existentes. Los iconos de H04 son provisionales y no completan UI-06 ni otras tareas de arte final de H08. Las referencias `EffectData.icon` siguen disponibles para ese hito; H04 dibuja sus formas provisionales mediante `StatusIcon`.

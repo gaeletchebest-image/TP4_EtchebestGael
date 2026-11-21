@@ -1,0 +1,253 @@
+{
+  "job_id": "9e85cbc6c4614c06b44c2af5d3c5456a",
+  "status": "failed",
+  "mode": "PlayMode",
+  "started_unix_ms": 1795278135927,
+  "finished_unix_ms": 1795278162683,
+  "last_update_unix_ms": 1795278162683,
+  "progress": {
+    "completed": 17,
+    "total": 17,
+    "current_test_full_name": null,
+    "current_test_started_unix_ms": null,
+    "last_finished_test_full_name": "UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+    "last_finished_unix_ms": 1795278162522,
+    "stuck_suspected": false,
+    "editor_is_focused": false,
+    "run_in_background": false,
+    "focus_nudge_attempts": null,
+    "focus_nudge_limit": null,
+    "focus_nudge_status": null,
+    "blocked_reason": null,
+    "failures_so_far": [
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(False)",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(True)",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.PoisonDeathSkipsOnlyVictimAndSurvivorContinues",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(5,False)",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(6,True)",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      },
+      {
+        "full_name": "UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter"
+      }
+    ],
+    "failures_capped": false
+  },
+  "error": null,
+  "result": {
+    "mode": "PlayMode",
+    "summary": {
+      "total": 17,
+      "passed": 2,
+      "failed": 15,
+      "skipped": 0,
+      "durationSeconds": 14.2091292,
+      "resultState": "Failed(Child)"
+    },
+    "results": [
+      {
+        "name": "CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "fullName": "UltimaGuardia.Tests.CombatFlowTests.CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+        "state": "Passed",
+        "durationSeconds": 13.8653877,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0707211,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.AntidoteRemovesAtConfirmationAndDoesNotUndoOpeningDamageOrSpendTwice () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:150 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor",
+        "state": "Failed:Error",
+        "durationSeconds": 0.006238,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.ConsecutivePoisonDeathsDrainReadyQueueWithoutRecursionOrDeadActor () [0x0002c] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:76 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0060091,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.CorrosionKeepsDecimalDefenseRoundsFinalDamageAndExpiresOnSecondVictimAction () [0x00018] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:116 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0098359,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.DifferentEffectsCoexistAndRefreshPreservesPotencyAndOtherCounters () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:137 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "InvalidEffectTriggerIsRejectedBeforeCreatingSession",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.InvalidEffectTriggerIsRejectedBeforeCreatingSession",
+        "state": "Passed",
+        "durationSeconds": 0.0153161,
+        "message": null,
+        "stackTrace": null,
+        "output": ""
+      },
+      {
+        "name": "LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(False)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(False)",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0075461,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi (System.Boolean enemy) [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:60 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(True)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi(True)",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0070871,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.LethalPoisonEndsCombatBeforeAllyMenuOrEnemyAi (System.Boolean enemy) [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:60 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0082068,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.PauseDecisionAndExecutionNeverAgeStatusesAndRestartUsesNewSnapshots () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:160 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0041194,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.PoisonDealsExactlyThreeTurnStartTicksIgnoringCorrosionAndDefense () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:44 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "PoisonDeathSkipsOnlyVictimAndSurvivorContinues",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonDeathSkipsOnlyVictimAndSurvivorContinues",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0041979,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.PoisonDeathSkipsOnlyVictimAndSurvivorContinues () [0x0002c] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:87 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0038575,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.PoisonSurvivesCastersDeathAndVictimsDeathClearsAllModifiers () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:175 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0044143,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.RefreshDuringOwnActionGetsNewIdentityAndDoesNotConsumeNewCharges () [0x00035] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:127 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0033005,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.SelfTonicKeepsTwoChargesThenExpiresAfterTwoActionsAndKeepsFixedRecovery () [0x00000] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:94 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(5,False)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(5,False)",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0034694,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned (System.Int32 mana, System.Boolean poison) [0x00018] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:185 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(6,True)",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned(6,True)",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0031285,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.Solo (System.String id) [0x00048] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:33 \r\n  at UltimaGuardia.Tests.StatusRulesTests.ShamanSelectsOnlyUnpoisonedSurvivorsThenUsesBasicWhenAllPoisoned (System.Int32 mana, System.Boolean poison) [0x00018] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:185 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      },
+      {
+        "name": "TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+        "fullName": "UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed",
+        "state": "Failed:Error",
+        "durationSeconds": 0.0051665,
+        "message": "System.ArgumentException : poison: identificador duplicado en poison(Clone) y poison(Clone).\r\nParameter name: encounter",
+        "stackTrace": "  at UltimaGuardia.CombatSession..ctor (UltimaGuardia.EncounterData encounter, System.Nullable`1[T] seed) [0x001a1] in C:\\Users\\gaele\\Action RPG\\Assets\\Scripts\\Combat\\CombatSession.cs:202 \r\n  at UltimaGuardia.Tests.StatusRulesTests.TonicPreservesOtherTargetsAccumulatedBarAndDecimalSpeed () [0x00038] in C:\\Users\\gaele\\Action RPG\\Assets\\Tests\\PlayMode\\StatusRulesTests.cs:108 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 ",
+        "output": ""
+      }
+    ]
+  }
+}

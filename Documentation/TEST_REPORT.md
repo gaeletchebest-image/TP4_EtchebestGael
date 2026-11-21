@@ -168,3 +168,55 @@ Player real ejecutado como proceso oculto con `-foundation-smoke`, ventana real 
 El log `Builds/H03/Validation/player-1280x720.log` conserva Curl error 6 y avisos de liberación de GraphicsBuffer/ComputeBuffer y asignaciones persistentes/JobTempAlloc al cerrar el proceso oculto con capturas explícitas, como en H00–H02. Sin excepción de lógica observada, smoke aprobado y salida 0; no se atribuye una causa del juego no demostrada. Evaluación interactiva/prolongada pendiente de H12. Entrada a Play y asset de input precargado conservados; Unity Connect restaurado al valor recibido tras la build. [Huellas de archivos entregados](Evidence/H03/fingerprints.json).
 
 H03 fue **aprobado por el usuario el 21 de noviembre de 2026**, mediante «Bien. Queda aprobado. Dame nombre en ingles para el commit». Sin correcciones solicitadas; H04 permanece pendiente. Estados completos y selección de Veneno/Antídoto según estado real se verifican en H04; secuencia final de Tormenta en H10; control físico/desconexión en H11; balance y rendimiento en H12.
+
+
+## H04 · Veneno, rapidez y corrosión — 21 de noviembre de 2026
+
+### Suite e integración
+
+Unity 6000.3.11f1, URP 17.3.0, Input System 1.19.0. Escena Combat existente y encuentro real de `Assets/Data/H02/Resources/Encounters/`. Integración explícita con `StatusSetup.Install`, sin regenerar arena ni reiniciar configuración. Compilación de scripts sin errores.
+
+Suite PlayMode `09ee960906414054887eda50084c9e17`: **68/68 aprobadas**, 0 fallidas/omitidas, **119,2678023 s**. [Resultado completo](Evidence/H04/playmode-results.json). Incluye regresiones de H00–H03 y `StatusRulesTests`.
+
+Después del ajuste visual final: **4/4 pruebas de flujo aprobadas**, 0 fallidas/omitidas, **41,299563 s**, job `842711d79d0a4c7ba9f98faebe245697`. [Resultado](Evidence/H04/flow-after-ui-fix.json). Se repiten cancelación/pausa/reinicio, menús y grupos, muerte por veneno antes del menú, y uso de los tres consumibles con coexistencia y reinicio.
+
+### Cobertura observada
+
+| Tareas | Comprobación y resultado |
+| --- | --- |
+| H04-T01/T10/T14 | Tres estados simultáneos, duración e identidad independientes. Renovar Rapidez durante la propia acción cambia identidad, conserva multiplicador 1,5, repone dos cargas y no reduce Veneno ni Corrosión. No hay acumulación de potencia |
+| H04-T02/T13 | Maga recibe exactamente 8 antes de sus primeros tres turnos (110 → 102 → 94 → 86); cuarto inicio sin daño. Corrosión coexistente no cambia el daño fijo. Veneno se elimina al consumir la tercera activación |
+| H04-T03 | Daño letal al inicio del turno aliado/enemigo produce derrota/victoria antes de menú o IA, sin gastar maná ni completar acciones. Cola vacía al finalizar; sin pendiente ni actor. Muerte de una maga en cola permite actuar al guerrero vivo; muertes consecutivas no generan reentrada |
+| H04-T04/T15 | Veneno cuesta 6, recupera 1,2 s y aplica tres cargas sin daño directo. Selección excluye aliados muertos/envenenados. Con 5 de maná usa básico; con 6 envenena; con ambos envenenados y 30 de maná usa Descarga. Curación oscura conserva prioridad, umbral estricto 119/120, costo 10, objetivo ogro y fallback cuando está muerto |
+| H04-T05 | Antídoto exige aliado vivo envenenado; elimina al confirmar, cobra una sola unidad, no gasta maná ni devuelve los 8 del inicio. Un segundo commit se rechaza; siguiente turno sin daño |
+| H04-T06/T08/T09/T13 | Tónico propio termina con 2 cargas, después 1 y 0. Velocidad 28 → 42 en UI; fixture 100 → 150 para medir reloj. Mantiene recuperación 0,8 s. Tónico a otro aliado conserva ATB 21 y cambia velocidad 21 → 31,5; 0,1 s agrega 3,15 de ATB |
+| H04-T07/T08/T13 | Frasco a enemigo vivo, no aliado. Defensa ogro 6 → 3 en escena. Fixture defensa 7 → 3,5 conserva decimal; Proyectil da 21 al redondear 20,5. La defensa se restaura después de la segunda acción del afectado, no de las acciones ajenas |
+| H04-T11 | Muerte limpia todos los estados, ATB y recuperación. Muerte del aplicador conserva Veneno en la víctima viva. Nueva sesión restaura inventario y efectos vacíos; snapshot activo no cambia al editar el asset del fixture. Reinicio real desde pausa y resultado limpia iconos, modelos, marcadores y cámara |
+| H04-T12 | Nombres, iconos vectoriales provisionales y contadores reales en 720p/1080p. Gota verde, flecha azul y escudo roto naranja; fondos independientes, filas compactadas y unidades de activaciones/acciones |
+| Regresiones | Fórmula, objetivos, recursos, costo único, impactos duplicados, Tormenta con uno/dos enemigos, ATB, cola, recuperación, IA del ogro, cancelación, mantener confirmar, teclado y control virtual, victoria, derrota y reinicio |
+
+### Flujo e inspección visual
+
+`StatusObjectsWorkWithPadAndKeyboardAndShowCoexistingCounters` usa el control virtual para seleccionar/cancelar/confirmar Tónico propio; teclado para Frasco y Antídoto. Comprueba 42 de velocidad, defensa 3 del ogro, consumo compartido, pausa antes del impacto sin aplicación anticipada y limpieza inmediata de Veneno al confirmar. El fixture agrega Veneno/Corrosión a la maga para mostrar los tres iconos juntos, con nombres, contadores y fuentes del juego; no cambia assets de producto. `PoisonDeathBeforeTurnShowsResultWithoutMenuAndRestartClearsMarkers` prepara guerrero a 8 y elimina a la maga; su primer turno termina por Veneno, con 0 acciones ejecutadas, sin actor/marcadores y reinicio limpio.
+
+Inspeccionadas [coexistencia 720p](Evidence/H04/statuses-coexist-1280x720.png), [1080p](Evidence/H04/statuses-coexist-1920x1080.png), pausa tras Frasco y [derrota por Veneno](Evidence/H04/poison-lethal-defeat.png). El primer fondo ampliado dejaba nombres 3D detrás de los contadores. Se sustituyó por fondo opaco propio por fila, compactando estados activos y conservando el encuadre original de arena. La pasada final de 4/4 corresponde a ese ajuste. Iconos y recursos se leen completos; modelos y UI siguen provisionales.
+
+Victorias normales: teclado virtual **22 acciones, 0 Pociones**; control virtual **22 acciones, 0 Pociones**. Ambas desde estadísticas e inventario iniciales del producto; decisiones inmediatas y aceleración ×4 solo durante pruebas. Derrota adicional con aliados preparados a 1 de vida. Son validación de flujo, no balance ni duración objetivo.
+
+Las capturas usan cámara y Canvas reales sobre RenderTexture, cambiando temporalmente Overlay a ScreenSpaceCamera y restaurándolo. No acreditan monitor físico 1080p. Keyboard/Gamepad son virtuales; no se acredita dispositivo físico.
+
+### Correcciones de la verificación
+
+La primera ejecución completa, `e1bf403f08a84f9794ebac6c2af6adde`, se interrumpió tras tres fallos de navegación y un recorrido sin progreso: el editor sin foco no entregaba eventos virtuales a la Game View. Se corrigió el fixture de input, guardando/restaurando `editorInputBehaviorInPlayMode` y usando temporalmente `AllDeviceInputAlwaysGoesToGameView`, además de IgnoreFocus. No se modificaron las vinculaciones del producto. El recorrido de cancelación pasó después del ajuste.
+
+La pasada dirigida `9e85cbc6c4614c06b44c2af5d3c5456a` produjo **2/17 aprobadas y 15 errores de fixture**: al clonar datos se duplicaba el asset lógico de Veneno referenciado por acción y Antídoto, y el validador rechazó los IDs duplicados antes de crear sesión. Se corrigió el clonado compartido con un diccionario por asset; no se relajó la validación. [Resultados iniciales](Evidence/H04/initial-targeted-results.json). La suite final de 68/68 y las cuatro regresiones sustituyen esas pasadas incompletas/fallidas.
+
+### Build y player
+
+Build `build-91496c0737`: `Builds/H04/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **163,18 MB**, **77,8586972 s**, **0 errores / 1 advertencia**. [Resumen](Evidence/H04/build-summary.json). La advertencia es truncamiento implícito de vector en `Hidden/Core/DebugOccluder`, shader de Unity Core/d3d11, confirmado en `BuildReport.GetLatestReport()` después de que el historial MCP de jobs dejara de conservar el ID. [Detalle del informe](Evidence/H04/build-report-details.json). No se modificaron shaders ni paquetes.
+
+Player real ejecutado como proceso oculto con `-foundation-smoke`: ventana y captura **1280 × 720**, `version = 0.0.5-flow`, inicio `MainMenu`, `passed = true`, `exitedThroughMenu = true` y [código de salida 0](Evidence/H04/player-exit-code-1280x720.txt). [Resultado](Evidence/H04/player-result-1280x720.json). Comprueba menú, controles, carga de Combat, pausa con teclado/control virtual, retorno al menú y cierre desde Salir. Se inspeccionó [Combat del player](Evidence/H04/player-combat-1280x720.png), con materiales y textos presentes; también se conserva [pausa](Evidence/H04/player-pause-1280x720.png). Las peleas completas corresponden a PlayMode, no a esta prueba externa.
+
+`Builds/H04/Validation/player-1280x720.log` conserva Curl error 6 y avisos de GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al apagar el proceso oculto con capturas explícitas, como en las entregas anteriores. Sin excepción de lógica observada; flujo aprobado y salida 0. No se atribuye una causa de juego no demostrada; seguimiento interactivo/prolongado en H12.
+
+Se conserva la configuración de entrada a Play recibida; los fixtures restauran entrada del editor, BackgroundBehavior, ejecución en segundo plano y timeScale. Unity Connect se restauró al valor recibido (`m_Enabled = 0`) después de la build. [Huellas de archivos](Evidence/H04/fingerprints.json). H04 fue **aprobado por el usuario el 21 de noviembre de 2026**, mediante «Bien! Queda aprobado entonces.». Sin correcciones solicitadas. H05 no iniciado.

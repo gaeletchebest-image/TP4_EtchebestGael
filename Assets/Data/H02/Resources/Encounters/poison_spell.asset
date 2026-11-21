@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UltimaGuardia.Runtime::UltimaGuardia.ActionData
   id: poison_spell
   displayName: Veneno
-  description: "Sin da\xF1o directo. Veneno: 8 de da\xF1o en tres inicios de turno.
-    Pendiente de H04."
+  description: "Sin da\xF1o directo. Veneno: 8 de da\xF1o en tres inicios de turno."
   command: 10
   effect: 3
   manaCost: 6

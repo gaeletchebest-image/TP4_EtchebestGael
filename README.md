@@ -1,84 +1,93 @@
 # Última Guardia
 
-Prototipo de combate 3D por turnos para PC, un jugador, en español.
-Versión actual: **0.0.4-H03**, acciones, inventario e inteligencia enemiga. H00–H03 aprobados por el usuario. H04 pendiente.
+Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
+Versión **0.0.5-H04**. H00–H04 aprobados por el usuario. H04 aprobado el 21 de noviembre de 2026; H05 no iniciado.
 
 ## Abrir y jugar
 
-- Unity **6000.3.11f1** (revisión `3000ef702840`), URP **17.3.0**, calidad **PC**, Windows x86_64, Mono.
-- Abrir `Assets/Scenes/MainMenu.unity` y pulsar Play; elegir Jugar. También se puede abrir `Assets/Scenes/Combat.unity` directamente.
-- Ejecutable de esta entrega: `Builds/H03/UltimaGuardia.exe`; mantener juntos el ejecutable y todos los archivos de su carpeta. Las builds anteriores se conservan en `Builds/H00`, `Builds/H01` y `Builds/H02`.
-- Ventana inicial redimensionable de **1280 × 720**, uGUI con resolución de referencia 1280 × 720 y correspondencia ancho/alto 0,5. Se mantienen los assets gráficos PC/Mobile recibidos.
+- Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, calidad PC, Windows x86_64, Mono.
+- Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona `Assets/Scenes/Combat.unity` directamente.
+- Ejecutable de revisión: `Builds/H04/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds H00–H03.
+- Ventana inicial redimensionable de **1280 × 720**. uGUI usa esa resolución de referencia y correspondencia ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
-H02 reemplaza el orden fijo por **ATB de 0 a 100 según velocidad**: Maga 28, Guerrero 22, Chamán 20 y Ogro 16. Todos comienzan en cero; la maga queda lista primero, aproximadamente a los 3,57 segundos activos. Al quedar alguien listo se detiene el reloj durante decisión y ejecución. Se ejecuta una acción a la vez; una cola de listos se vacía antes de reanudar el tiempo. Se ordena por instante de cruce, luego velocidad y luego Maga → Guerrero → Chamán → Ogro.
+Una arena enfrenta a guerrero y maga contra ogro y chamán. No hay exploración ni movimiento libre. Todos empiezan con recursos completos, sin estados, ATB 0 y sin recuperación. Los modelos, arena y presentación siguen siendo provisionales.
 
-Después de actuar, ATB vuelve a cero y se consume recuperación antes de volver a llenarse: básicos **0,6 s**, Golpe pesado **2,2 s** y Poción **0,8 s**. La recuperación usa el mismo reloj y también se congela en decisiones, acciones, pausa y resultado. Los paneles muestran Llenando, Recuperando y Listo; el sobrante de una actualización se aplica al llenado.
+## Reglas del combate
 
-El menú raíz ofrece **Atacar, Habilidades y Objetos**. El guerrero dispone de Ataque básico y Golpe pesado (8 de maná, potencia 1,8, recuperación 2,2 s). La maga dispone de Proyectil mágico, Curación (36 de vida, 10 de maná, 1,2 s) y Tormenta arcana (potencia 1,6 a todos los enemigos vivos, un único costo de 18 de maná, 2,8 s). Los básicos son gratuitos y recuperan en 0,6 s. Tormenta requiere confirmar el grupo completo; su presentación sigue siendo provisional hasta H10.
+ATB sube de 0 a 100 según velocidad: Maga 28, Guerrero 22, Chamán 20 y Ogro 16. Al quedar alguien listo se detiene el reloj durante decisiones y ejecución. Se resuelve una acción por vez y se vacía la cola antes de reanudar. El orden usa instante de cruce, velocidad efectiva y desempate Maga → Guerrero → Chamán → Ogro.
 
-Ambos aliados comparten **3 Pociones, 2 Éteres, 1 Tónico, 1 Frasco y 2 Antídotos**. Poción recupera 50 de vida y Éter 20 de maná, limitados al máximo; no pueden usarse sobre muertos ni sobre el recurso completo. Todos los objetos tienen recuperación de 0,8 s y costo de maná cero. Tónico, Frasco y Antídoto permiten consultar su descripción y equipo previsto, pero permanecen bloqueados y señalados como pendientes de H04. No gastan unidades ni turnos.
+Después de actuar, ATB vuelve a cero y se consume la recuperación fija antes de llenarlo. El sobrante de una actualización se usa para ATB. Decisión, ejecución, pausa y resultado congelan reloj y recuperación. No hay regeneración pasiva ni resurrección.
 
-El ogro comienza con Golpe y alterna intentos de Machetazo (8 de maná, potencia 1,5, 2,2 s); si no puede pagarlo usa Golpe y mantiene la alternancia. El chamán cura 40 al ogro vivo por 10 de maná y recuperación de 1,5 s cuando está **por debajo del 50 %**. La segunda prioridad, Veneno (6 de maná, 1,2 s, sin daño directo), tiene datos pero sigue bloqueada hasta H04; mientras tanto usa Descarga gratuita. Los ataques eligen una sola vez entre aliados vivos con igual probabilidad. El chamán no se cura a sí mismo.
+El guerrero tiene básico gratuito (potencia 1, recuperación 0,6 s) y Golpe pesado (8 de maná, potencia 1,8, 2,2 s). La maga tiene Proyectil mágico gratuito (potencia 1, 0,6 s), Curación (36 de vida, 10 de maná, 1,2 s) y Tormenta arcana (potencia 1,6 a todos los enemigos vivos, un único costo de 18 de maná, 2,8 s). Tormenta conserva presentación provisional de impacto/cierre a 0,35/0,85 s hasta H10.
 
-Las opciones bloqueadas siguen siendo consultables y explican el motivo. Cancelar no gasta recursos; confirmar valida actor, recursos y objetivos y cobra una sola vez. No hay regeneración pasiva ni ajustes de balance.
+El inventario es compartido: **3 Pociones** (50 de vida), **2 Éteres** (20 de maná), **1 Tónico de rapidez**, **1 Frasco corrosivo** y **2 Antídotos**. Cada objeto cuesta cero maná, una unidad y recuperación de 0,8 s. Poción y Éter requieren recurso faltante; Antídoto exige un aliado vivo envenenado. Tónico admite aliados vivos y Frasco enemigos vivos, incluyendo renovación de un efecto activo. Cancelar no consume recursos; confirmar valida y cobra una sola vez.
+
+El ogro alterna intentos de Golpe y Machetazo (8 de maná, potencia 1,5, 2,2 s), usando Golpe si no puede pagar. El chamán prioriza Curación oscura al ogro vivo por debajo del 50 % (40 de vida, 10 de maná, 1,5 s); después Veneno sobre un aliado vivo sin ese estado (6 de maná, 1,2 s); finalmente Descarga gratuita (potencia 1, 0,6 s). Elige una sola vez entre los objetivos válidos, con igual probabilidad. No se cura a sí mismo.
+
+## Estados de H04
+
+| Estado | Efecto | Duración |
+| --- | --- | --- |
+| Veneno | 8 de daño al comienzo del turno, ignorando defensa | 3 activaciones |
+| Rapidez | Velocidad base ×1,5, conservando decimales, ATB acumulado y recuperación fija | Próximas 2 acciones del afectado |
+| Corrosión | Defensa base ×0,5; redondeo solo al calcular el daño final | Próximas 2 acciones del afectado |
+
+Veneno se procesa antes del menú o la IA. Si mata, se cancela el turno, se eliminan efectos y entrada en cola y se comprueba resultado. Antídoto elimina Veneno al confirmar, sin devolver el daño ya recibido. Veneno no causa daño directo al aplicarse y la muerte del chamán no elimina lo que ya aplicó.
+
+Estados diferentes coexisten. Reaplicar renueva duración sin sumar potencia. Solo las aplicaciones presentes al inicio del turno pueden perder una carga al finalizar su acción; una aplicación renovada tiene identidad nueva. Por eso usar Tónico sobre uno mismo termina con **dos cargas**. Al morir o reiniciar desaparecen los efectos; velocidad y defensa se calculan desde sus bases.
+
+El HUD muestra nombre, contador e icono vectorial provisional: gota verde, flecha azul y escudo roto naranja. Los fondos propios evitan superposición con nombres 3D. Las filas se compactan según estados activos. Arte final en H08.
 
 ## Controles
 
 | Acción | Teclado | Control |
 | --- | --- | --- |
-| Elegir comando o menú | Flechas arriba/abajo | Cruceta o stick izquierdo |
-| Elegir objetivo | Flechas izquierda/derecha | Cruceta o stick izquierdo |
+| Elegir comando o lista | Arriba/abajo | Cruceta o stick izquierdo |
+| Elegir objetivo | Izquierda/derecha | Cruceta o stick izquierdo |
 | Confirmar | Enter o Espacio | Botón inferior (A/cruz) |
-| Volver un nivel desde objetivo, habilidad u objeto | Escape | Botón derecho (B/círculo) |
+| Volver un nivel | Escape | Botón derecho (B/círculo) |
 | Pausar | Escape desde raíz, avance o ejecución | Botón de menú (Start/Options), desde cualquier fase |
 | Cerrar pausa | Escape o Continuar | Botón derecho, menú o Continuar |
 
-El círculo amarillo identifica al actor; el blanco al objetivo, acompañado por su nombre y equipo en el panel. La pausa permite continuar, reiniciar o volver al menú. Victoria y derrota permiten reiniciar o volver. Reiniciar restaura recursos, inventario, turno, cámara y figuras. Los menús completos de ayuda, volumen y confirmaciones se realizan en H08.
+El círculo amarillo marca al actor y el blanco al objetivo. Pausa y resultado permiten reiniciar o volver al menú. Ayuda por páginas, volumen y confirmaciones de abandono completos corresponden a H08.
 
-## Cómo revisar H03
+## Cómo revisar H04
 
-1. Elegir Jugar. La maga actúa primero. Abrir Habilidades: Curación está bloqueada con ambos aliados sanos. Esperar: ATB y recuperación no avanzan.
-2. Seleccionar Tormenta arcana: deben marcarse ambos enemigos y verse costo 18 y recuperación 2,8 s. Cancelar conserva el maná y vuelve a la misma habilidad. Confirmar causa **32 al ogro y 34 al chamán**, con un único gasto de 18. Con un solo enemigo vivo afecta solamente a él.
-3. Con el guerrero abrir Habilidades → Golpe pesado. Cancelar objetivos conserva 30 de maná; confirmar descuenta 8 y causa **44 al ogro**. El básico causa **22**.
-4. Cuando un aliado esté herido, usar Curación o Poción, incluso sobre el propio actor. Con maná faltante, usar Éter desde cualquiera de los aliados: recupera hasta 20 y reduce las unidades compartidas. Cancelar no gasta.
-5. En Objetos consultar las cinco entradas; las tres dependientes de estados indican que están pendientes de H04 y no se pueden ejecutar. Volver conserva el foco. Escape retrocede un nivel; desde raíz abre pausa. El botón de menú pausa también dentro de listas.
-6. Observar Golpe → Machetazo del ogro. Dejarlo por debajo de 120 de vida para que el chamán lo cure en su turno si puede pagar 10. Con 120 exactos no lo cura. Veneno no se ejecuta todavía.
-7. Pausar antes/después de un impacto y reiniciar, ganar o perder y reiniciar: recursos, inventario, contadores, barras, marcadores y cámara deben volver al inicio.
-8. Los datos siguen en `Assets/Data/H02/Resources/Encounters` para conservar rutas y referencias: 4 combatientes, **10 acciones**, 5 objetos, 3 efectos y encuentro. Cambiar un valor fuera de Play se refleja en el siguiente intento; el estado runtime no modifica estos assets.
-
-Los efectos tienen configuración, sin aplicación ni cargas activas hasta H04. La prioridad de Veneno está preparada y condicionada a que la acción sea ejecutable; H04 completará selección por ausencia de veneno, aplicación y duración. Las referencias de arte, iconos, audio y animación pueden estar vacías hasta sus hitos de producción.
-
-Los modelos y la arena son provisionales. La configuración no constituye un balance final ni una medición de la duración objetivo.
+1. Entrar a Objetos con la maga. Consultar Tónico, Frasco y Antídoto: ya no indican pendientes. Sin veneno, Antídoto explica que no hay objetivos válidos.
+2. Elegir Tónico, cancelar y comprobar que conserva su unidad. Confirmarlo sobre la propia maga: queda Rapidez con 2 acciones y velocidad efectiva 42. Tras sus próximas acciones pasa a 1 y desaparece. Recuperación del objeto: 0,8 s.
+3. Usar Frasco sobre el ogro: defensa efectiva 3 durante sus próximas dos acciones. El básico del guerrero causa 25 mientras está corroído y 22 al expirar.
+4. Dejar actuar al chamán: si el ogro está sano, envenena a un aliado sin veneno. La aplicación no quita vida. Al inicio de cada turno del afectado pierde 8 y baja el contador, hasta tres activaciones.
+5. Usar Antídoto sobre un aliado envenenado. Desaparece el icono al confirmar, baja una unidad y no devuelve vida. Un aliado sano no se ofrece como objetivo.
+6. Observar prioridad de Curación oscura: ogro con menos de 120 de vida y maná suficiente. A 120 exactos no cura. Si ambos aliados tienen veneno, usa Descarga salvo que corresponda curar.
+7. Pausar antes/después de aplicar un estado: ATB, recuperación y contadores se conservan. Reiniciar desde pausa o resultado restaura todos los recursos, inventario, estados, marcadores y cámara.
+8. Los casos preparados de reaplicación, coexistencia y muerte por veneno antes de actuar están en las pruebas PlayMode; no se agregaron comandos de depuración al producto.
 
 ## Compilar y comprobar
 
-- Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera.
-- Build H03 en `Builds/H03/UltimaGuardia.exe`. Para otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
-- Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **49/49 aprobadas**, reglas nuevas, regresiones, reloj, cola, recuperación, datos editables, flujo e input. Resultados y métodos en `Documentation/TEST_REPORT.md`.
-- Las pruebas de dispositivos utilizan Keyboard y Gamepad virtuales del Input System; no acreditan un control físico.
-- La build Development acepta `-foundation-smoke`: comprueba menú, carga de Combat, pausa, retorno y salida real mediante Salir; guarda capturas y JSON en `Builds/H03/Validation`. No juega una pelea completa: esa comprobación está en PlayMode. El arnés queda excluido de builds sin Development Build.
-- Las capturas de pruebas a 720p/1080p usan RenderTexture; no acreditan un monitor físico 1080p. Métodos, resultados y avisos se registran en el informe.
+Build Profiles: Windows, Intel 64-bit, Mono. Scene List: MainMenu y Combat, en ese orden; SampleScene queda fuera. Build H04 terminada: **163,18 MB**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core (d3d11).
 
-## Sistemas y estructura
+Test Runner → PlayMode → asamblea `UltimaGuardia.PlayModeTests`: **68/68 aprobadas** y **4/4 regresiones de flujo** después del ajuste visual. [Resultados y métodos](Documentation/TEST_REPORT.md), [evidencia H04](Documentation/Evidence/H04/).
 
-Input System **1.19.0** (`activeInputHandler = 1`) y **uGUI 2.0.0**. Cada escena usa una copia de ejecución de `GuardiaInput.inputactions`. MainMenu conserva su EventSystem; Combat procesa las mismas acciones y muestra el foco en texto, sin un segundo controlador de confirmación. El asset de entrada de la plantilla se conserva.
+Las pruebas usan Keyboard/Gamepad virtuales y restauran las opciones de entrada y tiempo. El enrutamiento de entrada del editor se ajusta temporalmente para recibir eventos sin foco. No acredita un control físico. Las capturas 720p/1080p usan RenderTexture; no acreditan monitor físico 1080p. Las peleas aceleradas ×4 verifican flujo, sin medir balance o duración objetivo.
 
-`CombatSession` contiene reglas, recursos, reloj activo, cola, IA y acción pendiente con colección de objetivos/resultados; `CombatPrototype` controla fases, menús, input y tiempo de presentación; `CombatantView` vincula figuras y sockets. `CombatantData`, `ActionData`, `ItemData`, `EffectData` y `EncounterData` son ScriptableObjects de configuración. El estado mutable y los snapshots de valores se crean de nuevo en cada intento. La configuración del encuentro referencia participantes, prefabs, posiciones e inventario. Los datos inválidos impiden crear una sesión y explican el campo que debe corregirse. Los estados y su integración completa con IA corresponden a H04.
+La build Development admite `-foundation-smoke`: prueba menú, carga de Combat, pausa, retorno y salida mediante Salir; conserva JSON y capturas en `Builds/H04/Validation`. Esta prueba no juega una pelea completa. Resultado H04 aprobado: versión `0.0.5-flow`, inicio MainMenu, `passed = true`, salida desde Salir y código 0. Se conservan avisos de red y liberación de buffers/asignaciones al cerrar el player oculto; seguimiento en KNOWN_ISSUES. El arnés se excluye de builds sin Development Build.
 
-Test Framework **1.6.0**, ProBuilder **6.0.9** para el blockout editable y Timeline **1.8.11** disponibles. Se conservan manifiesto y lock; Unity MCP es una herramienta de desarrollo, no una dependencia del player. No se compraron assets ni se añadieron servicios pagos.
+## Estructura y mantenimiento
 
-Las utilidades **Regenerar escenas base (H00)** y **Crear arena y combate provisional (H01)** reemplazan escenas. Son herramientas de preparación explícitas, nunca automáticas: no usarlas sobre escenas con trabajo posterior. La de H01 crea solo Combat y conserva MainMenu.
+`CombatSession` contiene reglas, reloj, cola, IA y acciones pendientes. `CombatantState` mantiene recursos y estados; `EffectDefinition` conserva snapshots de datos y `StatusState` la identidad y duración de cada aplicación. `CombatPrototype` controla input, fases y presentación; `StatusHud`/`StatusIcon` muestran los estados provisionales; `CombatantView` vincula figuras y sockets.
 
-La utilidad explícita **H02/Integrar datos y ATB en Combat** agrega la configuración y barras sobre Combat existente, sin regenerar arena ni MainMenu. Conserva los assets H02 si ya existen y requiere la escena guardada y Play detenido; no es necesaria para jugar la entrega integrada.
+Los datos siguen en `Assets/Data/H02/Resources/Encounters/` para conservar GUID y referencias. Los ScriptableObjects configuran el encuentro; cada intento crea estado independiente. Los datos inválidos impiden iniciar y explican el campo que debe corregirse. Las referencias de arte, audio y animación pueden seguir vacías hasta sus hitos.
 
-La utilidad explícita **H03/Integrar acciones e inventario** agrega los datos faltantes al encuentro existente y ajusta la UI provisional; conserva estadísticas, cantidades y assets de acciones existentes. No regenera geometría, prefabs ni MainMenu. Ya fue ejecutada para esta entrega.
+Se conservan Input System 1.19.0, uGUI 2.0.0, Test Framework 1.6.0, ProBuilder 6.0.9 y Timeline 1.8.11. Unity MCP es herramienta de desarrollo, sin dependencia del player. No se compraron recursos ni se añadieron servicios pagos.
 
-Assets separa Scenes, Scripts, Data, Prefabs, Models, Animations, Materials, Textures, UI, VFX, Audio y Tests. Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation; excluir Library, Temp, Logs, UserSettings y Builds.
+Las utilidades de H00/H01 reemplazan escenas y no deben ejecutarse sobre esta entrega. Las utilidades H02/H03/H04 son migraciones explícitas de integración. **H04/Integrar estados temporales** limpia descripciones pendientes y prepara el fondo del HUD sobre Combat existente, conservando estadísticas, inventario, arena, prefabs y MainMenu; ya ejecutada.
+
+Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Excluir Library, Temp, Logs, UserSettings y Builds.
 
 - [GDD, 245 tareas y estado autorizado](Documentation/Ultima_Guardia_GDD_y_Plan_de_Desarrollo.md)
-- [Comprobaciones y evidencia](Documentation/TEST_REPORT.md)
-- [Recursos, procedencia y licencias](Documentation/ASSET_REGISTER.md)
+- [Pruebas](Documentation/TEST_REPORT.md)
+- [Recursos y licencias](Documentation/ASSET_REGISTER.md)
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-La aprobación final de cada hito corresponde al usuario. Este chat realiza únicamente H03; H04 queda para otra conversación después de la revisión.
+Este chat realiza únicamente H04. La revisión final corresponde al usuario; H05 se solicita en otro chat.

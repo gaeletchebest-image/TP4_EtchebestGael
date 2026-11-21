@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La entrega H00 contenía únicamente el arranque vacío y la pausa mínima. H01 incorpora arena y combate básico terminable, con básicos, Golpe pesado, Poción, enemigos, victoria, derrota y reinicio. La UI y los modelos siguen siendo provisionales; ATB, acciones completas, estados, arte, sonido y efectos se realizan en sus hitos posteriores.
+La versión actual 0.0.5-H04 incluye arena y modelos provisionales, ATB, acciones, inventario, IA completa, Veneno, Rapidez y Corrosión, victoria/derrota, pausa y reinicio. Las reglas de combate están completas. Arte, animación, UI final, audio y VFX se realizan en H05–H10; dispositivos físicos en H11 y balance/rendimiento en H12.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -49,10 +49,25 @@ Los valores de los ScriptableObjects se leen al crear cada intento; un cambio du
 
 | ID | Tareas | Descripción y alcance | Estado / cierre |
 | --- | --- | --- | --- |
-| H03-L01 | H03-T09/T15/T16 | Tónico, Frasco, Antídoto y Veneno tienen datos y equipo preparados, pero no instancias ni contadores activos de estados. Permanecen bloqueados con motivo explícito, sin gasto. La IA prioriza curación, consulta Veneno y usa Descarga al no ser ejecutable | Alcance previsto; completar en H04-T04/T05/T08/T15. No se acredita selección según presencia/ausencia de veneno todavía |
+| H03-L01 | H03-T09/T15/T16 | Tónico, Frasco, Antídoto y Veneno tienen datos y equipo preparados, pero no instancias ni contadores activos de estados. Permanecen bloqueados con motivo explícito, sin gasto. La IA prioriza curación, consulta Veneno y usa Descarga al no ser ejecutable | Histórico H03; resuelto en H04-T04/T05/T08/T15, con aplicación, contadores y selección según estado real comprobados |
 | H03-L02 | H03-T04 | Tormenta tiene daño de área, confirmación grupal, costo único y recuperación; usa presentación provisional 0,35/0,85 s | Cámara, HUD oculto, animación, VFX y sonido finales en H10 |
 | H03-L03 | Validación | Teclado/control virtuales y capturas RenderTexture; sin hardware físico ni monitor nativo 1080p | Limitaciones heredadas, prueba física en H11 |
 | H03-L04 | Build | 1 advertencia por truncamiento implícito de DebugOccluder (Unity Core/d3d11) | Build aprobada, 0 errores; sin modificación de paquetes |
 | H03-L05 | Player oculto de validación | Curl error 6 y avisos al liberar buffers/asignaciones persistentes/JobTempAlloc al apagar el proceso con capturas explícitas, como en H00–H02 | Sin excepción de lógica, smoke aprobado y salida 0. Evaluación interactiva/prolongada en H12; no se atribuye una causa no demostrada |
 
 No hay correcciones abiertas del usuario. La implementación H03 y sus 49 pruebas no acreditan estados completos ni balance final.
+
+
+## Seguimiento H04
+
+| ID | Tareas | Descripción y alcance | Estado / cierre |
+| --- | --- | --- | --- |
+| H04-C01 | Verificación | El editor sin foco no entregaba eventos virtuales a la Game View; primera pasada interrumpida con tres fallos de navegación | Resuelto en fixtures, enrutamiento temporal con restauración. Regresión de teclado aprobada y suite final 68/68 |
+| H04-C02 | H04-T13/T14 | El fixture nuevo clonaba Veneno de acción y Antídoto en objetos diferentes con el mismo ID; el validador rechazaba la sesión (15 errores de fixture en pasada dirigida) | Resuelto con clonado compartido por referencia. Se conserva validación estricta; suite final 68/68 |
+| H04-C03 | H04-T12 | Fondo inicial del HUD dejaba nombres 3D detrás de contadores. Extenderlo opaco reducía el área de la arena | Resuelto con fondo propio por fila y compactación de estados activos; se conserva encuadre. Capturas finales 720p/1080p inspeccionadas y regresión 4/4 |
+| H04-L01 | Validación | Teclado/Gamepad virtuales y capturas RenderTexture; no hay evidencia de control físico ni monitor nativo 1080p | Límites heredados, dispositivos físicos en H11 |
+| H04-L02 | Presentación | Iconos vectoriales de estados y modelos/UI/arena provisionales. Tormenta conserva tiempos de presentación 0,35/0,85 s | Alcance previsto; arte/animación/UI/audio/VFX en H05–H10 |
+| H04-L03 | Build | 1 advertencia de truncamiento implícito del shader DebugOccluder de Unity Core/d3d11 | Build aprobada con 0 errores; BuildReport confirmado y Combat del player inspeccionada |
+| H04-L04 | Player oculto | Curl error 6 y avisos al liberar GraphicsBuffer/ComputeBuffer, asignaciones persistentes y JobTempAlloc al apagar con capturas explícitas | Flujo aprobado y salida 0, sin excepción de lógica observada. No se atribuye causa no demostrada; revisión interactiva/prolongada en H12 |
+
+Las reglas y los tres consumibles pendientes de H03 están completos en H04. Sin correcciones abiertas del usuario ni bloqueos de flujo detectados. H04 fue aprobado por el usuario el 21 de noviembre de 2026, mediante «Bien! Queda aprobado entonces.»; H05 no iniciado. Las pruebas automatizadas no acreditan balance final, duración de tres a cinco minutos ni hardware físico.

@@ -15,8 +15,7 @@ MonoBehaviour:
   id: corrosive_flask
   displayName: Frasco corrosivo
   command: 7
-  description: "Un enemigo vivo: defensa \xD70,5 durante sus pr\xF3ximas 2 acciones.
-    Pendiente de H04."
+  description: "Un enemigo vivo: defensa \xD70,5 durante sus pr\xF3ximas 2 acciones."
   icon: {fileID: 0}
   targetMode: 0
   effect: 2

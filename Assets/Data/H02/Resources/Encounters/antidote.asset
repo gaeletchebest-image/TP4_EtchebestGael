@@ -15,7 +15,7 @@ MonoBehaviour:
   id: antidote
   displayName: "Ant\xEDdoto"
   command: 8
-  description: Elimina Veneno de un aliado vivo afectado. Pendiente de H04.
+  description: Elimina Veneno de un aliado vivo afectado.
   icon: {fileID: 0}
   targetMode: 1
   effect: 3

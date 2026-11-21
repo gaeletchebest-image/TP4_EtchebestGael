@@ -12,6 +12,9 @@ namespace UltimaGuardia.Tests
 {
     public class CombatFlowTests
     {
+#if UNITY_EDITOR
+        private InputSettings.EditorInputBehaviorInPlayMode previousEditorInput;
+#endif
         private Keyboard keyboard;
         private Gamepad gamepad;
         private bool wasBackground;
@@ -27,6 +30,10 @@ namespace UltimaGuardia.Tests
             previousBehavior = InputSystem.settings.backgroundBehavior;
             Application.runInBackground = true;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
+#if UNITY_EDITOR
+            previousEditorInput = InputSystem.settings.editorInputBehaviorInPlayMode;
+            InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+#endif
             keyboard = InputSystem.AddDevice<Keyboard>();
             gamepad = InputSystem.AddDevice<Gamepad>();
             yield return SceneManager.LoadSceneAsync("Combat");
@@ -39,6 +46,9 @@ namespace UltimaGuardia.Tests
         public IEnumerator TearDown()
         {
             InputSystem.RemoveDevice(keyboard); InputSystem.RemoveDevice(gamepad);
+#if UNITY_EDITOR
+            InputSystem.settings.editorInputBehaviorInPlayMode = previousEditorInput;
+#endif
             InputSystem.settings.backgroundBehavior = previousBehavior;
             Application.runInBackground = wasBackground;
             Time.timeScale = previousTimeScale;
@@ -136,7 +146,7 @@ namespace UltimaGuardia.Tests
         }
 
         [UnityTest]
-        public IEnumerator NestedMenusGroupSelectionAndPendingItemsPreserveFocusAndResources()
+        public IEnumerator NestedMenusGroupSelectionAndItemsPreserveFocusAndResources()
         {
             double clock = Battle.Session.ActiveTime;
             yield return Press(Key.DownArrow); yield return Press(Key.Enter);
@@ -157,11 +167,13 @@ namespace UltimaGuardia.Tests
             {
                 Assert.AreEqual(i, Battle.SelectedCommand);
                 yield return Press(Key.Enter);
-                Assert.AreEqual(PrototypePhase.Commands, Battle.Phase); Assert.IsNull(Battle.Session.Pending);
+                Assert.AreEqual(i == 2 || i == 3 ? PrototypePhase.Targets : PrototypePhase.Commands, Battle.Phase);
+                Assert.IsNull(Battle.Session.Pending);
+                if (i == 2 || i == 3) yield return Press(Key.Escape);
                 if (i < 4) yield return Press(Key.DownArrow);
             }
-            yield return Capture("items-pending-1280x720", 1280, 720);
-            yield return Capture("items-pending-1920x1080", 1920, 1080);
+            yield return Capture("items-1280x720", 1280, 720);
+            yield return Capture("items-1920x1080", 1920, 1080);
             Assert.AreEqual(clock, Battle.Session.ActiveTime);
             CollectionAssert.AreEqual(new[] { 3, 2, 1, 1, 2 }, Battle.Session.Inventory.Values);
             yield return Pad(GamepadButton.Start); Assert.IsTrue(Battle.IsPaused);
@@ -255,6 +267,80 @@ namespace UltimaGuardia.Tests
             Assert.IsTrue(Battle.IsPaused);
             yield return Pad(GamepadButton.East);
             Assert.IsFalse(Battle.IsPaused);
+        }
+
+        [UnityTest]
+        public IEnumerator StatusObjectsWorkWithPadAndKeyboardAndShowCoexistingCounters()
+        {
+            var mage = Battle.Session.Actor;
+            yield return Pad(GamepadButton.DpadDown); yield return Pad(GamepadButton.DpadDown); yield return Pad(GamepadButton.South);
+            yield return Pad(GamepadButton.DpadDown); yield return Pad(GamepadButton.DpadDown); yield return Pad(GamepadButton.South);
+            for (int i = 0; Battle.SelectedTarget != mage && i < 3; i++) yield return Pad(GamepadButton.DpadRight);
+            Assert.AreSame(mage, Battle.SelectedTarget);
+            yield return Pad(GamepadButton.East); Assert.AreEqual(1, Battle.Session.QuantityFor(CombatAction.HasteTonic));
+            yield return Pad(GamepadButton.South);
+            for (int i = 0; Battle.SelectedTarget != mage && i < 3; i++) yield return Pad(GamepadButton.DpadRight);
+            yield return Pad(GamepadButton.South); yield return WaitForPlayerCommands();
+            Assert.AreEqual(2, mage.Effects.Single(e => e.Definition.Kind == StatusKind.Haste).Remaining);
+            Assert.AreEqual(42, mage.EffectiveSpeed); Assert.AreEqual(0, Battle.Session.QuantityFor(CombatAction.HasteTonic));
+            // Explicit coexistence fixture for all three provisional icon rows.
+            mage.ApplyStatus(Battle.Session.ItemFor(CombatAction.Antidote).AppliedEffect);
+            mage.ApplyStatus(Battle.Session.ItemFor(CombatAction.CorrosiveFlask).AppliedEffect);
+            yield return Capture("statuses-coexist-1280x720", 1280, 720);
+            yield return Capture("statuses-coexist-1920x1080", 1920, 1080);
+            var labels = Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None);
+            foreach (var name in new[] { "Veneno", "Rapidez", "Corrosión" })
+                Assert.IsTrue(labels.Any(t => t.text.Contains(name + " · ")));
+            Assert.AreEqual(3, Object.FindObjectsByType<StatusIcon>(FindObjectsSortMode.None).Count(i => i.gameObject.activeInHierarchy));
+            yield return Press(Key.DownArrow); yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            for (int i = 0; i < 3; i++) yield return Press(Key.DownArrow);
+            yield return Press(Key.Enter);
+            for (int i = 0; Battle.SelectedTarget.Definition.Id != "ogre" && i < 3; i++) yield return Press(Key.RightArrow);
+            yield return Press(Key.Enter); yield return Press(Key.Escape);
+            Assert.IsTrue(Battle.IsPaused); var ogre = Battle.Session.Fighters.Single(f => f.Definition.Id == "ogre");
+            Assert.IsFalse(ogre.HasStatus(StatusKind.Corrosion));
+            yield return new WaitForSecondsRealtime(0.2f); Assert.IsFalse(ogre.HasStatus(StatusKind.Corrosion));
+            yield return Press(Key.Escape);
+            while (Battle.ActionTime < 0.4f) yield return null;
+            Assert.AreEqual(3, ogre.EffectiveDefense); Assert.AreEqual(0, Battle.Session.QuantityFor(CombatAction.CorrosiveFlask));
+            yield return Press(Key.Escape); yield return Capture("corrosion-impact-paused", 1280, 720);
+            yield return Press(Key.Escape); yield return WaitForPlayerCommands();
+            // Either survivor can use the shared antidote on the affected mage.
+            Assert.IsTrue(mage.IsAlive); Assert.IsTrue(mage.HasStatus(StatusKind.Poison));
+            yield return Press(Key.DownArrow); yield return Press(Key.DownArrow); yield return Press(Key.Enter);
+            for (int i = 0; i < 4; i++) yield return Press(Key.DownArrow);
+            yield return Press(Key.Enter);
+            for (int i = 0; Battle.SelectedTarget != mage && i < 3; i++) yield return Press(Key.RightArrow);
+            int health = mage.Health;
+            yield return Press(Key.Enter);
+            Assert.IsFalse(mage.HasStatus(StatusKind.Poison)); Assert.AreEqual(health, mage.Health);
+            Assert.AreEqual(1, Battle.Session.QuantityFor(CombatAction.Antidote));
+            yield return Press(Key.Escape); yield return Capture("antidote-confirmed-paused", 1280, 720);
+            yield return Press(Key.DownArrow); yield return Press(Key.Enter); AssertFreshBattle();
+            Assert.IsTrue(Battle.Session.Fighters.All(f => f.Effects.Count == 0));
+        }
+
+        [UnityTest]
+        public IEnumerator PoisonDeathBeforeTurnShowsResultWithoutMenuAndRestartClearsMarkers()
+        {
+            var warrior = Battle.Session.Fighters.Single(f => f.Definition.Id == "warrior");
+            warrior.Damage(warrior.Health - 8);
+            warrior.ApplyStatus(Battle.Session.ItemFor(CombatAction.Antidote).AppliedEffect);
+            Battle.Session.Actor.Damage(999); // Last survivor is about to receive his first turn.
+            float deadline = Time.realtimeSinceStartup + 10;
+            while (Battle.Phase != PrototypePhase.Result && Time.realtimeSinceStartup < deadline) yield return null;
+            Assert.AreEqual(PrototypePhase.Result, Battle.Phase); Assert.AreEqual(CombatOutcome.Defeat, Battle.Session.Outcome);
+            Assert.AreEqual(0, Battle.Session.CompletedActions); Assert.IsNull(Battle.Session.Actor); Assert.IsNull(Battle.Session.Pending);
+            Assert.IsTrue(Object.FindObjectsByType<CombatantView>(FindObjectsSortMode.None).All(v => !v.actorMarker.activeSelf && !v.targetMarker.activeSelf));
+            yield return Capture("poison-lethal-defeat", 1280, 720);
+            yield return Press(Key.Enter); AssertFreshBattle();
+        }
+
+        private IEnumerator WaitForPlayerCommands()
+        {
+            float deadline = Time.realtimeSinceStartup + 15;
+            while ((Battle.Phase != PrototypePhase.Commands || Battle.Session.Actor?.Definition.Team != CombatTeam.Allies) && Time.realtimeSinceStartup < deadline) yield return null;
+            Assert.AreEqual(PrototypePhase.Commands, Battle.Phase); Assert.AreEqual(CombatTeam.Allies, Battle.Session.Actor.Definition.Team);
         }
 
         private IEnumerator PlayToResult(bool pad, bool useResources = true)
@@ -361,7 +447,7 @@ namespace UltimaGuardia.Tests
                 camera.Render(); RenderTexture.active = render;
                 image = new Texture2D(width, height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, width, height), 0, 0); image.Apply();
-                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H03");
+                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H04");
                 Directory.CreateDirectory(directory);
                 File.WriteAllBytes(Path.Combine(directory, name + ".png"), image.EncodeToPNG());
             }

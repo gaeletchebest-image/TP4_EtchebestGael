@@ -32,6 +32,7 @@ namespace UltimaGuardia
         private int rootIndex, skillIndex, itemIndex;
         private CombatAction selectedAction;
         private string notice;
+        private StatusHud[] statusHud;
         public CombatSession Session { get; private set; }
         public PrototypePhase Phase { get; private set; }
         public CombatMenu Menu { get; private set; }
@@ -68,6 +69,7 @@ namespace UltimaGuardia
             cameraPosition = combatCamera.transform.position;
             cameraRotation = combatCamera.transform.rotation;
             foreach (var view in views) view.RememberPose();
+            statusHud = resourceLabels.Select(label => new StatusHud(label)).ToArray();
             RestartCombat();
         }
 
@@ -232,6 +234,7 @@ namespace UltimaGuardia
                 float pulse = pending != null && pending.Targets.Contains(state) && pending.ImpactApplied
                     ? Mathf.Sin(Mathf.Clamp01((actionTime - 0.35f) / 0.5f) * Mathf.PI) : 0;
                 views[i].Present(state, Session.Outcome == CombatOutcome.Ongoing && Session.Actor == state, targeted, pulse);
+                statusHud[i].Present(state);
                 resourceLabels[i].text = state.Definition.Name + " · " + (state.Definition.Team == CombatTeam.Allies ? "Aliado" : "Enemigo") +
                     (state.IsAlive ? "" : " · DERROTADO") + "\nVida " + state.Health + "/" + state.Definition.MaxHealth +
                     "    Maná " + state.Mana + "/" + state.Definition.MaxMana + "\n" +

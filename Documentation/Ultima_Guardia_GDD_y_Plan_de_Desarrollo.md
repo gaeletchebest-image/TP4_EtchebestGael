@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00, H01, H02 y H03 aprobados por el usuario. H04 a H13 pendientes.
+> Estado: H00, H01, H02, H03 y H04 aprobados por el usuario. H05 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -125,7 +125,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H01. Arena provisional y combate básico terminable.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H02. Datos configurables, ATB y recuperación.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H03. Acciones completas, inventario e inteligencia enemiga.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H04. Veneno, rapidez y corrosión.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H04. Veneno, rapidez y corrosión.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H05. Modelado y preparación de los cuatro personajes 3D.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H07. Modelado modular y construcción del escenario final.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -218,6 +218,28 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Limitaciones: estados activos en H04, arte/animaciones/UI/audio/VFX finales en H05–H10, dispositivos físicos en H11 y balance/rendimiento en H12. [Seguimiento](KNOWN_ISSUES.md). Tormenta utiliza impacto a 0,35 s y cierre a 0,85 s provisionales; la secuencia audiovisual final de H10 no se adelanta.
 - Cómo revisar: ejecutar la build H03 o abrir MainMenu en Unity; consultar Habilidades de la maga, cancelar y confirmar Tormenta, curar tras una herida, usar Éter tras gastar maná, revisar los tres objetos pendientes, observar alternancia del ogro y curación del chamán bajo 120 de vida. Pausar, reiniciar, ganar/perder y reiniciar. Pasos y valores esperados en [README](../README.md).
 - Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien. Queda aprobado. Dame nombre en ingles para el commit». Sin correcciones solicitadas. H04 permanece pendiente para otro chat.
+
+#### Registro H04
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. H05 no iniciado.
+- Versión: **0.0.5-H04** (PlayerSettings 0.0.5), cambios locales sobre commit real `8ea908e` (H03). No se creó un commit de entrega.
+- Fecha: 21 de noviembre de 2026. Autorización: «Dale! Entonces hacelo», después de leer y explicar H04. El usuario pidió continuar tras recuperar tokens; se conservó el mismo hito. H00–H03 aprobados, sin correcciones abiertas.
+- Tareas completadas: **H04-T01 a H04-T15**. Ninguna tarea H05 o posterior iniciada.
+- Entrega: instancias de efectos con snapshots e identidad de aplicación, Veneno al inicio del turno, Rapidez y Corrosión por acciones, Antídoto inmediato al confirmar, Tónico y Frasco funcionales, reaplicación sin acumular potencia, coexistencia, estadísticas efectivas y limpieza al morir/reiniciar. IA del chamán completa: curación → aliado vivo sin veneno → Descarga.
+- Duraciones: Veneno aplica 8 tres veces, antes de decisión/IA; puede matar, limpiar cola y producir resultado sin gasto. Rapidez ×1,5 y Corrosión ×0,5 conservan decimales y duran las próximas dos acciones del afectado. ATB acumulado y recuperación fija no cambian. Las aplicaciones presentes al inicio se descuentan al finalizar; usar Tónico propio o renovar durante esa acción termina con dos cargas. Antídoto exige Veneno, lo elimina al confirmar y no devuelve el daño recibido.
+- Datos y conservación: se preservaron GUID/rutas de H02, estadísticas, costos, cantidades, arena, prefabs y MainMenu. Las descripciones ya no indican pendientes de H04. No hubo ajustes de balance ni recursos externos. Las referencias finales de arte/audio/animación permanecen para sus hitos.
+- Archivos principales: `CombatSession.cs`, `CombatPrototype.cs`, `EncounterData.cs`, `StatusState.cs`, `StatusHud.cs`, `StatusIcon.cs`, `Assets/Scripts/Editor/StatusSetup.cs`, `Assets/Tests/PlayMode/StatusRulesTests.cs` y ampliaciones de pruebas. Utilidad explícita H04 ya ejecutada sobre Combat existente; no regenera escenas ni restaura números de configuración.
+- UI: nombres, duración y formas provisionales (gota verde, flecha azul, escudo roto naranja) en cada participante. Fondos independientes por fila y compactación evitan nombres 3D detrás de contadores sin reducir el encuadre. Arte final de H08 pendiente.
+- Pruebas: **68/68 PlayMode**, 0 fallidas/omitidas, **119,2678023 s**, job `09ee960906414054887eda50084c9e17`; regresiones H00–H03 incluidas. Después del ajuste visual final, **4/4 pruebas de flujo**, **41,299563 s**, job `842711d79d0a4c7ba9f98faebe245697`. [Suite](Evidence/H04/playmode-results.json), [regresión visual/flujo](Evidence/H04/flow-after-ui-fix.json), [informe y métodos](TEST_REPORT.md).
+- Peleas: victoria normal con teclado virtual en **22 acciones, 0 Pociones**, y con control virtual en **22 acciones, 0 Pociones**. Derrota con aliados a 1 y derrota por Veneno con último aliado a 8 en fixtures. Reloj ×4 solo para automatización; no son mediciones de balance, duración objetivo ni hardware.
+- Visual: coexistencia de tres estados en 720p/1080p, uso/cancelación de Tónico con control virtual, Frasco con pausa antes/después de impacto, Antídoto eliminado al confirmar, derrota por Veneno y reinicios. RenderTexture con Canvas/cámara reales; no acredita monitor físico 1080p. [Capturas](Evidence/H04/).
+- Build: `Builds/H04/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **163,18 MB**, **77,8586972 s**, **0 errores / 1 advertencia** del shader DebugOccluder de Unity Core/d3d11, confirmada por BuildReport. Job `build-91496c0737`. [Resumen](Evidence/H04/build-summary.json), [detalle](Evidence/H04/build-report-details.json).
+- Player real: `-foundation-smoke` aprobado, versión `0.0.5-flow`, MainMenu → Combat → pausa → MainMenu → Salir, ventana/captura 1280 × 720, input virtual y **código 0**. [Resultado](Evidence/H04/player-result-1280x720.json). Combat inspeccionada sin materiales faltantes. Las peleas completas son PlayMode. Se conservan avisos de red/liberación de buffers/asignaciones al apagar el proceso oculto; evaluación interactiva/prolongada en H12. Configuración de entrada a Play y Unity Connect recibida conservada/restaurada. [Huellas](Evidence/H04/fingerprints.json).
+- Correcciones de verificación: primera pasada interrumpida por enrutamiento de input sin foco; resuelto solo en fixtures con restauración. Pasada dirigida 2/17 por duplicación de IDs de Veneno al clonar fixtures; corregida preservando referencias compartidas. Fondo de contadores ajustado y regresiones repetidas. Historial y límites en [TEST_REPORT.md](TEST_REPORT.md) y [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
+- Cómo revisar: ejecutar build H04 o MainMenu en Unity; usar Tónico propio y contar 2 → 1 → 0; Frasco al ogro y comprobar básico del guerrero 25 frente a 22 tras vencer; observar Veneno sin daño directo y 8 al comienzo de turnos; usar Antídoto y comprobar unidad/limpieza sin curación; pausar/reiniciar y verificar recursos y estados vacíos. Detalle en [README](../README.md).
+- Limitaciones: control físico y monitor nativo 1080p no comprobados; modelos, escenario, UI, audio, animación y VFX finales posteriores. Sin ajustes de balance.
+- Revisión del usuario: **aprobada** el 21 de noviembre de 2026. Evidencia: «Bien! Queda aprobado entonces.». Sin correcciones solicitadas. H05 permanece pendiente para otro chat.
+- Próximo hito en orden: **H05**, identificación solamente; **no iniciado**.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -819,24 +841,24 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Programación y datos
 
-- [ ] **H04-T01. Crear instancias de efectos.** Guardar tipo, potencia, duración restante e identidad de aplicación. Permitir coexistencia de efectos diferentes.
-- [ ] **H04-T02. Implementar Veneno.** Aplicar 8 de daño que ignora defensa al inicio de los próximos tres turnos, antes de la selección o decisión automática.
-- [ ] **H04-T03. Resolver muerte por Veneno.** Si el daño mata, no abrir menú ni ejecutar IA; limpiar cola y recursos visuales del muerto y comprobar resultado.
-- [ ] **H04-T04. Completar habilidad enemiga Veneno.** Aplicar el estado sin daño directo y permitir que la IA identifique aliados vivos todavía no envenenados.
-- [ ] **H04-T05. Completar Antídoto.** Eliminar el veneno al confirmar, exigir un aliado vivo afectado y no devolver el daño que ya ocurrió al inicio del turno.
-- [ ] **H04-T06. Implementar Rapidez.** Multiplicar velocidad base por 1,5 sin cambiar ATB acumulado ni recuperación fija. Conservar decimales.
-- [ ] **H04-T07. Implementar Corrosión.** Multiplicar defensa base por 0,5 y calcular daño con defensa efectiva, sin modificar el daño de Veneno.
-- [ ] **H04-T08. Completar Tónico y Frasco.** Aplicar los efectos al equipo correcto, con dos próximas acciones del afectado de duración.
-- [ ] **H04-T09. Implementar vencimiento por acciones.** Registrar efectos al inicio del turno y descontar al finalizar solo los que correspondan. Un tónico usado sobre uno mismo conserva dos cargas al terminar esa acción.
-- [ ] **H04-T10. Implementar reaplicación.** Renovar duración sin sumar potencia ni descontar inmediatamente una aplicación nueva o renovada.
-- [ ] **H04-T11. Limpiar y recalcular estadísticas.** Eliminar efectos al morir o reiniciar y reconstruir estadísticas desde los valores base, sin acumulación de errores.
+- [x] **H04-T01. Crear instancias de efectos.** Guardar tipo, potencia, duración restante e identidad de aplicación. Permitir coexistencia de efectos diferentes.
+- [x] **H04-T02. Implementar Veneno.** Aplicar 8 de daño que ignora defensa al inicio de los próximos tres turnos, antes de la selección o decisión automática.
+- [x] **H04-T03. Resolver muerte por Veneno.** Si el daño mata, no abrir menú ni ejecutar IA; limpiar cola y recursos visuales del muerto y comprobar resultado.
+- [x] **H04-T04. Completar habilidad enemiga Veneno.** Aplicar el estado sin daño directo y permitir que la IA identifique aliados vivos todavía no envenenados.
+- [x] **H04-T05. Completar Antídoto.** Eliminar el veneno al confirmar, exigir un aliado vivo afectado y no devolver el daño que ya ocurrió al inicio del turno.
+- [x] **H04-T06. Implementar Rapidez.** Multiplicar velocidad base por 1,5 sin cambiar ATB acumulado ni recuperación fija. Conservar decimales.
+- [x] **H04-T07. Implementar Corrosión.** Multiplicar defensa base por 0,5 y calcular daño con defensa efectiva, sin modificar el daño de Veneno.
+- [x] **H04-T08. Completar Tónico y Frasco.** Aplicar los efectos al equipo correcto, con dos próximas acciones del afectado de duración.
+- [x] **H04-T09. Implementar vencimiento por acciones.** Registrar efectos al inicio del turno y descontar al finalizar solo los que correspondan. Un tónico usado sobre uno mismo conserva dos cargas al terminar esa acción.
+- [x] **H04-T10. Implementar reaplicación.** Renovar duración sin sumar potencia ni descontar inmediatamente una aplicación nueva o renovada.
+- [x] **H04-T11. Limpiar y recalcular estadísticas.** Eliminar efectos al morir o reiniciar y reconstruir estadísticas desde los valores base, sin acumulación de errores.
 
 #### Lectura y verificación
 
-- [ ] **H04-T12. Mostrar efectos y contadores provisionales.** Indicar Veneno, Rapidez y Corrosión con nombre, icono provisional y duración restante.
-- [ ] **H04-T13. Probar duración exacta.** Registrar tres activaciones de Veneno, rapidez sobre el usuario y corrosión hasta la segunda acción del objetivo.
-- [ ] **H04-T14. Probar coexistencia y reaplicación.** Aplicar dos estados, renovar uno y confirmar que no duplica potencia ni altera el otro.
-- [ ] **H04-T15. Verificar la IA completa.** Confirmar prioridades de curación, veneno y básico con las condiciones y costos reales.
+- [x] **H04-T12. Mostrar efectos y contadores provisionales.** Indicar Veneno, Rapidez y Corrosión con nombre, icono provisional y duración restante.
+- [x] **H04-T13. Probar duración exacta.** Registrar tres activaciones de Veneno, rapidez sobre el usuario y corrosión hasta la segunda acción del objetivo.
+- [x] **H04-T14. Probar coexistencia y reaplicación.** Aplicar dos estados, renovar uno y confirmar que no duplica potencia ni altera el otro.
+- [x] **H04-T15. Verificar la IA completa.** Confirmar prioridades de curación, veneno y básico con las condiciones y costos reales.
 
 #### Criterios para cerrar el hito
 
