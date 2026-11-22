@@ -67,14 +67,22 @@ namespace UltimaGuardia
     {
         public static int Volume { get; private set; } = 100;
         public static bool UsingGamepad { get; private set; }
+        public static InputDevice LastInputDevice { get; private set; }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        private static void Reset() { Volume = 100; UsingGamepad = false; AudioListener.volume = 1; }
+        private static void Reset() { Volume = 100; UsingGamepad = false; LastInputDevice = null; AudioListener.volume = 1; }
         public static void SetVolume(int value) { Volume = Mathf.Clamp(value, 0, 100) / 10 * 10; AudioListener.volume = Volume / 100f; }
         public static void Observe(InputAction navigation, InputAction confirm, InputAction cancel, InputAction pause)
         {
             foreach (var action in new[] { navigation, confirm, cancel, pause })
                 if (action.WasPerformedThisFrame() && action.activeControl != null)
-                    UsingGamepad = action.activeControl.device is Gamepad;
+                {
+                    LastInputDevice = action.activeControl.device;
+                    UsingGamepad = LastInputDevice is Gamepad;
+                }
+        }
+        public static void ForgetDevice(InputDevice device)
+        {
+            if (ReferenceEquals(LastInputDevice, device)) { LastInputDevice = null; UsingGamepad = false; }
         }
         public static string Help => UsingGamepad
             ? "Cruceta / stick: navegar     Botón inferior: confirmar     Botón derecho: volver     Menú: pausa"

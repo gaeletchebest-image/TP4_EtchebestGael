@@ -1,0 +1,32 @@
+{
+  "milestone": "H11",
+  "jobId": "1b591236fee54949b6529b9901d51182",
+  "result": "Passed",
+  "passed": 14,
+  "failed": 0,
+  "skipped": 0,
+  "durationSeconds": 153.1158652,
+  "inputDevices": "Virtual Keyboard and Virtual Gamepad",
+  "tests": [
+    "CancelingLeaveAndRestartConfirmationsKeepsPauseAndCombat",
+    "CancellationPauseRepeatedConfirmAndRestartPreserveRules",
+    "DisconnectDuringStormPausesAndResumeDoesNotRepeatImpact",
+    "KeyboardWinsNormalEncounterAndRestartsFromResult",
+    "RemovedTargetReturnsFocusToFirstRemainingValidTarget",
+    "VirtualGamepadWinsThenLosesLowHealthScenarioAndRestarts",
+    "DisconnectPausesAndKeyboardCanResume",
+    "HeldConfirmDoesNotConfirmTheNextScene",
+    "KeyboardNavigatesConfirmsCancelsPausesAndReturns",
+    "KeyboardOnlySessionDoesNotRequireAController",
+    "ReconnectedControllerCanResumeDisconnectNotice",
+    "StickDeadzoneFiltersDriftAndHeldNavigationRepeats",
+    "SwitchingDevicesUpdatesHelpAndPreservesFocus",
+    "VirtualGamepadUsesDpadStickFaceButtonsAndMenu"
+  ],
+  "limitations": [
+    "Tests use virtual input devices and do not verify physical hardware.",
+    "The physical controller-only route and physical disconnect/reconnect remain pending.",
+    "After this recorded run, KeyboardOnlySessionDoesNotRequireAController gained an additional ATB-freeze assertion and the LINQ import needed by that assertion; the changed source was not rerun in Unity.",
+    "A fresh 0.0.12-H11 player build was not produced."
+  ]
+}

@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La versión actual 0.0.11-H10 incluye reglas completas, modelos H05, animaciones H06, arena final H07, interfaz final H08, audio H09 y VFX H10. Dispositivos físicos corresponden a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
+El proyecto fuente está en versión 0.0.12-H11 en curso: incluye las mejoras de entrada y robustez de H11, además de reglas completas, modelos H05, animaciones H06, arena final H07, interfaz final H08, audio H09 y VFX H10. El artefacto H11 disponible informa 0.0.11-flow y no se considera compilación final del estado actual. Dispositivos físicos corresponden a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -154,4 +154,14 @@ No hay correcciones abiertas. H09 fue aprobado por el usuario el 21 de noviembre
 | H10-C03 | Los números de daño de área quedaron demasiado próximos al restaurar el HUD | Cerrada: desplazamiento vertical conservado tras recalcular posiciones con la cámara original; captura final inspeccionada |
 | H10-L01 | Smoke del player y capturas editoriales | El smoke no ejecuta la especial; PlayMode verifica reglas, cámara, HUD y pausa. Control físico y monitor nativo 1080p siguen pendientes H11; rendimiento prolongado H12 |
 
-H10 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado entonces. Dame un nombre en ingles para el commit». No hay correcciones abiertas; H11 no iniciado.
+H10 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado entonces. Dame un nombre en ingles para el commit». No hay correcciones abiertas.
+
+## Seguimiento H11
+
+| ID | Alcance | Estado / comprobación |
+| --- | --- | --- |
+| H11-C01 | Intento de regenerar build 0.0.12-H11 | No inició: Unity batchmode terminó con código 1 al rechazar Licensing IPC. El artefacto existente informa `0.0.11-flow`; no se presenta como compilación final de la fuente actual |
+| H11-L01 | Hardware y recorrido desde build | No había Gamepad físico en Input System. PlayMode 14/14 y smoke del player usaron dispositivos virtuales; falta recorrido físico completo, retirada/reconexión y teclado completo desde build vigente |
+| H11-L02 | Pruebas adicionales T09/T11 | Se implementaron pausas, desconexión y limpieza de listeners; queda por repetir y consolidar sus comprobaciones específicas tras el cierre del editor Unity |
+
+H11 permanece en curso. H12 y H13 no iniciados.

@@ -1,13 +1,13 @@
 # Última Guardia
 
 Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Versión **0.0.11-H10**. H00–H10 aprobados por el usuario. H11 no iniciado.
+Versión fuente **0.0.12-H11 (en curso)**. H00–H10 aprobados por el usuario. Falta validar T09/T11 y los recorridos con dispositivos físicos para cerrar H11.
 
 ## Abrir y jugar
 
 - Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, Windows x86_64, Mono.
 - Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona Combat directamente.
-- Build de revisión: `Builds/H10/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds anteriores.
+- Build H10 de referencia: `Builds/H10/UltimaGuardia.exe`, junto con toda su carpeta. La build H11 disponible en `Builds/H11/UltimaGuardia.exe` informa `0.0.11-flow`; no corresponde a la versión fuente 0.0.12.
 - Ventana inicial redimensionable de **1280 × 720**. Canvas con esa resolución de referencia y ajuste ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
 Una sola pelea enfrenta a guerrero y maga contra ogro y chamán frente a una fortaleza. Los modelos H05, los 24 clips H06 y la arena H07 están integrados. H08 incorpora HUD, iconos y menús finales. H09 incorpora 28 clips de audio originales. H10 incorpora VFX y la presentación completa de Tormenta.
@@ -46,6 +46,8 @@ Golpes, magia, recuperaciones, estados y Veneno tienen efectos transitorios. Tor
 | Cerrar pausa | Escape o Continuar | Botón derecho, menú o Continuar |
 
 La navegación es circular. Las ayudas y el icono de dispositivo cambian con el último utilizado. Una pulsación mantenida no confirma una pantalla nueva.
+
+Si se desconecta un control durante el combate, el juego pausa y abre un aviso navegable. Se puede continuar con teclado o esperar a reconectarlo; la pausa previa se conserva y reanudar no repite impactos. Este comportamiento está cubierto con Gamepad virtual. La desconexión física todavía requiere validación.
 
 ## Reglas del combate
 

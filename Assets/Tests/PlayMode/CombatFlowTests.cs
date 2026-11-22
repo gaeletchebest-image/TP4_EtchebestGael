@@ -45,7 +45,8 @@ namespace UltimaGuardia.Tests
         [UnityTearDown]
         public IEnumerator TearDown()
         {
-            InputSystem.RemoveDevice(keyboard); InputSystem.RemoveDevice(gamepad);
+            if (keyboard != null && keyboard.added) InputSystem.RemoveDevice(keyboard);
+            if (gamepad != null && gamepad.added) InputSystem.RemoveDevice(gamepad);
 #if UNITY_EDITOR
             InputSystem.settings.editorInputBehaviorInPlayMode = previousEditorInput;
 #endif
@@ -79,6 +80,8 @@ namespace UltimaGuardia.Tests
             Assert.AreEqual(3, Battle.Session.Potions);
             yield return Press(Key.Enter); // reopen targets
             var target = Battle.SelectedTarget;
+            float normalTimeScale = Time.timeScale;
+            Time.timeScale = .1f;
             yield return Press(Key.Enter); // commit heavy
             Assert.AreEqual(PrototypePhase.Executing, Battle.Phase);
             Assert.AreEqual(22, Battle.Session.Actor.Mana);
@@ -86,12 +89,14 @@ namespace UltimaGuardia.Tests
             yield return Press(Key.Escape); // before impact
             Assert.IsTrue(Battle.IsPaused);
             float elapsed = Battle.ActionTime;
+            Assert.Less(elapsed, .35f, "The test pauses before the configured impact time.");
             int health = target.Health;
             yield return new WaitForSecondsRealtime(0.45f);
             Assert.AreEqual(elapsed, Battle.ActionTime);
             Assert.AreEqual(health, target.Health);
             yield return Capture("pause", 1280, 720);
             yield return Press(Key.Escape);
+            Time.timeScale = normalTimeScale;
             while (Battle.ActionTime < 0.4f) yield return null;
             Assert.AreEqual(health - CombatSession.CalculateDamage(28, 1.8, target.Definition.Defense), target.Health);
             yield return Press(Key.Escape); // after impact
@@ -123,6 +128,8 @@ namespace UltimaGuardia.Tests
             yield return Press(Key.Enter); yield return Press(Key.Enter);
             yield return Press(Key.Enter);
             while (Battle.Session.CompletedActions < 2 || Battle.Session.Actor == null) yield return null;
+            while (Battle.Phase != PrototypePhase.Commands) yield return null;
+            Assert.IsFalse(Battle.Session.ClockRunning, "The next decision must stop ATB and recovery before measuring them.");
             var warrior = Battle.Session.Fighters[0];
             Assert.Greater(warrior.RecoveryRemaining, 0);
             double recovery = warrior.RecoveryRemaining;
@@ -378,8 +385,11 @@ namespace UltimaGuardia.Tests
                     int steps = 0;
                     while (Battle.SelectedTarget != wanted && steps++ < 4) yield return Direction(pad, true);
                     Assert.AreSame(wanted, Battle.SelectedTarget);
+                    int completedBefore = s.CompletedActions;
                     yield return Confirm(pad);
-                    Assert.AreEqual(PrototypePhase.Executing, Battle.Phase);
+                    Assert.IsTrue(Battle.Phase == PrototypePhase.Executing || s.CompletedActions > completedBefore ||
+                        Battle.Phase == PrototypePhase.Result,
+                        "Confirmation must begin or finish exactly one action before the next ATB advance.");
                 }
                 yield return null;
             }
@@ -404,6 +414,88 @@ namespace UltimaGuardia.Tests
                 Assert.Less(Quaternion.Angle(prefab.visual.localRotation, view.visual.localRotation), 0.01f);
                 Assert.Less(Vector3.Distance(prefab.visual.localScale, view.visual.localScale), 0.001f);
             }
+        }
+
+        [UnityTest]
+        public IEnumerator DisconnectDuringStormPausesAndResumeDoesNotRepeatImpact()
+        {
+            Assert.AreEqual("mage", Battle.Session.Actor.Definition.Id);
+            yield return Pad(GamepadButton.DpadDown);
+            yield return Pad(GamepadButton.South);
+            Assert.AreEqual(CombatMenu.Skills, Battle.Menu);
+            int stormIndex = System.Array.IndexOf(Battle.DisplayedCommands, CombatAction.ArcaneStorm);
+            Assert.GreaterOrEqual(stormIndex, 0);
+            for (int i = 0; i < stormIndex; i++) yield return Pad(GamepadButton.DpadDown);
+            yield return Pad(GamepadButton.South);
+            Assert.AreEqual(PrototypePhase.Targets, Battle.Phase);
+
+            var enemies = Battle.Session.Fighters.Where(f => f.Definition.Team == CombatTeam.Enemies && f.IsAlive).ToArray();
+            var expectedDamage = enemies.ToDictionary(f => f, f => CombatSession.CalculateDamage(
+                Battle.Session.Actor.Definition.Attack, Battle.Session.ActionFor(CombatAction.ArcaneStorm).Potency, f.EffectiveDefense));
+            yield return Pad(GamepadButton.South);
+            Assert.AreEqual(PrototypePhase.Executing, Battle.Phase);
+            Assert.AreEqual(27, Battle.Session.Actor.Mana);
+
+            InputSystem.RemoveDevice(gamepad); gamepad = null;
+            yield return null; yield return null;
+            Assert.IsTrue(Battle.IsPaused);
+            Assert.AreEqual(4, Battle.PausePage);
+            yield return Capture("h11-controller-disconnected", 1280, 720);
+            float frozen = Battle.ActionTime;
+            foreach (var enemy in enemies) Assert.AreEqual(enemy.Definition.MaxHealth, enemy.Health);
+            yield return new WaitForSecondsRealtime(.3f);
+            Assert.AreEqual(frozen, Battle.ActionTime, .001f, "The special sequence remains paused after disconnect.");
+
+            yield return Press(Key.Enter);
+            Assert.IsFalse(Battle.IsPaused);
+            float deadline = Time.realtimeSinceStartup + 5;
+            while (Battle.Phase == PrototypePhase.Executing && Time.realtimeSinceStartup < deadline) yield return null;
+            Assert.AreNotEqual(PrototypePhase.Executing, Battle.Phase);
+            foreach (var enemy in enemies) Assert.AreEqual(enemy.Definition.MaxHealth - expectedDamage[enemy], enemy.Health,
+                "Each special target receives exactly one impact across disconnect and resume.");
+        }
+
+        [UnityTest]
+        public IEnumerator RemovedTargetReturnsFocusToFirstRemainingValidTarget()
+        {
+            Assert.AreEqual(PrototypePhase.Commands, Battle.Phase);
+            yield return Press(Key.Enter);
+            Assert.AreEqual(PrototypePhase.Targets, Battle.Phase);
+            var first = Battle.SelectedTarget;
+            Assert.IsNotNull(first);
+            string removedId = first.Definition.Id;
+            first.Damage(first.Health);
+            yield return null;
+
+            Assert.IsNotNull(Battle.SelectedTarget);
+            Assert.AreNotEqual(removedId, Battle.SelectedTarget.Definition.Id);
+            var firstRemaining = Battle.Session.TargetsFor(CombatAction.Basic).OrderBy(f => Camera.main.WorldToViewportPoint(
+                Object.FindObjectsByType<CombatantView>(FindObjectsSortMode.None).First(v => v.combatantId == f.Definition.Id).transform.position).x).First();
+            Assert.AreSame(firstRemaining, Battle.SelectedTarget,
+                "If the selected target disappears, focus moves to the first valid target.");
+        }
+
+        [UnityTest]
+        public IEnumerator CancelingLeaveAndRestartConfirmationsKeepsPauseAndCombat()
+        {
+            var originalSession = Battle.Session;
+            yield return Press(Key.Escape);
+            Assert.IsTrue(Battle.IsPaused);
+            for (int i = 0; i < 4; i++) yield return Press(Key.DownArrow);
+            yield return Press(Key.Enter);
+            Assert.AreEqual(3, Battle.PausePage);
+            Assert.AreEqual(0, Battle.ConfirmationSelection, "Cancelar is selected by default.");
+            yield return Press(Key.Enter);
+            Assert.AreEqual("Combat", SceneManager.GetActiveScene().name);
+            Assert.IsTrue(Battle.IsPaused);
+            Assert.AreSame(originalSession, Battle.Session, "Canceling return preserves the same attempt and pause.");
+
+            yield return Press(Key.UpArrow);
+            yield return Press(Key.Enter);
+            Assert.AreEqual(3, Battle.PausePage);
+            yield return Press(Key.Enter);
+            Assert.IsTrue(Battle.IsPaused);
+            Assert.AreSame(originalSession, Battle.Session, "Canceling restart preserves the same attempt and pause.");
         }
 
         private IEnumerator RestartFromPause()

@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 a H10 aprobados por el usuario. H11 a H13 pendientes.
+> Estado: H00 a H10 aprobados por el usuario. H11 en curso; H12 y H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -132,7 +132,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Aprobado por el usuario. Revisión del usuario: aprobada el 21 de noviembre de 2026, incluida corrección H08-C06.
 - [x] **H09. Búsqueda, edición e integración de audio.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H11. Soporte completo de teclado y control y robustez del flujo.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [ ] **H11. Soporte completo de teclado y control y robustez del flujo.** Estado: En curso; validación física y recorridos completos desde la build pendientes. Revisión del usuario: Pendiente.
 - [ ] **H12. Pruebas funcionales, balance y rendimiento.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H13. Compilación final, documentación y entrega.** Estado: Pendiente. Revisión del usuario: Pendiente.
 
@@ -1238,21 +1238,21 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Entrada y navegación
 
-- [ ] **H11-T01. Auditar todas las pantallas.** Enumerar menú principal, ayuda, volumen, comandos, habilidades, objetos, objetivos, pausa, confirmaciones y resultado; revisar ambos dispositivos.
-- [ ] **H11-T02. Resolver prioridad de Escape.** Volver un nivel en selección y abrir pausa desde raíz, avance de barras o ejecución, según el GDD.
-- [ ] **H11-T03. Resolver botones de control.** Mapear confirmar, cancelar y menú con las posiciones definidas; no depender del nombre de un fabricante.
-- [ ] **H11-T04. Configurar repetición de navegación.** Usar espera inicial, repetición y zona muerta de stick para navegar sin saltos accidentales.
-- [ ] **H11-T05. Evitar confirmaciones heredadas.** Abrir una pantalla nueva no vuelve a confirmar por una pulsación mantenida ni ejecuta la primera opción automáticamente.
-- [ ] **H11-T06. Permitir cambio de dispositivo.** Actualizar ayudas y conservar foco al pasar de teclado a control y viceversa, sin duplicar acciones.
-- [ ] **H11-T07. Implementar desconexión del control.** Si se desconecta el control de la sesión, pausar y mostrar aviso navegable; permitir continuar con teclado o tras reconectar.
-- [ ] **H11-T08. Mantener uso exclusivo de teclado.** No mostrar errores por iniciar el juego sin control conectado. No exigir conectarlo para continuar.
+- [x] **H11-T01. Auditar todas las pantallas.** Enumerar menú principal, ayuda, volumen, comandos, habilidades, objetos, objetivos, pausa, confirmaciones y resultado; revisar ambos dispositivos virtuales.
+- [x] **H11-T02. Resolver prioridad de Escape.** Volver un nivel en selección y abrir pausa desde raíz, avance de barras o ejecución, según el GDD.
+- [x] **H11-T03. Resolver botones de control.** Mapear confirmar, cancelar y menú con las posiciones definidas; no depender del nombre de un fabricante.
+- [x] **H11-T04. Configurar repetición de navegación.** Usar espera inicial, repetición y zona muerta de stick para navegar sin saltos accidentales.
+- [x] **H11-T05. Evitar confirmaciones heredadas.** Abrir una pantalla nueva no vuelve a confirmar por una pulsación mantenida ni ejecuta la primera opción automáticamente.
+- [x] **H11-T06. Permitir cambio de dispositivo.** Actualizar ayudas y conservar foco al pasar de teclado a control y viceversa, sin duplicar acciones.
+- [x] **H11-T07. Implementar desconexión del control.** Si se desconecta el control de la sesión, pausar y mostrar aviso navegable; permitir continuar con teclado o tras reconectar mediante eventos virtuales.
+- [x] **H11-T08. Mantener uso exclusivo de teclado.** No mostrar errores por iniciar el juego sin control conectado. No exigir conectarlo para continuar.
 
 #### Flujo y limpieza
 
 - [ ] **H11-T09. Revisar pausa por contexto.** Conservar el estado anterior desde menús, avance, impacto y especial. La UI de pausa usa un reloj independiente.
-- [ ] **H11-T10. Comprobar confirmaciones de abandono.** Reiniciar o salir al menú desde la pausa exige confirmar, y cancelar retorna a la misma pausa.
+- [x] **H11-T10. Comprobar confirmaciones de abandono.** Reiniciar o salir al menú desde la pausa exige confirmar, y cancelar retorna a la misma pausa.
 - [ ] **H11-T11. Limpiar listeners y tareas asíncronas.** Salir o reiniciar no deja callbacks que dañen personajes nuevos, dupliquen sonidos o reactiven un HUD viejo.
-- [ ] **H11-T12. Probar foco después de muertes.** Saltar objetivos muertos y escoger el primer objetivo válido si desaparece el seleccionado.
+- [x] **H11-T12. Probar foco después de muertes.** Saltar objetivos muertos y escoger el primer objetivo válido si desaparece el seleccionado.
 - [ ] **H11-T13. Completar recorrido solo con teclado.** Iniciar desde ejecutable, consultar ayuda, cambiar volumen, usar todas las categorías de acciones, pausar, terminar y reiniciar.
 - [ ] **H11-T14. Completar recorrido solo con control.** Repetir el flujo completo sin usar teclado ni mouse y registrar el resultado con el dispositivo utilizado.
 - [ ] **H11-T15. Probar desconexión y reconexión.** Desconectar en selección y durante especial, continuar con teclado o control y verificar que no se repitan efectos.
@@ -1262,6 +1262,12 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 - Todas las acciones del juego son accesibles con cualquiera de los dos dispositivos.
 - Foco, pause y reconexión no bloquean el flujo.
 - Existe evidencia registrada de una partida completa con cada dispositivo.
+
+#### Estado de avance H11 · 22 de noviembre de 2026
+
+- Implementación de cambio de dispositivo, navegación, aviso y reanudación tras desconexión lista. La suite PlayMode de entrada y flujo pasó **14/14** casos con teclado y Gamepad virtuales; [informe](TEST_REPORT.md#h11--entrada-y-robustez-del-flujo) y [capturas/resultados](Evidence/H11/).
+- T09 y T11 siguen abiertos hasta completar su revisión de pausa por contexto y limpieza en la pasada consolidada final. T13–T15 requieren recorridos de jugador y control físicos desde una build vigente.
+- El artefacto de revisión disponible se generó como `0.0.11-flow`. La compilación para `0.0.12-H11` no llegó a iniciarse: Unity cerró al fallar la conexión de Licensing IPC. No se presenta el artefacto anterior como build final de H11.
 
 ### H12. Pruebas funcionales, balance y rendimiento
 

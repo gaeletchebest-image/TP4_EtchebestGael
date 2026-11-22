@@ -1,5 +1,15 @@
 # Informe de comprobaciones
 
+## H11 · Entrada y robustez del flujo · 22 de noviembre de 2026
+
+Suite PlayMode consolidada: **14/14 aprobadas**, 0 fallidas/omitidas, **153,1158652 s**, job `1b591236fee54949b6529b9901d51182`. Incluye recorridos virtuales completos con teclado y Gamepad, navegación y confirmación, ayuda/volumen, cambio de dispositivo y preservación del foco, zona muerta/repetición, pausa, cancelar/confirmar abandono, objetivo eliminado, desconexión durante Tormenta y reanudación sin impacto duplicado. [Resultado y casos](Evidence/H11/playmode-results.json).
+
+Tras ese pase se añadió a `KeyboardOnlySessionDoesNotRequireAController` una aserción extra sobre congelar ATB durante pausa y su import LINQ; Unity cerró antes de volver a compilar o ejecutar esa versión. Por eso el pase 14/14 documenta el código previo a ese último ajuste de prueba.
+
+Build de revisión `build-74b7e9ba05`: Windows x86_64 Development, 169,32 MB, 0 errores y 1 advertencia, versión informada `0.0.11-flow`. El smoke del player aprobó inicio, controles, una acción animada, pausa, audio y salida por menú a 1280 × 720, usando teclado y Gamepad virtuales. No fue una partida completa. [Resultado](Evidence/H11/PlayerSmoke/result-1280x720.json) y [resumen de build](Evidence/H11/build-summary-0.0.11.json).
+
+Se intentó compilar la fuente actual como 0.0.12-H11 con Unity 6000.3.11f1. El editor batch terminó con código 1 antes de iniciar BuildPipeline: `Licensing IPC` rechazó la conexión. [Log](../Builds/H11/Validation/unity-h11-build.log). La build 0.0.11 no se presenta como artefacto final de esta fuente. No había un Gamepad físico conectado: recorrido completo desde una build vigente con teclado, recorrido solo con control y desconexión/reconexión física quedan pendientes. T09 y T11 también requieren una pasada consolidada específica; H11 sigue en curso.
+
 ## H00 · 21 de noviembre de 2026
 
 Versión de entrega: `0.0.1-H00`, sobre commit inicial `208d5bb`, con cambios locales todavía sin commit. Unity 6000.3.11f1, URP 17.3.0, calidad PC, Windows x86_64, Mono. Se conservan los cambios gráficos previos en PC_RPAsset y Mobile_RPAsset.

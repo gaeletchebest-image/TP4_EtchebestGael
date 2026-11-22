@@ -28,9 +28,11 @@ namespace UltimaGuardia
         private Vector2 previousDirection;
         private float repeatAt, actionTime;
         private bool confirmArmed, transitioning;
+        private bool disconnectNotice, wasPausedBeforeDisconnect, controllerReconnected;
         private int commandIndex, targetIndex, overlayIndex;
         private int rootIndex, skillIndex, itemIndex;
         private CombatAction selectedAction;
+        private string selectedTargetId;
         private string notice;
         private StatusHud[] statusHud;
         private CombatPresentation presentation;
@@ -40,7 +42,7 @@ namespace UltimaGuardia
         private readonly List<float> poisonPulseAges = new List<float>();
         private bool cinematicHidden;
         [SerializeField] private FinalCombatHud finalHud;
-        private int pausePage, helpPage, confirmationIndex;
+        private int pausePage, helpPage, confirmationIndex, disconnectSelection, pausePageBeforeDisconnect;
         public int PausePage => pausePage;
         public int HelpPage => helpPage;
         public int ConfirmationSelection => confirmationIndex;
@@ -89,8 +91,16 @@ namespace UltimaGuardia
             RestartCombat();
         }
 
-        private void OnEnable() => input.Enable();
-        private void OnDisable() => input.Disable();
+        private void OnEnable()
+        {
+            if (input != null) input.Enable();
+            InputSystem.onDeviceChange += OnInputDeviceChange;
+        }
+        private void OnDisable()
+        {
+            InputSystem.onDeviceChange -= OnInputDeviceChange;
+            if (input != null) input.Disable();
+        }
         private void OnDestroy() { ClearPoisonPulses(); presentation?.Dispose(); if (input != null) Destroy(input); }
 
         public void RestartCombat()
@@ -123,8 +133,10 @@ namespace UltimaGuardia
             IsPaused = transitioning = false;
             commandIndex = targetIndex = overlayIndex = 0;
             rootIndex = skillIndex = itemIndex = 0; Menu = CombatMenu.Root;
-            actionTime = 0; notice = null; confirmArmed = false;
+            actionTime = 0; notice = null; confirmArmed = false; selectedTargetId = null;
             pausePage = helpPage = confirmationIndex = 0;
+            disconnectNotice = wasPausedBeforeDisconnect = controllerReconnected = false;
+            disconnectSelection = pausePageBeforeDisconnect = 0;
             finalHud?.Bind(Session);
             previousDirection = Vector2.zero;
             combatCamera.transform.SetPositionAndRotation(cameraPosition, cameraRotation);
@@ -143,6 +155,18 @@ namespace UltimaGuardia
 
             if (IsPaused)
             {
+                if (disconnectNotice)
+                {
+                    int step = NavigationStep(false);
+                    if (step != 0) { disconnectSelection = Wrap(disconnectSelection + step, 2); GameAudio.Current.Ui("ui_move"); }
+                    if (menuButton && controllerReconnected) { ResumeAfterDisconnect(); return; }
+                    if (submit && (disconnectSelection == 0 ||
+                        (disconnectSelection == 1 && controllerReconnected && confirm.activeControl?.device is Gamepad)))
+                    { GameAudio.Current.Ui("ui_confirm"); ResumeAfterDisconnect(); return; }
+                    if (back && cancel.activeControl?.device is Keyboard)
+                    { GameAudio.Current.Ui("ui_cancel"); ResumeAfterDisconnect(); return; }
+                    return;
+                }
                 if (menuButton) { GameAudio.Current.Ui("ui_cancel"); IsPaused = false; pausePage = 0; confirmArmed = false; return; }
                 if (back)
                 {
@@ -184,7 +208,7 @@ namespace UltimaGuardia
             if (menuButton || (back && !inSelection && cancel.activeControl?.device is Keyboard))
             { IsPaused = true; GameAudio.Current.Ui("ui_confirm"); overlayIndex = 0; pausePage = 0; return; }
             if (back && Phase == PrototypePhase.Targets)
-            { GameAudio.Current.Ui("ui_cancel"); Phase = PrototypePhase.Commands; notice = null; return; }
+            { GameAudio.Current.Ui("ui_cancel"); Phase = PrototypePhase.Commands; notice = null; selectedTargetId = null; return; }
             if (back && Phase == PrototypePhase.Commands && Menu != CombatMenu.Root)
             { GameAudio.Current.Ui("ui_cancel"); RememberSelection(); Menu = CombatMenu.Root; commandIndex = rootIndex; notice = null; return; }
 
@@ -238,7 +262,7 @@ namespace UltimaGuardia
                     {
                         selectedAction = Menu == CombatMenu.Root ? CombatAction.Basic : actions[commandIndex];
                         notice = Session.UnavailableReason(selectedAction);
-                        if (notice == null) { RememberSelection(); Phase = PrototypePhase.Targets; targetIndex = 0; }
+                        if (notice == null) { RememberSelection(); Phase = PrototypePhase.Targets; targetIndex = 0; selectedTargetId = null; }
                         else GameAudio.Current.Ui("ui_invalid");
                     }
                 }
@@ -247,8 +271,11 @@ namespace UltimaGuardia
             {
                 var targets = CurrentTargets();
                 if (targets.Count == 0) { Phase = PrototypePhase.Commands; notice = "No hay objetivos válidos."; return; }
+                if (!string.IsNullOrEmpty(selectedTargetId) && !targets.Any(t => t.Definition.Id == selectedTargetId)) targetIndex = 0;
+                else targetIndex = Wrap(targetIndex, targets.Count);
                 int oldTarget = targetIndex;
                 targetIndex = Session.IsArea(selectedAction) ? 0 : Wrap(targetIndex + NavigationStep(true), targets.Count);
+                selectedTargetId = targets[targetIndex].Definition.Id;
                 if (targetIndex != oldTarget) GameAudio.Current.Ui("ui_move");
                 if (submit)
                 {
@@ -261,6 +288,35 @@ namespace UltimaGuardia
 
         private void BeginPresentation() { actionTime = 0; notice = null; presentation.Begin(Session); Phase = PrototypePhase.Executing; UpdateCinematic(); }
         private void ReturnToMenu() { transitioning = true; RestoreCinematic(); ClearPoisonPulses(); presentation.Cancel(); GameAudio.Current.StopCombat(); SceneManager.LoadScene("MainMenu"); }
+
+        private void OnInputDeviceChange(InputDevice device, InputDeviceChange change)
+        {
+            if (device is Gamepad && (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected))
+            {
+                if (disconnectNotice) controllerReconnected = true;
+                return;
+            }
+            if (!(device is Gamepad) || (change != InputDeviceChange.Disconnected && change != InputDeviceChange.Removed)) return;
+            SessionOptions.ForgetDevice(device);
+            if (Session == null || transitioning || Phase == PrototypePhase.Result) return;
+            controllerReconnected = false;
+            wasPausedBeforeDisconnect = IsPaused;
+            pausePageBeforeDisconnect = pausePage;
+            if (!IsPaused) IsPaused = true;
+            disconnectSelection = 0;
+            disconnectNotice = true;
+            pausePage = 4;
+            GameAudio.Current.Ui("ui_confirm");
+        }
+
+        private void ResumeAfterDisconnect()
+        {
+            disconnectNotice = false;
+            pausePage = wasPausedBeforeDisconnect ? pausePageBeforeDisconnect : 0;
+            if (!wasPausedBeforeDisconnect) IsPaused = false;
+            confirmArmed = false;
+            previousDirection = Vector2.zero;
+        }
 
         private void ClearPoisonPulses()
         {
@@ -415,9 +471,12 @@ namespace UltimaGuardia
             overlayPanel.SetActive(IsPaused || Phase == PrototypePhase.Result);
             if (IsPaused)
             {
-                overlayTitle.text = "Pausa";
-                overlayTitle.text = pausePage == 1 ? SessionOptions.HelpTitles[helpPage] : pausePage == 2 ? "Volumen general" : pausePage == 3 ? (overlayIndex == 3 ? "¿Reiniciar el combate?" : "¿Volver al menú?") : "Pausa";
-                overlayOptions.text = pausePage == 1 ? SessionOptions.HelpBody(helpPage) + "\n\n← Página " + (helpPage + 1) + " / 4 →\nConfirmar / volver: regresar a pausa" :
+                overlayTitle.text = disconnectNotice ? "Control desconectado" : pausePage == 1 ? SessionOptions.HelpTitles[helpPage] : pausePage == 2 ? "Volumen general" : pausePage == 3 ? (overlayIndex == 3 ? "¿Reiniciar el combate?" : "¿Volver al menú?") : "Pausa";
+                overlayOptions.text = disconnectNotice ?
+                    "La partida quedó pausada. " + (controllerReconnected ? "Control reconectado." : "Podés continuar con teclado o esperar a reconectarlo.") + "\n\n" +
+                    string.Join("\n\n", new[] { "Continuar ahora", "Esperar el control" }.Select((s, i) => (disconnectSelection == i ? "→ " : "    ") + s)) +
+                    "\n\nEnter: elegir · Escape: continuar con teclado" :
+                    pausePage == 1 ? SessionOptions.HelpBody(helpPage) + "\n\n← Página " + (helpPage + 1) + " / 4 →\nConfirmar / volver: regresar a pausa" :
                     pausePage == 2 ? SessionOptions.Volume + " %\n\n← Disminuir     Aumentar →\n\nPasos de 10 · Confirmar / volver: regresar a pausa" :
                     pausePage == 3 ? "Se perderá el intento actual.\n\n" + string.Join("\n\n", new[] { "Cancelar", "Confirmar" }.Select((s, i) => (confirmationIndex == i ? "→ " : "    ") + s)) :
                     OverlayLines(new[] { "Continuar", "Cómo jugar", "Volumen", "Reiniciar", "Volver al menú" });

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -123,6 +124,97 @@ namespace UltimaGuardia.Tests
             Assert.AreEqual(PrototypePhase.Commands, Battle().Phase);
             Assert.IsNull(Battle().Session.Pending, "Held confirm must not select or commit when ATB becomes ready.");
             InputSystem.QueueStateEvent(keyboard, new KeyboardState());
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator DisconnectPausesAndKeyboardCanResume()
+        {
+            yield return PadPress(GamepadButton.South);
+            yield return WaitForScene("Combat");
+            Assert.IsFalse(Battle().IsPaused, "A combat session starts without requiring a controller.");
+
+            InputSystem.RemoveDevice(gamepad); gamepad = null;
+            yield return null; yield return null;
+            Assert.IsTrue(Battle().IsPaused);
+            Assert.AreEqual(4, Battle().PausePage);
+            Assert.IsTrue(Battle().Session.ClockRunning == false);
+
+            yield return KeyPress(Key.Enter);
+            Assert.IsFalse(Battle().IsPaused, "The player can continue with keyboard after disconnecting the pad.");
+            Assert.AreEqual(PrototypePhase.Advancing, Battle().Phase);
+        }
+
+        [UnityTest]
+        public IEnumerator ReconnectedControllerCanResumeDisconnectNotice()
+        {
+            yield return PadPress(GamepadButton.South);
+            yield return WaitForScene("Combat");
+            InputSystem.RemoveDevice(gamepad); gamepad = null;
+            yield return null; yield return null;
+            Assert.IsTrue(Battle().IsPaused);
+
+            gamepad = InputSystem.AddDevice<Gamepad>();
+            yield return null; yield return null;
+            Assert.IsTrue(System.Array.Exists(Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None),
+                text => text.text.Contains("Control reconectado")));
+            yield return PadPress(GamepadButton.DpadDown);
+            yield return PadPress(GamepadButton.South);
+            Assert.IsFalse(Battle().IsPaused, "A reconnected controller can resume from the notice.");
+        }
+
+        [UnityTest]
+        public IEnumerator KeyboardOnlySessionDoesNotRequireAController()
+        {
+            InputSystem.RemoveDevice(gamepad); gamepad = null;
+            yield return KeyPress(Key.Enter);
+            yield return WaitForScene("Combat");
+            Assert.IsNotNull(Battle());
+            Assert.IsFalse(Battle().IsPaused);
+            double activeTime = Battle().Session.ActiveTime;
+            var bars = System.Array.ConvertAll(Battle().Session.Fighters.ToArray(), fighter => fighter.Atb);
+            yield return KeyPress(Key.Escape);
+            Assert.IsTrue(Battle().IsPaused);
+            yield return new WaitForSecondsRealtime(.25f);
+            Assert.AreEqual(activeTime, Battle().Session.ActiveTime);
+            CollectionAssert.AreEqual(bars, System.Array.ConvertAll(Battle().Session.Fighters.ToArray(), fighter => fighter.Atb));
+            yield return KeyPress(Key.Escape);
+            yield return new WaitForSecondsRealtime(.15f);
+            Assert.Greater(Battle().Session.ActiveTime, activeTime, "ATB resumes after leaving the disconnect-free pause.");
+        }
+
+        [UnityTest]
+        public IEnumerator SwitchingDevicesUpdatesHelpAndPreservesFocus()
+        {
+            yield return KeyPress(Key.DownArrow);
+            AssertSelection("ControlsButton");
+            yield return PadPress(GamepadButton.South);
+            Assert.IsTrue(Menu().ControlsOpen);
+            Assert.IsTrue(SessionOptions.UsingGamepad);
+            AssertSelection("ControlsBackButton");
+
+            yield return KeyPress(Key.Escape);
+            Assert.IsFalse(Menu().ControlsOpen);
+            Assert.IsFalse(SessionOptions.UsingGamepad);
+            AssertSelection("ControlsButton");
+            Assert.AreEqual("keyboard", GameObject.Find("Icon_keyboard").GetComponent<UnityEngine.UI.Image>().sprite.name);
+            Assert.AreEqual("MainMenu", SceneManager.GetActiveScene().name,
+                "Changing the input device must not submit a menu action or change scenes.");
+        }
+
+        [UnityTest]
+        public IEnumerator StickDeadzoneFiltersDriftAndHeldNavigationRepeats()
+        {
+            InputSystem.QueueStateEvent(gamepad, new GamepadState { leftStick = Vector2.down * .2f });
+            yield return new WaitForSecondsRealtime(.25f);
+            AssertSelection("PlayButton");
+
+            InputSystem.QueueStateEvent(gamepad, new GamepadState { leftStick = Vector2.down });
+            yield return new WaitForSecondsRealtime(.65f);
+            Assert.IsTrue(EventSystem.current.currentSelectedGameObject.name == "VolumeButton" ||
+                EventSystem.current.currentSelectedGameObject.name == "QuitButton",
+                "Held stick navigation should repeat after the initial delay.");
+            InputSystem.QueueStateEvent(gamepad, new GamepadState());
             yield return null;
         }
 

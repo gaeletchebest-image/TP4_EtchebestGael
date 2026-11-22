@@ -1,0 +1,16 @@
+{
+  "milestone": "H11 review build",
+  "version": "0.0.11-flow",
+  "result": "Succeeded",
+  "jobId": "build-74b7e9ba05",
+  "output": "Builds/H11/UltimaGuardia.exe",
+  "target": "Windows x86_64 Development",
+  "totalMegabytes": 169.32,
+  "durationSeconds": 85.6576137,
+  "errors": 0,
+  "warnings": 1,
+  "limitations": [
+    "This artifact was built before the project version was raised to 0.0.12.",
+    "It is not the final build for the current source revision."
+  ]
+}
