@@ -26,6 +26,7 @@ namespace UltimaGuardia
             public bool passed;
             public bool exitedThroughMenu;
             public bool animatedActionVerified;
+            public bool audioVerified;
             public string error;
             public string devices = "Virtual Keyboard and Gamepad";
             public string captureMethod = "Offscreen Camera.Render; temporary ScreenSpaceCamera canvas in hidden validation process";
@@ -78,6 +79,9 @@ namespace UltimaGuardia
             CheckSelection("PlayButton");
             yield return PadPress(GamepadButton.South);
             yield return WaitForScene("Combat");
+            var audioSources = GameAudio.Current.GetComponents<AudioSource>();
+            Check(audioSources.Length >= 3 && audioSources[0].clip != null && audioSources[0].clip.name == "battle_loop" && audioSources[0].isPlaying,
+                "Battle music must start in the player");
             yield return Capture("combat");
             float deadline = Time.realtimeSinceStartup + 10;
             while (Battle().Phase != PrototypePhase.Commands && Time.realtimeSinceStartup < deadline) yield return null;
@@ -86,6 +90,7 @@ namespace UltimaGuardia
             Check(Battle().Phase == PrototypePhase.Executing, "Basic must start animation");
             yield return KeyPress(Key.Escape);
             Check(Battle().IsPaused, "Pause during animated action");
+            Check(!audioSources[0].isPlaying, "Battle music must pause");
             float actionTime = Battle().ActionTime;
             var animation = FindFirstObjectByType<CharacterAnimationPlayer>();
             float animationTime = animation.Elapsed;
@@ -93,6 +98,7 @@ namespace UltimaGuardia
             Check(actionTime == Battle().ActionTime && animationTime == animation.Elapsed, "Animation clock must freeze");
             yield return Capture("animated-action-paused");
             yield return KeyPress(Key.Escape);
+            Check(audioSources[0].isPlaying, "Battle music must resume");
             deadline = Time.realtimeSinceStartup + 10;
             while (Battle().Session.CompletedActions < 1 && Time.realtimeSinceStartup < deadline) yield return null;
             Check(Battle().Session.CompletedActions >= 1, "Animated action must finish");
@@ -101,6 +107,7 @@ namespace UltimaGuardia
                 if (fighter.Definition.Team == CombatTeam.Enemies && fighter.Health < fighter.Definition.MaxHealth) enemyDamaged = true;
             Check(enemyDamaged, "Animated projectile must apply damage");
             result.animatedActionVerified = true;
+            result.audioVerified = true;
             yield return Capture("animated-action-complete");
             yield return PadPress(GamepadButton.Start);
             Check(Battle().IsPaused, "Gamepad menu must pause");

@@ -49,7 +49,7 @@ namespace UltimaGuardia
         public bool IsPaused
         {
             get => isPaused;
-            private set { isPaused = value; if (Session != null) Session.IsPaused = value; }
+            private set { isPaused = value; if (Session != null) Session.IsPaused = value; GameAudio.Current.SetPaused(value); }
         }
         public EncounterData Encounter => encounter;
         public void ConfigureEncounter(EncounterData data, Image[] bars) { encounter = data; atbBars = bars; }
@@ -90,7 +90,10 @@ namespace UltimaGuardia
         public void RestartCombat()
         {
             presentation?.Cancel();
+            GameAudio.Current.StopCombat();
             Session = new CombatSession(encounter);
+            Session.PoisonTick += fighter => { GameAudio.Current.Combat("poison_tick"); if (!fighter.IsAlive) GameAudio.Current.Combat("death"); };
+            GameAudio.Current.StartCombat();
             foreach (var slot in encounter.participants)
             {
                 var view = views.First(v => v.combatantId == slot.combatant.id);
@@ -127,24 +130,28 @@ namespace UltimaGuardia
 
             if (IsPaused)
             {
-                if (menuButton) { IsPaused = false; pausePage = 0; confirmArmed = false; return; }
+                if (menuButton) { GameAudio.Current.Ui("ui_cancel"); IsPaused = false; pausePage = 0; confirmArmed = false; return; }
                 if (back)
                 {
+                    GameAudio.Current.Ui("ui_cancel");
                     if (pausePage != 0) pausePage = 0; else IsPaused = false;
                     confirmArmed = false; return;
                 }
-                if (pausePage == 1) { helpPage = Wrap(helpPage + NavigationStep(true), 4); if (submit) pausePage = 0; }
-                else if (pausePage == 2) { SessionOptions.SetVolume(SessionOptions.Volume + NavigationStep(true) * 10); if (submit) pausePage = 0; }
+                if (pausePage == 1) { int step = NavigationStep(true); if (step != 0) GameAudio.Current.Ui("ui_move"); helpPage = Wrap(helpPage + step, 4); if (submit) { GameAudio.Current.Ui("ui_confirm"); pausePage = 0; } }
+                else if (pausePage == 2) { int step = NavigationStep(true); if (step != 0) GameAudio.Current.Ui("ui_move"); SessionOptions.SetVolume(SessionOptions.Volume + step * 10); if (submit) { GameAudio.Current.Ui("ui_confirm"); pausePage = 0; } }
                 else if (pausePage == 3)
                 {
-                    confirmationIndex = Wrap(confirmationIndex + NavigationStep(false), 2);
-                    if (submit) { if (confirmationIndex == 0) pausePage = 0; else if (overlayIndex == 3) RestartCombat(); else ReturnToMenu(); }
+                    int step = NavigationStep(false); if (step != 0) GameAudio.Current.Ui("ui_move");
+                    confirmationIndex = Wrap(confirmationIndex + step, 2);
+                    if (submit) { GameAudio.Current.Ui("ui_confirm"); if (confirmationIndex == 0) pausePage = 0; else if (overlayIndex == 3) RestartCombat(); else ReturnToMenu(); }
                 }
                 else
                 {
-                    overlayIndex = Wrap(overlayIndex + NavigationStep(false), 5);
+                    int step = NavigationStep(false); if (step != 0) GameAudio.Current.Ui("ui_move");
+                    overlayIndex = Wrap(overlayIndex + step, 5);
                     if (submit)
                     {
+                        GameAudio.Current.Ui("ui_confirm");
                         if (overlayIndex == 0) { IsPaused = false; confirmArmed = false; }
                         else if (overlayIndex == 1) { pausePage = 1; helpPage = 0; }
                         else if (overlayIndex == 2) pausePage = 2;
@@ -155,17 +162,18 @@ namespace UltimaGuardia
             }
             if (Phase == PrototypePhase.Result)
             {
-                overlayIndex = Wrap(overlayIndex + NavigationStep(false), 2);
-                if (submit) { if (overlayIndex == 0) RestartCombat(); else ReturnToMenu(); }
+                int step = NavigationStep(false); if (step != 0) GameAudio.Current.Ui("ui_move");
+                overlayIndex = Wrap(overlayIndex + step, 2);
+                if (submit) { GameAudio.Current.Ui("ui_confirm"); if (overlayIndex == 0) RestartCombat(); else ReturnToMenu(); }
                 return;
             }
             bool inSelection = Phase == PrototypePhase.Targets || (Phase == PrototypePhase.Commands && Menu != CombatMenu.Root);
             if (menuButton || (back && !inSelection && cancel.activeControl?.device is Keyboard))
-            { IsPaused = true; overlayIndex = 0; pausePage = 0; return; }
+            { IsPaused = true; GameAudio.Current.Ui("ui_confirm"); overlayIndex = 0; pausePage = 0; return; }
             if (back && Phase == PrototypePhase.Targets)
-            { Phase = PrototypePhase.Commands; notice = null; return; }
+            { GameAudio.Current.Ui("ui_cancel"); Phase = PrototypePhase.Commands; notice = null; return; }
             if (back && Phase == PrototypePhase.Commands && Menu != CombatMenu.Root)
-            { RememberSelection(); Menu = CombatMenu.Root; commandIndex = rootIndex; notice = null; return; }
+            { GameAudio.Current.Ui("ui_cancel"); RememberSelection(); Menu = CombatMenu.Root; commandIndex = rootIndex; notice = null; return; }
 
             if (Phase == PrototypePhase.Executing)
             {
@@ -174,6 +182,7 @@ namespace UltimaGuardia
                 if (finished)
                 {
                     Session.FinishAction();
+                    if (Session.Outcome != CombatOutcome.Ongoing) GameAudio.Current.Result(Session.Outcome);
                     Phase = Session.Outcome != CombatOutcome.Ongoing ? PrototypePhase.Result :
                         Session.Actor == null ? PrototypePhase.Advancing : PrototypePhase.Commands;
                     commandIndex = targetIndex = overlayIndex = 0;
@@ -185,7 +194,7 @@ namespace UltimaGuardia
             if (Phase == PrototypePhase.Advancing)
             {
                 Session.AdvanceTime(Time.deltaTime);
-                if (Session.Outcome != CombatOutcome.Ongoing) Phase = PrototypePhase.Result;
+                if (Session.Outcome != CombatOutcome.Ongoing) { GameAudio.Current.Result(Session.Outcome); Phase = PrototypePhase.Result; }
                 else if (Session.Actor != null) { Phase = PrototypePhase.Commands; confirmArmed = !confirm.IsPressed(); }
                 return;
             }
@@ -200,9 +209,11 @@ namespace UltimaGuardia
                 var actions = Commands();
                 int oldIndex = commandIndex;
                 commandIndex = Wrap(commandIndex + NavigationStep(false), Menu == CombatMenu.Root ? 3 : actions.Length);
+                if (commandIndex != oldIndex) GameAudio.Current.Ui("ui_move");
                 if (commandIndex != oldIndex) notice = null;
                 if (submit)
                 {
+                    GameAudio.Current.Ui("ui_confirm");
                     if (Menu == CombatMenu.Root && commandIndex != 0)
                     {
                         rootIndex = commandIndex; Menu = commandIndex == 1 ? CombatMenu.Skills : CombatMenu.Items;
@@ -213,6 +224,7 @@ namespace UltimaGuardia
                         selectedAction = Menu == CombatMenu.Root ? CombatAction.Basic : actions[commandIndex];
                         notice = Session.UnavailableReason(selectedAction);
                         if (notice == null) { RememberSelection(); Phase = PrototypePhase.Targets; targetIndex = 0; }
+                        else GameAudio.Current.Ui("ui_invalid");
                     }
                 }
             }
@@ -220,17 +232,20 @@ namespace UltimaGuardia
             {
                 var targets = CurrentTargets();
                 if (targets.Count == 0) { Phase = PrototypePhase.Commands; notice = "No hay objetivos válidos."; return; }
+                int oldTarget = targetIndex;
                 targetIndex = Session.IsArea(selectedAction) ? 0 : Wrap(targetIndex + NavigationStep(true), targets.Count);
+                if (targetIndex != oldTarget) GameAudio.Current.Ui("ui_move");
                 if (submit)
                 {
+                    GameAudio.Current.Ui("ui_confirm");
                     if (Session.TryCommit(selectedAction, targets[targetIndex], out notice)) BeginPresentation();
-                    else Phase = PrototypePhase.Commands;
+                    else { GameAudio.Current.Ui("ui_invalid"); Phase = PrototypePhase.Commands; }
                 }
             }
         }
 
         private void BeginPresentation() { actionTime = 0; notice = null; presentation.Begin(Session); Phase = PrototypePhase.Executing; }
-        private void ReturnToMenu() { transitioning = true; presentation.Cancel(); SceneManager.LoadScene("MainMenu"); }
+        private void ReturnToMenu() { transitioning = true; presentation.Cancel(); GameAudio.Current.StopCombat(); SceneManager.LoadScene("MainMenu"); }
         private CombatAction[] Commands() => Menu == CombatMenu.Root ? new[] { CombatAction.Basic } :
             Session.AvailableCommands().Where(a => Menu == CombatMenu.Items ? CombatSession.IsItem(a) : !CombatSession.IsItem(a) && a != CombatAction.Basic).ToArray();
         private void RememberSelection()

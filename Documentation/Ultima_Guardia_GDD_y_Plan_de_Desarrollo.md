@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 a H08 aprobados por el usuario. H09 a H13 pendientes.
+> Estado: H00 a H09 aprobados por el usuario. H10 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -130,7 +130,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H06. Rigging final, animaciones y sincronización de impactos.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H07. Modelado modular y construcción del escenario final.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Aprobado por el usuario. Revisión del usuario: aprobada el 21 de noviembre de 2026, incluida corrección H08-C06.
-- [ ] **H09. Búsqueda, edición e integración de audio.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H09. Búsqueda, edición e integración de audio.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H11. Soporte completo de teclado y control y robustez del flujo.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H12. Pruebas funcionales, balance y rendimiento.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -322,6 +322,18 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Próximo hito en orden: **H09**, identificación solamente; **no iniciado**.
 
 - Corrección H08-C06 (solicitada por el usuario): textos de menús pixelados en comparación con el combate. Migradas 13 etiquetas de MainMenu y 3 de overlays de Combat a glifos de doble resolución con Text nativo, rectángulos dobles y escala 0,5; sin cambiar tamaño visual, controles ni HUD. Fuente `InterfaceTheme.MenuText` y autoría actualizadas. Cinco pruebas de interfaz repetidas desde Test Runner: 5/5, 37,1183806 s. [XML real](Evidence/H08/C06/playmode-results.xml), [auditoría de 16 etiquetas](Evidence/H08/C06/menu-text-audit.json), [capturas de esta corrección](Evidence/H08/Run-20261121-232425-443-3746e2/). Build corregida recompilada: 52,4549261 s, 176.509.903 bytes, 0 errores y 1 advertencia heredada. Smoke de la build corregida aprobado, acción animada verificada y salida desde Salir/código 0. [Player C06](Evidence/H08/C06/player-result-1280x720.json). Revisión final aprobada por el usuario el 21 de noviembre de 2026.
+
+#### Registro H09
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. Versión **0.0.10-H09**; no se creó commit de entrega.
+- Autorización: «Bien. Hacelo entonces.» el 21 de noviembre de 2026; H08 y H08-C06 ya aprobados.
+- Producción: 28 clips WAV originales generados con `Tools/H09/generate_audio.py`; sin recursos de terceros. `Assets/Resources/Audio/H09`, `GameAudio`, `AudioImportH09`, conexiones de menú y combate. [Autoría, mapa y revisión](H09_AUDIO.md), [registro de recursos](ASSET_REGISTER.md).
+- Pruebas: **76/76 PlayMode** de regresión antes de la corrección final de inicio de música, más **1/1** prueba específica después de esa corrección y **1/1** tras ampliarla a volumen 0/100. [Auditoría de señales](Evidence/H09/audio-audit.json): 28 clips a 24 kHz mono, pico máximo 0,820, salto del borde musical 0,006653 frente a un salto interno máximo de 0,01233. Se corrigieron transiciones de notas bruscas y una aplicación de Veneno que habría repetido el mismo cue de aplicación en preparación e impacto. Se comprobó recompilación sin errores.
+- Build final: `Builds/H09/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **169,3 MB**, **64,7044 s**, **0 errores / 1 advertencia** heredada de DebugOccluder; job `build-ffc23726ec`. [Resumen](Evidence/H09/build-summary.json). Un intento anterior conservó por error 0.0.9 en el player; se ajustó PlayerSettings en el editor y se recompiló.
+- Player final: smoke **passed = true, animatedActionVerified = true, audioVerified = true**, versión `0.0.10-flow`, MainMenu → Combat → básico animado con música, pausa/reanudación sonora, retorno confirmado y Salir; **código 0**. [Resultado](Evidence/H09/player-result-1280x720.json). Input virtual y proceso oculto; no demuestra escucha humana ni una pelea completa del ejecutable. La escucha final con parlantes o auriculares corresponde a la revisión del usuario.
+- Revisión del usuario: **aprobada**. Evidencia: «Bien. Lo doy por aprobado y dame nombre en ingles para el commit.» Sin correcciones solicitadas ni commit creado por la IA.
+- Próximo hito en orden: **H10**, identificación solamente; **no iniciado**.
+- H10 se solicita en otro chat, según la forma de trabajo entre hitos.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -1135,31 +1147,31 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Búsqueda y selección
 
-- [ ] **H09-T01. Buscar música de combate.** Seleccionar una pista permitida, sin voces que dificulten la lectura y que pueda reproducirse en bucle.
-- [ ] **H09-T02. Buscar sonidos de interfaz.** Conseguir navegación, confirmación, cancelación y opción inválida, distinguibles y de duración breve.
-- [ ] **H09-T03. Buscar ataques físicos.** Conseguir corte o movimiento de espada, golpe normal del ogro e impacto pesado.
-- [ ] **H09-T04. Buscar magia ofensiva.** Conseguir lanzamiento de proyectil aliado, Descarga del chamán y sus impactos.
-- [ ] **H09-T05. Buscar curación y maná.** Conseguir recuperación de vida, recuperación de maná y sonido de uso de consumible si hace falta.
-- [ ] **H09-T06. Buscar estados.** Conseguir aplicación y activación de veneno, buff de rapidez, debuff de corrosión y limpieza de estado.
-- [ ] **H09-T07. Buscar sonidos de Tormenta arcana.** Conseguir carga, crecimiento mágico y rayos o impacto principal, con duración adaptable a 2,5 segundos.
-- [ ] **H09-T08. Buscar muertes y resultados.** Conseguir caídas o muerte y dos señales diferenciadas de victoria y derrota.
-- [ ] **H09-T09. Registrar permisos de audio.** Guardar URL, autor, licencia, atribución, modificaciones y archivo por cada recurso. Si no se encuentra uno válido, producir una alternativa simple.
+- [x] **H09-T01. Buscar música de combate.** Seleccionar una pista permitida, sin voces que dificulten la lectura y que pueda reproducirse en bucle.
+- [x] **H09-T02. Buscar sonidos de interfaz.** Conseguir navegación, confirmación, cancelación y opción inválida, distinguibles y de duración breve.
+- [x] **H09-T03. Buscar ataques físicos.** Conseguir corte o movimiento de espada, golpe normal del ogro e impacto pesado.
+- [x] **H09-T04. Buscar magia ofensiva.** Conseguir lanzamiento de proyectil aliado, Descarga del chamán y sus impactos.
+- [x] **H09-T05. Buscar curación y maná.** Conseguir recuperación de vida, recuperación de maná y sonido de uso de consumible si hace falta.
+- [x] **H09-T06. Buscar estados.** Conseguir aplicación y activación de veneno, buff de rapidez, debuff de corrosión y limpieza de estado.
+- [x] **H09-T07. Buscar sonidos de Tormenta arcana.** Conseguir carga, crecimiento mágico y rayos o impacto principal, con duración adaptable a 2,5 segundos.
+- [x] **H09-T08. Buscar muertes y resultados.** Conseguir caídas o muerte y dos señales diferenciadas de victoria y derrota.
+- [x] **H09-T09. Registrar permisos de audio.** Guardar URL, autor, licencia, atribución, modificaciones y archivo por cada recurso. Si no se encuentra uno válido, producir una alternativa simple.
 
 #### Edición y preparación
 
-- [ ] **H09-T10. Limpiar archivos elegidos.** Recortar silencios y sonidos ajenos, añadir fades cortos y eliminar clics evidentes.
-- [ ] **H09-T11. Equilibrar niveles.** Ajustar volúmenes para que música, interfaz e impactos se escuchen sin saturación; conservar margen en la mezcla.
-- [ ] **H09-T12. Preparar bucle musical.** Comprobar que el corte de repetición no tiene salto audible y no introduce silencio inesperado.
-- [ ] **H09-T13. Configurar importación.** Elegir formatos, canales y carga adecuados al uso de música larga o efectos cortos, sin fijar ajustes que rompan el renderer de audio existente.
+- [x] **H09-T10. Limpiar archivos elegidos.** Recortar silencios y sonidos ajenos, añadir fades cortos y eliminar clics evidentes.
+- [x] **H09-T11. Equilibrar niveles.** Ajustar volúmenes para que música, interfaz e impactos se escuchen sin saturación; conservar margen en la mezcla.
+- [x] **H09-T12. Preparar bucle musical.** Comprobar que el corte de repetición no tiene salto audible y no introduce silencio inesperado.
+- [x] **H09-T13. Configurar importación.** Elegir formatos, canales y carga adecuados al uso de música larga o efectos cortos, sin fijar ajustes que rompan el renderer de audio existente.
 
 #### Programación e integración
 
-- [ ] **H09-T14. Crear reproducción centralizada.** Separar rutas de música, combate e interfaz bajo un volumen general, con referencias configurables.
-- [ ] **H09-T15. Conectar comandos y eventos.** Asignar cada clip a navegación, confirmación, impacto, recuperación, estado, muerte o resultado según corresponda.
-- [ ] **H09-T16. Sincronizar impactos.** Reproducir golpe y efecto en el evento de impacto real, sin duplicación por animaciones o listeners.
-- [ ] **H09-T17. Implementar pausa sonora.** Pausar y reanudar música y sonidos de combate conservando el punto; mantener operativos los sonidos del menú de pausa.
-- [ ] **H09-T18. Resolver transiciones.** No superponer música al reiniciar ni conservar efectos de una pelea abandonada. Diferenciar victoria y derrota.
-- [ ] **H09-T19. Probar silencio y mezcla final.** Recorrer todas las acciones, volumen 0 y 100, pausa y reinicio. No deben aparecer clips faltantes ni picos desproporcionados.
+- [x] **H09-T14. Crear reproducción centralizada.** Separar rutas de música, combate e interfaz bajo un volumen general, con referencias configurables.
+- [x] **H09-T15. Conectar comandos y eventos.** Asignar cada clip a navegación, confirmación, impacto, recuperación, estado, muerte o resultado según corresponda.
+- [x] **H09-T16. Sincronizar impactos.** Reproducir golpe y efecto en el evento de impacto real, sin duplicación por animaciones o listeners.
+- [x] **H09-T17. Implementar pausa sonora.** Pausar y reanudar música y sonidos de combate conservando el punto; mantener operativos los sonidos del menú de pausa.
+- [x] **H09-T18. Resolver transiciones.** No superponer música al reiniciar ni conservar efectos de una pelea abandonada. Diferenciar victoria y derrota.
+- [x] **H09-T19. Probar silencio y mezcla final.** Recorrer todas las acciones, volumen 0 y 100, pausa y reinicio. No deben aparecer clips faltantes ni picos desproporcionados.
 
 #### Criterios para cerrar el hito
 

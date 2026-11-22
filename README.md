@@ -1,16 +1,16 @@
 # Última Guardia
 
 Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Versión **0.0.9-H08**. H00–H08 aprobados por el usuario, incluida la corrección de nitidez H08-C06. H09 no iniciado.
+Versión **0.0.10-H09**. H00–H09 aprobados por el usuario, incluida la corrección de nitidez H08-C06. H10 no iniciado.
 
 ## Abrir y jugar
 
 - Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, Windows x86_64, Mono.
 - Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona Combat directamente.
-- Build de revisión: `Builds/H08/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds anteriores.
+- Build de revisión: `Builds/H09/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds anteriores.
 - Ventana inicial redimensionable de **1280 × 720**. Canvas con esa resolución de referencia y ajuste ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
-Una sola pelea enfrenta a guerrero y maga contra ogro y chamán frente a una fortaleza. Los modelos H05, los 24 clips H06 y la arena H07 están integrados. H08 incorpora HUD, iconos y menús finales. Audio corresponde a H09 y efectos/secuencia audiovisual final de Tormenta a H10.
+Una sola pelea enfrenta a guerrero y maga contra ogro y chamán frente a una fortaleza. Los modelos H05, los 24 clips H06 y la arena H07 están integrados. H08 incorpora HUD, iconos y menús finales. H09 incorpora 28 clips de audio originales, música, efectos e interfaz sonora. Los VFX y la secuencia final de Tormenta corresponden a H10.
 
 ## Interfaz H08
 
@@ -23,6 +23,12 @@ MainMenu ofrece Jugar, Cómo jugar, Volumen y Salir. La ayuda tiene cuatro pági
 Fuentes, estilo, 26 sprites propios, tipografía incorporada de Unity y reconstrucción: [H08_INTERFACE.md](Documentation/H08_INTERFACE.md). No se descargaron ni compraron recursos.
 
 Corrección **H08-C06**: textos de menús con glifos al doble de resolución, conservando el tamaño visual. Incluye principal, ayuda, volumen, pausa, confirmaciones y resultados. El HUD de combate conserva su configuración.
+
+## Audio H09
+
+La música de combate y 27 efectos originales cubren navegación, acciones físicas y mágicas, recuperación, estados, Tormenta, muerte y resultado. El volumen general de 0 a 100 afecta a todas las fuentes. La pausa detiene música y sonidos de combate, mientras la interfaz de pausa conserva sus sonidos. [Mapa, autoría y reconstrucción](Documentation/H09_AUDIO.md).
+
+Para revisar H09, ejecutar la build indicada arriba, recorrer menús y ayuda, probar volumen 0 y 100, jugar ataques, curación, objetos y estados, pausar durante un sonido y reanudar, usar Tormenta, reiniciar y volver al menú. La música debe seguir sin saltos ni superposición y cada evento debe sonar una sola vez.
 
 ## Controles
 
@@ -69,13 +75,13 @@ Veneno se procesa antes del menú o IA y puede matar. Antídoto elimina el estad
 
 ## Comprobaciones
 
-Suite PlayMode: **76/76 aprobadas**, incluidas reglas, input, animaciones e interfaz. Después del ajuste final de etiquetas/números se repitieron las siete pruebas afectadas: **7/7 aprobadas**. Capturas a 720p/1080p, comprobación de alto de texto, sprites asignados, selección grupal y recursos efectivos. [Evidencia](Documentation/Evidence/H08/).
+H09: suite PlayMode de regresión **76/76 aprobadas** y prueba específica de audio **1/1 aprobada**, incluida la verificación de los 28 clips, pausa, limpieza y volumen 0/100. La auditoría de WAV comprobó picos y borde del bucle. [Evidencia](Documentation/Evidence/H09/).
 
 Las pruebas usan teclado y Gamepad virtuales. Las capturas usan RenderTexture y no acreditan un monitor físico 1080p. Las peleas de regresión a ×4 verifican flujo, sin medir duración objetivo ni balance. Hardware y desconexión física corresponden a H11; balance/rendimiento a H12.
 
-La build Development admite `-foundation-smoke` para comprobar menú, carga de Combat, básico animado con pausa/reanudación e impacto, retorno confirmado y Salir. Guarda resultado, log y capturas en `Builds/H08/Validation`. El arnés queda fuera de builds sin Development.
+La build Development admite `-foundation-smoke` para comprobar menú, carga de Combat, música, básico animado, pausa/reanudación sonora, impacto, retorno confirmado y Salir. Guarda resultado y capturas en `Builds/H09/Validation`. El arnés queda fuera de builds sin Development.
 
-Build final: **168,33 MB**, **0 errores / 1 advertencia** heredada del shader DebugOccluder de Unity Core. Smoke del player **aprobado**, acción animada verificada, salida desde Salir y código **0**. Conserva avisos de liberación de buffers/asignaciones al apagar el proceso oculto; seguimiento en KNOWN_ISSUES. No es una pelea completa del player ni una medición de rendimiento.
+Build H09: **169,3 MB**, **0 errores / 1 advertencia** heredada del shader DebugOccluder de Unity Core. Smoke del player **aprobado**, música y pausa verificadas, salida desde Salir y código **0**. No es una pelea completa del player, una escucha humana de la mezcla ni una medición de rendimiento.
 
 ## Fuentes y mantenimiento
 
@@ -87,6 +93,7 @@ Los datos permanecen en `Assets/Data/H02/Resources/Encounters` para conservar GU
 - [Animaciones H06](Documentation/H06_ANIMATIONS.md)
 - [Fortaleza H07](Documentation/H07_FORTRESS.md)
 - [Interfaz H08](Documentation/H08_INTERFACE.md)
+- [Audio H09](Documentation/H09_AUDIO.md)
 
 Las utilidades H00/H01 reemplazan escenas: **no ejecutarlas sobre esta entrega**. Las de H05/H06/H07 reemplazan sus recursos y requieren conservar ediciones manuales. H08 reconstruye los Canvas de ambas escenas y los recursos propios de interfaz; conservar ediciones manuales antes de usarla. El comando **H08/Compilar build de revisión** compila las dos escenas y guarda el BuildReport resumido.
 
@@ -98,4 +105,4 @@ Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Exc
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-Esta entrega realiza únicamente H08. La revisión final corresponde al usuario; H09 se solicita en otro chat.
+Esta entrega realiza únicamente H09. La revisión final corresponde al usuario; H10 se solicita en otro chat.

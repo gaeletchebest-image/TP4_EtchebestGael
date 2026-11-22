@@ -1,0 +1,13 @@
+{
+  "jobId": "build-ffc23726ec",
+  "result": "succeeded",
+  "platform": "StandaloneWindows64",
+  "version": "0.0.10",
+  "output": "Builds/H09/UltimaGuardia.exe",
+  "durationSeconds": 64.7044029,
+  "totalSizeMB": 169.3,
+  "errors": 0,
+  "warnings": 1,
+  "warningNote": "Inherited Unity Core DebugOccluder shader warning",
+  "source": "Unity MCP manage_build status for build-ffc23726ec"
+}

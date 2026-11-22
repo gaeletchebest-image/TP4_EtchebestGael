@@ -1,0 +1,20 @@
+{
+  "source": "Unity MCP run_tests/get_test_job",
+  "regression": {
+    "jobId": "da98fbe2f5cc44ba972bcb8530da79a8",
+    "mode": "PlayMode",
+    "passed": 76,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 182.4144064
+  },
+  "audioIntegration": {
+    "jobId": "11ba006a2d474192b3e4e5d4e8756d56",
+    "mode": "PlayMode",
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 0.556015,
+    "case": "UltimaGuardia.Tests.AudioIntegrationTests.AllCuesLoadAndCombatMusicSurvivesPauseThenClears"
+  }
+}

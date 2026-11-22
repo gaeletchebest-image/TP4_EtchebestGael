@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La versión actual 0.0.9-H08 incluye reglas completas, modelos H05, animaciones H06, arena final H07 e interfaz final H08. Audio y VFX corresponden a H09–H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
+La versión actual 0.0.10-H09 incluye reglas completas, modelos H05, animaciones H06, arena final H07, interfaz final H08 y audio H09. VFX corresponden a H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -133,3 +133,14 @@ No hay correcciones abiertas del usuario. H07 aprobado por el usuario el 21 de n
 | H08-L04 | Build | Una advertencia de truncamiento implícito en DebugOccluder de Unity Core/d3d11 | Build final aprobada, 0 errores; materiales y UI inspeccionados |
 
 Sin cambios de balance ni correcciones abiertas del usuario. H08 y su corrección H08-C06 fueron aprobados por el usuario el 21 de noviembre de 2026; evidencia registrada en el GDD. Las pruebas automáticas y los fixtures de recursos no son mediciones de balance ni de duración objetivo.
+
+## Seguimiento H09
+
+| ID | Alcance | Estado |
+| --- | --- | --- |
+| H09-C01 | Primera compilación conservó versión 0.0.9 pese al cambio en el archivo de proyecto | Cerrada: versión fijada en PlayerSettings del editor; build final y smoke informan 0.0.10 |
+| H09-C02 | Primera música tenía saltos internos entre notas | Cerrada: notas interpoladas, auditoría final de 28 WAV y salto de repetición menor al mayor salto interno |
+| H09-C03 | Veneno preparaba y aplicaba el mismo cue dos veces | Cerrada: conjuro de chamán al preparar; cue de aplicación solo en impacto, código recompilado y build final |
+| H09-L01 | Comprobación perceptiva | La prueba de ondas, PlayMode y smoke del player no sustituyen escuchar la mezcla. La revisión final del usuario debe probarla con parlantes o auriculares |
+
+No hay correcciones abiertas. H09 fue aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Lo doy por aprobado y dame nombre en ingles para el commit.». H10 no iniciado.

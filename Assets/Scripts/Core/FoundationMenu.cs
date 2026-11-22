@@ -64,15 +64,16 @@ namespace UltimaGuardia
             {
                 if (move && direction.x != 0)
                 {
+                    GameAudio.Current.Ui("ui_move");
                     if (volumeOpen) SessionOptions.SetVolume(SessionOptions.Volume + (int)direction.x * 10);
                     else page = (page + (int)direction.x + 4) % 4;
                 }
-                if (cancel.WasPressedThisFrame() || submit) CloseControls();
+                if (cancel.WasPressedThisFrame() || submit) { GameAudio.Current.Ui(cancel.WasPressedThisFrame() ? "ui_cancel" : "ui_confirm"); CloseControls(); }
             }
             else
             {
-                if (move && direction.y != 0) { index = (index - (int)direction.y + mainButtons.Length) % mainButtons.Length; Select(mainButtons[index].gameObject); }
-                if (submit) mainButtons[index].onClick.Invoke();
+                if (move && direction.y != 0) { index = (index - (int)direction.y + mainButtons.Length) % mainButtons.Length; Select(mainButtons[index].gameObject); GameAudio.Current.Ui("ui_move"); }
+                if (submit) { GameAudio.Current.Ui("ui_confirm"); mainButtons[index].onClick.Invoke(); }
             }
             Present();
         }

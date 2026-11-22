@@ -188,6 +188,7 @@ namespace UltimaGuardia
         private readonly List<string> combatLog = new List<string> { "Defendé la entrada. Derrotá al ogro y al chamán." };
         public IReadOnlyList<string> CombatLog => combatLog.AsReadOnly();
         public event Action<CombatantState, int, bool> ResourceFeedback;
+        public event Action<CombatantState> PoisonTick;
         public string LastEvent
         {
             get => combatLog[combatLog.Count - 1];
@@ -252,6 +253,7 @@ namespace UltimaGuardia
                         if (!next.IsAlive) break;
                         int amount = next.Damage(effect.Definition.FixedDamage);
                         ResourceFeedback?.Invoke(next, -amount, false);
+                        PoisonTick?.Invoke(next);
                         next.ConsumeCharge(effect);
                         LastEvent = next.Definition.Name + ": " + effect.Definition.Name + " −" + amount + " vida" +
                             (!next.IsAlive ? " (Derrotado)" : " · " + effect.Remaining + " cargas restantes");

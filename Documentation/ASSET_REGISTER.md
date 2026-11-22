@@ -170,3 +170,7 @@ El entorno final `Arena_Fortress_H07` reemplaza el blockout visible y conserva l
 El detalle de estilo, símbolos, tamaños, fuentes y reconstrucción está en [H08_INTERFACE.md](H08_INTERFACE.md). No se compraron recursos ni se añadieron paquetes o servicios pagos. La música y los sonidos siguen asignados a H09.
 
 Corrección H08-C06: se conserva LegacyRuntime.ttf y el renderizador uGUI nativo, con glifos al doble de resolución y escala compensada en los menús. No hay nuevas fuentes, licencias, imágenes ni paquetes externos. Fuente de autoría: `InterfaceTheme.MenuText`, `InterfaceAuthoring` y `FinalCombatHud.Build`.
+
+## H09 · Música y efectos
+
+Los 28 archivos WAV de `Assets/Resources/Audio/H09` se producen dentro del proyecto mediante `Tools/H09/generate_audio.py`. Autoría del proyecto; sin fuente externa, URL, licencia o atribución de terceros. El [manifiesto por archivo](Evidence/H09/audio-audit.json) registra ruta, autor, fuente, licencia, preparación, duración, pico y RMS de cada recurso. El script contiene parámetros y semillas para reconstruir exactamente cada clip. Música: `battle_loop`. Interfaz: `ui_move`, `ui_confirm`, `ui_cancel`, `ui_invalid`. Combate: los 23 clips restantes para preparaciones, impactos, recursos, estados, Tormenta, muertes y resultados. [Mapa e importación](H09_AUDIO.md).

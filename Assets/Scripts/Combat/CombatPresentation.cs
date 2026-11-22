@@ -35,6 +35,7 @@ namespace UltimaGuardia
             ImpactTime = pending.Item != null ? animation?.animations.itemImpactTime ?? .35f : binding?.impactTime ?? .35f;
             duration = pending.Item != null ? animation?.animations.item.length ?? .85f : binding?.clip.length ?? .85f;
             animation?.BeginAction(pending, target.transform.position);
+            GameAudio.Current.Started(pending);
         }
 
         public bool Tick(float seconds)
@@ -58,7 +59,7 @@ namespace UltimaGuardia
             if (!impactSent && Time >= ImpactTime)
             {
                 impactSent = true;
-                session.ApplyImpact();
+                if (session.ApplyImpact()) GameAudio.Current.Impact(pending);
                 RemoveProjectile();
             }
             if (Time < duration) return false;
