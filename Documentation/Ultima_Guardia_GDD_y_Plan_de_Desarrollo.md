@@ -4,7 +4,7 @@
 >
 > Fuente: [GDD de Google Docs](https://docs.google.com/document/d/1LPU6YM92nCy1HZX1Ax_baBCnAB7gYP07UGAtHKMVVHo).
 > Conversión y ampliación del plan: 21 de noviembre de 2026.
-> Estado: H00 a H09 aprobados por el usuario. H10 a H13 pendientes.
+> Estado: H00 a H10 aprobados por el usuario. H11 a H13 pendientes.
 
 ## Cómo usar este archivo
 
@@ -131,7 +131,7 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - [x] **H07. Modelado modular y construcción del escenario final.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [x] **H08. Diseño de interfaz, iconos y menús finales.** Estado: Aprobado por el usuario. Revisión del usuario: aprobada el 21 de noviembre de 2026, incluida corrección H08-C06.
 - [x] **H09. Búsqueda, edición e integración de audio.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
-- [ ] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Pendiente. Revisión del usuario: Pendiente.
+- [x] **H10. Efectos visuales y presentación de Tormenta arcana.** Estado: Aprobado por el usuario. Revisión del usuario: Aprobada el 21 de noviembre de 2026.
 - [ ] **H11. Soporte completo de teclado y control y robustez del flujo.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H12. Pruebas funcionales, balance y rendimiento.** Estado: Pendiente. Revisión del usuario: Pendiente.
 - [ ] **H13. Compilación final, documentación y entrega.** Estado: Pendiente. Revisión del usuario: Pendiente.
@@ -334,6 +334,18 @@ Actualizar esta lista al terminar o reabrir un hito. Su casilla indica implement
 - Revisión del usuario: **aprobada**. Evidencia: «Bien. Lo doy por aprobado y dame nombre en ingles para el commit.» Sin correcciones solicitadas ni commit creado por la IA.
 - Próximo hito en orden: **H10**, identificación solamente; **no iniciado**.
 - H10 se solicita en otro chat, según la forma de trabajo entre hitos.
+
+#### Registro H10
+
+- Estado: **Aprobado por el usuario** el 21 de noviembre de 2026. Versión **0.0.11-H10**. Autorización: «Bien. Hacelo entonces.» el 21 de noviembre de 2026, después de la aprobación de H09. No se creó commit de entrega.
+- Tareas completadas: **H10-T01 a H10-T17**. Efectos transitorios para ataques, magia, recuperación y estados; pulso de Veneno; cámara, círculos, partículas y rayos de Tormenta; HUD oculto durante 0–2 s, números efectivos visibles al restaurarlo; pausa y cancelación con limpieza. [Implementación y revisión](H10_VFX.md).
+- La suite PlayMode completa pasó **78/78** antes de la corrección de material para player; después de esta corrección pasaron las tres pruebas de presentación afectadas **3/3**. Tras el ajuste visual final de cámara y números, pasaron **3/3** pruebas de especial y **2/2** de captura/reglas. Los tests de reglas existentes cubren victoria con uno y dos enemigos, costo de 18 y recuperación de 2,8 s. La verificación de cámara, HUD, pausa y reinicio está en `AnimationPresentationTests`.
+- Inspección visual: [carga](Evidence/H10/storm-charge-1280x720.png), [rayos a dos objetivos](Evidence/H10/storm-impact-1280x720.png) y [HUD y daños restaurados](Evidence/H10/storm-restored-1280x720.png). La primera captura reveló un recorte del chamán y números demasiado próximos; se ajustó la cámara y el desplazamiento y se regeneró la evidencia final.
+- [Build final](Evidence/H10/build-summary.json): `Builds/H10/UltimaGuardia.exe`, Windows x86_64/Mono, Development, **169,32 MB**, **0 errores y 0 advertencias**, job `build-52a373987d`. Smoke del player: versión 0.0.11, MainMenu → Combat → ataque animado con audio/pausa → MainMenu → Salir; `passed`, `animatedActionVerified`, `audioVerified` verdaderos y salida **0**. [Resultado real](Evidence/H10/player-result-1280x720.json). El primer smoke había detectado un shader eliminado de la build; se corrigió utilizando la referencia de material de los prefabs y se repitieron build y smoke.
+- Límites de evidencia: el smoke del player prueba un ataque ordinario y el flujo; la especial se probó en PlayMode y con capturas del editor. Input virtual y RenderTexture no acreditan control físico ni monitor 1080p. La escucha humana, la prueba física y el rendimiento prolongado siguen siendo revisiones posteriores.
+- Cómo revisarlo: ejecutar la build H10 o abrir MainMenu en Unity. Usar Tormenta con dos enemigos y repetir cuando quede uno; observar cámara, círculo, rayos, HUD, números, costo y recuperación. Pausar durante carga y tras impacto; reanudar y confirmar que no se repite el daño. Reiniciar o volver al menú desde la pausa de la especial y comprobar que cámara, HUD y selección se restauran. Probar también las acciones ordinarias y los estados.
+- Revisión del usuario: **aprobada**. Evidencia: «Bien. Queda aprobado entonces. Dame un nombre en ingles para el commit». Sin correcciones solicitadas.
+- Próximo hito en orden: **H11**, no iniciado; se solicita en otro chat.
 
 La siguiente plantilla se conserva para las próximas entregas. Mantener un registro por hito y actualizarlo en cada corrección, conservando un historial breve.
 
@@ -1189,26 +1201,26 @@ Este plan reemplaza las seis etapas resumidas del Google Doc. Descompone el mism
 
 #### Efectos ordinarios
 
-- [ ] **H10-T01. Crear impacto físico.** Preparar un efecto breve para espada y golpe del ogro que no tape a otros combatientes.
-- [ ] **H10-T02. Crear proyectil y Descarga.** Preparar variantes visuales distinguibles y puntos de emisión y recepción coherentes.
-- [ ] **H10-T03. Crear curación y recuperación de maná.** Preparar efectos para la maga, Poción y Éter que indiquen correctamente el recurso recuperado.
-- [ ] **H10-T04. Crear efectos de estados.** Preparar aplicación y activación del Veneno, aplicación de Rapidez y Corrosión y limpieza con Antídoto.
-- [ ] **H10-T05. Integrar números y registro.** Disparar números y mensajes desde el resultado real de la acción, sin confundir daño calculado con vida efectivamente descontada.
-- [ ] **H10-T06. Limpiar efectos transitorios.** Destruir o reutilizar instancias al acabar y retirarlas al reiniciar o volver al menú.
+- [x] **H10-T01. Crear impacto físico.** Preparar un efecto breve para espada y golpe del ogro que no tape a otros combatientes.
+- [x] **H10-T02. Crear proyectil y Descarga.** Preparar variantes visuales distinguibles y puntos de emisión y recepción coherentes.
+- [x] **H10-T03. Crear curación y recuperación de maná.** Preparar efectos para la maga, Poción y Éter que indiquen correctamente el recurso recuperado.
+- [x] **H10-T04. Crear efectos de estados.** Preparar aplicación y activación del Veneno, aplicación de Rapidez y Corrosión y limpieza con Antídoto.
+- [x] **H10-T05. Integrar números y registro.** Disparar números y mensajes desde el resultado real de la acción, sin confundir daño calculado con vida efectivamente descontada.
+- [x] **H10-T06. Limpiar efectos transitorios.** Destruir o reutilizar instancias al acabar y retirarlas al reiniciar o volver al menú.
 
 #### Producción de la especial
 
-- [ ] **H10-T07. Crear círculo mágico y carga.** Preparar partículas y materiales azules que crezcan alrededor de la maga sin salir del encuadre.
-- [ ] **H10-T08. Crear rayos por objetivo.** Instanciar rayos solo para enemigos vivos seleccionados y sincronizar el impacto común.
-- [ ] **H10-T09. Preparar trayectoria de cámara.** Acercarse a la maga y regresar a la transformación original con interpolación controlada.
-- [ ] **H10-T10. Construir secuencia de 2,5 segundos.** Organizar ocultamiento, pose, carga, impacto en 1,2 segundos, reacciones, vuelta de cámara y restauración de UI según la tabla del GDD.
-- [ ] **H10-T11. Ocultar interfaz de combate completa.** Retirar HUD, comandos, marcadores y números durante el tramo indicado, conservando una capa independiente para pausa.
-- [ ] **H10-T12. Aplicar daño de área una sola vez.** Cobrar 18 de maná una vez al confirmar y aplicar la potencia a cada objetivo vivo una sola vez en el impacto.
-- [ ] **H10-T13. Restaurar HUD y mostrar resultados.** En el tramo final, mostrar daños pendientes y regresar al flujo correcto sin abrir un menú del personaje que ya actuó.
-- [ ] **H10-T14. Resolver victoria con especial.** Si elimina a los últimos enemigos, terminar la presentación y abrir victoria sin reanudar ATB.
-- [ ] **H10-T15. Pausar toda la secuencia.** Detener cámara, partículas, animación y audio y reanudar desde el mismo instante sin impacto duplicado.
-- [ ] **H10-T16. Cancelar con limpieza.** Al reiniciar o volver al menú desde la pausa, restaurar cámara, visibilidad, input y efectos aunque se interrumpa antes del impacto.
-- [ ] **H10-T17. Probar especial con uno y dos enemigos.** Verificar costo único, objetivos correctos, números, muertes y recuperación de 2,8 segundos posteriores a la ejecución.
+- [x] **H10-T07. Crear círculo mágico y carga.** Preparar partículas y materiales azules que crezcan alrededor de la maga sin salir del encuadre.
+- [x] **H10-T08. Crear rayos por objetivo.** Instanciar rayos solo para enemigos vivos seleccionados y sincronizar el impacto común.
+- [x] **H10-T09. Preparar trayectoria de cámara.** Acercarse a la maga y regresar a la transformación original con interpolación controlada.
+- [x] **H10-T10. Construir secuencia de 2,5 segundos.** Organizar ocultamiento, pose, carga, impacto en 1,2 segundos, reacciones, vuelta de cámara y restauración de UI según la tabla del GDD.
+- [x] **H10-T11. Ocultar interfaz de combate completa.** Retirar HUD, comandos, marcadores y números durante el tramo indicado, conservando una capa independiente para pausa.
+- [x] **H10-T12. Aplicar daño de área una sola vez.** Cobrar 18 de maná una vez al confirmar y aplicar la potencia a cada objetivo vivo una sola vez en el impacto.
+- [x] **H10-T13. Restaurar HUD y mostrar resultados.** En el tramo final, mostrar daños pendientes y regresar al flujo correcto sin abrir un menú del personaje que ya actuó.
+- [x] **H10-T14. Resolver victoria con especial.** Si elimina a los últimos enemigos, terminar la presentación y abrir victoria sin reanudar ATB.
+- [x] **H10-T15. Pausar toda la secuencia.** Detener cámara, partículas, animación y audio y reanudar desde el mismo instante sin impacto duplicado.
+- [x] **H10-T16. Cancelar con limpieza.** Al reiniciar o volver al menú desde la pausa, restaurar cámara, visibilidad, input y efectos aunque se interrumpa antes del impacto.
+- [x] **H10-T17. Probar especial con uno y dos enemigos.** Verificar costo único, objetivos correctos, números, muertes y recuperación de 2,8 segundos posteriores a la ejecución.
 
 #### Criterios para cerrar el hito
 

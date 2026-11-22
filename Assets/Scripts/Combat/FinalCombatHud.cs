@@ -22,7 +22,7 @@ namespace UltimaGuardia
         [SerializeField] private Text logLabel, contextLabel, overlayHint, commandSummary;
         [SerializeField] private RectTransform floatRoot;
         [SerializeField] private Image commandIcon, overlaySelection, deviceIndicator, overlayDeviceIndicator;
-        private sealed class Floating { public Text text; public float age; public Vector2 origin; }
+        private sealed class Floating { public Text text; public float age; public Vector2 origin; public CombatantState fighter; public int offsetY; }
         private readonly List<Floating> numbers = new List<Floating>();
         private CombatSession bound;
         public int VisibleNumbers => numbers.Count;
@@ -38,20 +38,29 @@ namespace UltimaGuardia
             var view = FindObjectsByType<CombatantView>(FindObjectsSortMode.None).First(v => v.combatantId == fighter.Definition.Id);
             var viewport = Camera.main.WorldToViewportPoint(view.effectAnchor.position);
             var rect = floatRoot.rect;
-            int overlapping = numbers.Count(n => Mathf.Abs(n.origin.x - (viewport.x - .5f) * rect.width) < 100);
-            Vector2 point = new Vector2((viewport.x - .5f) * rect.width, (viewport.y - .5f) * rect.height + 32 + overlapping * 30);
+            int overlapping = numbers.Count(n => Mathf.Abs(n.origin.x - (viewport.x - .5f) * rect.width) < 190);
+            Vector2 point = new Vector2((viewport.x - .5f) * rect.width, (viewport.y - .5f) * rect.height + 32 + overlapping * 44);
             point.x = Mathf.Clamp(point.x, -rect.width / 2 + 100, rect.width / 2 - 100);
             point.y = Mathf.Clamp(point.y, -95, 110);
             var text = InterfaceTheme.Text(floatRoot, "ResourceFeedback", (amount > 0 ? "+" : "−") + Math.Abs(amount) + (mana ? " MANÁ" : " VIDA"), 23, point.x, point.y, 200, 34, TextAnchor.MiddleCenter);
             text.fontStyle = FontStyle.Bold; text.color = mana ? InterfaceTheme.Mana : amount > 0 ? InterfaceTheme.Life : Color.white;
             var shadow = text.gameObject.AddComponent<Outline>(); shadow.effectColor = Color.black; shadow.effectDistance = new Vector2(2, -2);
-            numbers.Add(new Floating { text = text, origin = point });
+            numbers.Add(new Floating { text = text, origin = point, fighter = fighter, offsetY = overlapping * 44 });
         }
         public void Present(CombatPrototype battle)
         {
             for (int i = numbers.Count - 1; i >= 0; i--)
             {
-                var n = numbers[i]; if (!battle.IsPaused) n.age += Time.deltaTime;
+                var n = numbers[i];
+                if (n.age == 0 && !battle.IsCinematicHidden)
+                {
+                    var view = FindObjectsByType<CombatantView>(FindObjectsSortMode.None).First(v => v.combatantId == n.fighter.Definition.Id);
+                    var viewport = Camera.main.WorldToViewportPoint(view.effectAnchor.position);
+                    var rect = floatRoot.rect;
+                    n.origin = new Vector2(Mathf.Clamp((viewport.x - .5f) * rect.width, -rect.width / 2 + 100, rect.width / 2 - 100),
+                        Mathf.Clamp((viewport.y - .5f) * rect.height + 32 + n.offsetY, -95, 110));
+                }
+                if (!battle.IsPaused && !battle.IsCinematicHidden) n.age += Time.deltaTime;
                 if (n.age > 1.5f) { Destroy(n.text.gameObject); numbers.RemoveAt(i); continue; }
                 n.text.rectTransform.anchoredPosition = n.origin + Vector2.up * n.age * 20;
             }

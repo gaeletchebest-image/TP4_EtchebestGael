@@ -17,7 +17,7 @@ Para cada incorporación registrar: ID, archivo/fuente, URL, autor, licencia y v
 
 ## Inventario pendiente de producción e integración
 
-Las filas **CHAR/WEAP se produjeron en H05, ANIM en H06 y ENV en H07**, según los registros de incorporaciones al final de este archivo. UI, AUDIO y VFX finales siguen pendientes. La tabla conserva el inventario y su hito de producción; no representa un segundo conjunto de casillas.
+Las filas **CHAR/WEAP se produjeron en H05, ANIM en H06 y ENV en H07**. UI, AUDIO y VFX se integraron en H08–H10. La tabla conserva el inventario y su hito de producción; no representa un segundo conjunto de casillas.
 
 | ID | Recurso necesario | Producción / preparación | Hito |
 | --- | --- | --- | --- |
@@ -174,3 +174,7 @@ Corrección H08-C06: se conserva LegacyRuntime.ttf y el renderizador uGUI nativo
 ## H09 · Música y efectos
 
 Los 28 archivos WAV de `Assets/Resources/Audio/H09` se producen dentro del proyecto mediante `Tools/H09/generate_audio.py`. Autoría del proyecto; sin fuente externa, URL, licencia o atribución de terceros. El [manifiesto por archivo](Evidence/H09/audio-audit.json) registra ruta, autor, fuente, licencia, preparación, duración, pico y RMS de cada recurso. El script contiene parámetros y semillas para reconstruir exactamente cada clip. Música: `battle_loop`. Interfaz: `ui_move`, `ui_confirm`, `ui_cancel`, `ui_invalid`. Combate: los 23 clips restantes para preparaciones, impactos, recursos, estados, Tormenta, muertes y resultados. [Mapa e importación](H09_AUDIO.md).
+
+## H10 · VFX
+
+VFX-01 a VFX-05 se producen dentro del proyecto en `Assets/Scripts/Combat/CombatVfx.cs`, sin descargas ni nuevas dependencias. Partículas, círculos y rayos se generan en tiempo de ejecución con mallas y materiales de los prefabs H05/H06 ya integrados. El gradiente radial de partículas se crea por código. Los proyectiles existentes de H06 se conservan y se distinguen por emisor. La autoría es del proyecto; no requieren crédito externo. [Integración y revisión](H10_VFX.md).

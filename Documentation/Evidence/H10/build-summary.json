@@ -1,0 +1,15 @@
+{
+  "version": "0.0.11-H10",
+  "unity": "6000.3.11f1",
+  "platform": "StandaloneWindows64",
+  "development": true,
+  "scenes": ["Assets/Scenes/MainMenu.unity", "Assets/Scenes/Combat.unity"],
+  "output": "Builds/H10/UltimaGuardia.exe",
+  "jobId": "build-52a373987d",
+  "result": "succeeded",
+  "durationSeconds": 61.5526314,
+  "totalSizeMB": 169.32,
+  "errors": 0,
+  "warnings": 0,
+  "source": "Unity MCP manage_build status"
+}

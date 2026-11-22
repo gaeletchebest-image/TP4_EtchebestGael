@@ -1,16 +1,16 @@
 # Última Guardia
 
 Prototipo de combate 3D por turnos con ATB para PC, un jugador, en español.
-Versión **0.0.10-H09**. H00–H09 aprobados por el usuario, incluida la corrección de nitidez H08-C06. H10 no iniciado.
+Versión **0.0.11-H10**. H00–H10 aprobados por el usuario. H11 no iniciado.
 
 ## Abrir y jugar
 
 - Unity **6000.3.11f1** (`3000ef702840`), URP **17.3.0**, Windows x86_64, Mono.
 - Abrir `Assets/Scenes/MainMenu.unity`, pulsar Play y elegir Jugar. También funciona Combat directamente.
-- Build de revisión: `Builds/H09/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds anteriores.
+- Build de revisión: `Builds/H10/UltimaGuardia.exe`, junto con toda su carpeta. Se conservan las builds anteriores.
 - Ventana inicial redimensionable de **1280 × 720**. Canvas con esa resolución de referencia y ajuste ancho/alto 0,5. Para solicitar otra resolución: `-screen-fullscreen 0 -screen-width 1920 -screen-height 1080`.
 
-Una sola pelea enfrenta a guerrero y maga contra ogro y chamán frente a una fortaleza. Los modelos H05, los 24 clips H06 y la arena H07 están integrados. H08 incorpora HUD, iconos y menús finales. H09 incorpora 28 clips de audio originales, música, efectos e interfaz sonora. Los VFX y la secuencia final de Tormenta corresponden a H10.
+Una sola pelea enfrenta a guerrero y maga contra ogro y chamán frente a una fortaleza. Los modelos H05, los 24 clips H06 y la arena H07 están integrados. H08 incorpora HUD, iconos y menús finales. H09 incorpora 28 clips de audio originales. H10 incorpora VFX y la presentación completa de Tormenta.
 
 ## Interfaz H08
 
@@ -28,7 +28,11 @@ Corrección **H08-C06**: textos de menús con glifos al doble de resolución, co
 
 La música de combate y 27 efectos originales cubren navegación, acciones físicas y mágicas, recuperación, estados, Tormenta, muerte y resultado. El volumen general de 0 a 100 afecta a todas las fuentes. La pausa detiene música y sonidos de combate, mientras la interfaz de pausa conserva sus sonidos. [Mapa, autoría y reconstrucción](Documentation/H09_AUDIO.md).
 
-Para revisar H09, ejecutar la build indicada arriba, recorrer menús y ayuda, probar volumen 0 y 100, jugar ataques, curación, objetos y estados, pausar durante un sonido y reanudar, usar Tormenta, reiniciar y volver al menú. La música debe seguir sin saltos ni superposición y cada evento debe sonar una sola vez.
+Para revisar el audio, recorrer menús y ayuda, probar volumen 0 y 100, jugar ataques, curación, objetos y estados, pausar durante un sonido y reanudar, usar Tormenta, reiniciar y volver al menú.
+
+## VFX y especial H10
+
+Golpes, magia, recuperaciones, estados y Veneno tienen efectos transitorios. Tormenta acerca la cámara a la maga, oculta el HUD, presenta círculos y partículas azules, lanza rayos a los enemigos vivos en 1,2 s y devuelve cámara e interfaz antes de cerrar la secuencia de 2,5 s. La pausa detiene también esta presentación. [Autoría, capturas y pasos de revisión](Documentation/H10_VFX.md).
 
 ## Controles
 
@@ -49,7 +53,7 @@ ATB va de 0 a 100 según velocidad: Maga 28, Guerrero 22, Chamán 20, Ogro 16. C
 
 Tras actuar, ATB vuelve a cero y se cumple la recuperación fija antes de llenarlo. El sobrante de una actualización alimenta ATB. Menús, ejecución, pausa y resultado congelan reloj y recuperación. No hay regeneración pasiva ni resurrección.
 
-Guerrero: básico gratuito (potencia 1; 0,6 s) y Golpe pesado (8 de maná; potencia 1,8; 2,2 s). Maga: Proyectil mágico gratuito (potencia 1; 0,6 s), Curación (36 de vida; 10 de maná; 1,2 s) y Tormenta arcana (potencia 1,6 a enemigos vivos; costo único de 18; 2,8 s). La pose de Tormenta dura 2,5 s e impacta a 1,2 s; cámara, ocultamiento de HUD, VFX y sonido finales corresponden a H10.
+Guerrero: básico gratuito (potencia 1; 0,6 s) y Golpe pesado (8 de maná; potencia 1,8; 2,2 s). Maga: Proyectil mágico gratuito (potencia 1; 0,6 s), Curación (36 de vida; 10 de maná; 1,2 s) y Tormenta arcana (potencia 1,6 a enemigos vivos; costo único de 18; 2,8 s). La pose de Tormenta dura 2,5 s e impacta a 1,2 s.
 
 Inventario compartido: **3 Pociones** (50 de vida), **2 Éteres** (20 de maná), **1 Tónico de rapidez**, **1 Frasco corrosivo**, **2 Antídotos**. Cada objeto cuesta una unidad, cero maná y recuperación de 0,8 s. Poción/Éter requieren recurso faltante; Antídoto requiere un aliado vivo envenenado. Cancelar no consume recursos; confirmar valida y cobra una sola vez.
 
@@ -75,13 +79,13 @@ Veneno se procesa antes del menú o IA y puede matar. Antídoto elimina el estad
 
 ## Comprobaciones
 
-H09: suite PlayMode de regresión **76/76 aprobadas** y prueba específica de audio **1/1 aprobada**, incluida la verificación de los 28 clips, pausa, limpieza y volumen 0/100. La auditoría de WAV comprobó picos y borde del bucle. [Evidencia](Documentation/Evidence/H09/).
+H10: suite PlayMode completa **78/78 aprobadas** antes de la corrección de material para player; después, pruebas de presentación afectadas aprobadas. Las capturas finales de Tormenta muestran carga, impacto y HUD restaurado. [Evidencia](Documentation/Evidence/H10/).
 
 Las pruebas usan teclado y Gamepad virtuales. Las capturas usan RenderTexture y no acreditan un monitor físico 1080p. Las peleas de regresión a ×4 verifican flujo, sin medir duración objetivo ni balance. Hardware y desconexión física corresponden a H11; balance/rendimiento a H12.
 
-La build Development admite `-foundation-smoke` para comprobar menú, carga de Combat, música, básico animado, pausa/reanudación sonora, impacto, retorno confirmado y Salir. Guarda resultado y capturas en `Builds/H09/Validation`. El arnés queda fuera de builds sin Development.
+La build Development admite `-foundation-smoke` para comprobar menú, carga de Combat, música, básico animado, pausa/reanudación sonora, impacto, retorno confirmado y Salir. Guarda resultado y capturas en `Builds/H10/Validation`. El arnés queda fuera de builds sin Development.
 
-Build H09: **169,3 MB**, **0 errores / 1 advertencia** heredada del shader DebugOccluder de Unity Core. Smoke del player **aprobado**, música y pausa verificadas, salida desde Salir y código **0**. No es una pelea completa del player, una escucha humana de la mezcla ni una medición de rendimiento.
+Build H10: **169,32 MB**, **0 errores / 0 advertencias**. Smoke del player **aprobado**, música y pausa verificadas, salida desde Salir y código **0**. La especial se comprobó en PlayMode y capturas del editor; el smoke no recorre Tormenta.
 
 ## Fuentes y mantenimiento
 
@@ -94,6 +98,7 @@ Los datos permanecen en `Assets/Data/H02/Resources/Encounters` para conservar GU
 - [Fortaleza H07](Documentation/H07_FORTRESS.md)
 - [Interfaz H08](Documentation/H08_INTERFACE.md)
 - [Audio H09](Documentation/H09_AUDIO.md)
+- [VFX y Tormenta H10](Documentation/H10_VFX.md)
 
 Las utilidades H00/H01 reemplazan escenas: **no ejecutarlas sobre esta entrega**. Las de H05/H06/H07 reemplazan sus recursos y requieren conservar ediciones manuales. H08 reconstruye los Canvas de ambas escenas y los recursos propios de interfaz; conservar ediciones manuales antes de usarla. El comando **H08/Compilar build de revisión** compila las dos escenas y guarda el BuildReport resumido.
 
@@ -105,4 +110,4 @@ Versionar Assets con sus `.meta`, Packages, ProjectSettings y Documentation. Exc
 - [Balance](Documentation/BALANCE_LOG.md)
 - [Incidencias y límites](Documentation/KNOWN_ISSUES.md)
 
-Esta entrega realiza únicamente H09. La revisión final corresponde al usuario; H10 se solicita en otro chat.
+Esta entrega realiza únicamente H10, aprobado por el usuario. H11 se solicita en otro chat.

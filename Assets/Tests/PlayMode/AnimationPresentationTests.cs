@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace UltimaGuardia.Tests
@@ -52,6 +54,104 @@ namespace UltimaGuardia.Tests
         {
             battle.Presentation.Tick(dt);
             foreach (var fighter in session.Fighters) Player(fighter.Definition.Id).Tick(session.IsPaused ? 0 : dt, fighter);
+        }
+
+        [UnityTest]
+        public IEnumerator StormUsesOneCostAndOneImpactPerLivingEnemyAcrossPause()
+        {
+            foreach (bool oneTarget in new[] { false, true })
+            {
+                var session = Fixture("mage");
+                var enemies = session.Fighters.Where(f => f.Definition.Team == CombatTeam.Enemies).ToArray();
+                if (oneTarget) enemies[1].Damage(enemies[1].Health);
+                Assert.IsTrue(session.TryCommit(CombatAction.ArcaneStorm, enemies[0], out var reason), reason);
+                var pending = session.Pending;
+                Assert.AreEqual(27, pending.Actor.Mana);
+                battle.Presentation.Begin(session);
+                Tick(session, 1.19f);
+                Assert.IsFalse(pending.ImpactApplied);
+                session.IsPaused = true; battle.Presentation.SetPaused(true);
+                Tick(session, .4f);
+                Assert.AreEqual(1.19f, battle.Presentation.Time, .001f);
+                Assert.IsFalse(pending.ImpactApplied);
+                session.IsPaused = false; battle.Presentation.SetPaused(false);
+                Tick(session, .02f);
+                Assert.IsTrue(pending.ImpactApplied);
+                Assert.AreEqual(oneTarget ? 1 : 2, pending.Impacts.Count);
+                Assert.IsFalse(session.ApplyImpact());
+                Tick(session, 1.3f);
+                Assert.IsTrue(session.FinishAction());
+                Assert.AreEqual(2.8, pending.Actor.RecoveryRemaining, .001);
+                Assert.AreEqual(27, pending.Actor.Mana);
+            }
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator StormHidesCombatGraphicsButKeepsPauseAndRestoresCameraOnCancel()
+        {
+            var session = Fixture("mage");
+            var target = session.TargetsFor(CombatAction.ArcaneStorm)[0];
+            Assert.IsTrue(session.TryCommit(CombatAction.ArcaneStorm, target, out var reason), reason);
+            var camera = Camera.main; var original = camera.transform.position;
+            var header = GameObject.Find("Header").GetComponent<Graphic>();
+            var overlay = header.transform.parent.Find("Overlay").gameObject;
+            battle.Presentation.Begin(session);
+            var update = typeof(CombatPrototype).GetMethod("UpdateCinematic", BindingFlags.NonPublic | BindingFlags.Instance);
+            var refresh = typeof(CombatPrototype).GetMethod("RefreshDisplay", BindingFlags.NonPublic | BindingFlags.Instance);
+            Tick(session, .6f); update.Invoke(battle, null); refresh.Invoke(battle, null);
+            Assert.IsFalse(header.enabled);
+            Assert.Greater(Vector3.Distance(original, camera.transform.position), .01f);
+            overlay.SetActive(true); Assert.IsTrue(overlay.activeSelf);
+            session.IsPaused = true; battle.Presentation.SetPaused(true);
+            Tick(session, .5f); Assert.AreEqual(.6f, battle.Presentation.Time, .001f);
+            session.IsPaused = false; battle.Presentation.SetPaused(false);
+            battle.RestartCombat();
+            Assert.IsTrue(header.enabled);
+            Assert.Less(Vector3.Distance(original, camera.transform.position), .001f);
+            Assert.IsFalse(overlay.activeSelf);
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator StormVisualEvidenceShowsChargeImpactAndRestoredHud()
+        {
+            var session = Fixture("mage");
+            Assert.IsTrue(session.TryCommit(CombatAction.ArcaneStorm, session.TargetsFor(CombatAction.ArcaneStorm)[0], out var reason), reason);
+            battle.Presentation.Begin(session);
+            var update = typeof(CombatPrototype).GetMethod("UpdateCinematic", BindingFlags.NonPublic | BindingFlags.Instance);
+            var refresh = typeof(CombatPrototype).GetMethod("RefreshDisplay", BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (var step in new[] { ("charge", .8f), ("impact", .42f), ("restored", .88f) })
+            {
+                Tick(session, step.Item2); update.Invoke(battle, null); refresh.Invoke(battle, null);
+                yield return CaptureStorm(step.Item1);
+            }
+            battle.Presentation.Cancel(); battle.RestartCombat();
+        }
+
+        private IEnumerator CaptureStorm(string name)
+        {
+            var camera = Camera.main; var canvas = Object.FindFirstObjectByType<Canvas>();
+            var mode = canvas.renderMode; var world = canvas.worldCamera; var distance = canvas.planeDistance;
+            var target = camera.targetTexture; var active = RenderTexture.active; float aspect = camera.aspect;
+            var rt = RenderTexture.GetTemporary(1280, 720, 24); Texture2D image = null;
+            try
+            {
+                camera.targetTexture = rt; camera.aspect = 1280f / 720f;
+                canvas.renderMode = RenderMode.ScreenSpaceCamera; canvas.worldCamera = camera; canvas.planeDistance = 1;
+                yield return null; Canvas.ForceUpdateCanvases();
+                camera.Render(); RenderTexture.active = rt; image = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+                image.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); image.Apply();
+                var directory = Path.Combine(Application.dataPath, "../Documentation/Evidence/H10");
+                Directory.CreateDirectory(directory);
+                File.WriteAllBytes(Path.Combine(directory, "storm-" + name + "-1280x720.png"), image.EncodeToPNG());
+            }
+            finally
+            {
+                canvas.renderMode = mode; canvas.worldCamera = world; canvas.planeDistance = distance;
+                camera.targetTexture = target; camera.aspect = aspect; RenderTexture.active = active;
+                if (image != null) Object.Destroy(image); RenderTexture.ReleaseTemporary(rt);
+            }
         }
 
         [UnityTest]

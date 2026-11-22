@@ -34,6 +34,11 @@ namespace UltimaGuardia
         private string notice;
         private StatusHud[] statusHud;
         private CombatPresentation presentation;
+        private readonly List<Graphic> cinematicGraphics = new List<Graphic>();
+        private readonly List<bool> cinematicGraphicStates = new List<bool>();
+        private readonly List<CombatVfx> poisonPulses = new List<CombatVfx>();
+        private readonly List<float> poisonPulseAges = new List<float>();
+        private bool cinematicHidden;
         [SerializeField] private FinalCombatHud finalHud;
         private int pausePage, helpPage, confirmationIndex;
         public int PausePage => pausePage;
@@ -43,13 +48,14 @@ namespace UltimaGuardia
         public void ConfigureFinal(FinalCombatHud hud) => finalHud = hud;
         public CombatPresentation Presentation => presentation;
         public CombatSession Session { get; private set; }
+        public bool IsCinematicHidden => cinematicHidden;
         public PrototypePhase Phase { get; private set; }
         public CombatMenu Menu { get; private set; }
         private bool isPaused;
         public bool IsPaused
         {
             get => isPaused;
-            private set { isPaused = value; if (Session != null) Session.IsPaused = value; GameAudio.Current.SetPaused(value); }
+            private set { isPaused = value; if (Session != null) Session.IsPaused = value; presentation?.SetPaused(value); GameAudio.Current.SetPaused(value); }
         }
         public EncounterData Encounter => encounter;
         public void ConfigureEncounter(EncounterData data, Image[] bars) { encounter = data; atbBars = bars; }
@@ -85,14 +91,21 @@ namespace UltimaGuardia
 
         private void OnEnable() => input.Enable();
         private void OnDisable() => input.Disable();
-        private void OnDestroy() { presentation?.Dispose(); if (input != null) Destroy(input); }
+        private void OnDestroy() { ClearPoisonPulses(); presentation?.Dispose(); if (input != null) Destroy(input); }
 
         public void RestartCombat()
         {
+            RestoreCinematic();
+            ClearPoisonPulses();
             presentation?.Cancel();
             GameAudio.Current.StopCombat();
             Session = new CombatSession(encounter);
-            Session.PoisonTick += fighter => { GameAudio.Current.Combat("poison_tick"); if (!fighter.IsAlive) GameAudio.Current.Combat("death"); };
+            Session.PoisonTick += fighter => {
+                GameAudio.Current.Combat("poison_tick"); if (!fighter.IsAlive) GameAudio.Current.Combat("death");
+                var view = views.First(v => v.combatantId == fighter.Definition.Id);
+                var pulse = new CombatVfx(view, new[] { view }, false); pulse.PoisonPulse();
+                poisonPulses.Add(pulse); poisonPulseAges.Add(0);
+            };
             GameAudio.Current.StartCombat();
             foreach (var slot in encounter.participants)
             {
@@ -179,8 +192,10 @@ namespace UltimaGuardia
             {
                 bool finished = presentation.Tick(Time.deltaTime);
                 actionTime = presentation.Time;
+                UpdateCinematic();
                 if (finished)
                 {
+                    RestoreCinematic();
                     Session.FinishAction();
                     if (Session.Outcome != CombatOutcome.Ongoing) GameAudio.Current.Result(Session.Outcome);
                     Phase = Session.Outcome != CombatOutcome.Ongoing ? PrototypePhase.Result :
@@ -244,8 +259,45 @@ namespace UltimaGuardia
             }
         }
 
-        private void BeginPresentation() { actionTime = 0; notice = null; presentation.Begin(Session); Phase = PrototypePhase.Executing; }
-        private void ReturnToMenu() { transitioning = true; presentation.Cancel(); GameAudio.Current.StopCombat(); SceneManager.LoadScene("MainMenu"); }
+        private void BeginPresentation() { actionTime = 0; notice = null; presentation.Begin(Session); Phase = PrototypePhase.Executing; UpdateCinematic(); }
+        private void ReturnToMenu() { transitioning = true; RestoreCinematic(); ClearPoisonPulses(); presentation.Cancel(); GameAudio.Current.StopCombat(); SceneManager.LoadScene("MainMenu"); }
+
+        private void ClearPoisonPulses()
+        {
+            foreach (var pulse in poisonPulses) pulse.Dispose();
+            poisonPulses.Clear(); poisonPulseAges.Clear();
+        }
+
+        private void UpdateCinematic()
+        {
+            if (!presentation.IsStorm) return;
+            float t = presentation.Time;
+            if (t < 2f && !cinematicHidden)
+            {
+                cinematicHidden = true;
+                var canvas = overlayPanel.transform.parent;
+                foreach (var graphic in canvas.GetComponentsInChildren<Graphic>(true))
+                    if (!graphic.transform.IsChildOf(overlayPanel.transform))
+                    { cinematicGraphics.Add(graphic); cinematicGraphicStates.Add(graphic.enabled); }
+            }
+            else if (t >= 2f && cinematicHidden) RestoreCinematic();
+            float approach = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(0, .4f, t));
+            float retreat = 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(1.2f, 2f, t));
+            float weight = approach * retreat;
+            var mage = views.First(v => v.combatantId == "mage");
+            var focus = mage.effectAnchor.position;
+            var close = focus + (cameraPosition - focus) * .82f;
+            combatCamera.transform.position = Vector3.Lerp(cameraPosition, close, weight);
+            combatCamera.transform.rotation = Quaternion.Slerp(cameraRotation, Quaternion.LookRotation(focus - close), weight);
+        }
+
+        private void RestoreCinematic()
+        {
+            for (int i = 0; i < cinematicGraphics.Count; i++)
+                if (cinematicGraphics[i] != null) cinematicGraphics[i].enabled = cinematicGraphicStates[i];
+            cinematicGraphics.Clear(); cinematicGraphicStates.Clear(); cinematicHidden = false;
+            if (combatCamera != null) combatCamera.transform.SetPositionAndRotation(cameraPosition, cameraRotation);
+        }
         private CombatAction[] Commands() => Menu == CombatMenu.Root ? new[] { CombatAction.Basic } :
             Session.AvailableCommands().Where(a => Menu == CombatMenu.Items ? CombatSession.IsItem(a) : !CombatSession.IsItem(a) && a != CombatAction.Basic).ToArray();
         private void RememberSelection()
@@ -273,6 +325,15 @@ namespace UltimaGuardia
         private static int Wrap(int value, int count) => count == 0 ? 0 : (value % count + count) % count;
         private void LateUpdate()
         {
+            for (int i = poisonPulses.Count - 1; i >= 0; i--)
+            {
+                poisonPulses[i].Tick(0, IsPaused);
+                if (!IsPaused) poisonPulseAges[i] += Time.deltaTime;
+                if (poisonPulseAges[i] > .6f)
+                {
+                    poisonPulses[i].Dispose(); poisonPulses.RemoveAt(i); poisonPulseAges.RemoveAt(i);
+                }
+            }
             if (!transitioning && Session != null)
                 foreach (var view in views)
                     view.GetComponentInChildren<CharacterAnimationPlayer>()?.Tick(IsPaused ? 0 : Time.deltaTime,
@@ -367,6 +428,18 @@ namespace UltimaGuardia
                 overlayOptions.text = OverlayLines(new[] { "Reiniciar", "Volver al menú" });
             }
             finalHud?.Present(this);
+            if (cinematicHidden)
+            {
+                foreach (var graphic in overlayPanel.transform.parent.GetComponentsInChildren<Graphic>(true))
+                    if (!graphic.transform.IsChildOf(overlayPanel.transform) && !cinematicGraphics.Contains(graphic))
+                    { cinematicGraphics.Add(graphic); cinematicGraphicStates.Add(graphic.enabled); }
+                foreach (var graphic in cinematicGraphics) if (graphic != null) graphic.enabled = false;
+                foreach (var view in views)
+                {
+                    view.actorMarker.SetActive(false); view.targetMarker.SetActive(false);
+                    view.nameLabel.gameObject.SetActive(false);
+                }
+            }
         }
 
         private string OverlayLines(string[] options) => string.Join("\n\n", options.Select((option, i) => (overlayIndex == i ? "→ " : "    ") + option));

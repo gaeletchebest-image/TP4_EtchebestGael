@@ -12,7 +12,7 @@
 
 ## Alcance de la versión
 
-La versión actual 0.0.10-H09 incluye reglas completas, modelos H05, animaciones H06, arena final H07, interfaz final H08 y audio H09. VFX corresponden a H10; dispositivos físicos a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
+La versión actual 0.0.11-H10 incluye reglas completas, modelos H05, animaciones H06, arena final H07, interfaz final H08, audio H09 y VFX H10. Dispositivos físicos corresponden a H11 y balance/rendimiento a H12. Los registros anteriores conservan el estado histórico de cada entrega.
 
 La utilidad Regenerar escenas base reemplaza MainMenu y Combat y solo corresponde a H00. No ejecutarla sobre escenas con trabajo posterior.
 
@@ -144,3 +144,14 @@ Sin cambios de balance ni correcciones abiertas del usuario. H08 y su correcció
 | H09-L01 | Comprobación perceptiva | La prueba de ondas, PlayMode y smoke del player no sustituyen escuchar la mezcla. La revisión final del usuario debe probarla con parlantes o auriculares |
 
 No hay correcciones abiertas. H09 fue aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Lo doy por aprobado y dame nombre en ingles para el commit.». H10 no iniciado.
+
+## Seguimiento H10
+
+| ID | Alcance | Estado |
+| --- | --- | --- |
+| H10-C01 | Primer smoke del player: el shader encontrado por nombre en editor fue eliminado de la build y el ataque no comenzó | Cerrada: VFX clona el material referenciado por el prefab; pruebas de presentación y smoke final aprobados |
+| H10-C02 | Primera captura de rayos dejaba al chamán fuera del encuadre especial | Cerrada: acercamiento moderado; ambos enemigos y rayos visibles en la captura final |
+| H10-C03 | Los números de daño de área quedaron demasiado próximos al restaurar el HUD | Cerrada: desplazamiento vertical conservado tras recalcular posiciones con la cámara original; captura final inspeccionada |
+| H10-L01 | Smoke del player y capturas editoriales | El smoke no ejecuta la especial; PlayMode verifica reglas, cámara, HUD y pausa. Control físico y monitor nativo 1080p siguen pendientes H11; rendimiento prolongado H12 |
+
+H10 aprobado por el usuario el 21 de noviembre de 2026 mediante «Bien. Queda aprobado entonces. Dame un nombre en ingles para el commit». No hay correcciones abiertas; H11 no iniciado.
